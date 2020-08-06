@@ -2,6 +2,7 @@
 *.aux
 *.log
 *.bbl
+*.blg
 *.eix
 *.fdb_latexmk
 *.ini
