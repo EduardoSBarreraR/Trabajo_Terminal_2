@@ -1,0 +1,953 @@
+\chapter{Marco de referencia}
+
+\section{Descripción de forma de partículas}
+
+Medir dimensiones y características de partículas individuales es un proceso tardado y costoso, por ellos existen escalas cualitativas que permiten una rápida evaluación visual de la misma. Dichas tablas evalúan parámetros como la angularidad y esfericidad. De acuerdo a \cite{Esfericidad}, una escala como esta es usada en la norma ASTM F1632 2003, como se muestra en la Figura \ref{fig:Esfericidaddd}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.3]{imagenes/Marco Teorico/Esfericidad}
+	\caption{Cuadro cualitativo para determinar visualmente la forma de una partícula}
+	\label{fig:Esfericidaddd}
+\end{figure}
+
+\section{Diseño mecánico}
+
+\subsection{Selección de materiales}
+
+Las propiedades mecánicas de los materiales influyen en el desempeño de los componentes físicos, por esta razón es necesario tomar en cuenta sus límites para el diseño. Además es importante considerar la relación existente entre las propiedades, pues suele tomarse en cuenta la combinación de ellas para realizar la selección.
+
+En este documento, son de particular interés las propiedades de rigidez y densidad, por lo que se utiliza la relación entre el módulo de Young y la densidad\cite{Ashby}, mostrada gráficamente en la Figura \ref{fig:DensidadVSYoung}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=1]{imagenes/Dominio especifico/DensidadVSYoung_Ashby}
+	\caption{Gráfico que relaciona el módulo de elasticidad de los materiales contra su densidad, Ashby.}
+	\label{fig:DensidadVSYoung}
+\end{figure}
+
+\subsection{Diseño de transmisión por bandas}
+
+Para seleccionar las bandas a usar, se debe establecer la relación de velocidades entre la polea conductora y la polea conducida, además del par que el motor suministra.
+
+La velocidad tangencial de un objeto que gira se relaciona con la velocidad angular según la ecuación: 
+
+\begin{align}
+\label{eq:VTang}
+& v = \omega \times r
+\end{align}
+
+Posteriormente, se calcula la potencia necesaria que la banda debe transmitir (ecuación \ref{eq:PotBanda}), así como el factor de servicio que se obtiene de tablas\cite{Mott}, con base en la aplicación, el tipo de motor y el tiempo de operación, calculando la potencia de diseño con la ecuación \ref{eq:PotDis}.
+
+\begin{align}
+\label{eq:PotBanda}
+P &= \tau \omega =
+\end{align}
+
+\begin{align}
+\label{eq:PotDis}
+P_{ajustada} &= P*F_S 
+\end{align}
+
+Posteriormente, se determina el paso requerido de la banda utilizando la guía de selección de perfil del proveedor\cite{BandasSDPSI}, mostrada en la Figura \ref{fig:PasoBanda}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.85]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/PerfilesBandas}
+	\caption{Guía de selección de paso de bandas}
+	\label{fig:PasoBanda}
+\end{figure}
+
+Seleccionar la combinación de poleas que producen la relación de velocidad especificada, basándose en el catálogo de proveedores \cite{PoleasSDPSI}, en el cual también se indica el ancho apropiado de las bandas.
+
+Conociendo el diámetro de las poleas seleccionadas, se calcula la longitud de la banda como sigue:
+
+\begin{align}
+\label{eq:LongBanda}
+L_{b} &=  2C+N_{polea}*PD
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+L_{b} &= \textrm{Longitud de la banda.}\\
+C &= \textrm{Distancia entre centros.}\\
+N_{polea} &= \textrm{Número de dientes de la polea.}\\
+PD &= \textrm{Paso.}
+\end{align*}
+
+Con la longitud de la banda calculada, se ajusta el valor de la potencia con la ecuación \ref{eq:PotBandAjus}.
+
+\begin{align}
+\label{eq:PotBandAjus}
+& \textrm{Potencia base nominal}_{ajustada} =
+\end{align}
+
+\begin{align*}
+& \textrm{Potencia base nominal} * \textrm{Factor de corrección de longitud}
+\end{align*}
+
+Finalmente, se calcula la velocidad lineal de las bandas para comprobar que operan con niveles bajos de ruido, como sigue:
+
+\begin{align}
+\label{eq:VelBandRuido}
+V_{banda-1}&=\frac{PD_{1}}{2}*\omega_{1}\\
+V_{banda-2}&=\frac{PD_{2}}{2}*\omega_{2}
+\end{align} 
+
+\subsection{Diseño de ejes}
+
+El diseño de un eje consiste en determinar el diámetro mínimo para un estado de esfuerzos estático. Primero se obtienen los esfuerzos debidos a momentos flectores, para buscar el momento flector máximo para todos los diámetros diferentes del eje\cite{Mott}. Después se consideran los momentos torsionantes a los que esté sometido el eje.
+
+Para calcular el momento flector, deben tomarse en cuenta las tensiones que las bandas ejercen sobre el eje a través de las poleas, utilizando las ecuaciones
+
+\begin{align}
+\label{eq:FuerzaBanda}
+F_{n} &= \frac{T_{banda}}{r}\\
+F_{s} &= 1.5F_{n}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+F_{n} &= \textrm{Fuerza neta asociada al torque transmitido}\\
+F_{s} &= \textrm{Fuerza flexionante}\\
+T_{banda} &= \textrm{Torque transmitido por la banda}\\
+r &= \textrm{Radio de la polea}
+\end{align*}
+
+Una vez que se obtienen estos valores, se propone un material y se corrigen los valores de resistencia última a fatiga con las ecuaciones \ref{eq:Sn} y \ref{eq:SnC}.
+
+\begin{align}
+\label{eq:Sn}
+S_{n} &=0.5S_{u}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:} \\
+S_{n} &= \textrm{Límite de fatiga}\\
+S_{u} &= \textrm{Esfuerzo último a la tensión}
+\end{align*}
+
+\begin{align}
+\label{eq:SnC}
+S'_{n} &= S_{n}C_{m}C_{st}C_{R}C_{s} 
+\end{align}
+
+\begin{align*}
+\textrm{En donde:} \\
+S'_{n} &= \textrm{Límite de fatiga modificado}\\
+C_{m} &= \textrm{Factor de material}\\
+C_{st} &= \textrm{Factor de tipo de esfuerzo}\\
+C_{R} &= \textrm{Factor de confiabilidad}\\
+C_{s} &= \textrm{Factor de tamaño}
+\end{align*}
+
+Finalmente, se utiliza la fórmula \ref{eq:DiamEje} para calcular el diámetro mínimo del eje.
+
+\begin{align}
+\label{eq:DiamEje}
+D &=\sqrt[3]{\frac{32N}{\pi}\sqrt{\left[ \frac{K_{t}M}{S'_{n}}^{2} \right] + \frac{3}{4} \left[ \frac{T}{S_{y}} \right]^{2} }}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:} \\
+D &= \textrm{Diámetro mínimo del eje}\\
+N &= \textrm{Factor de seguridad}\\
+K_{t} &= \textrm{Factor de concentración de esfuerzos}\\
+M &= \textrm{Momento flexionante}\\
+T &= \textrm{Esfuerzo torsionante}\\
+S_{y} &= \textrm{Esfuerzo de cedencia}
+\end{align*}
+
+\subsection{Selección de rodamientos}
+
+Para seleccionar rodamientos aleados, es necesario conocer las reacciones que tienen ante las fuerzas del eje, utilizando la ecuación \ref{eq:RodamientosAleados} para conocer la carga dinámica, que es el dato que ofrece el fabricante para su selección.
+
+\begin{align}
+\label{eq:RodamientosAleados}
+C_{din\acute{a}mica} &= P_{d} \left( \frac{L_{d}}{10^{6}}\right)^{1/k_{rod}}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:} \\
+C_{din\acute{a}mica} &= \textrm{Capacidad de carga dinámica mínima del rodamiento}\\
+P_{d} &= \textrm{Carga de diseño}\\
+L_{d} &= \textrm{Vida de diseño del rodamiento, en número de revoluciones}\\
+k_{rod} &= 3.33 \textrm{ para rodamientos de rodillos}
+\end{align*}
+
+\section{Cinemática de robots}
+
+Para conocer la manera en la que el manipulador se mueve, es necesario identificar las relaciones que hay entre los diferentes grados de libertad que lo conforman, en este apartado se desarrolla dicha relación desde un enfoque puramente geométrico, conocido como cinemática del robot, sin tomar en cuenta las fuerzas y torques que generan los movimientos, pues estos se tomarán en cuenta para desarrollar la dinámica del robot.
+
+\subsection{Cinemática directa}
+
+Como ya se mencionó, el modelo cinemático sirve para describir geométricamente el movimiento del manipulador, para lo que se considera en primer lugar el problema de la cinemática directa, la cual describe la posición y orientación del efector final dados los valores de las variables de las juntas del robot. 
+
+Una matriz de transformación homogénea representa una traslación y rotación de un marco coordenado $n$ con respecto de un marco base $0$, y está definida por la ecuación \ref{eq:MTH}.
+
+\begin{align}
+\label{eq:MTH}
+H&=
+\begin{bmatrix}
+R_{n}^{0} & o_{n}^{0} \\
+0 & 1
+\end{bmatrix}
+\end{align}
+
+Para calcular esta matriz, se utilizan matrices de la forma
+
+\begin{align*}
+A_{i}&=
+\begin{bmatrix}
+R_{i}^{i-1} & o_{i}^{i-1} \\
+0 & 1
+\end{bmatrix}
+\end{align*}
+
+las cuales relacionan al marco $i$ con respecto al marco $i-1$, el cual se obtiene al acoplar rígidamente un marco de referencia a cada junta del sistema.
+
+De esta manera, la matriz de la ecuación \ref{eq:MTH} se puede descomponer en una serie de transformaciones, como se ve en la ecuación \ref{eq:HTA}.
+
+\begin{align}
+\label{eq:HTA}
+H &= T_{n}^{0} = A_{1}( \theta_{1} ) \dots A_{n}\theta_{n}
+\end{align}
+
+Para facilitar la asignación de marcos y la obtención de las matrices se utiliza la convención de Denavit-Hartenberg, asumiendo lo siguiente:
+
+\begin{itemize}
+\item El eje $x_{1}$ es perpendicular al eje $z_{0}$
+\item El eje $x_{1}$ se interseca con el eje $z_{0}$
+\end{itemize}
+
+De esta manera, se puede representar la transformación $H$ de la ecuación \ref{eq:MTH} con matrices de la forma:
+
+\begin{align*}
+A_{i} &= 
+\begin{bmatrix}
+c_{\theta_{i}} & -s_{\theta_{i}}c_{\alpha_{i}} & s_{\theta_{i}}s_{i} & a_{i}c_{\theta_{i}}\\
+s_{\theta_{i}} & c_{\theta_{i}}c_{\alpha_{i}} & -c_{\theta_{i}}s_{\alpha_{i}} & a_{i}s_{\theta_{i}}\\
+0 & s_{\alpha_{i}} & c_{\alpha_{i}} & d_{i}\\
+0 & 0 & 0 & 1\\
+\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+\textrm{En donde:}\\
+\theta &= \textrm{Ángulo de la junta, formado entre} \; x_{i-1} \; \textrm{y} x_{i} \; \textrm{sobre el eje} \; z_{i-1}. \\
+a &= \textrm{Longitud del eslabón, definido como la distancia sobre el eje} \; x_{i} \\
+& \quad\; \textrm{desde el punto de intersección de} \; z_{i-1} \; \textrm{con} \; x_{i} \; \textrm{hasta el origen} \; O_{i}. \\
+d &= \textrm{Desplazamiento del eslabón, definido como la distancia sobre el eje} \; z_{i-1} \\
+& \quad\; \textrm{desde el origen} \; O_{i-1} \; \textrm{hasta la intersección de} \; z_{i-1} \; \textrm{con} \; x_{i}. \\
+\alpha &= \textrm{Ángulo de giro del eslabón, formado entre} \; z_{i-1} \; \textrm{y} \; z_{i} \; \textrm{sobre el eje} \; x_{i}.
+\end{align*}
+
+\subsection{Cinemática inversa}
+
+Una vez que se ha resuelto el problema de cinemática directa, se puede realizar el proceso contrario, conocido como cinemática inversa, utilizado para conocer los valores de las variables de las juntas dada la posición y orientación del efector final.
+
+Esto significa que de la ecuación \ref{eq:MTH}, se conoce el valor de $H$, y el objetivo es encontrar el valor de $R_{n}^{0}(\theta_{1}\dots\theta_{n})$ y $o_{n}^{0}(\theta_{1}\dots\theta_{n})$.
+
+En los sistemas robóticos con una muñeca esférica, los ejes de las 3 últimas juntas se intersecan en un punto, en el cual se asignan los orígenes de los marcos de referencia 3,4 y 5. Esto se conoce como \textit{desacoplamiento cinemático}, y permite separar el problema de cinemática inversa en 2 problemas más sencillos de resolver, conocidos como \textit{cinemática inversa de posición} y \textit{cinemática inversa de orientación}.
+
+Para realizar este procedimiento, se interpreta que:
+
+\begin{align}
+\label{eq:DesCin}
+R_{n}^{0}(\theta_{1} \dots \theta_{n}) &= R\\
+\label{eq:DesCin2}
+o_{n}^{0}(\theta_{1} \dots \theta_{n}) &= o
+\end{align}
+
+Siendo
+
+\begin{align}
+\label{eq:RTarget}
+R=
+\left[
+\begin{array}{ccc}
+r_{11} & r_{12} & r_{13}\\
+r_{21} & r_{22} & r_{23}\\
+r_{31} & r_{32} & r_{33}
+\end{array}
+\right]\\
+o=
+\begin{bmatrix}
+ox\\oy\\oz
+\end{bmatrix}
+\end{align}
+
+\textbf{Cinemática inversa de posición}
+
+Desplazando una distancia $d_{6}$ el efector final $o$ hacia el origen de la muñeca $o_{c}$, se puede resolver $R_{3}^{0}$ como sigue:
+
+\begin{align}
+o &= o_{c}^{0} + d_{6}R\begin{bmatrix}
+0\\0\\1
+\end{bmatrix}
+\end{align}
+
+\textbf{Cinemática inversa de orientación}
+
+Conociendo $R_{3}^{0}$ se puede calcular $\theta_{1}$, $\theta_{2}$ y $\theta_{3}$, permitiendo resolver la ecuación \ref{eq:R06Pieper} para conocer $\theta_{4}$, $\theta_{5}$ y $\theta_{6}$
+
+\begin{align}
+\label{eq:R06Pieper}
+R_{6}^{3} = \left(R_{3}^{0}\right)^{T}R
+\end{align}
+
+\subsection{Cinemática diferencial - El Jacobiano}
+
+Matemáticamente la cinemática directa define una función entre el espacio de posiciones y orientaciones del efector final y el espacio de posiciones de las juntas. Las relaciones de velocidad están determinadas por el jacobiano de esta función. 
+
+La matriz Jacobiana para una junta de tipo revoluta está dada como sigue:
+
+\begin{align}
+J_{i} &= \begin{bmatrix}
+ z_{i-1} \times (o_{n}-o_{i-1})\\   z_{i-1} 
+\end{bmatrix}
+\label{eq:JacRev}
+\end{align}
+
+El robot desarrollado en este proyecto tiene solo juntas de tipo revoluta. Todas las variables implicadas en la determinación del Jacobiano están disponibles una vez que se ha ejecutado la cinemática directa. 
+
+Singularidades.
+
+El rango de la matriz Jacobiana no es constante, pues depende de la configuración de las juntas del robot. Las configuraciones para los cuales el Jacobiano pierde rango se llaman singularidades, y su identificación es importante porque:
+\begin{itemize}
+\item[a)]	Pueden representar configuraciones para las cuales ciertas direcciones de movimiento son inalcanzables.
+\item[b)]	La velocidad de movimiento de las juntas puede diverger conforme se acercan a una posición singular.
+\item[c)]	En las singularidades, fuerzas y momentos acotados del efector final pueden requerir fuerzas y momentos divergentes en las juntas.
+\item[d)]	Las singularidades usualmente (aunque no siempre) corresponden a puntos en la frontera del espacio de trabajo del manipulador, es decir, los puntos de máximo alcance del manipulador.
+\item[e)]	Las singularidades corresponden a puntos en el espacio de trabajo del manipulador que pueden ser inalcanzables bajo pequeñas perturbaciones en los parámetros de los eslabones, tales como desplazamiento, longitud, etc.
+\item[f)]	Cerca de las singularidades, no existirá una única solución al problema de cinemática inversa. En tales casos puede no haber soluciones o existir infinitas. 
+\end{itemize}
+
+El problema de resolver la ecuación no lineal $det J(q)=0$ puede ser complicado, pero es posible utilizar una técnica que explota el hecho de tener una muñeca esférica, conocidad como desacoplamiento de singularidades. 
+Si el número de grados de libertad es igual a 6, y tres de ellos corresponden al brazo y 3 de ellos a la muñeca esférica, el Jacobiano consistirá en una matriz de 6x6, como es una matriz cuadrada, será singular cuando $det(J)=0$.
+
+Si se parte la matriz en segmentos de 3x3, se tiene: 
+
+\begin{align}
+J &=\begin{bmatrix}
+J_{P}&| & J_{O}
+\end{bmatrix} =
+\begin{bmatrix} 
+	\begin{array}{cc|cc}
+	J_{11} &&& J_{12} \\
+	\hhline{|-|~|~|-|}
+	J_{21} &&& J_{22}
+	\end{array}
+\end{bmatrix}
+\label{eq:JPO}
+\end{align}
+
+Como los últimos tres GDL son revoluta
+
+\begin{align}
+J_{O} &= \begin{bmatrix}
+ z_{3} \times (o_{3}-o_{3})& z_{4} \times (o_{3}-o_{3}) & z_{5} \times (o_{3}-o_{3}) \\  z_{3}
+ &  z_{4} &  z_{5}
+\end{bmatrix}
+\label{eq:JO}
+\end{align}
+
+Y ya que los ejes se intersectan en el mismo punto, se considera que los orígenes de los marcos de referencia del 3 al 6 están en el mismo punto, se vuelve
+
+\begin{align}
+J_{O} &= \begin{bmatrix}
+ 0& 0 & 0 \\  z_{3}
+ &  z_{4} &  z_{5}
+\end{bmatrix}
+\label{eq:JO2}
+\end{align}
+
+Este caso, el Jacobiano se convierte en una forma triangular
+
+\begin{align}
+J &= \begin{bmatrix}
+ J_{11}& 0   \\ 
+J_{21} &  J_{22}
+\end{bmatrix}
+\label{eq:JTriang}
+\end{align}
+
+Y cuyo determinante se simplifica
+
+\begin{align}
+det (J)=det(J_{11})det(J_{22})
+\label{eq:detJ}
+\end{align}
+
+De forma que las singularidades del sistema son las singularidades del brazo $det J_{11}=0$ y de las singularidades de la muñeca $det J_{22}=0$.
+
+Cabe señalar que esta forma de Jacobiano solo sirve para la determinación de singularidades, pues no se corresponde con la matriz que relaciona la velocidad el efector final con las velocidades de las juntas, ya que usa la suposición de que $o_{6}$ está en el mismo punto que $o_{5}$, lo cual no es cierto, pues está desplazado por una distancia $d$. 
+
+\section{Dinámica de robots}
+
+Mientras que la cinemática de robots describe el movimiento de robots sin considerar las fuerzas y torques involucrados, las ecuaciones dinámicas relacionan explícitamente estas fuerzas con el movimiento.
+
+Si el lector desea conocer a detalle la deducción analítica de los términos tratados tanto en esta sección como en la de cinemática, en \cite{Spong} se desarrolla ampliamente.
+
+En este documento se aborda el tema de dinámica de robots a través del enfoque de Euler-Lagrange, que calcula la dinámica a través de la diferencia entre la energía cinética y potencial del sistema con la ecuación \ref{eq:EulerLagrangeGeneral}, aunque se puede encontrar fácilmente en la literatura el enfoque de Newton-Euler, que realiza este cálculo a través de las reacciones presentes en los cuerpos\cite{Spong}.
+
+\begin{align}
+\label{eq:EulerLagrangeGeneral}
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}
+{\partial\dot \theta}\right)
+-\frac{\partial \mathcal{L}}{\partial \theta}=\mathcal{Q}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+\mathcal{L} &= \textrm{Lagrangiano del sistema}\\
+\theta &= \textrm{Conjunto de coordenadas generalizadas}\\
+\mathcal{Q} &= \textrm{Conjunto de fuerzas generalizadas}
+\end{align*}
+
+Las coordenadas generalizadas $\theta$ son aquellas que describen el movimiento del robot, y tienen las siguientes características \cite{MITDyn}:
+
+\begin{itemize}
+\item No necesitan ser cartesianas
+\item No necesitan ser inercialmente simétricas, i.e. sus momentos de inercia pueden describirse con matrices no diagonales.
+\item Deben ser independientes, i.e. si se fijan todas la coordenadas generalizadas excepto por una, el grado de libertad descrito por esa coordenada aún tiene un rango continuo de movimiento.
+\item Deben ser completas, i.e. siempre son capaces de localizar todas las partes del robot.
+\item Deben ser holonómicas, i.e. el número de coordenadas generalizadas es igual al número de grados de libertad del robot.
+\end{itemize}
+
+De acuerdo al desarrollo de la cinemática directa, es posible comprobar que los parámetros de Denavit-Hartenberg cumplen con estas características y, por lo tanto, sirven como un conjunto de coordenadas generalizadas\cite{Spong}.
+
+Para encontrar las fuerzas generalizadas $\mathcal{Q}_{i}$ ligadas a las coordenadas generalizadas $\theta_{i}$, resulta útil utilizar el \textit{Principio de Trabajo Virtual}, que indica que el trabajo realizado por fuerzas externas (no conservativas) correspondiente a cualquier conjunto de desplazamientos virtuales es igual a cero\cite{Spong}.
+
+\begin{align}
+\label{eq:TrabajoVirtual}
+\delta W^{NC}_{i} &= \mathcal{Q}_{i} \delta_{\theta_{i}} = 0 
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+\delta W^{NC}&=\textrm{Trabajo virtual asociado a las fuerzas generalizadas }\mathcal{Q}\\
+\delta \theta &= \textrm{Desplazamientos virtuales}
+\end{align*}
+
+Para calcular las ecuaciones dinámicas que describen el movimiento del robot utilizando el sistema de ecuaciones diferenciales ordinarias de segundo orden presentado en la ecuación \ref{eq:EulerLagrangeGeneral}, es necesario expresar las energías cinética y potencial en términos de las coordenadas y fuerzas generalizadas $\theta$ y $\mathcal{Q}$ respectivamente. A continuación se desarrollan las fórmulas necesarias para lograr esto.
+
+\subsection{Energía cinética}
+La energía cinética de un cuerpo rígido es la suma de la energía traslacional obtenida al concentrar la masa del cuerpo en su centro de masa, y la energía rotacional alrededor del mismo. Esta suma se presenta en la ecuación \ref{eq:KGeneral}.
+
+\begin{align}
+\label{eq:KGeneral}
+K &= \frac{1}{2} mv^{T}v+\frac{1}{2}\omega^{T}\mathcal{I}\omega
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+K &= \textrm{Energía cinética}\\
+m &= \textrm{Masa total}\\
+v &= \textrm{Vector de velocidad lineal}\\
+\omega &= \textrm{Vector de velocidad angular}\\
+\mathcal{I} &= \textrm{Tensor de inercia}
+\end{align*}
+
+El tensor de inercia $\mathcal{I}$ es una matriz simétrica de $3 \times 3$ expresado en el marco inercial del objeto, por lo depende de la configuración del mismo. Es por esto que se utiliza el tensor de inercia $I$ expresado en el marco del cuerpo, ubicado en el centro de masa del mismo, por lo que es constante y no depende de la configuración. La ecuación \ref{eq:RIRT} relaciona $\mathcal{I}$ con $I$ de la forma a través de una matriz de rotación $R$ como sigue
+
+\begin{align}
+\label{eq:RIRT}
+\mathcal{I} = RIR^{T}
+\end{align}
+
+\begin{align}
+I = 
+\begin{bmatrix}
+I_{xx} & I_{xy} & I_{xz}\\
+I_{yx} & I_{yy} & I_{yz}\\
+I_{zx} & I_{zy} & I_{zz}
+\end{bmatrix}
+\end{align}
+
+En la literatura existen muchos recursos para calcular el tensor de inercia $I$ sin embargo, para que el lector pueda aprovechar esto al máximo, es recomendable diseñar piezas que tengan geometrías sencillas, pues la simetría de estas ayuda a simplificar el cálculo, debido a que la distribución uniforme de masa provoca que los elementos fuera de la diagonal principal, conocidos como \textbf{Momentos cruzados de inercia} se hagan cero, quedando solamente por calcular los \textbf{Momentos Principales de Inercia} $I_{xx}$, $I_{yy}$ e $I_{zz}$.
+
+Para conocer los vectores de velocidad $v$ y $\omega$ se puede utilizar el Jacobiano, recordando que este se calcula con base en los parámetros de Denavit-Hartenberg, que son utilizados como coordenadas generalizadas.
+
+En la ecuación \ref{eq:JacRev} los componentes de las filas superiores representan las velocidades lineales, mientras que las inferiores representan velocidades angulares, quedando
+
+\begin{align}
+\label{eq:Jvw}
+J=
+\begin{bmatrix}
+J_{v_{i}}\\
+J_{\omega_{i}}
+\end{bmatrix}
+\end{align}
+
+Para un manipulador con $n$ elementos, las velocidades se calculan de la siguiente manera:
+
+\begin{align}
+v_{i} = J_{v_{i}}(\theta) \dot{\theta} \, \qquad  \qquad \, \omega_{i} = J_{\omega_{i}}(\theta)\dot{\theta}
+\end{align}
+
+Vale la pena destacar que para calular las velocidades $J_{v}$ y $J_{\omega}$ del $i-$ésimo eslabón, solo se toman en cuenta las velocidades que van de los eslabones $1$ hasta $i$, mientras que los elementos del jacobiano relacionados con velocidades de eslabones posteriores toman un valor de 0. Además, se utiliza la distancia al centro de masa $l_{cm}$ en lugar de la longitud total del eslabón $l$.
+
+Asumiendo que el $i-$ésimo eslabón tiene una masa $m_{i}$ y un tensor de inercia $I_{i}$, la energía cinética del manipulador es igual a 
+
+\begin{align}
+\label{eq:KTotal}
+K &= \frac{1}{2} \dot{\theta}^{T} \sum_{i=1}^{n} \left[ 
+m_{i}J_{v_{i}}(\theta)^{T}J_{v_{i}}(\theta)+
+J_{\omega_{i}}(\theta)^{T}R_{i}( \theta)I_{i}R_{i}^{T}J_{\omega_{i}}(\theta)
+\right]\dot{\theta}
+\end{align}
+
+Lo que es igual a 
+
+\begin{align}
+\label{eq:KTotalMatricial}
+K &= \frac{1}{2} \dot{\theta}^{T}D(\theta)\dot{\theta}
+\end{align}
+
+En donde $D(\theta)$ es una matriz simétrica definida positiva llamada \textbf{Matriz de inercia}, lo que indica que depende de la configuración del robot.
+
+\subsection{Energía potencial}
+
+En la mayoría de robots, en los que se consideran cuerpos rígidos, la única fuente de energía potencial es la gravedad, aunque puede darse el caso de robots con elementos flexibles, tales como resortes, que también sean una fuente de energía potencial. Sin embargo, este no es el caso del manipulador presentado en este documento, por lo que la energía potencial se calcula concentrando toda la masa en su centro de masa, quedando lo siguiente
+
+\begin{align}
+\label{eq:EnePotGeneral}
+P = \sum_{i=1}^{n} P_{i} = \sum_{i=1}^{n} g^{T}r_{ci}m_{i}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+g&=\textrm{Vector de dirección de la gravedad en el marco inercial}\\
+r_{ci} &= \textrm{Coordenadas del centro de masa}
+\end{align*}
+
+\subsection{Ecuaciones de movimiento}
+
+El desarrollo de las ecuaciones de movimiento con las ecuaciones de Euler-Lagrange orientadas a sistemas mecánicos requiere que se cumpla lo siguiente:
+
+\begin{enumerate}
+\item La energía cinética es una función cuadrática del vector $\dot{\theta}$ de la forma
+
+\begin{align}
+\label{eq:KineEspecial}
+K = \frac{1}{2} \sum_{i,j}^{n} d_{ij}(\theta)\dot{\theta_{i}}\dot{\theta_{j}} := \frac{1}{2}\dot{\theta}^{T}D(\theta)\dot{\theta}
+\end{align}
+
+En donde $d_{ij}$ es el $ij-$ésimo elemento de la matriz de inercia de $n \times n$ $D(\theta)$ de la forma
+
+\begin{align*}
+D=
+\begin{bmatrix}
+d_{11} & \cdots & d_{1n}\\
+\vdots & \ddots & \vdots\\
+d_{n1} & \cdots & d_{nn}
+\end{bmatrix}
+\end{align*}
+
+\item La energía potencial $P=P(\theta)$ es independiente de $\dot{\theta}$, lo cual es fácilmente demostrable con la ecuación \ref{eq:EnePotGeneral}, en la que el único término está asociado al centro de masa.
+
+\end{enumerate}
+
+El Lagrangiano se puede calcular como
+
+\begin{align}
+\label{eq:LagrangianoGeneral}
+\mathcal{L}=K-P=\frac{1}{2}\sum_{ij}d_{ij}(\theta)
+\end{align}
+
+Sustituyendo \ref{eq:LagrangianoGeneral} en \ref{eq:EulerLagrangeGeneral} queda
+
+\begin{equation}
+\label{eq:LagrangianoExtendido}
+\frac{d}{dt}\frac{\partial K}{\partial \dot{\theta}}-\frac{\partial P}{\partial \dot{\theta}} -\frac{\partial K}{\partial \theta}+\frac{\partial P}{\partial \theta}=\mathcal{Q}
+\end{equation}
+
+De la condición 2 sabemos que
+
+\begin{align*}
+\frac{\partial P}{\partial \dot{\theta}} = 0
+\end{align*}
+
+Por lo que la ecuación de la dinámica para sistemas mecánicos queda como se indica en la ecuación \ref{eq:EcDinamica}.
+
+\begin{align}
+\label{eq:EcDinamica}
+\frac{d}{dt}\frac{\partial K}{\partial \dot{\theta}}-\frac{\partial K}{\partial \theta}+\frac{\partial P}{\partial \theta}=\mathcal{Q}
+\end{align}
+
+Para obtener el primer término de la ecuación \ref{eq:EcDinamica}, se deriva parcialmente respecto a la velocidad del GDL de interés $k$
+
+\begin{align}
+\label{eq:T1L}
+\frac{\partial \mathcal{L}}{\partial \dot{\theta_{k}}} = \sum_{j} d_{kj}\dot{\theta_{j}}
+\end{align}
+
+Derivando \ref{eq:T1L} respecto del tiempo, aplicando la regla de la cadena y recordando que
+
+%\frac{d \dot{x}}{dt}=\dot{x}\frac{d \dot{x}}{dx}
+\begin{align*}
+\frac{dv}{dt}=v\frac{dv}{dx}
+\end{align*}
+
+se tiene
+
+\begin{align*}
+\frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{\theta_{k}}} 
+&= \sum_{j} d_{kj} \ddot{\theta_{j}} + \sum_{j} \frac{d}{dt} d_{kj}\dot{\theta_{j}}
+\end{align*}
+
+\begin{align}
+\label{eq:EcDin1}
+&= \sum_{j} d_{kj} \ddot{\theta_{j}} + \sum_{i,j}\frac{\partial d_{kj}}{\partial \theta_{i}}\dot{\theta_{i}}\dot{\theta_{j}}
+\end{align}
+
+Para el segundo término de la ecuación \ref{eq:EcDinamica}, se tiene
+
+\begin{align}
+\label{eq:EqDin2}
+\frac{\partial \mathcal{L}}{\partial \theta_{k}} = \frac{1}{2}\sum_{i,j}\frac{\partial d_{ij}}{\partial \theta_{k}}\dot{\theta_{i}}\dot{\theta_{j}}-\frac{\partial P}{\partial \theta_{k}}
+\end{align}
+
+Agrupando términos semejantes de  \ref{eq:EcDin1} y \ref{eq:EqDin2}
+
+\begin{align}
+\label{eq:EcDin3}
+\sum_{j} d_{kj} \ddot{\theta_{j}} + 
+\sum_{i,j} \left\lbrace \frac{\partial d_{kj}}{\partial \theta_{i}}-
+\frac{1}{2}\frac{\partial d_{ij}}{\partial \theta_{k}} \right\rbrace \dot{\theta_{i}}\dot{\theta_{j}}-\frac{\partial P}{\partial \theta_{k}}=\mathcal{Q}_{k}
+\end{align}
+
+Intercambiando el orden de adición y aprovechando la simetría
+
+\begin{align}
+\label{eq:EcDin4}
+\sum_{i,j} \left\lbrace \frac{\partial d_{kj}}{\partial \theta_{i}}-
+\frac{1}{2}\frac{\partial d_{ij}}{\partial \theta_{k}} \right\rbrace \dot{\theta_{i}}\dot{\theta_{j}} = 
+\sum_{i,j} \frac{1}{2} \left\lbrace
+\frac{\partial d_{kj}}{\partial \theta_{i}} +
+\frac{\partial d_{ki}}{\partial \theta_{j}} -
+\frac{\partial d_{ij}}{\partial \theta_{k}}
+\right\rbrace \dot{\theta_{i}}\dot{\theta_{j}}
+\end{align}
+
+En la ecuación \ref{eq:EcDin4}, los términos que multiplican a $\dot{\theta_{i}}\dot{\theta_{j}}$ son conocidos como \textbf{Símbolos de Christoffel}, y se identifican por $c_{ijk}$.
+
+Como el subíndice indica, los símbolos de Christoffel son componentes de una matriz de dimensiones $n \times n \times n$ que se deriva directamente de la matriz de inercia $D(\theta)$ y, por lo tanto, depende solo de la configuración del robot, como se muestra en la ecuación \ref{eq:Cristoffelson}.
+
+\begin{align}
+\label{eq:Cristoffelson}
+c_{ijk}=
+\frac{1}{2} \left\lbrace
+\frac{\partial d_{kj}}{\partial \theta_{i}} +
+\frac{\partial d_{ki}}{\partial \theta_{j}} -
+\frac{\partial d_{ij}}{\partial \theta_{k}}
+\right\rbrace
+\end{align}
+
+Nótese que en el cálculo de $c_{ijk}$, los subíndices de las derivadas parciales se invierten en los dos primeros términos.
+
+Debido a que se derivan de la matriz de inercia $D$ y, aprovechando la simetría de la misma, al fijar $k$ se tiene que
+
+\begin{align*}
+c_{ijk} = c_{jik}
+\end{align*}
+
+Lo cual significa que es necesario calcular solo la mitad de los símbolos de Christoffel para conocerlos todos, reduciendo el esfuerzo requerido para realizar el desarrollo matemático.
+
+Finalmente, se define
+
+\begin{align}
+\label{eq:EcDinPotencial}
+\phi_{k} = \frac{\partial P}{\partial \theta_{k}}
+\end{align}
+
+Con todos los términos calculados, las ecuaciones dinámicas quedan
+
+\begin{align}
+\label{eq:EcDinFin}
+\sum_{i} d_{kj}(\theta) \ddot{\theta_{j}} + \sum_{ij} c_{ijk}(\theta)\dot{\theta_{i}}\dot{\theta_{j}}+\phi_{k}(\theta)=\mathcal{Q}_{k}, 
+\qquad k=1,\dots,n
+\end{align}
+
+De \ref{eq:EcDinFin} se pueden reconocer tres tipos de términos, siendo los primeros los relacionados con la segunda derivada de las coordenadas generalizadas, i.e. \textbf{aceleraciones}.
+Los segundos términos son funciones cuadráticas de la primera derivada de $\theta$, cuyos coeficientes pueden o no depender de $\theta$. Estos términos se subdividen en dos tipos: los términos \textbf{centrífugos}, fácilmente identificables por tener un producto del tipo $\theta_{i}^{2}$, y los términos de \textbf{Coriolis}, los cuales implican el producto de las velocidades de dos eslabones distintos.
+
+Finalmente, el último tipo de los términos es aquel que se refiere a la energía potencial del sistema.
+
+Estos términos son más fáciles de identificar en la forma matricial de la ecuación \ref{eq:EcDinamica}, para lo cual es necesario calcular la matriz $C(\theta,\dot{\theta})$ de $n \times n$ utilizando los términos de Christoffel, sumando todos los $jk-$ésimos componentes que coinciden con el subíndice $i$ como se muestra en la ecuación \ref{eq:ChristoffelACTTp}.
+
+\begin{align}
+\label{eq:ChristoffelACTTp}
+C_{kj} = \sum_{i=1}^{n}c_{ijk}(\theta)\dot{\theta}
+\end{align}
+
+Una vez que se ha calculado la matriz $C$, es posible construir la forma matricial de las ecuaciones de Euler-Lagrange, mostrada en la ecuación \ref{eq:EcDinMatricial}.
+
+\begin{align}
+\label{eq:EcDinMatricial}
+D(\theta)\ddot{\theta}+C(\theta,\dot{\theta})\dot{\theta}+g(\theta) = \mathcal{Q}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+D(\theta) &= \textrm{Matriz de inercia del sistema}\\
+C(\theta,\dot{\theta}) &= \textrm{Vector de fuerzas/pares centrífugas y de Coriolis}\\
+g(\theta) &= \textrm{Vector de fuerzas/pares gravitacionales y potencial}
+\end{align*}
+
+\section{Dinámica de actuadores}
+
+En un motor de CD, el par generado es proporcional a la corriente de armadura y a la fuerza del campo magnético, como se muestra en la ecuación.
+
+\begin{align}
+\tau_{m}=K_{1} \phi i_{a}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+\tau_{m}&=\textrm{Par generado}\\
+K_{1}&=\textrm{Constante física}\\
+\phi &=\textrm{Flujo magnético debido al estator}\\
+i_{a} &= \textrm{Corriente de armadura}
+\end{align*}
+
+En un motor de imanes permanentes, se considera que el campo magnético $\phi$ es constante, por lo que $K_{1}\phi$ es igual a una constante de par motor $K_{m}$, como lo indica la ecuación 
+
+\begin{align}
+\tau_{m}=K_{m} i_{a}
+\end{align}
+
+Cuando el rotor se bloquea, el par del rotor a un voltaje determinado $V_{r}$ se calcula como sigue
+
+\begin{align}
+K_{m} = \frac{R_{a}\tau_{0}}{V_{r}}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+\tau_{0}&=\textrm{Par a rotor bloqueado}\\
+R_{a}&=\textrm{Resistencia de armadura}
+\end{align*}
+
+Pero
+
+\begin{align*}
+V_{r}=Ri_{a}
+\end{align*}
+
+Entonces
+
+\begin{align}
+\label{eq:KmMotor}
+K_{m} = \frac{\tau_{0}}{i_{a}}
+\end{align}
+
+\section{Convertidores CD-CD}
+
+Los reguladores lineales, cuyo principio de operación está basado en divisores de corriente o voltaje, son ineficientes, pues su voltaje de salida está limitado a ser menos que el voltaje de entrada, además de que requieren filtros y transformadores de línea de baja frecuencia. Por esta razón su principal uso es en aplicaciones de baja potencia, mientras que en aplicaciones de mayor potencia se usan reguladores conmutados.
+
+Mientras que los reguladores lineales trabajan en su región activa, los reguladores conmutados se basan en interruptores semiconductores de electrónica de potencia que trabajan en los estados de \textit{encendido} y \textit{apagado}. Debido a que dichos estados presentan bajas pérdidas de potencia (bajo voltaje en el estado \textit{encendido}, y corriente cero en el estado \textit{apagado}), alcanzan eficiencias altas en la conversión de energía. Entre más alta la frecuencia de operación, más ligeros y pequeños son sus componentes.\cite{Potencia}
+
+La Tabla \ref{Tab:Reguladores} muestra una comparación entre reguladores.
+
+\begin{table}
+\caption{Guía de selección de reguladores de tensión}
+\begin{footnotesize}
+\begin{tabular}{c|c|c|}
+\cline{2-3}
+                                                                                                                	& \textbf{Regulador lineal}                                                                                                                      	& \textbf{Regulador conmutado}                                                                                            	\\ \hline
+\multicolumn{1}{|c|}{\textbf{Flexibilidad de diseño}}                                                           	& Bajada                                                                                                                                         	& Subida, bajada, subida y bajada                                                                                         	\\ \hline
+\multicolumn{1}{|c|}{\textbf{Eficiencia}}                                                                       	& \begin{tabular}[c]{@{}c@{}}Generalmente baja, media para una \\ diferencia pequeña entre la tensión \\ de entrada y tensión de salida\end{tabular} & Alta                                                                                                                    	\\ \hline
+\multicolumn{1}{|c|}{\textbf{Complejidad}}                                                                      	& Baja                                                                                                                                           	& Media a alta                                                                                                            	\\ \hline
+\multicolumn{1}{|c|}{\textbf{Tamaño}}                                                                           	& \begin{tabular}[c]{@{}c@{}}Pequeño a mediano, crece conforme \\ a la potencia\end{tabular}                                                     	& \begin{tabular}[c]{@{}c@{}}Pequeño aún a potencias altas\\ (aunque depende de la \\ frecuencia de conmutación)\end{tabular} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Costo total}}                                                                      	& Bajo                                                                                                                                           	& \begin{tabular}[c]{@{}c@{}}De medio a alto (Componentes \\ externos)\end{tabular}                                       	\\ \hline
+\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Rizo/ruido/interferencia \\ electromagnética\end{tabular}}} & Bajo                                                                                                                                           	& De medio a alto                                                                                                         	\\ \hline
+\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Rango de tensión \\ de entrada\end{tabular}}}           	& \begin{tabular}[c]{@{}c@{}}Estrecho debido a la \\ disipación de potencia\end{tabular}                                                         	& Amplio                                                                                                                  	\\ \hline
+\end{tabular}
+\end{footnotesize}
+\label{Tab:Reguladores}
+\end{table}
+
+\section{Selección de cables}
+
+Dependiendo de la intensidad de corriente que un cable debe transportar, y de la longitud del mismo, debe elegirse un calibre de cable siguiendo la Figura \ref{fig:CableCalibre}, desarrollada por Enerdrive\cite{CablEner} bajo el estándar AWG (Calibres de Alambre Americanos - American Wire Gauges por sus siglas en inglés) con ayuda de estos pasos:
+
+\begin{enumerate}
+\item Localizar en la Figura la intensidad de corriente en CD que fluye por el cable.
+\item Determinar el tipo de circuito en los siguientes tipos
+	\begin{itemize}
+	\item Crítico: Aplicaciones como paneles de alimentación, electrónica, extractores y luces de navegación.
+	\item No crítico: Aplicaciones como iluminación general, electrodomésticos. 
+	\end{itemize} 
+\item Determinar la longitud total de cable, sumando alambres negativos y positivos.
+\item Identificar el símbolo asociado al valor de intensidad de corriente en CD y la longitud del cable.
+\item Relacionar el símbolo con el código de color para encontrar las especificaciones del cable.
+\end{enumerate}
+
+\begin{figure}
+	\centering		
+	\includegraphics[scale=1]{imagenes/Marco Teorico/CalibreCable}
+	\caption{Guía de selección para calibre de cables, Blue Sea Systems}
+	\label{fig:CableCalibre}
+\end{figure}
+
+\section{Visión artificial}
+
+La visión por computadora es una de las herramientas más poderosas que existen en la actualidad para permitir a un robot identificar las condiciones del ambiente en el que opera.
+
+Dos técnicas útiles para obtener esto son la visión estereoscópica, conocida como estereopsis, y la corrección de perspectiva, conocida como homografía.
+
+\subsection*{Homografía}
+
+Una homografía es una matriz que mapea las coordenadas de una imagen tomada en una perspectiva que no es normal a la superficie que se desea observar a una imagen no distorsionada con una perspectiva normal.
+
+\begin{align}
+\label{eq:Homografia}
+\tilde{P}_{2} &\simeq H_{m}\tilde{P}_{1}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+\tilde{P}_{1} &= \textrm{Imagen original}\\
+\tilde{P}_{2} &= \textrm{Imagen corregida}\\
+H_{m} &= \textrm{Matriz de homografía}
+\end{align*}
+
+Por ejemplo, suponga que toma una foto de una catedral a nivel del suelo, lo cual resulta en una imagen distorsionada por la perspectiva, mostrada en la Figura \ref{fig:NuestraDonaPersp}.
+
+Para corregirla, se seleccionan cuatro puntos de la imagen, como se muestra en el trapecio morado de coordenadas $X_{i},Y_{i}$ de la imagen. Este trapecio se mapea al rectángulo rojo con vértices en las coordenadas $x_{i},y_{i}$, resolviendo el sistema de ecuaciones  para obtener la matriz de homografía\cite{VISHUIT}.
+
+\begin{align*}
+\begin{bmatrix}
+X_{1} & Y_{1} & 1 & 0 & 0 & 0 & -x_{1}X_{1} & -x_{1}Y_{1}\\
+0 & 0 & 0 & X_{1} & Y_{1} & 1 & -y_{1}X_{1} & -y_{1}Y_{1}\\
+X_{2} & Y_{2} & 1 & 0 & 0 & 0 & -x_{2}X_{2} & -x_{2}Y_{2}\\
+0 & 0 & 0 & X_{2} & Y_{2} & 1 & -y_{2}X_{2} & -y_{2}Y_{2}\\
+X_{3} & Y_{3} & 1 & 0 & 0 & 0 & -x_{3}X_{3} & -x_{3}Y_{3}\\
+0 & 0 & 0 & X_{3} & Y_{3} & 1 & -y_{3}X_{3} & -y_{3}Y_{3}\\
+X_{4} & Y_{4} & 1 & 0 & 0 & 0 & -x_{4}X_{4} & -x_{4}Y_{4}\\
+0 & 0 & 0 & X_{4} & Y_{4} & 1 & -y_{4}X_{4} & -y_{4}Y_{4}\\
+\end{bmatrix}
+\begin{bmatrix}
+h_{11}\\
+h_{12}\\
+h_{13}\\
+h_{21}\\
+h_{22}\\
+h_{23}\\
+h_{31}\\
+h_{32}
+\end{bmatrix}
+=
+\begin{bmatrix}
+x_{1}\\
+y_{1}\\
+x_{2}\\
+y_{2}\\
+x_{3}\\
+y_{3}\\
+x_{4}\\
+y_{4}
+\end{bmatrix}
+\end{align*}
+
+La matriz $H_{m}$ es de la forma\footnote{El valor de $h_{33}$ se fija igual a 1 para que se pueda resolver el sistema de ecuaciones}
+
+\begin{align*}
+H_{m}=
+\begin{bmatrix}
+h_{11} & h_{12} & h_{13}\\
+h_{21} & h_{22} & h_{23}\\
+h_{31} & h_{32} & 1\\
+\end{bmatrix}
+\end{align*}
+
+\begin{figure}
+	\centering		
+	\includegraphics[scale=0.5]{imagenes/Marco Teorico/Robo1}
+	\caption{Imagen original tomada en perspectiva}
+	\label{fig:NuestraDonaPersp}
+\end{figure}
+
+\begin{figure}
+	\centering		
+	\includegraphics[scale=0.5]{imagenes/Marco Teorico/Robo2}
+	\caption{Imagen corregida por la homografía}
+	\label{fig:NuestraDonaChida}
+\end{figure}
+
+\begin{figure}
+	\centering		
+	\includegraphics[scale=0.5]{imagenes/Marco Teorico/comparacionNuestraDona}
+	\caption{Comparación de la imagen original contra la corregida}
+	\label{fig:NuestraDonaComp}
+\end{figure}
+
+\subsection*{Estereopsis}
+
+La visión estereoscópica implica tomar dos imágenes de un mismo objeto desde 2 puntos de vista distintos para estimar la distancia que hay entre las cámaras y el objeto. Normalmente se colocan dos cámaras iguales con sus ejes ópticos paralelos separados por una distancia conocida referida como línea base de las cámaras\cite{RoboCorke}.
+
+\begin{figure}
+	\centering		
+	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Informacion/Diagramas vision.pdf}
+	\caption{Diagrama de referencia para la estereopsis}
+	\label{fig:DiagramaEstereo}
+\end{figure}
+
+Con ayuda del diagrama mostrado en la Figura \ref{fig:DiagramaEstereo}, se calcula la profundidad como sigue:
+
+Por triángulos semejantes
+
+\begin{align*}
+\frac{x_{I}}{f} &= \frac{\frac{b}{2}+x}{z}\\
+x_{I}&=f\left(\frac{\frac{b}{2}+x}{z}\right)\\
+\frac{-x_{D}}{f} &= \frac{\frac{b}{2}-x}{z}\\
+-x_{D}&=f\left(\frac{\frac{b}{2}-x}{z}\right)
+\end{align*}
+
+Luego
+
+\begin{align*}
+x_{I}-x_{D}&=\frac{fb}{z}
+\end{align*}
+
+\begin{align*}
+z&=\frac{fb}{x_{I}-x_{D}}
+\end{align*}
+
+\begin{align*}
+\textrm{En donde:}\\
+x_{I}&=\textrm{\# de pixeles desde el origen hasta el} \\
+&\textrm{centro del objeto en la imagen izquierda}\\
+x_{D}&=\textrm{\# de pixeles desde el origen hasta el} \\
+&\textrm{centro del objeto en la imagen derecha}\\
+z&=\textrm{Profundidad}\\
+b&=\textrm{Distancia entre cámaras}\\
+x&=\textrm{Distancia real}
+\end{align*}
+
+\section{Metodología mecatrónica}
+La metodología de diseño mecatrónico que se utiliza es el modelo V, descrito en el estándar VDI 2206\cite{VDI2206}, el cual considera al proceso de diseño como un
+``macro-ciclo'' en el que el grado de madurez se incrementa con cada iteración, y cuyo número
+de iteraciones depende del progreso realizado con cada una hasta llegar a un producto final
+que cumpla satisfactoriamente con las expectativas de desempeño esperadas.
+Este modelo consta de 3 fases principales, denominadas \textbf{``Diseño del sistema''}, la cual es la
+fase inicial y comienza definiendo los requerimientos que el sistema debe satisfacer, seguido
+de la descomposición de las funciones que lleva a cabo, para poder dar paso a la fase de
+\textbf{``Diseño de dominio específico''}, en el que se realiza un diseño a profundidad de cada una
+de las disciplinas involucradas, para llegar finalmente a la \textbf{``Integración del sistema''}, en
+donde se implementan todos los módulos y se unen para trabajar armónicamente.
+Además de las fases principales, el modelo cuenta con 2 fases que son transversales a todo
+el proceso, las cuales son el \textbf{``Modelado y análisis del modelo''}, en la cual se realizan
+modelos que describen el comportamiento de cada uno de los módulos y del sistema en
+general, para poder realizar simulaciones que ayudan en la fase de \textbf{``Validación y
+verificación''}, la cual se realiza en todo momento para evaluar el desempeño de cada
+módulo y determinar el grado de madurez del proyecto.
+
+\begin{figure}
+	\centering		
+	\includegraphics[scale=1.3]{imagenes/VDI2206}
+	\caption{Modelo V como metodología para el diseño mecatrónico(VDI 2206)}
+	\label{fig:VDI2206}
+\end{figure}

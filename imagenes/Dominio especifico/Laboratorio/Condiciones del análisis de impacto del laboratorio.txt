@@ -1,0 +1,3 @@
+Material ABS
+Velocidad inicial: 10 m/s (si se deja caer a 30 cm de altura, alcanza una velocidad de 5 m/s, así que la velocidad del análisis está exagerada)
+W muestra: 1 kg

@@ -1,0 +1,206 @@
+\chapter{Introducción}
+
+\section*{Antecedentes}
+Los sistemas robóticos han permitido a la humanidad realizar tareas que antes resultaban
+sumamente complicadas, o directamente impracticables. La exploración de otros cuerpos del
+sistema solar es un claro ejemplo. Desde los días de la carrera espacial, los Estados Unidos
+de América y la Unión de Repúblicas Socialistas Soviéticas, demostraron su dominio
+tecnológico al enviar misiones robóticas para la exploración lunar. Desde aquella época, el
+paradigma de los dispositivos de exploración es el llamado ``\textit{rover}'', el cual es un robot móvil
+que porta instrumental para efectuar análisis \textit{in situ}. El primero de ellos, el \textit{rover} soviético ``Lunokhod 1''\cite{Lunokhod1} se posó sobre la superficie lunar el 17 de noviembre de 1970. Además de su
+capacidad locomotiva, llevó consigo instrumental desplegable para medir las propiedades
+mecánicas y químicas del suelo lunar, un espectrógrafo de rayos X y un telescopio de rayos X
+(entre otros). Desde entonces, varias misiones \textit{rover} han sido prioridad científica, tecnológica
+y mediática para distintas agencias espaciales en todo el mundo.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.35]{imagenes/Marco Teorico/Lunokhod_1.jpg}
+	\caption{Rover soviético Lunokhod 1, NASA}
+	\label{fig:Lunokhod1}
+\end{figure}
+
+Puesto que el principal objetivo de un \textit{rover} es el análisis \textit{in situ}, la capacidad de trasladarse,
+aunque vital, no es suficiente para una misión de exploración que obtenga resultados
+científicos relevantes. Es por ello que los \textit{rovers} más sofisticados como Opportunity y Spirit\cite{RoverMissions},
+junto al Curiosity\cite{MissionOverview} y el Mars 2020\cite{RoverMars2020} de la NASA, incorporan un brazo robótico que dota al
+vehículo con la capacidad de ejecutar diversas tareas, como transportar instrumental de
+imagen a lugares específicos de interés para realizar estudios. Otra aproximación es la de
+montar un taladro sobre la estructura del \textit{rover} para extraer las muestras, sin embargo esta
+opción limita la versatilidad de la herramienta, dado que depende del posicionamiento del
+vehículo en su totalidad, siendo necesario posicionarlo en la ubicación exacta de la muestra,
+mientras que con el brazo basta con trasladar el efector para que alcance la posición
+deseada.
+En el presente documento se desarrolla el diseño de un manipulador robótico, así como un efector final para identificar mediante visión artificial la posición de una roca que el usuario le indique para posteriormente obtener información de ella. 
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.25]{imagenes/Marco Teorico/SpiritOpportunityCuriosity.jpg}
+	\caption{Rover Opportunity, Spirit y Curiosity, NASA}
+	\label{fig:SpiritOpportunityCuriosity}
+\end{figure}
+
+\section*{Justificación}
+
+La obtención de datos sobre otros cuerpos del sistema solar resulta de vital importancia para
+comprender los procesos de formación planetaria y de la evolución de las condiciones
+ambientales que han estado presentes a lo largo de su historia. Dichos datos han sido
+obtenidos mediante misiones de varios tipos, como los orbitadores que realizan tareas de
+cartografía, o a través del uso de robots que se colocan en la superficie y son capaces de
+obtener muestras \textit{in situ}.
+Con el objetivo de probar y validar los dispositivos, las agencias espaciales realizan misiones
+análogas, las cuales son simulaciones del comportamiento del sistema en condiciones
+similares a las de operación.
+Dado que la obtención de muestras del suelo es una tarea que puede ser realizada mediante
+el desarrollo de un sistema robótico que posicione un efector adecuado con un error lo
+suficientemente pequeño para que tome la muestra deseada, el sistema que efectúe la tarea
+debe integrar sistemas eléctricos, electrónicos, mecánicos, de control y de cómputo. Por lo
+tanto, el enfoque mecatrónico es idóneo para atacar el problema ya que ofrece la capacidad
+de integrar todos los sistemas para que trabajen de forma armónica, facilitando la
+comunicación con otros sistemas, como el \textit{rover} y el analizador, cubriendo las debilidades de
+una disciplina con las fortalezas de las otras.
+
+\section*{Definición del problema}
+
+Una vez que el robot móvil ha llegado a la zona de interés, el usuario localizará la muestra en
+el espacio de trabajo y el brazo robótico deberá llegar a la posición y orientación deseada con
+el menor error posible, para recoger una muestra y colocarla en un contenedor para su futuro
+análisis.
+Los principales retos de ingeniería que este proyecto presenta son:
+
+\begin{itemize}
+
+\item La obtención de una muestra de piedra del suelo, debido a que las rocas no tienen
+una geometría uniforme.
+Aunque el operario identifica la zona donde la muestra está ubicada, es necesario que
+el sistema de reconocimiento del entorno traduzca esa posición al espacio de trabajo
+del robot.
+Para tomar la muestra, hay que conocer la posición y orientación, tanto inicial como final
+de los actuadores, y generar una trayectoria adecuada tomando en consideración que
+la prioridad es el consumo eficiente de energía.
+Con la finalidad de asegurar la integridad, tanto del actuador como de la muestra, se
+requiere conocer la presión que el efector ejerce sobre la piedra.
+
+\item El traslado de la muestra obtenida a un sitio concreto, ya que el espacio en el que se
+puede manipular es limitado, y se necesita llevar la muestra a un entorno controlado
+para poder analizarla.
+
+\item Reducir el consumo energético, pues las celdas incorporadas en los \textit{rover} generan
+poco más de 100W\cite{RoverPower} para desplazarse y alimentar el resto de módulos, por lo que el
+sistema debe utilizar una parte de la energía disponible.
+
+\item Determinación de la masa de las muestras obtenidas, pues es la información más
+esencial que se puede obtener de ellas, por lo cual es necesaria una medida
+confiable.
+
+\end{itemize}
+
+
+
+\section*{Objetivos}
+
+\subsection*{Objetivo general}
+Diseñar y construir un sistema robótico de recolección de muestras geológicas para un \textit{rover}
+de exploración, que sea capaz de obtener piedras del suelo para su posterior análisis y envío
+de datos a una estación.
+
+
+\subsection*{Objetivos Particulares.}
+
+
+\begin{enumerate}
+\item Trabajo Terminal I
+	\begin{itemize}
+	
+	\item Diseñar un módulo a manera de efector final 		que sea capaz de recoger muestras del
+	suelo para su manipulación.
+	
+	\item Diseñar un sistema robótico de 6 grados de 		libertad que posicione y oriente el efector
+	para transportar la muestra.
+
+	\item Diseñar un módulo de percepción que le 			permita al sistema reconocer el ambiente
+	para crear un marco de referencia en el espacio.
+
+	\item Diseñar un sistema de procesamiento y 			comunicación que permita el análisis de las
+	muestras para determinar las características del 		entorno, además de permitir la
+	transmisión y recepción de datos. 
+
+	\item Integrar los módulos de manera computacional 	para que trabajen en conjunto.
+
+	\item Validar el sistema mecatrónico mediante 			simulaciones con el objetivo de comprobar
+	que los parámetros obtenidos cumplen su función.
+	
+	\end{itemize}
+
+\item Trabajo Terminal II
+	\begin{itemize}
+	
+	\item Implementar el módulo de efector final que 		sea capaz de recoger muestras del suelo
+	para su manipulación.
+	
+	\item Implementar un sistema robótico de 6 grados 		de libertad que posicione y oriente el
+	efector para transportar la muestra.
+
+	\item Implementar un módulo de percepción que le 		permita al sistema reconocer el
+	ambiente para crear un marco de referencia en el 		espacio, así como identificar la
+	geometría de la muestra.
+
+	\item Implementar un sistema de procesamiento y 		comunicación que permita el análisis de
+	las muestras para determinar las características 		del entorno, además de permitir la
+	transmisión y recepción de datos.
+
+	\item Realizar pruebas y ajustes necesarios para 		garantizar que cada módulo trabaja
+	correctamente de manera independiente.
+
+	\item Integrar secuencialmente los módulos para 		consolidar el sistema mecatrónico.
+
+	\item Verificar que todos los módulos del sistema 		mecatrónico trabajen armónicamente para
+	posteriormente realizar pruebas de recolección de 		muestras en un ambiente análogo
+	que nos permitan comprobar que el sistema cumple 		con la función principal.
+	
+	\end{itemize}
+\end{enumerate} 
+
+
+
+
+
+\newgeometry{left=0.1cm,bottom=1cm}
+\begin{landscape}
+
+\begin{table}
+\centering
+\tiny
+\caption{Antecedentes}
+\begin{tabular}{|l|c|l|l|c|c|c|}
+\cline{2-7}
+\multicolumn{1}{c|}{} & \textbf{Nombre} & \multicolumn{1}{c|}{\textbf{Descripción}} & \multicolumn{1}{c|}{\textbf{Características}} & \textbf{País} & \textbf{Instituto} & \textbf{Tipo} \\
+\hline
+\textbf{1} & \begin{tabular}[c]{@{}c@{}}Apilador robótico\\ autónomo de piedras,\\ con planeación de \\posición del objeto en \\línea.\cite{ANT1}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Sistema robótico de brazo con \\efector final capaz de reconocer\\ rocas en el ambiente, orientar el \\efector a fin de asirla, y colocar\\ una encima de otra con un\\ máximo de estabilidad.\end{tabular} & \begin{tabular}[c]{@{}l@{}}\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}Manipulador y efector comerciales.~\\Sistema de escaneo óptico 3D para caracterizar\end{tabular}\\~geométricamente las rocas \\(Proceso fuera de línea).~\\\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}Algoritmo de búsqueda de la posición adecuada\end{tabular}\\~para el apilamiento de la\\piedra (Proceso en línea)\\~\end{tabular} & Suiza & ETH Zurich & \begin{tabular}[c]{@{}c@{}}Artículo de\\ conferencia\end{tabular} \\
+\hline
+\textbf{2} & Brazo robótico UR5\cite{ANT2} & \begin{tabular}[c]{@{}l@{}}Módulo de brazo robótico que se \\adapta al robot Husky para\\ generar una plataforma de \\manipulación móvil.~\end{tabular} & \begin{tabular}[c]{@{}l@{}}\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}Norma = ISO 10218-1, ISO 13849-1, Cat. 3, PL d.\\Clasificación IP = IP54\\Grados de libertad = 6\\Rango de trabajo de cada eje = 360°\\Carga máxima = 3 Kg\\Alcance = 500 mm\\Consumo energético = 100 W (Típicamente)\\Rango de temperatura de trabajo = 0°C - 50°C\\Peso total = 11.2 Kg\\Materiales = Aluminio, acero, plástico\end{tabular}\end{tabular} & Canadá~ & \begin{tabular}[c]{@{}c@{}}Clearpath\\ Robotics\end{tabular} & Producto \\
+\hline
+\textbf{3} & \begin{tabular}[c]{@{}c@{}}3-Finger Adaptive\\ Robot Gripper\cite{ANT3}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Gripper de 3 dedos adaptativos\\ para manufactura avanzada e\\ investigación robótica~\end{tabular} & \begin{tabular}[c]{@{}l@{}}\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}Apertura de gripper: 0 - 155 mm\\Peso: 2.3 kg\\Carga máxima recomendada: 10 kg\\Fuerza de agarre: 30 - 70 N\\Modos de agarre\\Puntual\\Ancho\\Tijeras\\Básico\end{tabular}\end{tabular} & Canadá & Robotiq & Producto~ \\
+\hline
+\textbf{4} & \begin{tabular}[c]{@{}c@{}}Design of a smart \\gripper for industrial \\applications\cite{ANT4}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Diseño de un gripper inteligente\\ y flexible para actividades\\ industriales. Además la\\ adaptación de un módulo para el \\uso de herramental eléctrico.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Mediciones en el gripper:\\\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}Fuerza (Galga extensiométrica)\\Torsión en la muñeca (Sensor de fuerza y~\end{tabular}\\torsión de 6 ejes)\\\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}Temperatura~\\Dentro del gripper (LM35)\\Pinzas de sujeción (DS18B20)\\Visión desde el gripper:\\Cámara (Dragonfly 2 con cabeza extendida)\end{tabular}\\Peso de objetos a manipular:~ 15 kg\\Tipo de agarre del gripper:~\\\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}Dentro del gripper (LM35)\\Pinzas de sujeción (DS18B20)\end{tabular}\end{tabular} & Finlandia & \begin{tabular}[c]{@{}c@{}}Tampere \\University of\\ Technology\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tesis de \\maestría\end{tabular} \\
+\hline
+\textbf{5} & \begin{tabular}[c]{@{}c@{}}Mediciones in situ de \\color de suelo, \\composición mineral y \\contenido de arcilla por \\espectroscopia VIS-NIR\\ (espectroscopia visible e \\infrarrojo cercano).\cite{ANT5}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Análisis de propiedades del suelo\\ in situ mediante el uso de\\ espectroscopia infrarroja.\end{tabular} & \begin{tabular}[c]{@{}l@{}}\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}Rango de vis-NIR = 400 - 2500 nm\\Tamaño de grano de la muestra de polvo = 2mm\end{tabular}\end{tabular} & \begin{tabular}[c]{@{}c@{}}Australia \\Francia\end{tabular} & \begin{tabular}[c]{@{}c@{}}-Bruce E. Butler \\Laboratory\\-University of\\ Sydney\\-UMR SAS \\INRA-Agrocam-\\pus Renneser\\ Laboratory\end{tabular} & \begin{tabular}[c]{@{}c@{}}Artículo de\\ revista\end{tabular} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\end{landscape}
+\restoregeometry
+
+\section*{Descripción de los capítulos}
+
+En el capítulo 1, denominado ``Marco de referencia'' se da una breve descripción de los fundamentos requeridos para el desarrollo del proyecto, como lo son algunos conceptos de diseño mecánico, modelado de robots, visión por computador, electrónica y la metodología de diseño mecatrónico.
+
+El capítulo 2, ``Diseño del sistema'', introduce las necesidades que el sistema debe satisfacer y a partir de ellas desarrollan los requerimiento técnicos que sirven como base para generar la arquitectura funcional a través de modelos tales como FBS\cite{FBS}, IDEF0\cite{IDEF0} y eFFBD\cite{eFFBD}. Posteriormente se plantean los módulos que conforman al sistema mecatrónico, y a partir de ellos se proponen soluciones que se someten a una herramienta de selección multi-criterio para encontrar la que mejor satisface los criterios establecidos.
+
+En el capítulo 3, ``Diseño de dominio específico'', se realiza un diseño a profundidad de cada uno de los módulos que conforman el concepto solución elegido en el capítulo 2.
+
+En el capítulo 4, ``Integración'', se realiza la unión de los módulos diseñados para asegurar que cada una de las partes del sistema opera de manera armónica con las demás. Este proceso se realiza siguiendo una secuencia que inicia con el hardware y concluye con el software.
+
+Finalmente, en el capítulo 5 se analizan los resultados de las simulaciones computacionales para determinar si el sistema diseñado es adecuado para cumplir los requerimientos.

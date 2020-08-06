@@ -1,0 +1,911 @@
+\chapter{Ap\'endice 1: AHP de selecci\'on de concepto}
+
+%-------Matriz de comparacion de criterios
+
+\section*{Matriz de comparación de criterios}
+
+\begin{table}
+\caption*{Matriz de comparación de criterios}
+\footnotesize
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+    & Cr1     & Cr2     & Cr3     & Cr4     & Cr5     & Cr6     & Cr7     & Cr8     & Cr9     \\ \hline
+Cr1 & 1.00000 & 7.00000 & 5.00000 & 0.33333 & 5.00000 & 0.20000 & 5.00000 & 3.00000 & 2.00000 \\ \hline
+Cr2 & 0.14286 & 1.00000 & 6.00000 & 0.20000 & 0.20000 & 0.20000 & 0.33333 & 0.14286 & 0.50000 \\ \hline
+Cr3 & 0.20000 & 0.16667 & 1.00000 & 0.11111 & 0.20000 & 0.20000 & 3.00000 & 0.33333 & 0.14286 \\ \hline
+Cr4 & 3.00000 & 5.00000 & 9.00000 & 1.00000 & 3.00000 & 3.00000 & 5.00000 & 3.00000 & 5.00000 \\ \hline
+Cr5 & 0.20000 & 5.00000 & 5.00000 & 0.33333 & 1.00000 & 0.14286 & 3.00000 & 0.20000 & 0.14286 \\ \hline
+Cr6 & 5.00000 & 5.00000 & 5.00000 & 0.33333 & 7.00000 & 1.00000 & 7.00000 & 5.00000 & 3.00000 \\ \hline
+Cr7 & 0.20000 & 3.00000 & 0.33333 & 0.20000 & 0.33333 & 0.14286 & 1.00000 & 0.20000 & 0.33333 \\ \hline
+Cr8 & 0.33333 & 7.00000 & 3.00000 & 0.33333 & 5.00000 & 0.20000 & 5.00000 & 1.00000 & 5.00000 \\ \hline
+Cr9 & 0.50000 & 2.00000 & 7.00000 & 0.20000 & 7.00000 & 0.33333 & 3.00000 & 0.20000 & 1.00000 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption*{Matriz de comparación de criterios (Continuación)}
+\footnotesize
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+    & Cr10    & Cr11    & Cr12    & Cr13    & Cr14    & Cr15    & Cr16    & Cr17    & Cr18    \\ \hline
+Cr1 & 0.14286 & 5.00000 & 3.00000 & 0.20000 & 0.50000 & 0.25000 & 7.00000 & 5.00000 & 0.33333 \\ \hline
+Cr2 & 0.33333 & 5.00000 & 1.00000 & 0.20000 & 0.33333 & 0.20000 & 3.00000 & 2.00000 & 0.33333 \\ \hline
+Cr3 & 0.14286 & 3.00000 & 2.00000 & 0.20000 & 7.00000 & 5.00000 & 0.20000 & 0.33333 & 0.14286 \\ \hline
+Cr4 & 3.00000 & 9.00000 & 5.00000 & 3.00000 & 5.00000 & 2.00000 & 3.00000 & 3.00000 & 2.00000 \\ \hline
+Cr5 & 0.14286 & 5.00000 & 3.00000 & 0.20000 & 5.00000 & 7.00000 & 5.00000 & 3.00000 & 1.00000 \\ \hline
+Cr6 & 3.00000 & 7.00000 & 5.00000 & 1.00000 & 7.00000 & 5.00000 & 5.00000 & 3.00000 & 0.33333 \\ \hline
+Cr7 & 0.20000 & 3.00000 & 5.00000 & 0.20000 & 1.00000 & 0.33333 & 5.00000 & 0.33333 & 0.20000 \\ \hline
+Cr8 & 0.20000 & 5.00000 & 5.00000 & 0.20000 & 3.00000 & 0.33333 & 7.00000 & 5.00000 & 0.33333 \\ \hline
+Cr9 & 0.14286 & 5.00000 & 5.00000 & 0.20000 & 0.33333 & 0.33333 & 5.00000 & 3.00000 & 0.20000 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption*{Matriz de comparación de criterios (Continuación)}
+\footnotesize
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+    & Cr19    & Cr20    & Cr21    & Cr22    & Cr23    & Cr24    & Cr25    & Cr26    & Cr27    \\ \hline
+Cr1 & 0.33333 & 3.00000 & 5.00000 & 0.20000 & 7.00000 & 3.00000 & 5.00000 & 5.00000 & 0.20000 \\ \hline
+Cr2 & 0.20000 & 3.00000 & 5.00000 & 0.20000 & 5.00000 & 3.00000 & 5.00000 & 0.33333 & 0.33333 \\ \hline
+Cr3 & 0.20000 & 0.20000 & 5.00000 & 0.20000 & 5.00000 & 0.14286 & 5.00000 & 5.00000 & 0.14286 \\ \hline
+Cr4 & 5.00000 & 5.00000 & 5.00000 & 2.00000 & 5.00000 & 3.00000 & 7.00000 & 3.00000 & 1.00000 \\ \hline
+Cr5 & 1.00000 & 5.00000 & 7.00000 & 1.00000 & 7.00000 & 5.00000 & 5.00000 & 0.33333 & 0.20000 \\ \hline
+Cr6 & 0.33333 & 3.00000 & 5.00000 & 0.33333 & 5.00000 & 1.00000 & 5.00000 & 1.00000 & 1.00000 \\ \hline
+Cr7 & 0.20000 & 0.33333 & 5.00000 & 0.20000 & 3.00000 & 0.50000 & 4.00000 & 0.20000 & 0.20000 \\ \hline
+Cr8 & 0.33333 & 5.00000 & 5.00000 & 0.20000 & 5.00000 & 3.00000 & 5.00000 & 3.00000 & 0.33333 \\ \hline
+Cr9 & 0.33333 & 3.00000 & 5.00000 & 1.00000 & 5.00000 & 3.00000 & 5.00000 & 0.33333 & 0.20000 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption*{Matriz de comparación de criterios (Continuación)}
+\footnotesize
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+     & Cr1     & Cr2     & Cr3     & Cr4     & Cr5     & Cr6     & Cr7     & Cr8     & Cr9     \\ \hline
+Cr10 & 7.00000 & 3.00000 & 7.00000 & 0.33333 & 7.00000 & 0.33333 & 5.00000 & 5.00000 & 7.00000 \\ \hline
+Cr11 & 0.20000 & 0.20000 & 0.33333 & 0.11111 & 0.20000 & 0.14286 & 0.33333 & 0.20000 & 0.20000 \\ \hline
+Cr12 & 0.33333 & 1.00000 & 0.50000 & 0.20000 & 0.33333 & 0.20000 & 0.20000 & 0.20000 & 0.20000 \\ \hline
+Cr13 & 5.00000 & 5.00000 & 5.00000 & 0.33333 & 5.00000 & 1.00000 & 5.00000 & 5.00000 & 5.00000 \\ \hline
+Cr14 & 2.00000 & 3.00000 & 0.14286 & 0.20000 & 0.20000 & 0.14286 & 1.00000 & 0.33333 & 3.00000 \\ \hline
+Cr15 & 4.00000 & 5.00000 & 0.20000 & 0.50000 & 0.14286 & 0.20000 & 3.00000 & 3.00000 & 3.00000 \\ \hline
+Cr16 & 0.14286 & 0.33333 & 5.00000 & 0.33333 & 0.20000 & 0.20000 & 0.20000 & 0.14286 & 0.20000 \\ \hline
+Cr17 & 0.20000 & 0.50000 & 3.00000 & 0.33333 & 0.33333 & 0.33333 & 3.00000 & 0.20000 & 0.33333 \\ \hline
+Cr18 & 3.00000 & 3.00000 & 7.00000 & 0.50000 & 1.00000 & 3.00000 & 5.00000 & 3.00000 & 5.00000 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption*{Matriz de comparación de criterios (Continuación)}
+\footnotesize
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+     & Cr10    & Cr11    & Cr12    & Cr13    & Cr14    & Cr15    & Cr16    & Cr17    & Cr18    \\ \hline
+Cr10 & 1.00000 & 7.00000 & 5.00000 & 0.33333 & 1.00000 & 2.00000 & 5.00000 & 3.00000 & 0.33333 \\ \hline
+Cr11 & 0.14286 & 1.00000 & 5.00000 & 0.20000 & 0.33333 & 0.20000 & 3.00000 & 3.00000 & 0.20000 \\ \hline
+Cr12 & 0.20000 & 0.20000 & 1.00000 & 0.14286 & 5.00000 & 3.00000 & 5.00000 & 0.33333 & 0.20000 \\ \hline
+Cr13 & 3.00000 & 5.00000 & 7.00000 & 1.00000 & 5.00000 & 3.00000 & 7.00000 & 3.00000 & 5.00000 \\ \hline
+Cr14 & 1.00000 & 3.00000 & 0.20000 & 0.20000 & 1.00000 & 0.20000 & 5.00000 & 3.00000 & 1.00000 \\ \hline
+Cr15 & 0.50000 & 5.00000 & 0.33333 & 0.33333 & 5.00000 & 1.00000 & 7.00000 & 7.00000 & 0.25000 \\ \hline
+Cr16 & 0.20000 & 0.33333 & 0.20000 & 0.14286 & 0.20000 & 0.14286 & 1.00000 & 0.20000 & 0.20000 \\ \hline
+Cr17 & 0.33333 & 0.33333 & 3.00000 & 0.33333 & 0.33333 & 0.14286 & 5.00000 & 1.00000 & 0.20000 \\ \hline
+Cr18 & 3.00000 & 5.00000 & 5.00000 & 0.20000 & 1.00000 & 4.00000 & 5.00000 & 5.00000 & 1.00000 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption*{Matriz de comparación de criterios (Continuación)}
+\footnotesize
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+     & Cr19    & Cr20    & Cr21    & Cr22    & Cr23    & Cr24    & Cr25    & Cr26    & Cr27    \\ \hline
+Cr10 & 3.00000 & 5.00000 & 5.00000 & 1.00000 & 5.00000 & 5.00000 & 5.00000 & 5.00000 & 0.33333 \\ \hline
+Cr11 & 0.20000 & 0.33333 & 5.00000 & 0.14286 & 5.00000 & 0.33333 & 3.00000 & 0.20000 & 0.20000 \\ \hline
+Cr12 & 0.20000 & 5.00000 & 5.00000 & 0.20000 & 5.00000 & 5.00000 & 3.00000 & 0.33333 & 0.20000 \\ \hline
+Cr13 & 3.00000 & 5.00000 & 7.00000 & 3.00000 & 7.00000 & 5.00000 & 7.00000 & 3.00000 & 3.00000 \\ \hline
+Cr14 & 1.00000 & 5.00000 & 3.00000 & 1.00000 & 3.00000 & 3.00000 & 7.00000 & 3.00000 & 0.33333 \\ \hline
+Cr15 & 3.00000 & 5.00000 & 7.00000 & 2.00000 & 7.00000 & 5.00000 & 7.00000 & 3.00000 & 3.00000 \\ \hline
+Cr16 & 0.14286 & 3.00000 & 3.00000 & 0.14286 & 5.00000 & 0.33333 & 3.00000 & 0.33333 & 0.20000 \\ \hline
+Cr17 & 0.20000 & 3.00000 & 5.00000 & 0.14286 & 5.00000 & 3.00000 & 3.00000 & 0.20000 & 0.20000 \\ \hline
+Cr18 & 5.00000 & 7.00000 & 7.00000 & 3.00000 & 5.00000 & 3.00000 & 5.00000 & 3.00000 & 0.33333 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption*{Matriz de comparación de criterios (Continuación)}
+\footnotesize
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{}     & Cr1      & Cr2      & Cr3      & Cr4     & Cr5      & Cr6      & Cr7      & Cr8      & Cr9      \\ \hline
+\multicolumn{1}{|c|}{Cr19} & 3.00000  & 5.00000  & 5.00000  & 0.20000 & 1.00000  & 3.00000  & 5.00000  & 3.00000  & 3.00000  \\ \hline
+\multicolumn{1}{|c|}{Cr20} & 0.33333  & 0.33333  & 5.00000  & 0.20000 & 0.20000  & 0.33333  & 3.00000  & 0.20000  & 0.33333  \\ \hline
+\multicolumn{1}{|c|}{Cr21} & 0.20000  & 0.20000  & 0.20000  & 0.20000 & 0.14286  & 0.20000  & 0.20000  & 0.20000  & 0.20000  \\ \hline
+\multicolumn{1}{|c|}{Cr22} & 5.00000  & 5.00000  & 5.00000  & 0.50000 & 1.00000  & 3.00000  & 5.00000  & 5.00000  & 1.00000  \\ \hline
+\multicolumn{1}{|c|}{Cr23} & 0.14286  & 0.20000  & 0.20000  & 0.20000 & 0.14286  & 0.20000  & 0.33333  & 0.20000  & 0.20000  \\ \hline
+\multicolumn{1}{|c|}{Cr24} & 0.33333  & 0.33333  & 7.00000  & 0.33333 & 0.20000  & 1.00000  & 2.00000  & 0.33333  & 0.33333  \\ \hline
+\multicolumn{1}{|c|}{Cr25} & 0.20000  & 0.20000  & 0.20000  & 0.14286 & 0.20000  & 0.20000  & 0.25000  & 0.20000  & 0.20000  \\ \hline
+\multicolumn{1}{|c|}{Cr26} & 0.20000  & 3.00000  & 0.20000  & 0.33333 & 3.00000  & 1.00000  & 5.00000  & 0.33333  & 3.00000  \\ \hline
+\multicolumn{1}{|c|}{Cr27} & 5.00000  & 3.00000  & 7.00000  & 1.00000 & 5.00000  & 1.00000  & 5.00000  & 3.00000  & 5.00000  \\ \hline
+\multicolumn{1}{c|}{Total}      & 46.86190 & 73.46667 & 99.30952 & 8.99841 & 54.02857 & 20.90476 & 80.85000 & 42.61905 & 54.31905 \\ \cline{2-10} 
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption*{Matriz de comparación de criterios (Continuación)}
+\footnotesize
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{}     & Cr10     & Cr11     & Cr12     & Cr13    & Cr14     & Cr15     & Cr16     & Cr17     & Cr18     \\ \hline
+\multicolumn{1}{|c|}{Cr19} & 3.00000  & 5.00000  & 5.00000  & 0.20000 & 1.00000  & 3.00000  & 5.00000  & 3.00000  & 3.00000  \\ \hline
+\multicolumn{1}{|c|}{Cr20} & 0.33333  & 0.33333  & 5.00000  & 0.20000 & 0.20000  & 0.33333  & 3.00000  & 0.20000  & 0.33333  \\ \hline
+\multicolumn{1}{|c|}{Cr21} & 0.20000  & 0.20000  & 0.20000  & 0.20000 & 0.14286  & 0.20000  & 0.20000  & 0.20000  & 0.20000  \\ \hline
+\multicolumn{1}{|c|}{Cr22} & 5.00000  & 5.00000  & 5.00000  & 0.50000 & 1.00000  & 3.00000  & 5.00000  & 5.00000  & 1.00000  \\ \hline
+\multicolumn{1}{|c|}{Cr23} & 0.14286  & 0.20000  & 0.20000  & 0.20000 & 0.14286  & 0.20000  & 0.33333  & 0.20000  & 0.20000  \\ \hline
+\multicolumn{1}{|c|}{Cr24} & 0.33333  & 0.33333  & 7.00000  & 0.33333 & 0.20000  & 1.00000  & 2.00000  & 0.33333  & 0.33333  \\ \hline
+\multicolumn{1}{|c|}{Cr25} & 0.20000  & 0.20000  & 0.20000  & 0.14286 & 0.20000  & 0.20000  & 0.25000  & 0.20000  & 0.20000  \\ \hline
+\multicolumn{1}{|c|}{Cr26} & 0.20000  & 3.00000  & 0.20000  & 0.33333 & 3.00000  & 1.00000  & 5.00000  & 0.33333  & 3.00000  \\ \hline
+\multicolumn{1}{|c|}{Cr27} & 5.00000  & 3.00000  & 7.00000  & 1.00000 & 5.00000  & 1.00000  & 5.00000  & 3.00000  & 5.00000  \\ \hline
+\multicolumn{1}{c|}{Total}      & 46.86190 & 73.46667 & 99.30952 & 8.99841 & 54.02857 & 20.90476 & 80.85000 & 42.61905 & 54.31905 \\ \cline{2-10} 
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption*{Matriz de comparación de criterios (Continuación)}
+\footnotesize
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{}     & Cr19     & Cr20     & Cr21      & Cr22     & Cr23      & Cr24     & Cr25      & Cr26     & Cr27     \\ \hline
+\multicolumn{1}{|c|}{Cr19} & 1.00000  & 5.00000  & 7.00000   & 0.50000  & 5.00000   & 3.00000  & 5.00000   & 2.00000  & 0.33333  \\ \hline
+\multicolumn{1}{|c|}{Cr20} & 0.20000  & 1.00000  & 0.33333   & 0.14286  & 0.33333   & 0.33333  & 2.00000   & 0.20000  & 0.33333  \\ \hline
+\multicolumn{1}{|c|}{Cr21} & 0.14286  & 3.00000  & 1.00000   & 0.14286  & 1.00000   & 0.33333  & 1.00000   & 0.33333  & 0.33333  \\ \hline
+\multicolumn{1}{|c|}{Cr22} & 2.00000  & 7.00000  & 7.00000   & 1.00000  & 9.00000   & 5.00000  & 5.00000   & 3.00000  & 0.33333  \\ \hline
+\multicolumn{1}{|c|}{Cr23} & 0.20000  & 3.00000  & 1.00000   & 0.11111  & 1.00000   & 0.20000  & 1.00000   & 0.20000  & 0.20000  \\ \hline
+\multicolumn{1}{|c|}{Cr24} & 0.33333  & 3.00000  & 3.00000   & 0.20000  & 5.00000   & 1.00000  & 5.00000   & 2.00000  & 0.20000  \\ \hline
+\multicolumn{1}{|c|}{Cr25} & 0.20000  & 0.50000  & 1.00000   & 0.20000  & 1.00000   & 0.20000  & 1.00000   & 0.20000  & 0.14286  \\ \hline
+\multicolumn{1}{|c|}{Cr26} & 0.50000  & 5.00000  & 3.00000   & 0.33333  & 5.00000   & 0.50000  & 5.00000   & 1.00000  & 0.33333  \\ \hline
+\multicolumn{1}{|c|}{Cr27} & 3.00000  & 3.00000  & 3.00000   & 3.00000  & 5.00000   & 5.00000  & 7.00000   & 3.00000  & 1.00000  \\ \hline
+\multicolumn{1}{c|}{Total}      & 31.25238 & 96.36667 & 120.33333 & 21.59206 & 126.33333 & 66.87619 & 121.00000 & 48.20000 & 14.61905 \\ \cline{2-10} 
+\end{tabular}
+\end{table}
+
+%---------Vector de prioridad de criterios
+\section*{Vector de prioridad de criterios}
+
+\begin{table}
+\centering
+\caption*{Vector de prioridad de criterios}
+\footnotesize
+\begin{tabular}{|c|c|lcc}
+\cline{1-2} \cline{4-5}
+Criterio & Valor de prioridad & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Criterio} & \multicolumn{1}{c|}{Valor de prioridad} \\ \cline{1-2} \cline{4-5} 
+Cr1      & 0.03946            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr15}     & \multicolumn{1}{c|}{0.05497}            \\ \cline{1-2} \cline{4-5} 
+Cr2      & 0.01975            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr16}     & \multicolumn{1}{c|}{0.01192}            \\ \cline{1-2} \cline{4-5} 
+Cr3      & 0.02517            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr17}     & \multicolumn{1}{c|}{0.01890}            \\ \cline{1-2} \cline{4-5} 
+Cr4      & 0.08119            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr18}     & \multicolumn{1}{c|}{0.06500}            \\ \cline{1-2} \cline{4-5} 
+Cr5      & 0.04096            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr19}     & \multicolumn{1}{c|}{0.04421}            \\ \cline{1-2} \cline{4-5} 
+Cr6      & 0.06121            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr20}     & \multicolumn{1}{c|}{0.01120}            \\ \cline{1-2} \cline{4-5} 
+Cr7      & 0.01637            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr21}     & \multicolumn{1}{c|}{0.00738}            \\ \cline{1-2} \cline{4-5} 
+Cr8      & 0.04025            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr22}     & \multicolumn{1}{c|}{0.05611}            \\ \cline{1-2} \cline{4-5} 
+Cr9      & 0.03078            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr23}     & \multicolumn{1}{c|}{0.00698}            \\ \cline{1-2} \cline{4-5} 
+Cr10     & 0.05910            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr24}     & \multicolumn{1}{c|}{0.01994}            \\ \cline{1-2} \cline{4-5} 
+Cr11     & 0.01356            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr25}     & \multicolumn{1}{c|}{0.00597}            \\ \cline{1-2} \cline{4-5} 
+Cr12     & 0.02198            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr26}     & \multicolumn{1}{c|}{0.02888}            \\ \cline{1-2} \cline{4-5} 
+Cr13     & 0.08555            & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{Cr27}     & \multicolumn{1}{c|}{0.06817}            \\ \cline{1-2} \cline{4-5} 
+Cr14     & 0.02932            &                       & \multicolumn{1}{l}{}          & \multicolumn{1}{l}{}                    \\ \cline{1-2}
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Seleccion de concepto/AHP/Jerarquia de criterios}
+	\caption*{Jerarquia de criterios}
+\end{figure}
+
+Los 5 criterios más importantes son:
+
+\begin{itemize}
+\item \textbf{Cr13} Riesgo de daños a la muestra o efector.
+\item \textbf{Cr4} Riesgo de daño a la estructura del \textit{rover}.
+\item \textbf{Cr27} Riesgo de daños a las baterías.
+\item \textbf{Cr18} Confiabilidad de sujeción.
+\item \textbf{Cr6} Modificación de equilibrio al \textit{rover} por el manipulador.
+\end{itemize}
+
+%----Evaluación criterio 1
+
+\section*{Evaluación de conceptos contra el criterio Cr1}
+
+\begin{table}[]
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr1}
+\footnotesize
+\begin{tabular}{c|c|c}
+\cline{1-2}
+\multicolumn{1}{|c|}{Concepto} & Valor   &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C1}       & 0.16031 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C2}       & 0.02161 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C3}       & 0.16031 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C4}       & 0.07131 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C5}       & 0.14093 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C6}       & 0.44552 &  \\ \cline{1-2}
+Total                          & 1.00000 &  \\ \cline{2-2}
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr1}
+	\caption*{Desempeño de los conceptos en el criterio 1}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr2}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr2}
+\footnotesize
+\begin{tabular}{c|c|c}
+\cline{1-2}
+\multicolumn{1}{|c|}{Concepto} & Valor   &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C1}       & 0.05233 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C2}       & 0.29387 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C3}       & 0.04926 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C4}       & 0.50602 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C5}       & 0.04926 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C6}       & 0.04926 &  \\ \cline{1-2}
+Total                          & 1.00000 &  \\ \cline{2-2}
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr2}
+	\caption*{Desempeño de los conceptos en el criterio 2}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr3}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr3}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.12096 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.12096 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.12096 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.43894 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.17651 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.02167 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr3}
+	\caption*{Desempeño de los conceptos en el criterio 3}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr4}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr4}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.09853 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.11707 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.05821 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.27272 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.05821 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.39526 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr4}
+	\caption*{Desempeño de los conceptos en el criterio 4}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr5}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr5}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.19355 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.19355 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.19355 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.19355 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.19355 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.03226 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr5}
+	\caption*{Desempeño de los conceptos en el criterio 5}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr6}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr6}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.20943 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.21395 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.13490 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.28297 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.13490 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.02385 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr6}
+	\caption*{Desempeño de los conceptos en el criterio 6}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr7}
+
+
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr7}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.08160 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.22396 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.08160 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.44965 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.08160 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.08160 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr7}
+	\caption*{Desempeño de los conceptos en el criterio 7}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr8}
+
+
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr8}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.30121 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.04643 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.11152 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.30121 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.09870 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.14093 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr8}
+	\caption*{Desempeño de los conceptos en el criterio 8}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr9}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr9}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.05969 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.13145 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.34474 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.05969 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.34474 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.05969 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr9}
+	\caption*{Desempeño de los conceptos en el criterio 9}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr10}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr10}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.10316 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.02352 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.33349 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.10316 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.33349 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.10316 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr10}
+	\caption*{Desempeño de los conceptos en el criterio 10}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr11}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr11}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.27534 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.02257 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.07570 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.27534 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.07570 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.27534 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr11}
+	\caption*{Desempeño de los conceptos en el criterio 11}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr12}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr12}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.26618 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.02613 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.16788 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.26618 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.07199 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.20166 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr12}
+	\caption*{Desempeño de los conceptos en el criterio 12}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr13}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr13}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.11748 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.03158 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.30799 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.11748 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.30799 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.11748 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr13}
+	\caption*{Desempeño de los conceptos en el criterio 13}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr14}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr14}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.06979 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.06979 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.27878 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.27878 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.27878 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.02408 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr14}
+	\caption*{Desempeño de los conceptos en el criterio 14}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr15}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr15}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.24600 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.15606 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.40465 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.06363 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.09043 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.03924 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr15}
+	\caption*{Desempeño de los conceptos en el criterio 15}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr16}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr16}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.22262 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.05208 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.02749 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.50070 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.10017 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.09694 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr16}
+	\caption*{Desempeño de los conceptos en el criterio 16}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr17}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr17}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.15998 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.06302 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.32803 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.28731 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.13145 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.03021 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr17}
+	\caption*{Desempeño de los conceptos en el criterio 17}
+\end{figure}
+
+\section*{Selección de concepto}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Seleccion de concepto/AHP/Desempeno general de cada concepto}
+	\caption*{Desempeño general de los conceptos solución}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr18}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr18}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.34026 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.04226 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.34026 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.08564 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.15214 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.03944 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr18}
+	\caption*{Desempeño de los conceptos en el criterio 18}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr19}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr19}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.19444 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.19444 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.19444 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.19444 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.19444 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.02778 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr19}
+	\caption*{Desempeño de los conceptos en el criterio 19}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr20}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr20}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.11587 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.11587 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.48677 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.11587 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.11587 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.04974 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr20}
+	\caption*{Desempeño de los conceptos en el criterio 20}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr21}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr21}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.06001 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.06001 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.25166 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.06001 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.06001 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.50830 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr21}
+	\caption*{Desempeño de los conceptos en el criterio 21}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr22}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr22}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.22814 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.22814 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.06533 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.22814 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.22814 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.02210 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr22}
+	\caption*{Desempeño de los conceptos en el criterio 22}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr23}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr23}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.14479 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.14479 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.38675 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.14479 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.14479 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.03409 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr23}
+	\caption*{Desempeño de los conceptos en el criterio 23}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr24}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr24}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.08161 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.07847 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.08161 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.08161 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.59509 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.08161 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr24}
+	\caption*{Desempeño de los conceptos en el criterio 24}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr25}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr25}
+\footnotesize
+\begin{tabular}{c|c|}
+\hline
+\multicolumn{1}{|c|}{Concepto} & Valor   \\ \hline
+\multicolumn{1}{|c|}{C1}       & 0.16667 \\ \hline
+\multicolumn{1}{|c|}{C2}       & 0.16667 \\ \hline
+\multicolumn{1}{|c|}{C3}       & 0.16667 \\ \hline
+\multicolumn{1}{|c|}{C4}       & 0.16667 \\ \hline
+\multicolumn{1}{|c|}{C5}       & 0.16667 \\ \hline
+\multicolumn{1}{|c|}{C6}       & 0.16667 \\ \hline
+Total                          & 1.00000 \\ \cline{2-2} 
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr25}
+	\caption*{Desempeño de los conceptos en el criterio 25}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr26}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr26}
+\footnotesize
+\begin{tabular}{c|c|c}
+\cline{1-2}
+\multicolumn{1}{|c|}{Concepto} & Valor   &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C1}       & 0.11768 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C2}       & 0.02974 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C3}       & 0.11768 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C4}       & 0.11768 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C5}       & 0.49953 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C6}       & 0.11768 &  \\ \cline{1-2}
+Total                          & 1.00000 &  \\ \cline{2-2}
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr26}
+	\caption*{Desempeño de los conceptos en el criterio 26}
+\end{figure}
+
+\section*{Evaluación de conceptos contra el criterio Cr27}
+
+\begin{table}
+\centering
+\caption*{Desempeño de los conceptos en el criterio Cr27}
+\footnotesize
+\begin{tabular}{c|c|c}
+\cline{1-2}
+\multicolumn{1}{|c|}{Concepto} & Valor   &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C1}       & 0.11938 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C2}       & 0.03270 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C3}       & 0.11938 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C4}       & 0.11938 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C5}       & 0.48977 &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{C6}       & 0.11938 &  \\ \cline{1-2}
+Total                          & 1.00000 &  \\ \cline{2-2}
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[width=0.5\textwidth]{imagenes/Seleccion de concepto/AHP/Cr27}
+	\caption*{Desempeño de los conceptos en el criterio 27}
+\end{figure}

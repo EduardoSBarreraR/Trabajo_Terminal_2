@@ -1,0 +1,248 @@
+%makeindex %.idx
+%makeindex %.nlo -s nomencl.ist -o %.nls ----------------------------------------------------------------------
+%
+%                          Principal.tex
+%
+%----------------------------------------------------------------------
+%
+% Este archivo contiene el "documento maestro" del documento. Lo único
+% que hace es configurar el entorno LaTeX e incluir los ficheros .tex
+% que contienen cada sección.
+%
+%----------------------------------------------------------------------
+%
+% Los archivos necesarios para este documento son:
+%
+%       Upitexis2018/* : ficheros de la plantilla.
+%       configuracion/* : ficheros con las partes del documento que no
+%          son capítulos ni apéndices (portada, agradecimientos, hijas
+%          de estilo, etc.)
+%       preliminares/*.tex : documentos preliminares de la tesis como
+%       dedicatoria, Agradecimientos, Resumen, objetivos, introducción,
+%       Simbología, Nomenclatura
+%       capitulos/*.tex : capítulos de la tesis
+%       apendices/*.tex: apéndices y anexos de la tesis
+%       config.tex : configuración de la "compilación" del documento
+%
+% Para la bibliografía, además, se necesitan:
+%       *.bib : ficheros con la información de las referencias
+%
+% ---------------------------------------------------------------------
+%       Inicio del documento se define la clase y
+%           tesisupiita )Tesis: UPIITA-IPN
+%   Copyright (C) 2017 Juan Carlos Guzmán Salgado
+%                      Griselda Sánchez Otero
+%                      Diego Alonso Flores Hernández
+\documentclass[letterpaper,11pt]{upiita}
+\usepackage{configuracion/upiitatesis}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage[draft]{listofsymbols}
+\usepackage{units}
+\usepackage{amssymb}  % for '\curvearrowleft' macro
+\usepackage{rotating}
+\usepackage{tikz}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{hhline}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{pdfpages}
+\usepackage{grffile}
+\usepackage[intoc, spanish]{nomencl}
+\makenomenclature
+
+%\usepackage{apacite}
+%%%%% Inicio de Sección de preliminares
+\frontmatter
+%%%%%%%%%%%%%  Datos de la Portada y acta
+\title{Sistema robótico de un rover de exploración para la obtención y análisis de muestras geológicas}
+\unidad{\Upiita}
+\materia{Trabajo Terminal I}
+\academia{Mecatr\'onica}
+\grado{Ingeniero en Mecatr\'onica}     %%%%%%%%%%%%%grado
+\mes{Mayo}                             %%%%%%%%%%mes
+\anio{2020}                             %%%%%%%%%%año
+%%%%%%%%%%%%  Nombre del Presidente y Secretario del jurado
+\Presidente{Dr. Flores Campos Juan Alejandro}
+\Titular{M. en E. Rivas Bonilla Elizabeth}
+%%%%%%%%%%%%%%%%%%%%%%% Datos del autor%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  para varios asesores (máximo 4) y autores (alumnos)
+%%  dejar el campo en blanco de los que no deban aparecer
+%%  Cuando el número de asesores=1 sólo se toma en cuenta la variable
+%%% alumnoa,
+%%  Cuando el número de asesores=2 se toman alumnoa y asesorb, etc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nalumnos{3}
+%%%%%%% dependiendo del numero de alumno dejar vacío el campo de alumnoX,
+%%%%%%%  nunca eliminar o comentar la línea
+\alumnoa{Barrera Rosales Eduardo Salvador}
+\alumnob{Millán López José Alejandro}
+\alumnoc{Serna Mora Oscar Manuel}
+\alumnod{}
+%%%%%%%%%% número de asesores 1= solo se toma en cuenta la variable asesora,
+%%%%%%%%%%  2= se toman asesora y asesorb
+\nasesores{3}
+%%%%%%% en caso de un único asesor dejar vacío el campo de asesorb,
+%%%%%%% nunca eliminar o comentar la línea
+\asesora{Dr. Flores Hernández Diego Alonso}
+\asesorb{Dr. Luviano Juárez Alberto}
+\asesorc{Dr. Sossa Azuela Juan Humberto}
+%%%%%%%%%genera sección de índice %%%%%%%%%
+\makeindex
+%%%%%% Inicio de documento %%%%%%
+\begin{document}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{negroxd}{rgb}{0,0,0}
+
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand\lstlistingname{Algoritmo}
+
+\renewcommand{\nomname}{Nomenclatura y simbología}
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{N}{Nomenclatura}{%
+  \ifstrequal{#1}{S}{Símbolos}{}}%
+]}
+
+%%\renewcommand*\thetable{\Roman{table}}
+
+
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+%%creacion de caratuls y hoja de actas
+\portada
+\acta
+
+\cambiamargen
+%\dedicatoria              %%%modificar archivo dedica.tex
+%\agradecimientos          %%%modificar archivo agradece.tex
+\tabladecontenido
+\listadefiguras
+\listadetablas
+
+%makeindex %.idx
+%makeindex %.nlo -s nomencl.ist -o %.nls
+
+\include{preliminares/Resumen}               %%%modificar archivo Resumen.tex
+\printnomenclature[2cm]        %%%modificar archivo Nomenclatura.tex
+%\include{preliminares/Simbologia}            %%%modificar archivo Simbologia.tex
+%\include{preliminares/objetivos}             %%%modificar archivo objetivos.tex
+%%%%General, 
+%%%%Específicos
+\include{preliminares/introduccion}          %%%modificar archivo introduccion.tex
+%%%%%Antecedentes
+%%%%%Planteamiento del problema
+%%%%%Descripción de los capítulos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Inicia Contenido del trabajo%%%
+%\formatodoc%
+\mainmatter
+
+%\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{#1}}
+%\fancyhf{}
+%\fancyhead[RO]{\rightmark}
+%\fancyhead[LE]{\leftmark}
+%\fancyhead[LO,RE]{}
+%\fancyfoot{}
+%\fancyfoot[RO,LE]{\thepage}
+%\fancyfoot[CO]{UPIITA}
+%\fancyfoot[CE]{IPN}
+%\fancyfoot[RE,LO]{Ing. Mecatrónica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%capitulo1111111111%%%%%%%%%%%%%%%%%%%%%%%
+
+%\layout
+%\pagevalues
+%\pagedesign
+\include{capitulos/metodologia}
+
+\pagebreak
+%\pagediagram
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{capitulos/diseconceptual}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{capitulos/disedetallado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{capitulos/integracion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{capitulos/validacion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%  BIBLIOGRAFIA  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliographystyle{apalike} \nocite{*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%    APENDICES  %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{preliminares/Nomenclatura}
+
+\backmatter
+
+\include{capitulos/conclusiones}
+
+\newpage
+
+\bibliographystyle{IEEEtran} \nocite{*}
+ \bibliography{XBiblioteca}
+
+\part{Apéndices}
+\appendix
+\renewcommand{\thesection}{A.~\arabic{section}}
+\include{apendices/apendice1}
+\renewcommand{\thesection}{B.~\arabic{section}}
+\include{apendices/apendice3}
+\renewcommand{\thesection}{C.~\arabic{section}}
+\include{apendices/apendice4}
+\renewcommand{\thesection}{D.~\arabic{section}}
+\include{apendices/apendice2}
+\part{Anexos}
+\anexo
+\renewcommand{\thesection}{A.~\arabic{section}}
+\include{apendices/anexo1}
+%\include{apendices/anexo2}
+%\include{apendices/anexo3}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  INDICE ALFABÉTICO%%%%%%%%%%
+\IndiceAlfabetico
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 

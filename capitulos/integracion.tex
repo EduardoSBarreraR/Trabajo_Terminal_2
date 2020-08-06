@@ -1,0 +1,549 @@
+\chapter{Integración del sistema mecatrónico}
+
+En este capítulo se realiza la integración, la cual es un proceso jerárquico que comprende la unión de  los distintos módulos que conforman al sistema, partiendo de la integración de componentes en ensamblajes, ensamblajes en módulos, módulos en sistemas y, finalmente, la integración de los sistemas para consolidar el sistema mecatrónico\footnote{Para este punto ya se ha realizado la integración de los módulos a través del diseño de dominio específico}.
+
+Recuérdese que:
+
+\begin{align*}
+S1 &:= \textrm{Sistema 1: Manipulador robótico}\\
+M1 &:= \textrm{Módulo 1: Manipulador robótico}\\
+M2 &:= \textrm{Módulo 2: Efector}\\
+S2 &:= \textrm{Sistema 2: Información}\\
+M3 &:= \textrm{Módulo 3: Percepción}\\
+M4 &:= \textrm{Módulo 4: Comunicación}\\
+M5 &:= \textrm{Módulo 5: Procesamiento}\\
+S3 &:= \textrm{Sistema 3: Energético}\\
+S4 &:= \textrm{Sistema 4: Laboratorio}\\
+M6 &:= \textrm{Módulo 6: Obtención de datos}\\
+M7 &:= \textrm{Módulo 7: Desechador}\\
+S5 &:= \textrm{Sistema 5: Estructural}
+\end{align*}
+
+El estado de integración se define por $SIx$ en donde $x$ indica la secuencia de integración.
+
+\section{Integración de hardware}
+
+\subsection*{Sistema robótico}
+
+En primer lugar, se integra el módulo del manipulador robótico con el efector final a través del último GDL de la muñeca, utilizando un cople en el eje del servomotor para unirlo con la base del efector, como se muestra en la Figura \ref{fig:IntMunEfe}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Munefector}
+	\caption{Integración del manipulador a través de la muñeca}
+	\label{fig:IntMunEfe}
+\end{figure}
+
+Estado de integración
+
+\begin{align*}
+M1+M2 = S1
+\end{align*}
+
+\subsection*{Sistema estructural}
+
+La base que soporta al sistema robótico se fija en la estructura mediante tornillos. Una vez que se ensamblan estos sistemas, se obtiene la configuración mostrada en la Figura \ref{fig:IntRobEst}. 
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.4]{imagenes/INTEGRACION/robotico-estructura}
+	\caption{Integración del sistema robótico con el sistema estructural}
+	\label{fig:IntRobEst}
+\end{figure}
+
+\subsubsection{Validación}
+
+Debido a que la estructura soporta al sistema robótico, es necesario comprobar la integridad de la misma frente a las cargas que eso implica, para lo que se realiza un análisis estático de elemento finito.
+ 
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.85]{imagenes/INTEGRACION/Validaciones/Mallado xd}
+	\caption{Características del mallado del análisis estático del sistema estructural}
+	\label{fig:MallaEstructura}
+\end{figure}
+
+El análisis estático, realizado con una malla de características mostradas en la Figura \ref{fig:MallaEstructura}, comprende un estudio de resistencia, el cual se muestra en la Figura \ref{fig:RobEstRes}, que indica que el esfuerzo torsional y axial máximo de 7.04[MPa], mientras que, de acuerdo al fabricante\cite{IPS2020}, el esfuerzo de cedencia es 241[MPa]. Por otro lado, el estudio de rigidez, mostrado en la Figura \ref{fig:RobEstRig}, indica que la deflexión máxima es de 1.9[mm].
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Validaciones/Estructura_modificada_AnalisisAxialYflexion xd}
+	\caption{Análisis de resistencia de la estructura}
+	\label{fig:RobEstRes}
+\end{figure}
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Validaciones/Estructura_modificada_deformacion}
+	\caption{Análisis de rigidez de la estructura}
+	\label{fig:RobEstRig}
+\end{figure}
+
+\subsubsection*{Espacio de trabajo}
+
+Tomando en cuenta las restricciones de movimiento impuestas por la estructura, la forma del espacio de trabajo del robot es similar al mostrado en la Figura \ref{fig:WS}.\footnote{El volumen del espacio de trabajo no está a escala, debido a que la herramienta del software Mathematica \textregistered  solo permite graficar el espacio de trabajo con longitudes de eslabones preestablecidas.}
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.4]{imagenes/INTEGRACION/Workspace}
+	\caption{Espacio de trabajo del robot}
+	\label{fig:WS}
+\end{figure}
+
+\subsubsection*{Posición de reposo/``Home''}
+
+Es necesario definir una posición en la que el robot descanse sin caerse cuando se encuentre inactivo, como se muestra en la Figura \ref{fig:RoboHome}. Para ello se aprovecha la estructura del rover, colocando dos soportes angulares que aseguren el robot desde su segundo eslabón a través de dos ejes sencillos que sirven para mantener la posición, como se muestra en la Figura \ref{fig:AnguloEslabon}, mientras que en la Figura \ref{fig:TelaEfector} se utiliza una tela para que repose el efector final.
+Aunado a ello, es importante recordar que los encoders utilizados son incrementales, i.e. la posición que se puede obtener de ellos es relativa, por tanto es necesario conocer la configuración inicial del robot al momento de la activación, por lo que la posición de reposo sirve como punto de referencia.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Posicion_Home_3}
+	\caption{Robot en posición de reposo}
+	\label{fig:RoboHome}
+\end{figure}
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Posicion_Home_2}
+	\caption{Soporte para el eslabón en posición de reposo}
+	\label{fig:AnguloEslabon}
+\end{figure}
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Posicion_Home}
+	\caption{Soporte para el efector final en posición de reposo}
+	\label{fig:TelaEfector}
+\end{figure}
+
+\begin{align*}
+S1+S5 = SI15
+\end{align*}
+
+\subsection*{Laboratorio}
+
+Para fijar el sistema del laboratorio al sistema estructural, se realizan 3 barrenos para utilizar tornillos en el perfil de aluminio de la estructura. El ensamble se muestra en la Figura \ref{fig:InteLab}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Laboratorio}
+	\caption{Integración del laboratorio con el sistema estructural}
+	\label{fig:InteLab}
+\end{figure}
+
+\subsubsection*{Validación}
+
+La Figura \ref{fig:VLab} muestra que la posición del laboratorio está dentro del espacio de trabajo del robot.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Validaciones/V_Laboratorio}
+	\caption{Integración del laboratorio con el sistema estructural}
+	\label{fig:VLab}
+\end{figure}
+
+\begin{align*}
+SI15+S4=SI154
+\end{align*}
+
+\section*{Energético}
+
+En la Figura \ref{fig:Fuente} se muestra la fuente de alimentación seleccionada en la posición determinada en la Figura \ref{fig:ConceptoMejorado}, correspondiente al concepto mejorado y elegida para ayudar a equilibrar el peso del sistema robótico.
+
+Para colocar el sistema energético en la estructura, se diseña una plataforma de soporte, mostrada en la Figura \ref{fig:FuenteSoporte}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.3]{imagenes/INTEGRACION/Placa_superficie_energia}
+	\caption{Soporte del sistema energético}
+	\label{fig:FuenteSoporte}
+\end{figure}
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Fuente}
+	\caption{Integración del sistema energético con el sistema estructural}
+	\label{fig:Fuente}
+\end{figure}
+
+\begin{align*}
+SI154+S3=SI543
+\end{align*}
+
+\section*{Información}
+
+\subsection*{Percepción}
+
+\subsubsection*{Condiciones de operación}
+
+Una vez que se conoce la ubicación de los puntos críticos en los que la temperatura alcanza valores altos, se colocan los sensores de temperatura DHT11 seleccionados previamente, indicados con un círculo en la Figura \ref{fig:SensoresMontados}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.3]{imagenes/INTEGRACION/SensoresTemp}
+	\caption{Sensores de temperatura y humedad montados en la estructura}
+	\label{fig:SensoresMontados}
+\end{figure}
+
+\subsubsection*{Visión artificial}
+
+De acuerdo al concepto mejorado, mostrado en la Figura \ref{fig:ConceptoMejorado}, las cámaras se colocan en la parte frontal inferior de la estructura, para lo cual se diseña una pieza que puede ensamblarse dentro del perfil de aluminio, que permite el ajuste del ángulo de inclinación de las cámaras, dicha pieza, junto con la cámara montada, se aprecia en la Figura \ref{fig:PiezaCamara}, y las dos piezas necesarias se muestran en la Figura \ref{fig:CamarasMontadas}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Camara_Zoom}
+	\caption{Pieza de acoplamiento para cámara}
+	\label{fig:PiezaCamara}
+\end{figure}
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Camaras}
+	\caption{Cámaras montadas en la estructura}
+	\label{fig:CamarasMontadas}
+\end{figure}
+
+\subsection*{Procesamiento}
+
+Los periféricos que utilizan los componentes se organizan de acuerdo a los requerimientos establecidos en la Tabla \ref{Tab:DistribucionPines}, en la cual se determina el tipo de periférico utilizado, para posteriormente realizar la distribución de pines como se muestra en la Figura \ref{fig:DistPines}\footnote{Las cámaras están conectadas al mismo puerto SPI, y son activadas por software mediante CS1 y CS2}.
+
+\begin{table}
+\centering
+\footnotesize
+\caption{Conexiones de los periféricos al controlador}
+\begin{tabular}{|c|c|c|}
+\hline
+Componente & Puertos & Pines \\
+\hline
+Sensor de fuerza 1 & PA0 & CN7-28 \\
+\hline
+Sensor de fuerza 2 & PA1 & CN7-30 \\
+\hline
+Sensor de fuerza 3 & PA4 & CN7-32 \\
+\hline
+\multirow{5}{*}{Cámara 1,2} & CS1 - PB4~ & CN10-27 \\
+\cline{2-3}
+ & SCLK - PA5~ & CN01-11 \\
+\cline{2-3}
+ & MISO - PA6~ & CN10-13 \\
+\cline{2-3}
+ & MOSI - PA7~ & CN10-15 \\
+\cline{2-3}
+ & CS2 - PB5 & CN10-29 \\
+\hline
+DHT11\_A & PA13 & CN7-13 \\
+\hline
+DHT11\_B & PA14 & CN7-15 \\
+\hline
+DHT11\_C & PA15 & CN7-17 \\
+\hline
+\multirow{2}{*}{Encoder Motor CD GDL\_1} & Canal A - PB7 & CN7-21 \\
+\cline{2-3}
+ & Canal B - PC13~ & CN7-23 \\
+\hline
+\multirow{2}{*}{Motor CD GDL\_1} & PWM - PA3 (Timer 2 Canal 4) & CN10-37 \\
+\cline{2-3}
+ & Dirección - PC4 & CN10-34 \\
+\hline
+\multirow{2}{*}{Encoder Motor CD GDL\_2} & Canal A - PC14 & CN7-25 \\
+\cline{2-3}
+ & Canal B - PC15 & CN7-27 \\
+\hline
+\multirow{2}{*}{Motor CD GDL\_2} & PWM - PA2 (Timer 2 Canal 3) & CN10-35 \\
+\cline{2-3}
+ & Dirección - PB13 & CN10-30 \\
+\hline
+\multirow{2}{*}{Encoder Motor CD GDL\_3} & Canal A - PH0 & CN7-29 \\
+\cline{2-3}
+ & Canal B - PH1 & CN7-31 \\
+\hline
+\multirow{2}{*}{Motor CD GDL\_3} & PWM - PA10 (Timer 1 Canal 3) & CN10-33 \\
+\cline{2-3}
+ & Dirección - PB14 & CN10-28 \\
+\hline
+Servomotor GDL\_4 & PC9 (Timer 3 Canal 4) & CN10-1 \\
+\hline
+Servomotor GDL\_5 & PB8 (Timer 2 Canal 1) & CN10-3 \\
+\hline
+Servomotor GDL\_6 & PB9 (Timer 2 Canal 2) & CN10-5 \\
+\hline
+Servomotor Efector & PC8 (Timer 3 Canal 3) & CN10-2 \\
+\hline
+Servomotor Desechador & PC9 (Timer 3 Canal 1) & CN10-4 \\
+\hline
+\multirow{2}{*}{Módulo de celda de carga} & DATA - PC2 & CN7-35 \\
+\cline{2-3}
+ & CLK - PC3 & CN7-37 \\
+\hline
+\end{tabular}
+\label{Tab:DistribucionPines}
+\end{table}
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=1.5]{imagenes/INTEGRACION/Distribucion pines}
+	\caption{Conexión de los periféricos al controlador}
+	\label{fig:DistPines}
+\end{figure}
+
+Conociendo los pines a utilizar, se diseña una placa de circuito impreso (PCB - Printed Circuit Board por sus siglas en inglés), mostrada en la Figura \ref{fig:PCB}, y cuyo diagrama esquemático se muestra en la Figura \ref{fig:PCBEsq}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=1.5]{imagenes/INTEGRACION/Placa2PCB}
+	\caption{Placa de circuito impreso}
+	\label{fig:PCB}
+\end{figure}
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.7]{imagenes/INTEGRACION/Placa2PCB_Esquematico}
+	\caption{Diagrama esquemático de la placa de circuito impreso}
+	\label{fig:PCBEsq}
+\end{figure}
+
+La placa se diseña para acoplarse directamente con la tarjeta del microcontrolador, como se muestra en la Figura \ref{fig:PlakaYNukleo}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.7]{imagenes/INTEGRACION/plakaynucleo}
+	\caption{Ensamblaje de PCB con microcontrolador}
+	\label{fig:PlakaYNukleo}
+\end{figure}
+
+Para colocar el sistema de procesamiento en la estructura, se diseña una plataforma de soporte, mostrada en la Figura \ref{fig:PlakaSup}. El ensamblaje resultante se acopla en la parte central de la estructura de acuerdo a la Figura \ref{fig:Plaka}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.3]{imagenes/INTEGRACION/Placa_superficie_informacion}
+	\caption{Soporte del sistema de información}
+	\label{fig:PlakaSup}
+\end{figure}
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Plaka}
+	\caption{Placas colocadas en la estructura}
+	\label{fig:Plaka}
+\end{figure}
+
+Debido a que los periféricos de la tarjeta no son capaces de suministrar la corriente necesaria para mover los actuadores, se utilizan controladores para motores de CD basados en conmutadores de estado sólido que permiten el control por PWM, cuyas características son: 
+
+\begin{itemize}
+\item MDD10A (Anexo  \ref{An:DrivServ})
+	\begin{itemize}
+	\item Voltaje de alimentación: 5-30[V]
+	\item Corriente máxima continua: 5 [A]
+	\item Corriente pico: 30 [A] por menos de 10 segundos
+	\item Frecuencia máxima de PWM: 20 [KHz]
+	\end{itemize}
+\item MD20A (Anexo \ref{An:DrivMot})
+	\begin{itemize}
+	\item Voltaje de alimentación: 6-30[V]
+	\item Corriente máxima continua: 20 [A]
+	\item Corriente pico: 60 [A] por menos de 10 segundos
+	\item Frecuencia máxima de PWM: 20 [KHz]
+	\end{itemize}
+\end{itemize}
+
+\pagebreak
+
+\begin{align*}
+SI1543+S2=SI5432
+\end{align*}
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.75]{imagenes/render sistema 4}
+\end{figure}
+
+\pagebreak
+
+\section{Integración de software}
+
+Según el modelo eFFBD de la Figura \ref{fig:eFFBD}, el funcionamiento del sistema se puede clasificar en procesos realizados por el computador y procesos realizados por el microcontrolador, para entender mejor estos procesos es útil recurrir a un diagrama de flujo, y la redacción de un pseudocódigo que posteriormente facilite su implementación en un lenguaje de programación real.
+
+A continuación se muestra el diagrama de flujo del proceso realizado por el computador, acompañado del pseudocógido correspondiente.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=1]{imagenes/INTEGRACION/DiagramasDeFlujo_PC}
+	\caption{Diagrama de flujo del algoritmo ejecutado por la PC}
+	\label{fig:DFPC}
+\end{figure}
+
+\lstset{style=mystyle}
+\begin{lstlisting}[language=C, caption=Pseudocódigo de la computadora]
+Inicio
+flotantes Q=(q1,q2,q3,q4)	// Valores constantes para la corrección de perspectiva
+enteros f,b,			// Distancia focal y distancia entre camaras 
+Booleano salir de proceso =  Falso;
+Iniciar puerto uart usb//	Para comunicación con el micro
+Esperar comando // 		del usuario para encendido general
+Enviar cadena por uart // 	para encendido
+salir de proceso =Esperar comando //para tomar muestra O desactivar sistema
+	Mientras (salir de proceso ==  Falso)
+	Enviar cadena por uart // 	para toma de fotografías
+	Recepción de cadena de datos// Contiene las dos fotografías
+	Comprobación de cadena//	Por CRC
+	Homografía(q1,q2,q3,q4)//	Función para corrección de perspectiva
+	Mostrar imagen corregida
+	Recibir un rectángulo de interés// Colocado por el usuario sobre la imagen corregida
+	Obtener el centroide del rectángulo
+	(Xc,Yc)=k(xm,ym)//		Transformación de coordenadas del espacio de cámara al     espacio de trabajo
+	Xi=Ln-Ci		 // Diferencia entre el eje neutro y el centroide en la imagen izquierda
+	Xd=Ln-Cd		 // Diferencia entre el eje neutro y el centroide en la imagen derecha
+	zm=f*b/(Xi-Xd)		// Coordenada Z de la muestra
+	T=Generación de trayectoria (xh,yh,zh,xm,ym,zm)
+	Ci=Cinemática inversa (T);
+	Envío de las posiciones deseadas (T)
+	Recepción de cadena de datos// Contiene resultado de la operación
+	Si operación exitosa	
+		entonces mostrar resultado 
+	de otra forma, mostrar alerta y condiciones del entorno
+	Esperar comando //   Para tomar otra muestra o desactivarse
+	Si Tomar otra muestra
+		entonces mostrar resultado 
+	de otra forma, salir de proceso = verdadero
+Fin de programa
+
+\end{lstlisting}
+
+El diagrama de flujo del microcontrolador se muestra en la Figura \ref{fig:DFMicro}.
+
+\newgeometry{left=0.1cm,bottom=1cm}
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.8]{imagenes/INTEGRACION/DiagramasDeFlujo_Micro}
+	\caption{Diagrama de flujo del algoritmo ejecutado por el microcontrolador}
+	\label{fig:DFMicro}
+\end{figure}
+\restoregeometry
+
+El pseudocódigo del proceso realizado por el microcontrolador se presenta a continuación.
+
+\begin{lstlisting}[language=C, caption=Pseudocódigo del microcontrolador]
+Inicio de programa
+Booleano realizar proceso //Variable de control que indica si se debe tomar la muestra o desactivar el sistema
+booleano	CS1=CS2=1 // ambas cámaras deshabilitadas (lógica negada en Chip Select)
+flotante TH1, TH2, TH3, Temp1, Hum1, Temp2, Hum2, Temp3, Hum3 // Condiciones del entorno
+entero i,j // Contadores
+booleano realizar_proceso, PiedraDetectada, banderaTimeOut, errorEfector, errorPiedra, errorCondiciones // Banderas de control
+flotante PesoCelda
+Iniciar periférico UART // Para comunicación con PC
+Iniciar periférico SPI // Para comunicación con cámaras
+Iniciar periférico ADC // Para lectura de sensores de fuerza
+Configurar timers PWM // Para control de motores de CD y servomotores
+Configurar i/o digitales // Para leer sensores digitales
+realizar_proceso = Esperar cadena de comando // La PC transmite la orden del usuario de iniciar proceso o desactivar sistema
+Mientras realizar_proceso == verdadero
+	TH1[2]=lectura DHT11 1 // Arreglo dimensión 2 con temperatura y humedad de los sensores DTH11
+TH2[2]=lectura DHT11 2
+TH3[2]=lectura DHT11 3
+	Temp1 = TH1[1] //Obtener valor de temperatura del DHT11_A
+	Hum1=TH1[2] // Obtener valor de humedad del DHT11_A
+Temp2 = TH2[1]
+Hum2=TH2[2]
+Temp3 = TH3[1]
+Hum3=TH3[2]
+CondicionesEntorno=TH1+TH2+TH3 // Cadena con toda la información de los sensores para mostrar al usuario
+Si (Temp1<tempMax Y Temp2<tempMax Y Temp3<tempMax 
+	Y Hum1<HumMax Y Hum2<HumMax Y Hum2<HumMax) // Comprobar que las condiciones del entorno están dentro de los límites aceptables
+		CS2=0 // Activar cámara 2
+		desde i=1 hasta i=2 incremento 1 // Ciclo para tomar fotografías
+			CS1=CS2 // Intercambiar el valor de activación de la cámara 1
+CS2=CS2! // Intercambiar el valor de activación de la cámara 2
+envío spi de solicitar fotografía // Enviar orden de toma de fotografía
+Fi[]=recibir spi fotografía // Guardar fotografía i en memoria
+ 		fin del bucle 
+		CS2=1 // Desactivar cámara 2
+		Enviar por uart la cadena con las dos imágenes a la PC (F1,F2)
+		T[]=Recibir de la pc cadena con posiciones de juntas 
+		desde j=1 hasta j=6 incremento 1 // Ciclo para implementar el control por juntas independientes
+			pwm[j]=control(encoder[j],T[j])
+		fin del bucle 		
+		hacer // Ciclo de cierre del efector hasta determinar que la muestra ha sido asegurada
+		F[3]=lectura adc sensores fuerza
+		PwmServo=PwmServo+10° // Continuar cerrando el efector
+		si PwmServo=límite de cierre entonces
+			errorEfector=verdadero // El efector no logró asegurar la muestra
+mientras (F[0]<Fmin Y F[1]<Fmin Y F[2]<Fmin)
+ 		si errorEfector == verdadero entonces
+			Resultado = errorEfector
+		de otra forma 
+		desde j=1 hasta j=6 incremento 1 // Llevar la muestra al laboratorio
+			pwm[j]=control(encoder[j],T_Lab[j])
+		fin del bucle 
+PwmServo=PwmServoTotalAbierto // Abrir efector para dejar caer la muestra
+		Establecer Timer de timeout // Para esperar un máximo de 5 segundos a que la piedra llegue al área de medición
+PiedraDetectada=Falso
+		mientras banderaTimeOut==falso y PiedraDetectada=Falso // Si sigue contando o si se detecta la piedra
+			PesoCelda=leer celda de carga
+	si PesoCelda>10g entonces 
+		PiedraDetectada=Verdadero
+fin del bucle
+si PiedraDetectada=Falso entonces
+	Resultado=ErrorPiedra+condiciones entorno // La muestra no llegó al área de medición
+de otra forma 	Resultado = PesoCelda+condiciones entorno
+
+desde j=1 hasta j=6 incremento 1 // Llevar el robot a su posición de Home
+			pwm[j]=control(encoder[j],T_Lab_Home[j])
+		fin del bucle 
+		PwmDesechador=PwmAbierto // Deshacerse de la muestra
+		Espera 2 segundos
+		PwmDesechador=PwmCerrado // Regresar área de medición a su posición original
+de otra forma  Resultado=ErrorCondiciones+condiciones entorno // Condiciones fuera de los límites aceptables
+Enviar uart Resultado // Enviar información con resultado de la operación, sea exitoso o fallido
+realizar_proceso = Esperar cadena de comando // Esperar nueva orden para tomar otra muestra o desactivar el sistema
+Fin del bucle. 
+Fin del programa
+
+\end{lstlisting}
+
+\section*{Estimación de costos}
+
+La Tabla \ref{Tab:Costos}  refleja el costo aproximado del proyecto, considerando los componentes adquiridos y los manufacturados
+
+\begin{table}
+\caption{Estimación de costos}
+\scriptsize
+\begin{tabular}{|c|c|c|c|}
+\hline
+Concepto                                     & Cantidad & Precio unitario USD & Precio total USD \\ \hline
+Motor                                        & 3        & 60                  & 180              \\ \hline
+Servomotor                                   & 5        & 15                  & 75               \\ \hline
+Abrazadera                                   & 4        & 7                   & 28               \\ \hline
+Eje de tornillo de fijación                  & 4        & 5                   & 20               \\ \hline
+Montaje de cojinete plano                    & 2        & 7                   & 14               \\ \hline
+Buje de eje                                  & 4        & 10                  & 40               \\ \hline
+Buje de servo                                & 1        & 5                   & 5                \\ \hline
+Chumacera                                    & 2        & 7                   & 14               \\ \hline
+Polea 15D                                    & 2        & 9                   & 18               \\ \hline
+Cople motor                                  & 1        & 5                   & 5                \\ \hline
+Rodamiento con brida                         & 2        & 5                   & 10               \\ \hline
+Bloque portador de carga para servo (Muñeca) & 1        & 28                  & 28               \\ \hline
+Soporte servo multiusos (Lab)                & 1        & 12                  & 12               \\ \hline
+DHT11                                        & 3        & 5.2                 & 15.6             \\ \hline
+Camara                                       & 2        & 26                  & 52               \\ \hline
+Fuente conmutada                             & 1        & 40                  & 40               \\ \hline
+Regulador 5V                                 & 1        & 6                   & 6                \\ \hline
+Regulador 7.6 V                              & 2        & 8.5                 & 17               \\ \hline
+Driver Dual 10 A                             & 1        & 19.25               & 19.25            \\ \hline
+Driver 20 A                                  & 1        & 17.25               & 17.25            \\ \hline
+Polea A 6A 3-15DF03716                       & 2        & 11.67               & 23.34            \\ \hline
+Banda B375-220XL                             & 2        & 5.70                & 11.4             \\ \hline
+Banda B375-290XL                             & 1        & 6.75                & 6.75             \\ \hline
+Eje 0.5in*6in S40PH0-CHS4-012                & 2        & 11.36               & 22.72            \\ \hline
+Soporte eje 12 mm                            & 1        & 18                  & 18               \\ \hline
+\multicolumn{3}{|c|}{TOTAL USD}                                               & 698.31           \\ \hline
+\multicolumn{3}{|c|}{CONVERSIÓN MXN (18/06/2020)}                             & 15,894.05        \\ \hline
+Rodamiento axial AXK\_4565                   & 1        & 200 MXN             & 200 MXN          \\ \hline
+Rodamiento de rodillos NU\_303\_ECP          & 1        & 500 MXN             & 500 MXN          \\ \hline
+Rodamiento D\_W\_ER1212\_2ZS                 & 5        & 100 MXN             & 500 MXN          \\ \hline
+Impresión 3D plástico ingeniería             & 1        & 1500 MXN            & 1,500 MXN        \\ \hline
+Impresión 3D plástico estándar               & 1        & 2000 MXN            & 2,000 MXN        \\ \hline
+Solera de aluminio                           & 1        & 1500 MXN            & 1,500 MXN        \\ \hline
+IPS 20x20                                    & 8{[}m{]} & 138.6 MXN           & 1,108.8 MXN      \\ \hline
+\multicolumn{3}{|c|}{Total}                                                   & 23,202.85 MXN    \\ \hline
+\end{tabular}
+\label{Tab:Costos}
+\end{table}

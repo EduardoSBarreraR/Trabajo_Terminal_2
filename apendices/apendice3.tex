@@ -1,0 +1,45 @@
+\chapter{Apéndice 2: Simulación cinemática del robot}
+\setcounter{section}{0}
+\section{Código de simulación de cinemática de robots utilizando el toolbox ``Robotics'' para MATLAB \textregistered}
+\label{Ap:CodigoRoboCorke}
+\begin{lstlisting}[language=Matlab]
+clc, clear all,close all
+%% Configuración del robot
+
+O1 = 5;
+O2 = 5;
+L1 = 32;
+L2 = 24;
+L3 = 10;
+
+L(1)=Link('d',O1,'a',O2,'alpha',pi/2);%parámetros de la primer junta y eslabón
+L(2)=Link('d',0,'a',L1,'alpha',0);%parámetros de la segunda junta y eslabón
+L(3)=Link('d',0,'a',L2,'alpha',pi/2);
+L(4)=Link('d',0,'a',0,'alpha',-pi/2,'offset',-pi/2);%%%%%%%% Link 
+L(5)=Link('d',0,'a',0,'alpha',pi/2,'offset',pi);%%%%%%%% Link 
+L(6)=Link('d',0,'a',0,'alpha',pi/2,'offset',pi);%%%%%%%% Link 
+L(7)=Link('d',L3,'a',0,'alpha',0);%%%%%%%% Link 
+
+
+qli=[-pi pi;-pi pi;-pi pi;0 0;-pi pi;-pi pi;-pi pi];%definición de los límites de las juntas 
+qz=[0 0 0 0 ];%matriz con vectores articulares renglón
+%%qfinal=[-pi/2 0 pi/2];
+antropom=SerialLink(L,'name','antrop','qlim',qli); %construcción del objeto polar, 
+antropom.teach;
+%= {'workspace', [-6 6 -6 6 -6 6]}; %opcion del método plot,
+
+%% Trazado de la trayectoria
+%path = [ -4 1 2; -2.82 1 4.82; 0 1 6; 2.82 1 4.82; 4 1 2]; % secuencia de puntos en R^3
+%plot3(path(:,1), path(:,2), path(:,3), 'color', 'k', 'LineWidth', 2)
+%grid on
+%hold on
+
+%% Seguimiento de trayectoria con el robot
+%d=interp_mia(path,50);%trayectoria en R^3 y tamaño de paso
+%q=iantrop(d); %mapeo de la trayectoria de d \in R^3 a q \in R^n
+%qal=iantrop(path)
+%q=interp_mia(qal,50)
+%antropom.plot(q) % grafica del seguimiento
+
+hold off
+\end{lstlisting}

@@ -1,0 +1,82 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Escrito_TT2.aux
+A level-1 auxiliary file: preliminares/Resumen.aux
+A level-1 auxiliary file: preliminares/introduccion.aux
+A level-1 auxiliary file: capitulos/metodologia.aux
+A level-1 auxiliary file: capitulos/diseconceptual.aux
+A level-1 auxiliary file: capitulos/disedetallado.aux
+A level-1 auxiliary file: capitulos/integracion.aux
+A level-1 auxiliary file: capitulos/validacion.aux
+A level-1 auxiliary file: preliminares/Nomenclatura.aux
+A level-1 auxiliary file: capitulos/conclusiones.aux
+The style file: IEEEtran.bst
+A level-1 auxiliary file: apendices/apendice1.aux
+A level-1 auxiliary file: apendices/apendice3.aux
+A level-1 auxiliary file: apendices/apendice4.aux
+A level-1 auxiliary file: apendices/apendice2.aux
+A level-1 auxiliary file: apendices/anexo1.aux
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: XBiblioteca.bib
+Warning--entry type for "ANT4" isn't style-file defined
+--line 289 of file XBiblioteca.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in ANT1
+Warning--empty journal in Esfericidad
+Warning--empty year in Esfericidad
+Warning--missing publisher in Ashby
+Warning--missing publisher in Mott
+Warning--missing publisher in BandasSDPSI
+Warning--empty year in BandasSDPSI
+Warning--missing publisher in Potencia
+Warning--missing publisher in RoboCorke
+
+Done.
+You've used 42 entries,
+            4087 wiz_defined-function locations,
+            1046 strings with 12378 characters,
+and the built_in function-call counts, 15479 in all, are:
+= -- 1121
+> -- 234
+< -- 21
++ -- 109
+- -- 51
+* -- 567
+:= -- 2739
+add.period$ -- 73
+call.type$ -- 42
+change.case$ -- 44
+chr.to.int$ -- 57
+cite$ -- 51
+duplicate$ -- 1314
+empty$ -- 1593
+format.name$ -- 59
+if$ -- 3444
+int.to.chr$ -- 0
+int.to.str$ -- 42
+missing$ -- 278
+newline$ -- 187
+num.names$ -- 47
+pop$ -- 836
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1213
+stack$ -- 0
+substring$ -- 130
+swap$ -- 701
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 42
+warning$ -- 9
+while$ -- 51
+width$ -- 44
+write$ -- 370
+(There were 10 warnings)

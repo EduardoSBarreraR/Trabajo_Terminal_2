@@ -1,0 +1,2223 @@
+\chapter{Diseño de dominio específico}
+
+A lo largo de este capítulo se realiza el diseño a detalle del sistema, para posteriormente seleccionar los métodos de manufactura, materiales y componentes físicos que conforman los módulos pertenecientes al mismo.
+
+\section{Sistema robótico (S1)}
+\subsection{Módulo de manipulador (M1)}
+\subsubsection*{Brazo antropomórfico}
+Para comenzar el diseño del manipulador, resulta necesario establecer la distancia horizontal máxima que debe alcanzar el mismo, la cual se calcula utilizando la ecuación \ref{eq:Pitagorazo}, que corresponde a la ecuación de triángulos rectángulos propuesta por Pitágoras, y despejando para obtener el cateto horizontal a partir de la cateto vertical y la hipotenusa mostrados en la figura \ref{fig:AlcancePitagoras}.
+
+\begin{figure}
+\centering		
+	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Vista lateral con brazo}
+	\caption{Alcance máximo del sistema}
+	\label{fig:AlcancePitagoras}
+\end{figure}
+
+\begin{equation}
+\label{eq:Pitagorazo}
+BH = \sqrt{BT^2-BV^2}
+\end{equation}
+\\ \\
+\begin{flushleft}
+En donde: $ \; BH =$ Distancia horizontal al punto más lejando.
+\\
+$\qquad \quad \qquad BT =$ Longitud del brazo totalmente estirado.
+\\
+$\qquad \quad \qquad BV =$ Distancia de la base del robot hasta el suelo.
+\end{flushleft}
+
+El objetivo propuesto es que el alcance horizontal del brazo sea de aproximadamente 70cm ($BH 	\approx 70cm$), y tomando en cuenta que la distancia del suelo a la base del robot $BV$ es de 37cm, se requiere una longitud de brazo $BT$ de 79.17 cm, de los cuales 20cm se consideran ocupados por la muñeca esférica y el efector final, quedando 59.17cm libres para los dos eslabones del manipulador.
+
+Además de esto, se establece que la longitud del segundo eslabón $l_{2}$ sea igual a $3/4$ de la longitud del primero $l_{1}$, resultando en $l_{1}=33.81cm$ y $l_{2}=25.35cm$. Los números enteros más cercanos que cumplen esta relación son $l_{1}=32cm$ y $l_{2}=24cm$, los cuales son seleccionados con fines de simplicidad en la manufactura.
+
+De esta manera, las longitudes quedan como se muestra a continuación:
+
+\begin{flushleft}
+$\qquad \quad \qquad BT = 76cm$
+$\qquad \quad \qquad BH = 66.38cm$
+$\qquad \quad \qquad BV = 37cm$
+\end{flushleft}
+
+\subsubsection*{Selección de material para eslabones}
+
+Con el fin de determinar el material para construir el sistema robótico, se debe considerar su geometría, tomando en consideración la restricción de masa (R5). Se considera de forma preliminar que la base fija al rover tenga una masa de 2 Kg, lo cual deja 10 Kg disponibles para el manipulador, además de que se determina un factor de seguridad para la masa de la muestra igual a 2, y el efector final tiene una masa de 2Kg\cite{GripperOS}, el cual se discute en la sección Efector Final (M2)(Vinculo), quedando 7.5 Kg para el manipulador.
+
+Con el objetivo de generar reacciones pequeñas, se establece que el primer eslabón ocupe la mayor parte de la masa, ya que es el que soporta al resto del manipulador, mientras que el eslabón 2 y la muñeca deben ser más ligeros que el primer eslabón al estar más lejos de los ejes de giro de los primeros 2 GDL, por lo que se reduce la masa asignada en un Kg para cada elemento, quedando de la siguiente manera:
+
+\begin{itemize}
+\item Eslabón 1: \unit[3.5]{Kg}.
+\item Eslabón 2: 2.5 Kg.
+\item Muñeca: 1.5 Kg.
+\item Efector final: 2 Kg.
+\item Muestra: 500 g.
+\end{itemize}
+
+Contando con estos datos, es posible calcular la densidad máxima que debe poseer el material a utilizar, consultando el gráfico que relaciona la densidad de los materiales con su respectivo módulo de elasticidad propuesto por Michael Ashby\cite{Ashby}, el cual puede ser observado en la Figura \ref{fig:DensidadVSYoung}.
+
+\subsubsection*{Diseño de geometría de los eslabones}
+
+La geometría del primer eslabón está determinada por las siguientes dimensiones:
+
+\begin{itemize}
+\item Longitud: 32 cm.
+\item Espesor: 8 mm.
+\item Alto: 3 cm.
+\item Radio de chaflán: 1.5 cm.
+\end{itemize}
+
+Con estos datos es posible calcular el volumen ocupado por el mismo, separándolo en sus geometrías básicas, que son un cilindro y un prisma rectangular, además de considerar el volumen de los ejes utilizados para unir ambos perfiles de cada eslabón, por lo que se debe sumar el volumen de éstos, y restar el volumen del barreno requerido para acoplarlos, sustituyendo las dimensiones en la ecuación \ref{eq:VolumenE1} 
+
+\begin{equation}
+\label{eq:VolumenE1}
+V_{e} = 2t_{e}(h_{e}l_{e} + \pi r^2_{e}-50 \pi)+400 \pi  
+\end{equation}
+
+\begin{flushleft}
+En donde: $ \; V_{e} =$ Volumen ocupado por el eslabón.
+\\
+$\qquad \quad \qquad t_{e} =$ Espesor del perfil del eslabón.
+\\
+$\qquad \quad \qquad h_{e} =$ Altura del perfil del eslabón.
+\\
+$\qquad \quad \qquad l_{e} =$ Longitud del perfil del eslabón.
+\\
+$\qquad \quad \qquad r_{e} =$ Radio del chaflán del eslabón.
+\end{flushleft}
+
+Sustituyendo $t_{e_{1}}$,$h_{e_{1}}$,$l_{1}$ y $r_{e_{1}}$ en la ecuación \ref{eq:VolumenE1}, queda lo siguiente:
+
+
+\begin{center}
+$V_{e_{1}} = 2t_{e}(h_{e_{1}}l_{1} + \pi r^2_{e_{1}}-50 \pi)+400 \pi = 2*(0.008m)*(0.03m*0.32m+ \pi *0.015m^2 - 50 \pi) + 400 \pi $
+\\
+$V_{e_{1}} = \unit[174.962e-6]{m^3}$
+\end{center}
+
+
+Una vez que se ha calculado el volumen que ocupa el eslabón con las dimensiones especificadas, y utilizando el valor de su masa determinada, es posible calcular la densidad máxima que debe tener el material, cuyo valor está dado por la ecuación \ref{eq:DensidadE1}, recordando que el concepto solución contempla dos placas paralelas, por lo que el peso determinado debe distribuirse equitativamente.
+
+\begin{equation}
+\label{eq:DensidadE1}
+\rho_{e} = \frac{m_{e}}{2V_{e}}
+\end{equation}
+
+\begin{flushleft}
+En donde: $ \; m_{e} =$ Masa del eslabón.
+\\
+$\qquad \quad \qquad \rho_{e} \: \; =$ Densidad del eslabón.
+\end{flushleft}
+
+
+Sustituyendo $m_{e_{1}}$ y $V_{e_{1}}$ en la ecuación \ref{eq:DensidadE1}, queda lo siguiente:
+
+\begin{center}
+ $\rho_{e_{1}} = \frac{m_{e_{1}}}{2V_{e_{1}}} = \frac{3.5 Kg}{2*174.962e-6 m^3} = \unitfrac[10002.17]{Kg}{m^3}$ 
+ \end{center} 
+ 
+Una vez que se conoce la densidad máxima $\rho_{e_{1}}$ del material a seleccionar, se analiza la relación entre la densidad y el módulo de elasticidad de los materiales mostrada en el gráfico de la Figura \ref{fig:DensidadVSYoung_Seleccion}, que indica aquellos materiales que no se pueden elegir con un área sombreada, debido a que su densidad es mayor a la máxima establecida en el cálculo anterior, mostrando que la variedad de materiales entre los que se puede elegir es amplia. Esto incluye a los metales, los cuales son una buena elección debido a su módulo de elasticidad elevado, sobresaliendo entre éstos el aluminio, muy utilizado en aplicaciones aeroespaciales debido a su alta maquinabilidad sin comprometer el peso. En la Tabla \ref{tab:PropiedadesAluminio} se muestran las principales propiedades mecánicas del mismo\cite{SolidWorks}.
+
+\begin{figure}[h]
+\centering		
+	\includegraphics[scale=1]{imagenes/Dominio especifico/DensidadVSYoung_Seleccion}
+	\caption{Rango de materiales elegibles para el eslabón}
+	\label{fig:DensidadVSYoung_Seleccion}
+\end{figure}
+
+\begin{table}[t]
+\caption{Propiedades mecánicas del Aluminio 6061 T6}
+\centering
+\begin{footnotesize}
+\begin{tabular}{|c|c|c|}
+\hline
+Propiedad              & Valor & Unidades \\ \hline
+Densidad               & 2700  & $\unitfrac{Kg}{m^3} $   \\ \hline
+Módulo elástico        & 69    & GPa      \\ \hline
+Coeficiente de Poisson & 0.33  & adimensional         \\ \hline
+\end{tabular}
+\end{footnotesize}
+\label{tab:PropiedadesAluminio}
+\end{table}
+
+La Figura \ref{fig:CADE1Solido} muestra el modelo CAD del primer eslabón, generado en el software SolidWorks \textregistered \cite{SolidWorks}, con el que se realizan todos los modelos CAD.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Primeros eslabones}
+	\caption{Modelo CAD del primer eslabón.}
+	\label{fig:CADE1Solido}
+\end{figure}
+
+Para seleccionar el material del segundo eslabón se sigue el mismo procedimiento, utilizando las dimensiones determinadas, las cuales son:
+
+\begin{itemize}
+\item Longitud: 24 cm.
+\item Espesor: 6 mm.
+\item Alto: 2.25 cm.
+\item Radio de chaflán: 1.125 cm.
+\end{itemize}
+
+Con estos datos se calcula el volumen y la densidad sustituyéndolos en las ecuaciones \ref{eq:VolumenE1} y \ref{eq:DensidadE1} como sigue:
+
+\begin{center}
+
+$V_{e_{2}} = 2t_{e}(h_{e_{2}}l_{2} + \pi r^2_{e_{2}} - 50 \pi ) + 400 \pi = 2*(0.006m)*(0.0225m*0.24m + \pi *0.0125m^2 -50 \pi) + 400 \pi$
+\\
+$V_{e_{2}}   = \unit[80.252e-6]{m^3}$
+\end{center}
+
+\begin{center}
+$\rho_{e_{2}} = \frac{m_{e_{2}}}{2V_{e_{2}}} = \frac{2.5 Kg}{2*80.252e-6 m^3}$ 
+\\
+$\rho_{e_{2}} = \unitfrac[15575.93]{Kg}{m^3}$
+\end{center}
+ 
+Como en el caso anterior, el cálculo demuestra que hay muchos materiales entre los cuales elegir, por lo que se selecciona nuevamente el aluminio, ya que presenta la ventaja añadida de que es más barato comprar el mismo material en mayor cantidad que una cantidad menor de distintos materiales.
+
+La Figura \ref{fig:CADE2Solido} muestra el modelo CAD del segundo eslabón.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Segundos eslabones}
+	\caption{Modelo CAD del segundo eslabón.}
+	\label{fig:CADE2Solido}
+\end{figure}
+
+Con la densidad descrita en la Tabla \ref{tab:PropiedadesAluminio}, se calcula la magnitud real de la masa, despejando la masa $m_{e}$ de la  ecuación \ref{eq:DensidadE1}, obteniendo como resultado \textbf{$m_{e_{1}} = 0.472$ Kg} y \textbf{$m_{e{2}} = 0.216$ Kg}.
+
+\subsubsection*{Validación de la selección}
+
+Para comprobar el rendimiento del material frente a las cargas aplicadas se ejecuta un análisis de elemento finito estático\cite{FEASolid} realizando un estudio de resistencia a cada elemento en el software SolidWorks 2018\textregistered \cite{SolidWorks}.
+
+Para poder ejecutar este análisis, el software requiere que el usuario indique el valor de las cargas a las que el elemento está sometido, por lo tanto, se calculan las cargas equivalentes mediante las ecuaciones estáticas de equilibrio, siendo la ecuación \ref{eq:SumaFuerzas} la correspondiente a la suma de fuerzas y la ecuación \ref{eq:SumaMomentos} a la suma de momentos.
+
+\begin{equation}
+\label{eq:SumaFuerzas}
+\uparrow \sum F_{y} = 0 
+\end{equation}
+
+\begin{flushleft}
+En donde: $ \; F_{y} =$ Fuerzas existentes en el eje Y.
+\end{flushleft}
+
+\begin{equation}
+\label{eq:SumaMomentos}
+\circlearrowleft \sum M_{o} = 0
+\end{equation}
+
+\begin{flushleft}
+En donde: $ \; M_{o} =$ Momentos generados por las fuerzas normales al punto O.
+\end{flushleft}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/DP1}
+	\caption{Cargas aplicadas al sistema}
+	\label{fig:CargasS}
+\end{figure}
+
+En la Figura \ref{fig:CargasS} se pueden apreciar las cargas a las que está sometido el sistema, analizando las cargas aplicadas en el eslabón 1 en la Figura \ref{fig:CargasE1}, mientras que las cargas aplicadas al eslabón 2 son mostradas en la Figura \ref{fig:CargasE2}. Estos datos proporcionan la información necesaria para hacer las simulaciones.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/E11}
+	\caption{Cargas aplicadas al eslabón 1.}
+	\label{fig:CargasE1}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/E21}
+	\caption{Cargas aplicadas al eslabón 2.}
+	\label{fig:CargasE2}
+\end{figure}
+
+El estudio del eslabón 1, mostrado en la Figura \ref{fig:AnE1Solido}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE1Solido}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE1Solido}
+	\caption{Características de mallado del estudio de resistencia del eslabón 1}
+	\label{fig:MallaE1Solido}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_1_solido}
+	\caption{Estudio de resistencia del eslabón 1 sólido}
+	\label{fig:AnE1Solido}
+\end{figure}
+
+El estudio del eslabón 2, mostrado en la Figura \ref{fig:AnE2Solido}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE2Solido}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE2Solido}
+	\caption{Características de mallado del estudio de resistencia del eslabón 2}
+	\label{fig:MallaE2Solido}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_2_solido}
+	\caption{Estudio de resistencia del eslabón 2 sólido}
+	\label{fig:AnE2Solido}
+\end{figure}
+
+Los resultados de los estudios indican que el esfuerzo von Mises máximo en el primer eslabón, mostrado en la Figura \ref{fig:AnE1Solido}, es 3.036 MPa, mientras que en el segundo estudio (Figura \ref{fig:AnE2Solido} es 5.581 MPa. Dado que el límite elástico del aluminio 6061 T6 es igual a 275 MPa, los factores de seguridad para cada elemento son 90.58 y 49.27 respectivamente, por lo que se puede concluir que el material no fallará.
+
+\subsubsection*{Rediseño orientado a integridad estructural}
+
+Debido a que los resultados de la validación son favorables, existe la oportunidad de mejorar el diseño con el objetivo de incrementar la integridad estructural, lo cual se logra al añadir travesaños a lo largo del eslabón, cuyos modelos CAD se muestran en las Figuras \ref{fig:CADE1Traves} y \ref{fig:CADE2Traves} respectivamente.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Primeros eslabones traves}
+	\caption{Modelo CAD del primer eslabón con travesaños.}
+	\label{fig:CADE1Traves}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Segundos eslabones traves}
+	\caption{Modelo CAD del segundo eslabón con travesaños.}
+	\label{fig:CADE2Traves}
+\end{figure}
+
+\subsubsection*{Validación del rediseño}
+
+Ya que se realizaron cambios al diseño original, es necesario volver a comprobar el rendimiento del material frente a las cargas aplicadas, como se muestra a continuación.
+
+El estudio del eslabón 1 rediseñado, mostrado en la Figura \ref{fig:AnE1Traves}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE1Traves}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE1Traves}
+	\caption{Características de mallado del estudio de resistencia del eslabón 1 con travesaños}
+	\label{fig:MallaE1Traves}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_1_traves}
+	\caption{Estudio de resistencia del eslabón 1 con travesaños}
+	\label{fig:AnE1Traves}
+\end{figure}
+
+El estudio del eslabón 1 rediseñado, mostrado en la Figura \ref{fig:AnE2Traves}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE2Traves}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE2Traves}
+	\caption{Características de mallado del estudio de resistencia del eslabón 2 con travesaños}
+	\label{fig:MallaE2Traves}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_2_traves}
+	\caption{Estudio de resistencia del eslabón 2 con travesaños}
+	\label{fig:AnE2Traves}
+\end{figure}
+
+Este nuevo resultado indica que el esfuerzo von Mises máximo en el primer eslabón es 8.377 MPa, mientras que en el segundo es 3.782 MPa. Aunque estos valores hayan aumentado respecto de los obtenido con el diseño original, los factores de seguridad (32.82 y 72.71) siguen siendo favorables.
+
+\subsubsection*{Rediseño orientado a la reducción de masa}
+
+Considerando que los factores de seguridad son grandes, y dado que uno de los objetivos del proyecto es reducir el consumo energético del sistema, se propone reducir la cantidad de material utilizado ranurando los eslabones y modificando la sección transversal, resultando en las siguientes dimensiones:
+
+\begin{itemize}
+\item $t_{e{1}} =$ 6.35 mm
+\item $t_{e{2}} =$ 6 mm
+\end{itemize}
+
+Los eslabones rediseñados pueden observarse en las Figuras \ref{fig:CADE1Ran} y \ref{fig:CADE2Ran}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Primeros eslabones ranurados}
+	\caption{Modelo CAD del primer eslabón ranurado.}
+	\label{fig:CADE1Ran}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Segundos eslabones ranurados}
+	\caption{Modelo CAD del segundo eslabón ranurado.}
+	\label{fig:CADE2Ran}
+\end{figure}
+
+Estos cambios provocan una reducción en el volumen ocupado por los eslabones y, por ende, en la masa de los mismos.
+
+\begin{itemize}
+\item $V_{e{1}} =113.899e-6 m^{3}$
+\item $V_{e{2}} =65.098e-6 m^{3}$
+\item $m_{e{1}} =307.53g$ 
+\item $m_{e{2}} =175.77g$ 
+\end{itemize}
+
+\subsubsection*{Validación del rediseño}
+
+Finalmente, es necesario validar de nuevo, calculando nuevas reacciones debidas al cambio en la masa de los eslabones, como se muestra a continuación:
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/DP1}
+	\caption{Cargas aplicadas al sistema con eslabones ranurados}
+	\label{fig:CargasSRan}
+\end{figure}
+
+En la Figura \ref{fig:CargasSRan} se pueden apreciar las cargas a las que está sometido el sistema, analizando las cargas aplicadas en el eslabón 1 en la Figura \ref{fig:CargasE1Ran}, mientras que las cargas aplicadas al eslabón 2 son mostradas en la Figura \ref{fig:CargasE2Ran}. Estos datos proporcionan la información necesaria para hacer las simulaciones.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/E12}
+	\caption{Cargas aplicadas al eslabón 1 ranurado.}
+	\label{fig:CargasE1Ran}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/E22}
+	\caption{Cargas aplicadas al eslabón 2 ranurado.}
+	\label{fig:CargasE2Ran}
+\end{figure}
+
+El estudio del eslabón 1 rediseñado, mostrado en la Figura \ref{fig:AnE1Ran}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE1Ran}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE1Ranurado}
+	\caption{Características de mallado del estudio de resistencia del eslabón 1 ranurado}
+	\label{fig:MallaE1Ran}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_1_ranurado}
+	\caption{Estudio de resistencia del eslabón 1 ranurado}
+	\label{fig:AnE1Ran}
+\end{figure}
+
+El estudio del eslabón 1 rediseñado, mostrado en la Figura \ref{fig:AnE2Ran}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE2Ran}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE2Ranurado}
+	\caption{Características de mallado del estudio de resistencia del eslabón 2 ranurado}
+	\label{fig:MallaE2Ran}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_2_ranurado}
+	\caption{Estudio de resistencia del eslabón 2 ranurado}
+	\label{fig:AnE2Ran}
+\end{figure}
+
+El esfuerzo von Mises máximo de 4.681 MPa en el primer eslabón y 8.19 MPa en el segundo arrojan un factor de seguridad de 58.74 y 33.57 respectivamente, por lo que es posible concluir que se logró reducir la masa en un 30\% sin que el material falle.
+
+\subsubsection*{Selección de actuadores para los eslabones}
+
+Para seleccionar los motores, es necesario determinar el torque que el motor debe aplicar para poder mover al sistema y la muestra, indicada en la Figura \ref{fig:CarMot1} para el segundo GDL, y la Figura \ref{fig:CarMot2} para el tercer GDL.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/TorMot1}
+	\caption{Diagrama de cargas aplicadas al motor del primer eslabón}
+	\label{fig:CarMot1}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/TorMot2}
+	\caption{Diagrama de cargas aplicadas al motor del segundo eslabón}
+	\label{fig:CarMot2}
+\end{figure}
+
+Conociendo este valor, se comparan diversos motores en el mercado utilizando el árbol de decisiones mostrado en el Apéndice \ref{ApA1:MotCD} , y se selecciona el motorreductor Planetario Premium HD 12V, 23RPM 4166.2oz-in con codificador, fabricado por Servo City, que de acuerdo a la hoja de especificaciones (Anexo \ref{An:Mot}), cuenta con las siguientes características.
+
+\begin{itemize}
+\item Par máximo = 4166.2 oz-in = 29.4198 Nm
+\item Velocidad nominal = 23 rpm
+\item Corriente sin carga = 0.54 A
+\item Corriente de motor bloqueado = 20[A]
+\item Voltaje de alimentación = 12 V
+\item Relación de transmisión = 369:1
+\end{itemize}
+
+Conociendo la corriente del motor bloqueado, y el par máximo se calcula la constante de par $K_{m}$ de acuerdo a la ecuación \ref{eq:KmMotor}.
+
+\begin{align*}
+K_{m} = \frac{29.5[N-m]}{20[A]}=1.475\unitfrac{N-m}{A}
+\end{align*}
+
+\textbf{Validación de actuadores}
+
+Para comprobar que los motores seleccionados son capaces de mover la carga determinada, se calcula el factor de seguridad.
+
+\textit{Par necesario para el segundo GDL = 11.145 Nm ; FS = 2.639}\\
+\textit{Par necesario para el tercer GDL = 5.6483 Nm ; FS = 5.208}
+
+Con estos pares calculados, y dspejando para $i_{a}$ de la ecuación \ref{eq:KmMotor}, se puede calcular la corriente esperada.
+
+\begin{align}
+i_{a} = \frac{\tau_{0}}{K_{m}}=\frac{11.145N-m}{1.475\unitfrac{N-m}{A}} = 7.55[A]
+\end{align}
+
+\subsubsection*{Transmisión mecánica}
+
+Las bandas síncronas son cada vez más utilizadas en aplicaciones donde antes se consideraba utilizar engranes o cadenas\cite{Mott}, pues tienen la ventaja de presentar bajas vibraciones de operación, poco ruido, facilidad de determinar la posición actual entre otras, sin sacrificar la capacidad de carga que pueden mover. Por esta razón, se utilizan bandas para transmitir la potencia generada por los actuadores.
+Los parámetros que debe cumplir la banda de transmisión son los siguientes:
+
+\begin{itemize}
+\item Velocidad de movimiento del efector: $0.05 \unitfrac{m}{s}$
+\item Relacion de velocidad: \textit{1:1}
+\end{itemize}
+
+Para calcular la potencia que debe transmitir la banda de cada eslabón (ecuación \ref{eq:PotBanda}), se toman en cuenta los pares necesarios (mostrados en las Figuras \ref{fig:CarMot1} y \ref{fig:CarMot2} respectivamente), y la velocidad angular a la que gira el eje del motor, recordando que es la misma de la banda y utilizando la ecuación \ref{eq:VTang} como sigue.
+
+\begin{align*}
+\omega_{1} &= v/r= \frac{.05\unitfrac{m}{s}}{0.73m} = 0.068 \unitfrac{rad}{s} = 0.64 rpm\\
+\omega_{2} &= \frac{.05\unitfrac{m}{s}}{0.41m} = 0.121 \unitfrac{rad}{s} = 1.15 rpm\\
+P_{1} &= \tau_{1} \omega_{1} = 11.145Nm*0.068\unitfrac{rad}{s} = 0.757 W = 0.0010 HP\\
+P_{2} &= \tau_{2} \omega_{2} = 5.6483Nm*0.121\unitfrac{rad}{s} = 0.683 W = 0.0009 HP
+\end{align*}
+
+El ajuste de potencia se determina con la ecuación \ref{eq:PotDis}, utilizando un factor de servicio de 1.1, asociado con aplicaciones de carga ligera en periodos de 8 horas diarias (servicio intermitente)\cite{Mott}, y queda como sigue:
+
+\begin{align*}
+P_{1-ajustada} &= 0.757W*1.1=0.8327 W = 0.0014 HP\\
+P_{2-ajustada} &= 0.683W*1.1=0.7513 W = 0.0012 HP
+\end{align*}
+
+Para determinar el paso mínimo de la transmisión se utiliza la tabla del fabricante SDP/SI\cite{BandasSDP}, con el valor de potencia y la velocidad de operación, lo que indica que una banda de perfil XL es adecuada para esta aplicación en ambos eslabones.
+La longitud de la banda está determinada por dos factores, la distancia entre centros y el diámetro de las poleas, por lo que se procede a realizar su selección.
+
+Dado que el diámetro de la polea es directamente proporcional a su número de dientes para mantener el paso, se busca para la polea conducida el número mínimo estándar de dientes para poleas con diámetro interno de 12mm (de acuerdo al diseño del eje, tratado en la página), el cual es de 15 dientes, por lo que se selecciona la polea A 6A 3-15DF03716 de SDP/SI (Anexo \ref{An:PolSDP}). Por lo tanto, para la polea conductora se requiere una polea de diámetro interno de 6mm (diámetro del eje del motor), con 15 dientes para mantener la relación de velocidad especificada, siendo elegida la polea Actobotics 15D (Anexo \ref{An:Pol15}).
+
+Con el valor del diámetro de la polea, se calcula la longitud de cada banda con la ecuación \ref{eq:LongBanda}.
+
+\begin{align*}
+L_{entre \: ejes} &=  2*320[mm]+15*5.080[mm] = 716.2[mm] = 28.19[in] = 145\: ranuras\\
+L_{motor \: a \: eje} &=  2*44.6[mm]+15*5.080[mm] = 165.4[mm] = 6.511[in] = 35\: ranuras
+\end{align*}
+
+Las bandas XL se encuentran en el mercado con anchos entre 0.25[in] y 0.375[in].
+Una vez que se conocen los datos necesarios para las bandas, se seleccionan los modelos de ServoCity B375-290XL con 145  ranuras y B375-70XL  con 35 ranuras.
+
+Conociendo estos datos, se calcula la potencia base nominal ajustada\cite{Mott} utilizando la ecuación \ref{eq:PotBandAjus} como sigue:
+
+\begin{align*}
+& P_{1-ajustada} = 0.0014 HP * 1 = 0.0014 HP\\
+& P_{2-ajustada} = 0.0012 HP * 0.7 = 0.0008 HP
+\end{align*}
+
+Para comprobar que la banda opera con niveles bajos de ruido, se calcula la velocidad lineal de la banda, y para ello se utiliza la ecuación \ref{eq:VelBandRuido}.
+
+\begin{align*}
+V_{banda-1}&=\frac{12.7[mm]*0.068\left[\unitfrac{m}{s}\right]}{2}=0.431 m/s\\
+V_{banda-2}&=\frac{12.7[mm]*0.121\left[\unitfrac{m}{s}\right]}{2}=0.768 m/s
+\end{align*} 
+
+Ya que la velocidad en ambas bandas es menor a 17.78 m/s, que es la velocidad máxima a la que puede operar la banda sin perturbaciones\cite{Mott}, se comprueba que las bandas no operan con ruido.
+
+A continuación, se resumen las características de los componentes seleccionados:
+
+\textit{Primer eslabón}
+
+Banda
+
+\begin{itemize}
+\item Modelo: B375-70XL
+\item Paso: 0.200[in] (XL)
+\item Material: Neopreno
+\item Número de ranuras: 35
+\item Material tensor: Fibra de vidrio
+\item Ancho: 0.375[in]
+\item Largo: 7[in]
+\end{itemize}
+
+\textit{Segundo eslabón}
+
+Banda
+
+\begin{itemize}
+\item Modelo: B375-290XL
+\item Paso: 0.200[in] (XL)
+\item Material: Neopreno
+\item Número de ranuras: 145
+\item Material tensor: Fibra de vidrio
+\item Ancho: 0.25[in]
+\item Largo: 29[in]
+\end{itemize}
+
+Poleas
+\begin{itemize}
+\item Material: Aluminio 6061 T6
+\item Ancho máximo de banda: 0.375[in]
+\item Diámetro de paso: 0.637[in]
+\item Modo de sujeción: Retenedor 10-32*1/8[in]
+\item Diámetro de barreno: 6[mm] para la polea conductora, y 0.5[in] para la polea conducida.
+\end{itemize}
+
+Estas poleas sirven para la transmisión de movimiento de todos los ejes de movimiento del brazo, sin embargo es importante tomar en cuenta que la banda necesita estar en tensión, por lo que es necesario diseñar un mecanismo que mantenga la tensión en la banda perteneciente al segundo eslabón, para lo cual se diseña un ``ocioso'' que puede colocarse en el eje del primer eslabón sin afectar su comportamiento, pues tiene rodamientos en la parte interna (Anexo \ref{An:RodChi}), como se muestra en la Figura \ref{fig:PoleaLoca}, con los cuales se ajusta al eje del primer eslabón, girando libremente sin aplicar torsión al mismo.
+La necesidad de diseñar la polea surge del hecho de que los fabricantes solo ofrecen ociosos para tensar una banda, mientras que esta aplicación requiere que dos bandas diferentes se muevan a la par, por lo que utilizar las poleas ociosas comerciales requiere unirlas mecánicamente, lo que puede representar riesgo de deformaciones o desalineamiento entre ejes de giro, por lo cual se opta por manufactura aditiva en un plástico de ingeniería \cite{Mat3D}, como es el Nylon12, PC, Ultem y Antero.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/PoleaLoca}
+	\caption{Vista de sección del ocioso con dientes}
+	\label{fig:PoleaLoca}
+\end{figure}
+
+\textbf{Diseño de ejes para los eslabones}
+
+\textit{Eje del primer eslabón}
+
+El primer eje tiene está configurado por dos apoyos de rodamiento, una polea ociosa doble, una polea síncrona común y dos sujetadores, como se muestra en la Figura \ref{fig:DEje1}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/DiagramaEJE1}
+	\caption{Diagramas de cargas del eje 1}
+	\label{fig:DEje1}
+\end{figure}
+
+Para conocer la magnitud del momento flector y el momento torsionante, se analiza el eje como viga en dos planos, mostrados en las Figuras \ref{fig:CEje1} y \ref{fig:CEje1a}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/Eje1f}
+	\caption{Plano frontal de cargas del eje 1}
+	\label{fig:CEje1}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/Eje1s}
+	\caption{Plano superior de cargas del eje 1}
+	\label{fig:CEje1a}
+\end{figure}
+
+De estos diagramas se obtienen además las reacciones generadas en los rodamientos, las cuales se utilizan más adelante para realizar la selección de estos.
+
+Para calcular la fuerza que la banda aplica sobre el eje, se utilizan las ecuaciones \ref{eq:FuerzaBanda}.
+
+\begin{align*}
+F_{n} &= \frac{11.244Nm}{0.023749m}=473.45N\\
+F_{s} &= 1.5*473.45=710.177N
+\end{align*}
+
+\begin{align*}
+F_{n} &= \frac{6.616Nm}{0.02375m}=278.568N\\
+F_{s} &= 1.5*278.568=417.852N
+\end{align*}
+
+Con los valores obtenidos, enlistados a continuación, se propone utilizar acero 1060 rolado, cuyas características son:
+
+\begin{itemize}
+\item Densidad: $7850 \unitfrac{Kg}{m^{3}}$
+\item Módulo de elasticidad: $205 GPa$
+\item Límite elástico: $814 MPa$
+\item Esfuerzo de cedencia: $485 MPa$
+\end{itemize}
+
+Se ajusta el valor del límite elástico con las ecuaciones \ref{eq:Sn} y \ref{eq:SnC} con los siguientes factores de corrección\cite{Mott}
+
+\begin{itemize}
+\item Factor de material: $C_{m} = 0.8$
+\item Factor de tipo de esfuerzo (flexionante): $C_{st} = 1$
+\item Factor de confiabilidad al 90\%: $C_{R} = 0.9$
+\item Factor de tamaño: $C_{s} = 0.95$
+\end{itemize}
+
+\begin{align*}
+S_{n} &=0.5*814 MPa = 407 MPa\\
+\end{align*}
+
+\begin{align*}
+S'_{n} &= 407 MPa * 0.8 * 1 *0.9*0.95 = 278 MPa
+\end{align*}
+
+Finalmente, con los valores obtenidos, se puede calcular el diámetro mínimo del primer eje con la ecuación \ref{eq:DiamEje}.
+
+\begin{align*}
+D_{1} &=\sqrt[3]{\frac{32*2.5}{\pi}\sqrt{\left[ \frac{15.08Nm}{278 MPa}^{2} \right] + \frac{3}{4} \left[ \frac{11.24Nm}{485 MPa} \right]^{2} }} \\
+&= 0.0113 m
+\end{align*}
+
+Las reacciones en los apoyos representan las cargas radiales a las que están sometidos los rodamientos, por lo que es necesario calcular la carga dinámica mínima que deben soportar utilizando la ecuación \ref{eq:RodamientosAleados}, tomando como base una vida de un año con el servicio intermitente, es decir, 2900 horas o 4.002 millones de revoluciones.
+
+\begin{align*}
+C_{eje-1} &= 110.6 N \left( \frac{4.002x10^{6}}{10^{6}}\right)^{1/3.33}  = 166.823 N \\
+C_{eje-2} &= 105.75 N \left( \frac{4.002x10^{6}}{10^{6}}\right)^{1/3.33} \\
+&= 160.377 N 
+\end{align*}
+
+\textit{Eje del segundo eslabón}
+
+De manera análoga al diseño del primer eje, se analizan las cargas a las que está sometido el segundo eje, como se muestra en la Figura \ref{fig:DEje2}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/DiagramaEJE2}
+	\caption{Diagramas de cargas del eje 2}
+	\label{fig:DEje2}
+\end{figure}
+
+Como se puede ver en las Figuras \ref{fig:CEje2}  y \ref{fig:CEje2a}., solo la polea y los eslabones producen fuerzas sobre el eje, el cual también está apoyado en dos rodamientos.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/Eje2f}
+	\caption{Plano frontal de cargas del eje 2}
+	\label{fig:CEje2}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/Eje2s}
+	\caption{Plano superior de cargas del eje 2}
+	\label{fig:CEje2a}
+\end{figure}
+
+La fuerza ejercida por la banda, es la misma que la calculada anteriormente para la polea ociosa.
+
+Para este eje, se propone el mismo material, y se utilizan los mismos factores de correción.
+
+Entonces, el diámetro mínimo queda como sigue:
+
+\begin{align*}
+D_{2} &=\sqrt[3]{\frac{32*5}{\pi}\sqrt{\left[ \frac{9.16Nm}{278 MPa}^{2} \right] + \frac{3}{4} \left[ \frac{6.616}{485 MPa} \right]^{2} }} \\
+&= 0.0096 m
+\end{align*}
+
+Finalmente, las reacciones obtenidas se utilizan en la ecuación \ref{eq:RodamientosAleados}
+
+\begin{align*}
+C_{1} &= 62.65 N \left( \frac{4.002x10^{6}}{10^{6}}\right)^{1/3.33} = 95.013 N \\
+C_{2} &= 62.8 N \left( \frac{4.002x10^{6}}{10^{6}}\right)^{1/3.33} \\
+&= 95.240 N 
+\end{align*}
+
+Las piezas comerciales adquiridas para ensamblar el manipulador, las cuales pueden verse en el Anexo \ref{An:PiezasExtra}, son:
+
+\begin{itemize}
+\item Chumacera de piso: Soporte para el eje del eslabón perteneciente al segundo GDL.
+\item Abrazadera para motor: Sujeción de los motores a la base giratoria.
+\item Chumacera de pared: Soporte para el eje del eslabón perteneciente al tercer GDL.
+\item Sujetador: Para acoplar rígidamente el eje al eslabón.
+\end{itemize}
+
+\subsubsection*{Base del manipulador}
+
+En el diseño de la cadera (GDL 1) se considera extender el eje de giro del motor a una plataforma giratoria que sostenga a los demás elementos del manipulador robótico. Dicha extensión consiste en un acoplador sujeto al eje del motor en un extremo y al eje de la plataforma giratoria en el otro. 
+
+Considerando que el eje de giro se encuentra sometido a cargas y esfuerzos debido a la distribución de los elementos del manipulador robótico, se colocan rodamientos en el eje de giro de la plataforma giratoria para resistir las fuerzas axiales y radiales generadas.
+
+Estas cargas se conocen al trasladar las reacciones generadas por el brazo robótico y la muestra que transporta hacia las direcciones radial y axial, como se muestra en la Figura \ref{fig:DCBase}, las cuales se distribuyen a rodamientos específicos para cada tipo de carga.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/Diagrama reacciones baleros 2}
+	\caption{Diagrama de cargas para el eje}
+	\label{fig:DCBase}
+\end{figure}
+
+La Tabla \ref{tab:MasasBrazo} muestra las masas de los elementos del brazo, así como la distancia a la que se encuentran del punto D, que es en el que se realiza la suma de momentos.
+
+\begin{table}[H]
+\centering
+\caption{Masas de los elementos del brazo robótico}
+\begin{footnotesize}
+\begin{tabular}{|c|c|c|c|}
+\hline
+                  & \textbf{Símbolo} & \textbf{Masa {[}kg{]}} & \textbf{Distancia {[}m{]}} \\ \hline
+Muestra           & $m_{piedra}$          & 0.5                    & 0.96                       \\ \hline
+Efector final     & $m_{ef}$              & 0.5                    & 0.885                      \\ \hline
+Muñeca            & $m_{mu\tilde{n}eca}$          & 0.627                  & 0.775                      \\ \hline
+Eslabón 2         & $m_{2}$               & 0.28                   & 0.535                      \\ \hline
+Eslabón 1         & $m_{1}$               & 0.627                  & 0.255                      \\ \hline
+Soporte del brazo & $m_{soporte}$         & 0.5                    & 0.095                      \\ \hline
+Base giratoria    & $m_{base}$            & 2.375                  & 0.0275                     \\ \hline
+\end{tabular}
+\label{tab:MasasBrazo}
+\end{footnotesize}
+\end{table}
+
+Las reacciones de los rodamientos se calculan como sigue:
+
+\begin{align*}
+\rightarrow + \sum F_{x} &= R_{A}-R_{B} = 0
+\end{align*}
+
+\begin{align*}
+\uparrow + \sum F_{y} = R_{C}+R_{D}-W_{total} = 0 
+\end{align*}
+
+\begin{align*}
+\circlearrowleft + \sum M_{D} &= 0.96W_{piedra} + 0.885W_{ef} + 0.775W_{mu\tilde{n}eca}+\cdots \\
+& \dots + 0.535W_{2} + 0.255W_{1} + 0.095W_{soporte} + \cdots \\
+& \cdots - 0.055R_{C} + 0.0275W_{base} = 0
+\end{align*}
+
+\begin{align*}
+\circlearrowleft + \sum M_{D} &= 0.96m*4.905N + 0.885m*4.905N + 0.775m*6.15N+\cdots \\
+& \dots + 0.535m*2.75N + 0.255m*6.15N + 0.095m*4.905N + \cdots \\
+& \cdots - 0.055m*R_{C} + 0.0275m*23.3N = 0
+\end{align*}
+
+\begin{align*}
+\circlearrowleft + \sum M_{B} = 0.96W_{piedra} + 0.885W_{ef} + 0.775W_{mu\tilde{n}eca}+\cdots \\
+ \dots + 0.535W_{2} + 0.255W_{1} + 0.095W_{soporte} + \cdots \\
+\cdots + 0.0275W_{base} - 0.055R_{C} - 0.012R_{A} = 0
+\end{align*}
+
+\begin{align*}
+\circlearrowleft + \sum M_{B} &= 0.96m*4.905N + 0.885m*4.905N + 0.775m*6.15N+\cdots \\
+& \dots + 0.535m*2.75N + 0.255m*6.15N + 0.095m*4.905N + \cdots \\
+& \cdots + 0.0275m*23.3N - 0.055m*326.58 N - 0.012R_{A}= 0
+\end{align*}
+
+\begin{align*}
+R_{A} &= 488.6 N\\
+R_{B} &= 488.6 N\\
+R_{C} &= 326.58 N\\
+R_{D} &= -273.51 N
+\end{align*}
+
+Con las reacciones $R_{A}$ y $R_{B}$, es posible diseñar el eje, pues son las únicas que provocan flexión, mientras que el momento torsionante es proporcionado por el motor.
+
+El material disponible para acoplar el eje del motor, y sobre el cual se aplican las reacciones, es acero inoxidable 303, cuyas características se enlistan a continuación. 
+
+\begin{itemize}
+\item Densidad: $8000 \unitfrac{Kg}{m^{3}}$
+\item Módulo de elasticidad: $193 GPa$
+\item Límite elástico: $620 MPa$
+\item Esfuerzo de cedencia: $240 MPa$
+\end{itemize}
+
+El proceso de diseño del eje es similar al de los ejes de los eslabones, como se muestra:
+
+\begin{align*}
+S_{n} &=0.5*620 MPa = 310 MPa\\
+\end{align*}
+
+\begin{align*}
+S'_{n} &= 310 MPa * 0.8 * 1 *0.9*0.95 = 212 MPa
+\end{align*}
+
+\begin{align*}
+D &=\sqrt[3]{\frac{32*5}{\pi}\sqrt{\left[ \frac{6.8Nm}{212 MPa}^{2} \right] + \frac{3}{4} \left[ \frac{29.4Nm}{240 MPa} \right]^{2} }} \\
+&= 0.0178 m
+\end{align*}
+
+Las cargas dinámicas que son capaces de soportar los rodamientos se calculan con la ecuación \ref{eq:RodamientosAleados}, sustituyendo $P_{d}$ con el valor de las reacciones axial y radial según sea el caso.
+
+\begin{align*}
+C_{axial} &= 327 N \left( \frac{4.002 \times 10^{6}}{10^{6}}\right)^{1/3.33} = 496 N 
+\end{align*}
+
+\begin{align*}
+C_{radial} &= 489 N \left( \frac{4.002 \times 10^{6}}{10^{6}}\right)^{1/3.33} = 742 N 
+\end{align*}
+
+De acuerdo al catálogo en línea del fabricante SKF\cite{SKF}, se seleccionan los rodamientos más pequeños que cumplen con las características necesarias, siendo un rodamiento axial de agujas con designación AXK-4565 (Anexo \ref{An:RodAx}) para las cargas axiales, y un rodamiento de rodillos con designación NU-303 (Anexo \ref{An:RodRad}) para las cargas radiales.
+
+La plataforma giratoria debe ser capaz de sostener a los dos motores que mueven los eslabones, así como el soporte del brazo. Por ello se utiliza una geometría de medio círculo en la parte posterior, mientras que en la parte frontal se colocan dos salientes, como se muestra en la Figura \ref{fig:PlataGiratoria}, sobre los que se montan las chumaceras que soportan al eje del primer grado de libertad, dejando un espacio libre entre estas para permitir que el eslabón gire por debajo del plano horizontal evitando la colisión con la plataforma. Para facilitar la comprensión de la geometría, se recurre a una perspectiva isométrica y a la vista superior, mostradas en la Figura \ref{fig:PlataformaVistas}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Plataforma}
+	\caption{Modelo CAD de la plataforma giratoria}
+	\label{fig:PlataGiratoria}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Plataforma_Vistas}
+	\caption{Vistas de referencia para la plataforma giratoria}
+	\label{fig:PlataformaVistas}
+\end{figure}
+
+El cilindro está diseñado de acuerdo a las dimensiones del eje del motor acoplado y los rodamientos seleccionados previamente, además de añadir barrenos para atornillarlo a la base fija, 
+cuyo resultado se muestra en la Figura \ref{fig:CilindroFijo}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/CilindroFijo}
+	\caption{Modelo CAD del cilindro base}
+	\label{fig:CilindroFijo}
+\end{figure}
+
+Finalmente, la base fija, mostrada en la Figura \ref{fig:BaseFija}, es aquella que debe soportar los esfuerzos generados por todo el manipulador, en la que se acopla el cilindro base de la Figura \ref{fig:CilindroFijo} a la placa, como se muestra en la Figura \ref{fig:CilindroBase}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/BaseFija}
+	\caption{Modelo CAD de la base fija del manipulador}
+	\label{fig:BaseFija}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Cilindro-Base}
+	\caption{Cilindro base acoplado a la base fija}
+	\label{fig:CilindroBase}
+\end{figure}
+
+\subsubsection*{Validación de la base}
+
+Para comprobar la integridad mecánica de las piezas que conforman la base, se realiza un análisis de elemento finito\cite{FEASolid} en SolidWorks\textregistered, utilizando como material el aluminio 6061 (propiedades disponibles en la Tabla \ref{tab:PropiedadesAluminio}).
+
+\textit{Plataforma giratoria}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Plataforma_Nodos}
+	\caption{Características de la malla del análisis estático de la plataforma}
+	\label{fig:PlatGirNodos}
+\end{figure}
+
+Para la plataforma giratoria, que tiene una masa de 0.128[Kg], el análisis con características mostradas en la Figura \ref{fig:PlatGirNodos} queda como sigue:
+
+La Figura \ref{fig:PlatGirEsfuerzos} muestra que el esfuerzo von Mises máximo es 53.73[MPa], por lo que tiene un factor de seguridad de 5.11. Mientras que la Figura \ref{fig:PlatGirDef} muestra que la deformación máxima es 0.8[mm].
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Plataforma_Analisis}
+	\caption{Análisis estático de resistencia de la plataforma giratoria}
+	\label{fig:PlatGirEsfuerzos}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Plataforma_Deformacion}
+	\caption{Análisis estático de rigidez de la plataforma giratoria}
+	\label{fig:PlatGirDef}
+\end{figure}
+
+\textit{Cilindro base}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/CilindroFijo_Nodos}
+	\caption{Características de la malla del análisis estático del cilindro base}
+	\label{fig:CilBaseNodos}
+\end{figure}
+
+Para el cilindro base, que tiene una masa de 0.096[Kg], el análisis con características mostradas en la Figura \ref{fig:CilBaseNodos} queda como sigue:
+
+La Figura \ref{fig:CilBaseEsfuerzos} muestra que el esfuerzo von Mises máximo es 52[MPa], por lo que tiene un factor de seguridad de 5.28. Mientras que la Figura \ref{fig:CilBaseDef} muestra que la deformación máxima es 0.004[mm].
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/CilindroFijo_Analisis}
+	\caption{Análisis estático de resistencia del cilindro base}
+	\label{fig:CilBaseEsfuerzos}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/CilindroFijo_Deformacion}
+	\caption{Análisis estático de rigidez del cilindro base}
+	\label{fig:CilBaseDef}
+\end{figure}
+
+\textit{Base fija}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Cilindro-Base_Nodos}
+	\caption{Características de la malla del análisis estático de la base fija}
+	\label{fig:CilindroBaseNodos}
+\end{figure}
+
+Para la base fija, que tiene una masa de .230[Kg], el análisis con características mostradas en la Figura \ref{fig:CilindroBaseNodos} queda como sigue:
+
+La Figura \ref{fig:CilindroBaseEsfuerzos} muestra que el esfuerzo von Mises máximo es 19.9[MPa], por lo que tiene un factor de seguridad de 13.18. Mientras que la Figura \ref{fig:CilindroBaseDef} muestra que la deformación máxima es 0.028[mm].
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Cilindro-Base_Analisis}
+	\caption{Análisis estático de resistencia de la base fija}
+	\label{fig:CilindroBaseEsfuerzos}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Cilindro-Base_Deformacion}
+	\caption{Análisis estático de rigidez de la base fija}
+	\label{fig:CilindroBaseDef}
+\end{figure}
+
+\subsubsection*{Diseño final de la base fija}
+
+La Figura \ref{fig:MesaCAD} muestra la configuración final de la mesa ensamblada, mientras que la Figura \ref{fig:MesaExplosionada} muestra una vista explosionada que permite apreciar los elementos que la conforman.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/VistaIso}
+	\caption{Modelo CAD de la base del manipulador}
+	\label{fig:MesaCAD}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Mesa explosionada}
+	\caption{Vista explosionada del modelo CAD de la base del manipulador}
+	\label{fig:MesaExplosionada}
+\end{figure}
+
+\subsubsection*{Muñeca esférica}
+
+De acuerdo a las ecuaciones \ref{eq:DesCin} y \ref{eq:DesCin2}, para poder realizar el desacoplamiento cinemático los 3 ejes de giro de la muñeca deben intersecarse en un punto, por lo que se diseña una muñeca esférica.
+
+Debido a que se cuenta con poco espacio y son fáciles de utilizar, se propone utilizar servomotores de tamaño estándar.
+
+Con la finalidad de acoplar el servomotor al segundo eslabón, y para soportar los esfuerzos radiales, se utiliza una estructura de carga comercial que, como puede apreciarse en la vista explosionada de la Figura \ref{fig:MuneMot1Exp}, consta de dos soportes laterales, un marco para el servomotor, una chumacera y un adaptador para el eje del mismo. La estructura armada se muestra en la Figura \ref{fig:PrimerMotor}.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Muneca/Primer motor Exp}
+	\caption{Vista explosionada de la estructura de carga del primer grado de libertad de la muñeca}
+	\label{fig:MuneMot1Exp}
+\end{figure}
+\end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Muneca/Primer motor}
+	\caption{Estructura de carga ensamblada}
+	\label{fig:PrimerMotor}
+\end{figure}    
+  \end{minipage}
+\end{figure}
+
+Para soportar los motores restantes, manteniendo la intersección de sus ejes, se diseñan varias piezas como sigue:
+
+\begin{itemize}
+\item Un conector tipo C que transmite la rotación del primer GDL.
+\item Una pieza a modo de cubierta que sostiene a los servomotores manteniendo la ortogonalidad entre sus ejes de giro, a la vez que absorbe las cargas radiales aplicadas al eje a través de rodamientos.
+\item Una tapa para la cubierta con espacio para rodamiento radial, además de un cople para unir el eje del tercer servomotor con la base del efector final.
+\end{itemize}
+
+Además, se adquieren dos acopladores el eje de de los servomotores de los últimos 2 GDL de la muñeca. Aunado a ello, se adquieren dos rodamientos con diámetro intero igual al diámetro del acoplador de 1/2 [in] y un rodamiento con brida para acoplar la pieza con forma de ``C''. 
+
+Estas piezas pueden observarse a detalle en la Figura \ref{fig:Motor23Exp}, mientras que el ensamble se muestra en la Figura \ref{fig:Motor23}. Las piezas adquiridas se encuentran en el Anexo \ref{An:PiezasMueca}, mientras que los rodamientos aparecen en el Anexo \ref{An:RodChi}.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Muneca/Segundo y tercer motor EXP}
+	\caption{Vista explosionada de la estructura del segundo y tercer GDL}
+	\label{fig:Motor23Exp}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Muneca/Segundo y tercer motor}
+	\caption{Estructura del segundo y tercer GDL ensamblada}
+	\label{fig:Motor23}
+\end{figure}
+\end{minipage}
+\end{figure}
+
+La muñeca esférica completa con los servomotores se puede apreciar en la Figura \ref{fig:MuneCAD}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Muneca/MunecaCompleta}
+	\caption{Modelo CAD de la muñeca esférica}
+	\label{fig:MuneCAD}
+\end{figure}
+
+Debido a que estas piezas presentan geometrías complejas, y que no se someten a esfuerzos tan grandes como el brazo, se opta por utilizar manufactura aditiva con materiales típicos de la misma. En este sentido, los más populares son el PLA y el ABS, sin embargo, el PLA es conocido por su fragilidad, por lo que el material seleccionado es ABS.
+
+Finalmente, resta seleccionar los servomotores a usar, para lo cual se calcula el par máximo que deben de soportar, utilizando los diagramas mostrados en las Figuras \ref{fig:ParMuneca1} y \ref{fig:ParMuneca1}, destacando que, dado que las cargas se encuentran muy cerca del eje de giro del tercer GDL, el momento que generan es muy pequeño, por lo que se omite su cálculo.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Muneca/Muneca1}
+	\caption{Reacción máxima para el primer grado de libertad de la muñeca}
+	\label{fig:ParMuneca1}
+\end{figure}
+\end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Muneca/Muneca2}
+	\caption{Reacción máxima para el segundo grado de libertad de la muñeca}
+	\label{fig:ParMuneca2}
+\end{figure}    
+  \end{minipage}
+\end{figure}
+
+Conociendo este valor, se comparan los distintos motores disponibles en el mercado, utilizando un árbol de decisiones (Apéndice \ref{ApA2:Servo}) y, con base en este, se selecciona el servo de alto rendimiento de EzRobot, con las siguientes características:
+
+\begin{itemize}
+\item Par máximo a 7.4[V] = 19 [Kg cm]
+\item Corriente a motor bloqueado = 3[A]
+\item Voltaje de operación = 4.8[V] a 8.4[V]
+\end{itemize}
+
+\subsection{Módulo de efector (M2)}
+
+La función f1.3 (``Tomar/dejar muestra''), requiere que exista una herramienta en el extremo del manipulador robótico, capaz de sujetar una piedra con las caractaerísticas determinadas en los requerimientos R1, R2, R3 y R4. 
+De acuerdo al concepto solución seleccionado, el efector final a desarrollar es de tipo ``Gripper'' de tres dedos. 
+
+Existe un modelo de efector con esas características, desarrollado por Kuat Telegenov, Yedige Tlegenov y Almas Shintemirov, titulado y publicado en IEEE Access con el nombre ``A Low-Cost Open-Source 3-D-Printed
+Three-Finger Gripper Platform for Research
+and Educational Purposes''\cite{GripperOS}, el cual, como se presenta en el abstract del artículo: ``Presentamos un modelo de plataforma de gripper robótico de tres dedos de fuente abierta (Open source) para propósitos de educación e investigación'', resulta una opción viable para utilizar en este proyecto.
+
+La acción de agarre de las falanges se basa en un mecanismo subactuado de dos grados de libertad. En la Figura \ref{fig:MecGrip} se muestra un diagrama esquemático de los elementos del mecanismo. 
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.3]{imagenes/MecanismoGripper}
+	\caption{Elementos del mecanismo del gripper, IEEE}
+	\label{fig:MecGrip}
+\end{figure}
+
+El torque de un actuador se aplica en $O_{1}$, donde el torque $T_{a}$ genera un desplazamiento angular $\theta_{1}$. El resorte con módulo elástico $K$, ejerce una fuerza que mantiene el ángulo $\theta_{2}$ fijo. Cuando el eslabón $O_{1}-O_{2}$ se ve detenido en su movimiento, el torque $T_{a}$ provoca una elongación en el resorte, lo que provoca un movimiento angular en $\theta_{2}$. Dicha secuencia es mostrada en la Figura \ref{fig:SecGrip}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.3]{imagenes/SecuenciaGripper}
+	\caption{Secuencia de movimientos del mecanismo del gripper, IEEE}
+	\label{fig:SecGrip}
+\end{figure}
+
+En la Figura \ref{fig:Grip1D} se muestra el ensamblaje de una falange con el mecanismo de actuación, que consiste en un tornillo sin fin más un engrane que transmite el movimiento al piñón que, unido al eslabón, transmite el torque al mecanismo.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.3]{imagenes/DedoYEngranes}
+	\caption{Ensamblaje de una falange del gripper, IEEE}
+	\label{fig:Grip1D}
+\end{figure}
+
+Según los resultados de las pruebas mostradas en la fuente\cite{GripperOS}, el efector es capaz de sujetar objetos con diversas geometrías. En la Figura \ref{fig:Balonxd}, el lector puede observar que el objeto agarrado es una pelota de geometría esférica. Se busca que el agarre para la muestra de roca sea similar, sin embargo, la pelota tiene dimensiones mayores al tamaño propuesto en el requerimiento R2, como se puede apreciar en el diagrama simplificado mostrado en la Figura \ref{fig:EFDSOri}, por lo que se propone un cambio de dimensiones en los ``dedos'' y la plataforma que funciona como ``palma''.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Balonxd}
+	\caption{Agarre del gripper con una pelota esférica, IEEE}
+	\label{fig:Balonxd}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.25]{imagenes/Dominio especifico/Efector/Original1}
+	\caption{Diagrama simplificado de un dedo y la muestra objetivo}
+	\label{fig:EFDSOri}
+\end{figure}
+
+Después de realizar un análisis geométrico con el software Geogebra\textregistered , y comprobar varias opciones, se determinan las siguientes dimensiones:
+
+\begin{itemize}
+\item Distancia del eje central de la palma al inicio de la falange: 2.5[cm]
+\item Longitud de la primer falange: 6[cm]
+\item Longitud de la segunda falange: 2.5[cm]
+\end{itemize}
+
+Con las dimensiones modificadas se aprecia que, aunque la palma no tenga contacto con la muestra, existe una mejora en el agarre de la misma, a la vez que se disminuye la probabilidad de golpear el suelo al disminuir la distancia necesaria para asegurar la sujeción. Esto se puede apreciar en la Figura \ref{fig:EFDSMod}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.25]{imagenes/Dominio especifico/Efector/Modificado1}
+	\caption{Diagrama simplificado de un dedo y la muestra objetivo}
+	\label{fig:EFDSMod}
+\end{figure}
+
+La distribución de los dedos del efector se pueden apreciar claramente en la vista superior del efector, mostrada en la Figura \ref{fig:EFDistDedos}, mientras que el mecanismo subactuado se aprecia en la Figura \ref{fig:EFDistMec}.
+
+\begin{figure}[H]
+\begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Efector/Efector superior}
+	\caption{Distribución de los dedos del efector}
+	\label{fig:EFDistDedos}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Efector/Efector lateral}
+	\caption{Mecanismo subactuado del efector}
+	\label{fig:EFDistMec}
+\end{figure}
+\end{minipage}
+\end{figure}
+
+Además de la modificación a las dimensiones, se agrega una placa deslizante que permite introducir un sensor de fuerza para determinar cuando la muestra es asegurada, de manera que no se ejerza una fuerza excesiva que resulte en un daño a la muestra o al efector, como se muestra en la Figura \ref{fig:EfectorSensores}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Efector/Acoplamiento sensores}
+	\caption{Ensamble de sensor de presión en la falange del efector}
+	\label{fig:EfectorSensores}
+\end{figure}
+
+Para medir la fuerza ejercida por el efector a la muestra se opta por utilizar sensores de fuerza resistivos, ya que el espacio disponible para colocar el sensor es limitado y la delgadez de estos sensores los convierte en una opción adecuada.
+
+El espacio está pensado para adaptarse a sensores de aproximadamente media pulgada de diámetro, por lo que el sensor FSR 402 (Anexo \ref{An:SFuerza}) es apropiado para los objetivos del proyecto.
+
+Para transmitir la potencia al tornillo sin fin que actúa las falanges, se utiliza un buje de servo, mostrado en el Anexo \ref{An:BujeEfector}.
+
+El efector ensamblado se puede apreciar en la Figura \ref{fig:EFEnsamble}, y las piezas que lo componen en la vista explosionada de la Figura \ref{fig:EFExp}.
+
+\begin{figure}[H]
+\begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=1.2\textwidth]{imagenes/Dominio especifico/Efector/EfectorConActuador}
+	\caption{Ensamble final del efector}
+	\label{fig:EFEnsamble}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Efector/EfectorConActuadorEXP}
+	\caption{Vista explosionada del efector}
+	\label{fig:EFExp}
+\end{figure}
+\end{minipage}
+\end{figure}
+
+\subsubsection*{Validación del efector rediseñado}
+
+Para comprobar que el efector tiene un rango de agarre por encima y debajo de la muestra ideal de [5cm] de diámetro, se realiza un análisis geométrico con piezas de 3[cm] y 7[cm], como se puede observar en la Figuras \ref{fig:EFV1} y \ref{fig:EFV2}.
+
+\begin{figure}[H]
+\begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=1.5\textwidth]{imagenes/Dominio especifico/Efector/Modificado2}
+	\caption{Análisis geométrico del agarre del efector con muestra de 3[mm] de diámetro}
+	\label{fig:EFV1}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=1.5\textwidth]{imagenes/Dominio especifico/Efector/Modificado3}
+	\caption{Análisis geométrico del agarre del efector con muestra de 7[mm] de diámetro}
+	\label{fig:EFV2}
+\end{figure}
+\end{minipage}
+\end{figure}
+
+\subsection{Modelo matemático del sistema robótico}
+
+\subsubsection*{Modelo cinemático}
+
+\subsubsection*{Cinemática directa}
+
+Para abordar el problema de cinemática directa, primeramente se establecen marcos coordenados, que sirven como referencia para la posición y orientación de cada eslabón, de acuerdo a la convención de Denavit-Hartenberg \cite{Spong}, como se ve en la Figura \ref{fig:AsigMarcos}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.35]{imagenes/Dominio especifico/AsignacionMarcos}
+	\caption{Asignación de los marcos de referencia a las articulaciones del robot}
+	\label{fig:AsigMarcos}
+\end{figure}
+
+Para determinar la relación de posición y orientación del marco de referencia del efector final respecto al marco fijo $T_{0}^{6}$, se utilizan las matrices de transformación homogénea $A_{i}$, que relacionan la posición y orientación del marco de referencia $i$ respecto al marco $i-1$, construidas con la ecuación \ref{eq:MTH}.
+
+\begin{table}[H]
+\centering
+\caption{Parámetros de Denavit-Hartenberg}
+\begin{footnotesize}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$i$  & $\theta$ & $d$  & $a$  & $\alpha$ & Offset \\ \hline
+1  & $\theta_{1}$    & $o_{ff_{1}}$ & $o_{ff_{2}}$ & $\frac{\pi}{2}$  & 0      \\ \hline
+2  & $\theta_{2}$    & 0  & $l_{1}$ & 0     & 0      \\ \hline
+2' & $\theta_{3}$    & 0  & $l_{2}$ & $\frac{\pi}{2}$  & 0      \\ \hline
+3  & $-\frac{\pi}{2}$ & 0  & 0  & $-\frac{\pi}{2}$ & 0      \\ \hline
+4  & $\theta_{4}$    & 0  & 0  & $\frac{\pi}{2}$  & $\pi$     \\ \hline
+5  & $\theta_{5}$    & 0  & 0  & $\frac{\pi}{2}$  & $\pi$     \\ \hline
+6  & $\theta_{6}$    & $l_{3}$ & 0  & 0     & 0      \\ \hline
+\end{tabular}
+\end{footnotesize}
+\label{tab:PDH}
+\end{table}
+
+
+Al sustituir los valores de los parámetros de Denavit-Hartenberg, indicados en la Tabla \ref{tab:PDH}, las matrices de transformación homogénea resultan de la siguiente manera:
+
+$$
+A_{1} = 
+\begin{bmatrix}
+c_{1} & 0 & s_{1} & O_{2}c_{1}\\
+s_{1} & 0 & -c_{1} & O_{2}s_{1}\\
+0 & 1 & 0 & O_{1}\\
+0 & 0 & 0 & 1\\
+\end{bmatrix}
+$$
+
+$$
+A_{2} = 
+\begin{bmatrix}
+c_{2} & -s_{2} & 0 & l_{1}c_{2}\\
+s_{2} & c_{2} & 0 & l_{1}s_{2}\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+\end{bmatrix}
+$$
+
+$$ 
+A_{2}' = 
+\begin{bmatrix} 
+c_{3} & 0 & s_{3} & l_{2}c_{3} \\
+s_{3} & 0 & -c_{3} & l_{2}s_{3} \\ 
+0 & 1 & 0 & 0 \\ 
+0 & 0 & 0 & 1 
+\end{bmatrix} 
+$$
+
+$$
+A_{3}  = 
+\begin{bmatrix} 
+0 & 0 & 1 & 0 \\ 
+-1 & 0 & 0 & 0 \\ 
+0 & -1 & 0 & 0 \\ 
+0 & 0 & 0 & 1 
+\end{bmatrix}  
+$$
+
+$$ 
+A_{4} = 
+\begin{bmatrix} 
+-c_{4} & 0 & -s_{4} & 0 \\ 
+-s_{4} & 0 & c_{4} & 0 \\ 
+0 & 1 & 0 & 0 \\ 
+0 & 0 & 0 & 1 
+\end{bmatrix}
+$$
+
+$$
+A_{5} = 
+\begin{bmatrix} 
+-c_{5} & 0 & -s_{5} & 0 \\
+-s_{5} & 0 & c_{5} & 0 \\
+0 & 1 & 0 & 0 \\ 
+0 & 0 & 0 & 1 
+\end{bmatrix}
+$$
+
+$$
+A_{6} = 
+\begin{bmatrix}
+c_{6} & -s_{6} & 0 & 0\\
+s_{6} & c_{6} & 0 & 0\\
+0 & 0 & 1 & l_{3}\\
+0 & 0 & 0 & 1\\
+\end{bmatrix}
+$$
+
+Finalmente, para obtener la matriz $T_{0}^{6}$, se posmultiplican las matrices como sigue\footnote{Este producto es muy largo, por lo que se escribe el resultado columna por columna con la notación (:-todas las filas, \# de columna)}:
+
+$$
+T_{0 (:,1)}^{6} =
+\begin{bmatrix}
+ s_{6}\left(s_{1}s_{4}-s_{23} c_{1} c_{4}\right)-c_{6} \left(s_{1}c_{4} c_{5}+c_{1} \left(s_{23} s_{4} c_{5}+s_{5} c_{23}\right)\right) \\
+ c_{1} \left(c_{4} c_{5} c_{6}-s_{4} s_{6}\right)-s_{1}\left(c_{6} \left(s_{23} s_{4} c_{5}+s_{5} c_{23}\right)+s_{23} s_{6}c_{4}\right) \\
+ c_{23} \left(s_{4} c_{5} c_{6}+s_{6}c_{4}\right)-s_{23} s_{5} c_{6} \\
+ 0 \\
+\end{bmatrix}
+$$
+
+$$
+T_{0 (:,2)}^{6} =
+\begin{bmatrix}
+s_{1}\left(s_{4}c_{6}+s_{6}c_{4}c_{5}\right)+c_{1}\left(s_{6}\left(s_{23} s_{4}c_{5}+s_{5}c_{23}\right)-s_{23} c_{4}c_{6}\right) \\
+ s_{4}\left(-c_{1}\right) c_{6}+s_{1}s_{6}\left(s_{23} s_{4}c_{5}+s_{5}c_{23}\right)-c_{4}\left(s_{1}s_{23} c_{6}+s_{6}c_{1}c_{5}\right) \\
+ s_{23} s_{5}s_{6}+c_{23} \left(c_{4}c_{6}-s_{4}s_{6}c_{5}\right) \\
+ 0
+\end{bmatrix}
+$$
+
+$$
+T_{0 (:,3)}^{6} =
+\begin{bmatrix}
+ c_{1}c_{23} c_{5}-s_{5}\left(s_{1}c_{4}+s_{23} s_{4}c_{1}\right) \\
+ s_{1}c_{23} c_{5}+s_{5}\left(c_{1}c_{4}-s_{1}s_{23} s_{4}\right) \\
+ s_{23} c_{5}+s_{4}s_{5}c_{23} \\
+ 0 
+\end{bmatrix}
+$$
+
+$$
+T_{0 (:,4)}^{6} =
+\begin{bmatrix}
+l_1 c_{1}c_{2}+l_2 c_{1}c_{23}+l_3 \left(c_{1}c_{23} c_{5}-s_{5}\left(s_{1}c_{4}+s_{23} s_{4}c_{1}\right)\right)+O_2 c_{1}\\
+ l_1 s_{1}c_{2}+l_2 s_{1}c_{23}+l_3 \left(s_{1}c_{23} c_{5}+s_{5}\left(c_{1}c_{4}-s_{1}s_{23} s_{4}\right)\right)+O_2 s_{1}\\
+ l_1 s_{2}+l_3 s_{4}s_{5}c_{23}+s_{23} \left(l_3 c_{5}+l_2\right)+O_1 \\
+ 1 
+\end{bmatrix}
+$$
+
+\subsubsection*{Validación del modelo cinemático}
+A forma de comprobación, los parámetros de Denavit-Hartenberg obtenidos se colocan en el toolbox \textit{``Robotics''} para MATLAB\textregistered , desarrollado por Peter Corke para simular sistemas robóticos (el código puede encontrarse en el Apéndice \ref{Ap:CodigoRoboCorke}), en el que se construye un modelo tridimensional del sistema en desarrollo, mostrado en la Figura \ref{fig:RoboCorke}, en donde se puede observar que la configuración formada por los parámetros de la Tabla \ref{tab:PDH} son congruentes con la configuración de la asignación de marcos de la Figura \ref{fig:AsigMarcos}. 
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/ROBOTNPG}
+	\caption{Modelo tridimensional del sistema robótico desarrollado en el toolbox Robotics de Peter Corke para MATLAB\textregistered}
+	\label{fig:RoboCorke}
+\end{figure}
+
+
+\subsubsection*{Cinemática inversa}
+
+Debido a que este manipulador robótico se compone de un brazo articulado de codo planar y una muñeca esférica, se aprovecha la capacidad que ofrece de desarrollar la cinemática inversa del brazo y la muñeca por separado, lo que se conoce como \textit{desacoplamiento cinemático}.
+
+\textbf{Cinemática inversa del brazo articulado - Posición inversa.}
+
+Para conocer los valores de las juntas pertenecientes al brazo articulado, es conveniente utilizar un enfoque geométrico, proyectando el centro de la muñeca esférica. La Figura  \ref{fig:ProyT1} muestra la proyección del centro de la muñeca en el plano $x_{0}-y_{0}$, permitiendo ver fácilmente el valor de $\theta_{1}$ como una relación entre las coordenadas $x_{c}$ y $y_{c}$ del centro de la muñeca, como se muestra en la ecuación \ref{eq:T1}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Validaciones eslabones/EsquemaT1.pdf}
+	\caption{Proyección del centro de la muñeca en el plano $x_{0}-y_{0}$}
+	\label{fig:ProyT1}
+\end{figure}
+
+\begin{equation}
+\label{eq:T1}
+\theta_{1}=atan2\left(x_{c},y_{c}\right) 
+\end{equation}
+
+\begin{flushleft}
+En donde: $ \; \theta_{1} =$ Valor de la variable del primer grado de libertad.
+%\\
+%\\
+%$\qquad \quad \qquad \rho_{e} \: \; =$ Densidad del eslabón.
+\end{flushleft}
+
+Para encontrar el valor de $\theta_{2}$ y $\theta_{3}$, resulta de gran utilidad la Figura \ref{fig:ProyT2T3}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Validaciones eslabones/EsquemaT2T3.pdf}
+	\caption{Proyección del centro de la muñeca en el plano formado por los eslabones}
+	\label{fig:ProyT2T3}
+\end{figure}
+
+En primer lugar, es importante considerar que existen dos desplazamientos entre las juntas como sigue:
+
+
+\begin{align*}
+r_{real} &= r_{total}-o_{ff_{2}} \\
+s &= z_{c}-o_{ff{1}}
+\end{align*}
+
+
+Utilizando el teorema de Pitágoras, se calcula la longitud equivalente $l_{eq}$, para posteriormente obtener $\theta_{3}$ mediante la ley de cosenos.
+
+\begin{align*}
+l_{eq} &= \sqrt{r_{real}^{2}+s_{2}}\\
+\cos \theta_{3} &= \frac{l_{eq}^{2}-l_{1}^{2}-l_{2}^{2}}{2l_{1}l_{2}}\\
+&= \frac{(r-o_{ff_{2}})^{2} + s^{2} - l_{1}^{2} - l_{2}^{2}}{2l_{1}l_{2}}\\
+&= \frac{(x_{c}^2 + y_{c}^2 -o_{ff_{2}})^{2} + (z_{c}-o_{ff{1}})^{2} - l_{1}^{2} - l_{2}^{2}}{2l_{1}l_{2}}:=D
+\end{align*}
+
+Dado que $ l_{eq}^{2} = (x_{c}^2 + y_{c}^2 -o_{ff_{2}})^{2} $ y $ s^{2} = z_{c}-o_{ff{1}} $. Entonces, $ \theta_{3} $ está dada por la ecuación \ref{eq:T3}.
+
+\begin{align}
+\label{eq:T3}
+\theta_{3} &= atan2\left(D,\pm\sqrt{1-D^{2}}\right)
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+\theta_{3} &= \textrm{Valor de la variable del tercer grado de libertad.}
+\end{align*}
+
+
+El hecho de que se tomen ambas raíces en la ecuación implica que son soluciones para la posición de \textbf{codo arriba} y \textbf{codo abajo}, para lo que finalmente se obtiene $ \theta_{2} $, definido por la ecuación \ref{eq:T2}.
+
+
+\begin{align*}
+\theta_{2} &= atan2\left(r_{real},s\right) - atan2\left(l_{1} + l_{2}c_{3}, l_{2}s_{3}\right)
+\end{align*} 
+
+\begin{align}
+\label{eq:T2}
+\theta_{2} &= atan2\left(\sqrt{x_{c}^2 + y_{c}^2 -o_{ff_{2}}}, z_{c}-o_{ff{1}}\right) - atan2\left(l_{1} + l_{2}c_{3}, l_{2}s_{3}\right)
+\end{align}
+
+\begin{align*}
+\textrm{En donde:}\\
+\theta_{2} &= \textrm{Valor de la variable del segundo grado de libertad.}
+\end{align*}
+
+\textbf{Cinemática inversa de la muñeca esférica - Orientación inversa.}
+
+Para obtener los tres grados de libertad faltantes, pertenecientes a la orientación de la muñeca, resulta útil resolver la ecuación \ref{eq:R06Pieper}.
+
+La matriz simbólica $R_{6}^{3}$ es la siguiente:
+
+%\label{eq:R36Sim}
+\begin{align*}
+R_{6}^{3} = 
+\left[
+\begin{array}{ccc}
+c_{4} c_{5} c_{6}-s_{4} s_{6} & -s_{4} c_{6}-s_{6} c_{4} c_{5} & s_{5} c_{4} \\
+s_{4} c_{5} c_{6}+s_{6} c_{4} & c_{4} c_{6}-s_{4} s_{6} c_{5} & s_{4} s_{5} \\
+-s_{5}c_{6} & s_{5} s_{6} & c_{5}
+\end{array}
+\right]
+\end{align*}
+
+\begin{align}
+\label{eq:R03}
+R_{3}^{0} = 
+\left[
+\begin{array}{ccc}
+-s_{1} & -s_{23} c_{1} & c_{1} c_{23} \\
+c_{1} & -s_{1} s_{23} & s_{1} c_{23} \\
+0 & c_{23} & s_{23}
+\end{array}
+\right]
+\end{align}
+
+Para construir $\left(R_{3}^{0}\right)^{T}R$ se utiliza la ecuación \ref{eq:RTarget} y \ref{eq:R03}, resultando en:
+
+\begin{align*}
+R_{6}^{3} &= 
+\left[
+\begin{array}{ccc}
+r_{21} c_{1}-r_{11} s_{1} & 
+r_{22} c_{1}-r_{12} s_{1} &
+r_{23} c_{1}-r_{13} s_{1} \\
+-r_{11} s_{23} c_{1}-r_{21} s_{1} s_{23}+r_{31} c_{23} &
+-r_{12} s_{23} c_{1}-r_{22} s_{1} s_{23}+r_{32} c_{23} &
+-r_{13} s_{23} c_{1}-r_{23} s_{1} s_{23}+r_{33} c_{23} \\
+r_{11} c_{1} c_{23}+r_{21} s_{1} c_{23}+r_{31} s_{23} &
+r_{12} c_{1} c_{23}+r_{22} s_{1} c_{23}+r_{32} s_{23} &
+r_{13} c_{1} c_{23}+r_{23} s_{1} c_{23}+r_{33} s_{23}
+\end{array}
+\right]
+\end{align*}
+
+Resolviendo para $\theta_{4}$, $\theta_{5}$ y $\theta_{6}$ como sigue.
+
+\begin{align}
+\label{eq:T5}
+\theta_{5} &= atan2\left(
+r_{13}c_{1}c_{23}+r_{23}s_{1}c_{23}+r_{33}s_{23},
+\pm\sqrt{1-\left(r_{13}c_{1}c_{23}+r_{23}s_{1}c_{23}+r_{33}s_{23}\right)^{2}}
+\right)
+\end{align}
+
+\begin{align}
+\label{eq:T4}
+\theta_{4} &= atan2\left(
+\pm\sqrt{s_{5}^{2}-\left(r_{33}c_{23}-r_{13}c_{1}s_{23}-r_{23}s_{1}s_{23}\right)^{2}},
+r_{33}c_{23}-r_{13}c_{1}s_{23}-r_{23}s_{1}s_{23}
+\right)
+\end{align}
+
+\begin{align}
+\label{eq:T6}
+\theta_{6} &= atan2\left(
+\pm\sqrt{s_{5}^{2}-\left(r_{12}c_{1}c_{23}+r_{22}s_{1}c_{23}+r_{32}s_{23}\right)^{2}},
+r_{12}c_{1}c_{23}+r_{22}s_{1}c_{23}+r_{32}s_{23}
+\right)
+\end{align}
+
+
+
+\subsubsection*{Jacobiano}
+
+En esta sección se derivan las relaciones de velocidad entre las velocidades lineal y angular del efector final con respecto a las velocidades de las juntas.
+
+\begin{align*}
+J_{1} = 
+\left[
+\begin{array}{c}
+ -l_1 s_{1} c_{2}-l_2 s_{1} c_{23}-l_3 \left(s_{1} c_{23} c_{5}+s_{5} \left(c_{1} c_{4}-s_{1} s_{23} s_{4}\right)\right)-O_2 s_{1} \\
+ l_1 c_{1} c_{2}+l_2 c_{1} c_{23}+l_3 \left(c_{1} c_{23} c_{5}-s_{5} \left(s_{1} c_{4}+c_{1} s_{23} s_{4} \right)\right)+O_2 c_{1} \\
+ 0 \\
+ 0 \\
+ 0 \\
+ 1
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+J_{2} =
+\left[
+\begin{array}{c}
+ -c_{1} \left(l_1 s_{2}+l_3 s_{4} s_{5} c_{23}+s_{23} \left(l_3 c_{5}+l_2\right)\right) \\
+ -s_{1} \left(l_1 s_{2}+l_3 s_{4} s_{5} c_{23}+s_{23} \left(l_3 c_{5}+l_2\right)\right) \\
+l_1 c_{2} -l_3 s_{23} s_{4} s_{5}+c_{23} \left(l_3 c_{5}+l_2\right) \\
+ s_{1} \\
+ -c_{1} \\
+ 0 
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+J_{3} =
+\left[
+\begin{array}{c}
+ -c_{1} \left(l_3 s_{4} s_{5} c_{23}+s_{23} \left(l_3 c_{5}+l_2\right)\right) \\
+ -s_{1} \left(l_3 s_{4} s_{5} c_{23}+s_{23} \left(l_3 c_{5}+l_2\right)\right) \\
+ -l_3 s_{4} s_{5} s_{23} + c_{23} \left(l_3 c_{5}+l_2\right) \\
+ s_{1} \\
+ -c_{1} \\
+ 0 
+ \\
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+J_{4} =
+\left[
+\begin{array}{c}
+ l_3 s_{5} \left(s_{1} s_{4} - c_{1} s_{23} c_{4}\right) \\
+ -l_3 s_{5} \left(c_{1} s_{4} + s_{1} s_{23} c_{4}\right) \\
+ l_3 s_{5} c_{23} c_{4} \\
+ c_{1} c_{23} \\
+ s_{1} c_{23} \\
+ s_{23} 
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+J_{5} =
+\left[
+\begin{array}{c}
+ -l_3 \left(s_{1} c_{4} c_{5}+c_{1} \left(s_{23} s_{4} c_{5}+s_{5} c_{23}\right)\right) \\
+ l_3 \left(c_{1} c_{4} c_{5}-s_{1} \left(s_{23} s_{4} c_{5}+s_{5} c_{23}\right)\right) \\
+ l_3 \left(s_{4} c_{23} c_{5}-s_{23} s_{5}\right) \\
+ s_{1} s_{4} - c_{1} s_{23} c_{4} \\
+ -c_{1}s_{4} - s_{1} s_{23} c_{4} \\
+ c_{23} c_{4} 
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+J_{6} =
+\left[
+\begin{array}{c}
+ 0 \\
+ 0 \\
+ 0 \\
+ c_{1} c_{23} c_{5}-s_{5} \left(s_{1} c_{4}+c_{1} s_{23} s_{4} \right) \\
+ s_{1} c_{23} c_{5}+s_{5} \left(c_{1} c_{4}-s_{1} s_{23} s_{4}\right) \\
+ s_{23} c_{5}+s_{4} s_{5} c_{23} 
+\end{array}
+\right]
+\end{align*}
+
+
+\begin{align}
+\label{eq:Jacobiano}
+J = \left[ \begin{array}{c|c|c|c|c|c}
+J_{1} & J_{2} & J_{3} & J_{4} & J_{5} & J_{6}
+\end{array} \right]
+\end{align}
+
+\textbf{Jacobiano para singularidades}
+
+Con el fin de realizar el desacoplamiento de singularidades, se construye un Jacobiano de la forma:
+
+\begin{align}
+J_{i} &= \begin{bmatrix}
+ z_{i-1} \times (o_{3}-o_{i-1})\\   z_{i-1} 
+\end{bmatrix}
+\label{eq:JacSing}
+\end{align}
+
+\begin{align*}
+J_{11} =
+\begin{bmatrix}
+-s_{1} \left(l_1 c_{2}+l_2 c_{23}+O_2\right) & -c_{1} \left(l_1 s_{2}+l_2 s_{23}\right) & -c_{1} l_2 s_{23} \\
+c_{1} \left(l_1 c_{2}+l_2 c_{23}+O_2\right) & -s_{1} \left(l_1 s_{2}+l_2 s_{23}\right) & -s_{1} l_2 s_{23} \\
+0 & l_1 c_{2}+l_2 c_{23} & l_2 c_{23} 
+\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+J_{22} =
+\begin{bmatrix}
+ c_{1} c_{23} & s_{1} s_{4}-s_{23} c_{1} c_{4} & c_{1} c_{23} c_{5}-s_{5} \left(s_{1} c_{4}+s_{23} s_{4} c_{1}\right) \\
+ s_{1} c_{23} & -s_{1} s_{23} c_{4} -s_{4} c_{1} & s_{1} c_{23} c_{5}+s_{5} \left(c_{1} c_{4}-s_{1} s_{23} s_{4}\right) \\
+ s_{23} & c_{23} c_{4} & s_{23} c_{5}+s_{4} s_{5} c_{23} 
+\end{bmatrix}
+\end{align*}
+
+Las singularidades se calculan con la ecuación \ref{eq:detJ}, quedando como sigue:
+
+\begin{align}
+\label{eq:ArmSing}
+det J_{11} = -l_1 l_2 s_{3} \left(l_1 c_{2}+l_2 c_{23}+O_2\right)
+\end{align}
+
+\begin{align}
+\label{eq:WristSing}
+det J_{22} = -s_{5}
+\end{align}
+
+De \ref{eq:ArmSing}, se puede observar que las singularidades del brazo se presentan cuando
+
+\begin{align*}
+\theta_{3} &= 0\\
+l_1 c_{2}+l_2 c_{23}+O_2 &= 0
+\end{align*}
+
+Mientras que de \ref{eq:WristSing} se obtiene la singularidad de la muñeca esférica, que se presenta cuando
+
+\begin{align*}
+\theta_{5} &= 0\\
+\end{align*}
+
+Lo que implica que dos de sus ejes están alineados, provocando que el Jacobiano pierda rango y existan infinitas soluciones para un solo valor de posición.
+
+\subsection*{Modelo dinámico}
+
+\begin{align*}
+J_{v \omega 1} = 
+\begin{bmatrix}
+ -O_2 s_{1} & 0 & 0 & 0 & 0 & 0 \\
+ O_2 c_{1} & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 \\
+ 1 & 0 & 0 & 0 & 0 & 0 
+\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+J_{v \omega 2} = 
+\begin{bmatrix}
+ -s_{1} \left(l_{c1} c_{2}+O_2\right) & -l_{c1} s_{2} c_{1} & 0 & 0 & 0 & 0 \\
+ c_{1} \left(l_{c1} c_{2}+O_2\right) & -l_{c1} s_{1} s_{2} & 0 & 0 & 0 & 0 \\
+ 0 & l_{c1} c_{2} & 0 & 0 & 0 & 0 \\
+ 0 & s_{1} & 0 & 0 & 0 & 0 \\
+ 0 & -c_{1} & 0 & 0 & 0 & 0 \\
+ 1 & 0 & 0 & 0 & 0 & 0 
+\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+J_{v \omega 3} = 
+\begin{bmatrix}
+ -s_{1} \left(l_1 c_{2}+l_{c2} c_{23}+O_2\right) & -c_{1} \left(l_1 s_{2}+l_{c2} s_{23}\right) & -l_{c2} s_{23} c_{1} & 0 & 0 & 0 \\
+ c_{1} \left(l_1 c_{2}+l_{c2} c_{23}+O_2\right) & -s_{1} \left(l_1 s_{2}+l_{c2} s_{23}\right) & -l_{c2} s_{1} s_{23} & 0 & 0 & 0 \\
+ 0 & l_1 c_{2}+l_{c2} c_{23} & l_{c2} c_{23} & 0 & 0 & 0 \\
+ 0 & s_{1} & s_{1} & 0 & 0 & 0 \\
+ 0 & -c_{1} & -c_{1} & 0 & 0 & 0 \\
+ 1 & 0 & 0 & 0 & 0 & 0 
+\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+J_{v \omega 4} = 
+\begin{bmatrix}
+ -s_{1} \left(l_1 c_{2}+l_2 c_{23}+O_2\right) & -c_{1} \left(l_1 s_{2}+l_2 s_{23}\right) & -l_2 s_{23} c_{1} & 0 & 0 & 0 \\
+ c_{1} \left(l_1 c_{2}+l_2 c_{23}+O_2\right) & -s_{1} \left(l_1 s_{2}+l_2 s_{23}\right) & -l_2 s_{1} s_{23} & 0 & 0 & 0 \\
+ 0 & l_1 c_{2}+l_2 c_{23} & l_2 c_{23} & 0 & 0 & 0 \\
+ 0 & s_{1} & s_{1} & c_{1} c_{23} & 0 & 0 \\
+ 0 & -c_{1} & -c_{1} & s_{1} c_{23} & 0 & 0 \\
+ 1 & 0 & 0 & s_{23} & 0 & 0 
+\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+J_{v \omega 5} = 
+\begin{bmatrix}
+ -s_{1} \left(l_1 c_{2}+l_2 c_{23}+O_2\right) & -c_{1} \left(l_1 s_{2}+l_2 s_{23}\right) & -l_2 s_{23} c_{1} & 0 & 0 & 0 \\
+ c_{1} \left(l_1 c_{2}+l_2 c_{23}+O_2\right) & -s_{1} \left(l_1 s_{2}+l_2 s_{23}\right) & -l_2 s_{1} s_{23} & 0 & 0 & 0 \\
+ 0 & l_1 c_{2}+l_2 c_{23} & l_2 c_{23} & 0 & 0 & 0 \\
+ 0 & s_{1} & s_{1} & c_{1} c_{23} & s_{1} s_{4}-s_{23} c_{1} c_{4} & 0 \\
+ 0 & -c_{1} & -c_{1} & s_{1} c_{23} & -s_{1} s_{23} c_{4} -s_{4} c_{1} & 0 \\
+ 1 & 0 & 0 & s_{23} & c_{23} c_{4} & 0 
+\end{bmatrix}
+\end{align*}
+
+$J_{v \omega 6}$ es igual al Jacobiano calculado en la ecuación {eq:Jacobiano}, pues toma en cuenta el movimiento de todas las juntas, por lo que solo se requiere sustituir $l_3$ por $l_{c3}$ como sigue
+
+\begin{align*}
+J_{1} = 
+\left[
+\begin{array}{c}
+ -l_1 s_{1} c_{2}-l_2 s_{1} c_{23}-l_{c3} \left(s_{1} c_{23} c_{5}+s_{5} \left(c_{1} c_{4}-s_{1} s_{23} s_{4}\right)\right)-O_2 s_{1} \\
+ l_1 c_{1} c_{2}+l_2 c_{1} c_{23}+l_{c3} \left(c_{1} c_{23} c_{5}-s_{5} \left(s_{1} c_{4}+c_{1} s_{23} s_{4} \right)\right)+O_2 c_{1} \\
+ 0 \\
+ 0 \\
+ 0 \\
+ 1
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+J_{2} =
+\left[
+\begin{array}{c}
+ -c_{1} \left(l_1 s_{2}+l_{c3} s_{4} s_{5} c_{23}+s_{23} \left(l_{c3} c_{5}+l_2\right)\right) \\
+ -s_{1} \left(l_1 s_{2}+l_{c3} s_{4} s_{5} c_{23}+s_{23} \left(l_{c3} c_{5}+l_2\right)\right) \\
+l_1 c_{2} -l_{c3} s_{23} s_{4} s_{5}+c_{23} \left(l_{c3} c_{5}+l_2\right) \\
+ s_{1} \\
+ -c_{1} \\
+ 0 
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+J_{3} =
+\left[
+\begin{array}{c}
+ -c_{1} \left(l_{c3} s_{4} s_{5} c_{23}+s_{23} \left(l_{c3} c_{5}+l_2\right)\right) \\
+ -s_{1} \left(l_{c3} s_{4} s_{5} c_{23}+s_{23} \left(l_{c3} c_{5}+l_2\right)\right) \\
+ -l_{c3} s_{4} s_{5} s_{23} + c_{23} \left(l_{c3} c_{5}+l_2\right) \\
+ s_{1} \\
+ -c_{1} \\
+ 0 
+ \\
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+J_{4} =
+\left[
+\begin{array}{c}
+ l_{c3} s_{5} \left(s_{1} s_{4} - c_{1} s_{23} c_{4}\right) \\
+ -l_{c3} s_{5} \left(c_{1} s_{4} + s_{1} s_{23} c_{4}\right) \\
+ l_{c3} s_{5} c_{23} c_{4} \\
+ c_{1} c_{23} \\
+ s_{1} c_{23} \\
+ s_{23} 
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+J_{5} =
+\left[
+\begin{array}{c}
+ -l_{c3} \left(s_{1} c_{4} c_{5}+c_{1} \left(s_{23} s_{4} c_{5}+s_{5} c_{23}\right)\right) \\
+ l_{c3} \left(c_{1} c_{4} c_{5}-s_{1} \left(s_{23} s_{4} c_{5}+s_{5} c_{23}\right)\right) \\
+ l_{c3} \left(s_{4} c_{23} c_{5}-s_{23} s_{5}\right) \\
+ s_{1} s_{4} - c_{1} s_{23} c_{4} \\
+ -c_{1}s_{4} - s_{1} s_{23} c_{4} \\
+ c_{23} c_{4} 
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+J_{6} =
+\left[
+\begin{array}{c}
+ 0 \\
+ 0 \\
+ 0 \\
+ c_{1} c_{23} c_{5}-s_{5} \left(s_{1} c_{4}+c_{1} s_{23} s_{4} \right) \\
+ s_{1} c_{23} c_{5}+s_{5} \left(c_{1} c_{4}-s_{1} s_{23} s_{4}\right) \\
+ s_{23} c_{5}+s_{4} s_{5} c_{23} 
+\end{array}
+\right]
+\end{align*}
+
+\begin{align*}
+\textrm{En donde:}\\
+l_{ci} &= \textrm{Distancia al centro de masa de la i-ésima junta definida por }l_{i}/2
+\end{align*}
+
+\subsection*{Generación de trayectorias}
+Para la generación de las trayectorias Home-Muestra-Laboratorio se propone utilizar un polinomio de grado 5, ya que permite restringir los valores iniciales y finales de posición, velocidad y aceleración, a diferencia de los polinomios cúbicos, que no permiten restringir la aceleración, generando una sacudida que afecta la precisión del manipulador y un pico de corriente que puede afectar los circuitos controladores.
+
+El polinomio de quinto orden 
+
+\begin{align*}
+q(t) = a_0+a_1t+a_2t^2+a_3t^3+a_4t^4+a_5t^5
+\end{align*}
+
+Sin embargo, es importante tomar en cuenta que el movimiento del robot está restringido por el espacio en el que se monta, por lo que es necesario tomar en cuenta los obstáculos presentes en el espacio de trabajo, así como restringir movimientos que provoquen la superposición de los eslabones para evitar colisiones.
+
+Finalmente, para la trayectoria Laboratorio-Home, se propone utilizar un método Teach and Play, pues el punto de inicio y el final son conocidos y no es necesario calcular la cinemática inversa cada vez que se ejecute.
+
+\subsection*{Control}
+Un enfoque típico para controlar sistemas robóticos es considerar cada junta como un sistema de control independiente que intenta seguir su trayectoria de manera precisa. Sin embargo, esto representa un reto complicado debido a perturbaciones debidas a la gravedad, velocidades y aceleraciones producidas por el resto de las juntas, así como la fricción en cada junta. Por esta razón, se propone utilizar una técnica de control por juntas independientes, la cual sigue un método sencillo que consiste en representar la inercia del sistema mediante una aproximación denominada ``Inercia efectiva'', que es un promedio de los posibles valores de inercia que el sistema puede adoptar de acuerdo a las configuraciones dentro del espacio de trabajo. A pesar de que dicha aproximación no representa la inercia real, el hecho de presentar una relación de reducción alta incrementa la viabilidad en su implementación.
+
+\section{Sistema de Información (S2)}
+\subsection{Módulo de percepción (M3)}
+
+\subsubsection*{Condiciones de operación}
+
+Para asegurar que el sistema trabaja en condiciones seguras de operación, es necesario determinar los parámetros del ambiente, para que el sistema se desactive en cuando alguno de ellos no cumpla con los valores establecidos por los requerimientos (R11 y R12).
+
+Dado que el sistema debe operar a la intemperie, es necesario conocer las condiciones de temperatura y humedad a las que està expuesto, para ello se recurre a un sensor.
+
+En el mercado hay una gran variedad de productos disponibles capaces de medir estas dos magnitudes, destacando entre ellos el DHT11 (Anexo \ref{An:DHT11}) por su popularidad, lo que lo convierte en un componente de fácil adquisición y uso, y dado que su rango de operación cumple con los requerimientos, es seleccionado.
+
+Los puntos del sistema más vulnerables al calentamiento por radiación solar, aire caliente por convección, o por calentamiento propio son: los actuadores, los circuitos electrónicos y el sistema de alimentación, por lo que deben ser monitoreados.
+
+\subsubsection*{Visión artificial}
+
+El objetivo de la visión artificial es obtener las coordenadas de la muestra en el espacio.
+Para ello se recurre a dos herramientas muy útiles en el campo de la visión por computadora, las cuales son la \textit{homografía} y la \textit{estereopsis}.
+
+Se requieren dos imágenes, una vez obtenidas, se realiza la corrección de perspectiva a través de la homografía, obteniendo una vista superior del suelo, con lo que es posible conocer las coordenadas $x,y$ de la muestra, mientras que, para calcular la profundidad en el eje $z$, se utiliza la estereopsis con ayuda de un diagrama como el de la Figura \ref{fig:DiagramaEstereo}.
+
+La selección de cámaras se realiza de acuerdo al árbol de decisiones mostrado en el Anexo \ref{An:Cam}.
+
+De los 2 modelos restantes, se selecciona la cámara más económica, pues ambas cumplen con los requerimientos mínimos, con especificaciones en el Apéndice \ref{ApA4:Camara}.
+
+Para la implementación de este algortimo, se propone utilizar software libre, siendo seleccionado el lenguaje de programación Python, con la biblioteca OpenCV, la cual está orientada a la visión por computadora.
+
+\subsection{Módulo de comunicación (M4)}
+
+Dado que el sistema involucra varios agentes que intercambian datos entre sí, es necesario identificar la forma en que interactúan. Esta interacción está ilustrada en la Figura \ref{fig:ComDiag}. Debido a que estos componentes forman parte de diferentes sistemas, la unión de ellos se realiza en el capítulo ``Integración''.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Comunicacion/Comunicacion diagrama}
+	\caption{Diagrama de comunicación entre módulos}
+	\label{fig:ComDiag}
+\end{figure}
+
+Con ayuda de este diagrama, se determinan los requerimientos de comunicación, mostrados en la Tabla \ref{Tab:ElementosComunicacion}, que serán útiles para diseñar los circuitos y elegir el microcontrolador adecuado.
+
+\subsubsection*{Comunicación interna}
+
+Los componentes electrónicos deben interactuar entre sí para lograr que el sistema mecatrónico realice su función, en la Tabla \ref{Tab:ElementosComunicacion} se muestra la forma en que cada uno de ellos maneja su información.
+
+\begin{table}
+\centering
+\caption{Requerimientos de comunicación}
+\begin{footnotesize}
+\begin{tabular}{|c|c|c|}
+\hline
+Elemento                   & Numero de terminales & Tipo      \\ \hline
+Servomotor (x5)            & 1                    & PWM       \\ \hline
+Motor CD (x3)              & 1                    & PWM       \\ \hline
+Encoder (x3)               & 2                    & Digital   \\ \hline
+Sensor de temperatura (x3) & 1                    & 1-wire    \\ \hline
+Módulo de celda de carga   & 1                    & Serial    \\ \hline
+Sensores de fuerza (x3)    & 1                    & Analógico \\ \hline
+Camara (x2)                & 2                    & SPI       \\ \hline
+Computadora                & 2                    & UART      \\ \hline
+\end{tabular}
+\end{footnotesize}
+\label{Tab:ElementosComunicacion}
+\end{table}
+
+\subsubsection*{Comunicación con el usuario}
+
+Para interactuar con el usuario, se plantea utilizar una interfaz gráfica, como la que se ve en la Figura \ref{fig:FrontEnd}.
+
+Como se puede ver, esta interfaz cuenta con los siguientes elementos.
+
+\begin{itemize}
+\item Botón de activación y desactivación, además cuando se cierre la aplicación se realiza la comprobación del estado del sistema, si se encuentra activo, envía el brazo a la posición de reposo y lo desactiva.
+\item La imagen del entorno obtenida por el sistema de visión, mostrada al usuario en la parte central para que este, a su vez, identifique la ubicación de la muestra de interés.
+\item Botón de corrección de selección, en caso de que el usuario desee cambiar la muestra de interés
+\item Información del sistema dependiendo del resultado de la operación, si la función principal se realizó con éxito, mostrará los parámetros obtenidos de la muestra, en caso contrario, enviará un mensaje de error.
+\end{itemize}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Comunicacion/FrontEnd}
+	\caption{Elementos básicos de la interfaz de usuario}
+	\label{fig:FrontEnd}
+\end{figure}
+
+\subsection{Módulo de procesamiento (M5)}
+
+Para seleccionar un sistema de procesamiento adecuado, es necesario tomar en cuenta lo siguiente\cite{GUIARM}
+
+\begin{enumerate}
+\item Determinar interfaces de hardware necesarias
+\item Seleccionar la arquitectura adecuada de acuerdo a las necesidades
+\item Determinar restricciones de costo y energía 
+\item Comprobar disponibilidad
+\item Determinar entorno de desarrollo
+\end{enumerate}
+
+Las interfaces de hardware se encuentran enlistadas en la Tabla \ref{Tab:ElementosComunicacion}.
+
+El hecho de implementar la comunicación, lectura de datos y el control de posición de motores, significa que la aplicación requiere realizar operaciones complejas, en las que se incluyen las operaciones de punto flotante, por lo que la arquitectura de 32 bits tiene ventajas claras antes las arquitecturas de 8 y 16 bits.
+
+En la Figura \ref{fig:ARMProc}, proporcionada por el fabricante ARM\cite{ARMCM}, se pueden apreciar las diferentes familias de procesadores disponibles, especificando las aplicaciones típicas para cada una, lo cual se revisa con más detalle en la Tabla \ref{Tab:ARMSum}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Comunicacion/ARMProc}
+	\caption{Familia de procesadores ARM, ARM}
+	\label{fig:ARMProc}
+\end{figure}
+
+\begin{table}
+\centering
+\begin{footnotesize}
+\caption{Características de los procesadores ARM, STM}
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+                                                                                                	& Procesadores de aplicación movil                                                                                                                              	& Procesadores en tiempo real                                                                                                                  	& Microcontroladores                                                                                                                                                                        	\\ \hline
+\multicolumn{1}{|c|}{Diseño}                                                                    	& \begin{tabular}[c]{@{}c@{}}Alta frecuencia de reloj,\\ Pipeline larga,\\ Alto desempeño,\\ Soporte multimedia\end{tabular}                                    	& \begin{tabular}[c]{@{}c@{}}Alta frecuencia de reloj,\\ Pipeline de media a larga\\ Determinista (baja latencia\\  de interrupción)\end{tabular}  & \begin{tabular}[c]{@{}c@{}}Ultra baja potencia,\\ Determinista (Baja latencia\\ de interrupción\\ Pipeline corta\end{tabular}                                                             	\\ \hline
+\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}Caracte-\\ rísticas \\ del \\ sistema\end{tabular}} & \begin{tabular}[c]{@{}c@{}}Unidad de administración de\\ memoria, memoria cache, \\ Seguridad ``ARM TrustZone R''\end{tabular}                                  	& \begin{tabular}[c]{@{}c@{}}Unidad de protección de \\ memoria, memoria cache, \\ Memoria estrechamente \\ acoplada\end{tabular}              	& \begin{tabular}[c]{@{}c@{}}Unidad de protección de \\ memoria, \\ Control de interrupciones \\ anidado y vectorizado, \\ Controlador de despertador.\end{tabular}                         	\\ \hline
+\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}Mercado\\ objetivo\end{tabular}}                	& \begin{tabular}[c]{@{}c@{}}Cómputo móvil, teléfonos\\ inteligentes.\\ Servidores energéticamente \\ eficientes, \\ Microprocesadores de gama \\ alta\end{tabular} & \begin{tabular}[c]{@{}c@{}}Microcontroladores\\ industriales, automotrices, \\ Controladores de disco duro, \\ modems de linea base\end{tabular} & \begin{tabular}[c]{@{}c@{}}Microcontroladores,\\ sistemas profundamente\\ embebidos (e.g sensores, \\ MEMS, circuitos integrados \\ de señal mezclada), \\ Internet de las cosas\end{tabular} \\ \hline
+\end{tabular}
+\label{Tab:ARMSum}
+\end{footnotesize}
+\end{table}
+
+De acuerdo a esto, se selecciona la tarjeta de desarrollo STM32F446 (Anexo \ref{An:Nucleo}), pues cumple con las características necesarias y ya se cuenta con ella.
+
+
+\section{Sistema energético (S3)}
+
+Para conocer los requerimientos energéticos del sistema, debe identificarse cuanta energía consumen los elementos que lo conforman.
+
+De acuerdo al modelo eFFBD, mostrado en la Figura \ref{fig:eFFBD}, es posible separar a los elementos de sistema en dos grupos con base en el tiempo que están activos, estos grupos se muestran en la Tabla \ref{Tab:ConsumoGeneral}.
+
+\begin{table}[]
+\centering
+\begin{footnotesize}
+\caption{Consumo energético de los componentes}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Componente               	& Voltaje [V] & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Corriente \\ en reposo [A]\end{tabular}} & \begin{tabular}[c]{@{}c@{}}Corriente \\ promedio [A]\end{tabular} & \begin{tabular}[c]{@{}c@{}}Corriente \\ máxima [A]\end{tabular} \\ \hline
+\multicolumn{5}{|c|}{Operación continua}                                                                                                                                                                                                               	\\ \hline
+Sensor de fuerza (x3)         	& 5   	& 0.5 $\mu$ 	& -                                                         	& 0.005                                                   	\\ \hline
+Módulo ADC de celda de carga & 5   	& 1 $\mu$ 	& 0.0015                                                    	& 0.0015                                                  	\\ \hline
+Tarjeta de procesamiento 	& 5 	& 0.0512                                                                          	& 0.081                                                     	& 0.120                                                   	\\ \hline
+Sensor de temperatura (x3)    	& 5   	& 150 $\mu$ 	& 0.0025                                                    	& 0.0025                                                  	\\ \hline
+Encoder (x3)                   	& 5   	& 0.002                                                                           	& 0.002                                                     	& 0.005                                                   	\\ \hline
+\multicolumn{5}{|c|}{Operación intermitente}                                                                                                                                                                                                           	\\ \hline
+Motor reductor CD (x3)        	& 12  	& -                                                                               	& 7.73                                                      	& 20                                                      	\\ \hline
+Servomotor (x5)              	& 7.6 	& -                                                                               	& 1.43                                                      	& 3                                                       	\\ \hline
+Camara (x2)                  	& 5   	& -                                                                               	& 0.390                                                     	& 0.390                                                   	\\ \hline
+\end{tabular}
+\label{Tab:ConsumoGeneral}
+\end{footnotesize}
+\end{table}
+
+Con esta información, el consumo mínimo del sistema cuando se encuentra en reposo es de $57.65$ [mA], mientras que la corriente máxima requiere tomar en cuenta que sólo se mueve un actuador a la vez para evitar picos de corriente y aceleraciones de Coriolis, mientras que los otros solo consumen la corriente mínima para mantener su posición, de esta manera el caso de consumo máximo se asocia al motor del primer eslabón, pues es el que debe generar un mayor par (11.145[Nm]), resultando en un consumo de $24.768$ [A]. Estos valores se obtienen de acuerdo a las siguientes ecuaciones:
+
+\begin{align*}
+i_{reposo} &= 3i_{sf}+i_{lc}+i_{tarjeta}+3i_{st}+3i_{encoder}\\
+&=3*0.5[\mu A] + 1 [\mu A] + 0.0512[A] + 3*150 [\mu A] +3*0.002[A]\\
+&=57.6545 [mA]\\
+i_{m\acute{a}xima}&=3i_{sf}+i_{lc}+i_{tarjeta}+3i_{st}+3i_{encoder} +i_{cam}+i_{motor2}+4i_{servos}\\
+&=3*0.005[A]+0.0015[A]+0.120[A]+3*0.0025[A]+\cdots\\
+&+3*0.005[A]+10[A]+2*0.390[A]+3.829[A]+4*1.43[A]\\
+&=20.48[A]\\
+\textrm{En donde:}\\
+i_{reposo}&=\textrm{Corriente consumida por el sistema en reposo}\\
+i_{m\acute{a}xima}&=\textrm{Corriente máxima consumida por el sistema}\\
+i_{sf}&=\textrm{Corriente del sensor de fuerza en reposo}\\
+i_{lc}&=\textrm{Corriente de la celda de carga en reposo}\\
+i_{tarjeta}&=\textrm{Corriente de la tarjeta de desarrollo en reposo}\\
+i_{st}&=\textrm{Corriente del sensor de temperatura en reposo}\\
+i_{encoder}&=\textrm{Corriente del encoder en reposo}\\
+i_{motor}&=\textrm{Corriente consumida por el motor del primer eslabón}\\
+i_{motores}&=\textrm{Corriente consumida por el motor del segundo eslabón}\\
+i_{servos}&=\textrm{Corriente consumida por los servomotores}\\
+i_{cam}&=\textrm{Corriente consumida por la cámara}
+\end{align*}
+
+Por esto, se selecciona una fuente que sea capaz de suministrar esta cantidad de energía, utilizando el árbol de decisión mostrado en el Apéndice \ref{ApA3:Fuente}. De este proceso de selección quedan 2 fuentes que cumplen con los criterios (S-350-12\cite{FUENTE350} y S-500-12\cite{FUENTE500} del fabricante Yueqing Mingwei Electric Co. Ltd.), sin embargo se selecciona el modelo S-500-12 (Anexo \ref{An:Fuente}), ya que aunque cuesta 10 USD más, tiene varias ventajas como 11[A] extras, protección contra altas temperaturas y  garantía de 2 años.
+
+\subsection{Acondicionamiento}
+
+Según la Tabla \ref{Tab:ConsumoGeneral}, existen 3 niveles distintos de tensión requeridos por los elementos (los cuales son 5, 7.6 y 12[V]), por lo tanto deben diseñarse circuitos que adapten el valor de tensión de la fuente a estos valores.
+
+De acuerdo a la Tabla \ref{Tab:Reguladores} los reguladores conmutados son una buena opción para aplicaciones de alta potencia, sin embargo, también menciona que son muy complejas de construir, por ello se buscan modelos en el mercado que cumplan las características mínimas de acuerdo a cada nivel de tensión, como se muestra a continuación:
+
+\begin{itemize}
+\item 12[V]: No requiere convertidor.
+\item 7.6[V]: $7.15[A]$
+\item 5[V]: $0.939[A]$
+\end{itemize}
+
+El único proveedor con precios accesibles es RobotShop, por lo que los componentes seleccionados son:
+
+\begin{itemize}
+\item 7.6[V] a 7.15[A]: 2xGS2678 de DFRobot en paralelo para sumar corrientes (cada uno suministra 5[A]) (Anexo \ref{An:RegServ})
+\item 5[V] a 0.939[A]: S9V11F3S5 de Pololu (Anexo \ref{An:Reg5V})
+\end{itemize}
+
+\subsection{Distribución}
+
+Con ayuda de la Figura \ref{fig:CableCalibre} se determina el calibre mínimo necesario para los cables que transmiten la energía de los actuadores y, debido a que los servomotores consumen menos corriente que los motores de CD, se utiliza el mismo calibre.
+
+\begin{enumerate}
+\item Corriente máxima que fluye por el cable: 20A
+\item Tipo de circuito: Crítico
+\item Longitud de cable: $<$2[m]
+\item Calibre necesario: 14
+\end{enumerate}
+
+En cuanto al cable que se conecta a la red eléctrica debe transmitir menos de 6[A], como indica la hoja de datos de la fuente (Anexo \ref{An:Fuente}), y tiene una longitud de aproximadamente 9m, por lo que el calibre necesario es 12.
+
+\section{Sistema del laboratorio (S4)}
+Recordando de la Tabla \ref{Tabla:TrazaMod}, el laboratorio debe obtener datos de la muestra (f3.3),  comunicarlos al usuario (f3.2.1) y devolver la muestra al ambiente (f1.4). A continuación se desarrolla el diseño de los módulos destinados a cumplir dichas funciones, los cuales son el módulo de obtención de datos (M6) y el desechador (M7).
+
+El concepto mejorado (Figura \ref{fig:ConceptoMejorado}) comprende un cono trunco que aumenta la superficie en donde el sistema robótico (S1) puede depositar la muestra, además de que la pendiente del mismo sirve para permitir que la muestra se deslice suavemente hacia el área de obtención de datos, reduciendo la magnitud del impacto. A su vez, el desechador consiste en una base móvil que, una vez que es retirada, deja caer la muestra. 
+
+Las celdas de carga están diseñadas específicamente para la medición de masa y existe en el mercado variedad de opciones con capacidades y sensibilidades distintas. 
+
+De acuerdo a la ecuación \ref{eq:CelSel}, presente en la guía de selección de celdas de carga \cite{CeldaCarga}, una capacidad de 0.95 kg es adecuada para cumplir con el requerimiento de masa establecido (R8 con factor de seguridad de 2). Por ello se decide usar la celda con una capacidad de 1 Kg.
+
+\begin{align}
+\label{eq:CelSel}
+Capacidad &= \frac{(Ic*L+L0)*Lec*Lic}{Nc}
+\end{align}
+
+\begin{align*}
+\textrm{En donde:} \\
+Ic &= \textrm{Coeficiente de impacto}\\
+L &= \textrm{Carga maxima a medir.}\\
+L0 &= \textrm{Carga inicial (Peso de la superficie de medición).}\\
+Lec &= \textrm{Coeficiente de excentricidad de carga.}\\
+Lic &= \textrm{Coeficiente de desbalance de carga.}\\
+Nc &= \textrm{Numero de celdas de carga a utilizar.}
+\end{align*}
+
+\begin{align*}
+Capacidad &= \frac{(1.5*0.5+0.03)*1.2*1}{1}=0.95 Kg
+\end{align*}
+
+El contenedor de la muestra con forma de cono trunco de la Figura \ref{fig:ConceptoMejorado} se rediseña para asemejar a un embudo, con el objetivo de aumentar la superficie de sujeción, pues un círculo solo tiene puntos tangentes, mientras que la geometría mostrada en la Figura \ref{fig:Cono}.
+
+Además de la disminución de velocidad de impacto por la pendiente del cono, se reduce la distancia entre el punto en donde el efector suelta la muestra hasta la superficie de medición.
+Para la manufactura de esta pieza, la manufactura aditiva resulta muy complicado por sus dimensiones, siendo una solución simple el uso de un polímero rígido para la parte plana (PVC), y un polímero semiflexible para la parte curva (PET), puesto que la primera se une a la estructura y soporta el mecanismo de desecho, mientras que la última debe adoptar una geometría curva.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Laboratorio/Cono}
+	\caption{Contenedor de la muestra}
+	\label{fig:Cono}
+\end{figure}
+
+Como se ve en la Figura \ref{fig:SupMed}, la superficie de medición es una pieza sencilla, ya que solamente se encarga de soportar la muestra durante el proceso de pesado, por lo que se acopla sobre la celda de carga.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.2]{imagenes/Dominio especifico/Laboratorio/SupMedicion}
+	\caption{Superficie de medición}
+	\label{fig:SupMed}
+\end{figure}
+
+Finalmente, el mecanismo desechador consta de un actuador que remueve la superficie de medición para que la muestra caiga. El actuador se acopla al costado del embudo contenedor, como se muestra en la Figura \ref{fig:MecDes}.
+
+El actuador es un servomotor estándar MG1501, pues solo debe alcanzar dos posiciones (posición de medición y posición de desecho).
+
+Este motor se acopla al contenedor con una cubierta comercial ASBI24, mientras que el eje transmite el movimiento a través de un cople fijado a una plataforma sobre la que se coloca la celda de carga.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Laboratorio/Laboratorio_Isometrico_Posterior}
+	\caption{Mecanismo de desecho}
+	\label{fig:MecDes}
+\end{figure}
+
+La distribución de estos módulos se puede apreciar fácilmente con la ayuda de la vista lateral, mostrada en la Figura \ref{fig:LabLat}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Laboratorio/LaboratorioLateral2}
+	\caption{Vista lateral del laboratorio}
+	\label{fig:LabLat}
+\end{figure}
+
+Finalmente, los módulos que conforman el laboratorio pueden observarse en la Figura \ref{fig:LabExp}, mientras que el ensamble completo se muestra en la Figura \ref{fig:Lab}.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Laboratorio/Laboratorio_Explosionado}
+	\caption{Vista explosionada del laboratorio}
+	\label{fig:LabExp}
+\end{figure}
+\end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.4\textwidth}
+\begin{figure}[H]
+\centering		
+	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Laboratorio/Laboratorio_Isometrico}
+	\caption{Laboratorio ensamblado}
+	\label{fig:Lab}
+\end{figure}    
+  \end{minipage}
+\end{figure}
+
+\subsection*{Validación}
+
+Para determinar que los elementos que conforman la superficie de medición mantienen su integridad estructural, se realiza un estudio dinámico no lineal en el software SolidWorks \cite{SolidWorks} para conocer los efectos del impacto de la muestra cuando se deja caer.
+
+El estudio se realiza tomando en cuenta las siguientes características
+
+\begin{itemize}
+\item Material: ABS
+\item Velocidad de impacto: 10 [m/s] exagerando la altura a la que se deja caer. (5[m])
+\item Masa de la muestra: 1[Kg]
+\item Características de malla: Mostradas en la Figura \ref{fig:MallaLab}.
+\end{itemize}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Laboratorio/Lab_Impacto_mallado}
+	\caption{Características de mallado del análisis dinámico}
+	\label{fig:MallaLab}
+\end{figure}
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Laboratorio/Lab_Impacto}
+	\caption{Análisis dinámico de impacto de la muestra sobre la superficie de medición del laboratorio}
+	\label{fig:PutazoLab}
+\end{figure}
+
+El estudio mostrado en la Figura \ref{fig:PutazoLab} indica que la mayor parte del impacto es absorbida por esta pieza en lugar de ser absorbida por el ABS, y dado que la celda de carga está hecha de aluminio, es seguro concluir que el material no falla.
+
+\section{Sistema estructural (S5)}
+
+La estructura del vehículo tipo \textit{rover} en el que el sistema se pretende montar está construida con perfil de aluminio IPS de 20x20 [mm].
+
+La estructura básica debe ser reproducida para el banco de pruebas, el cual consiste en una base fija, por lo que se omite el uso de las ruedas.
+
+Para reducir costos y tiempo de manufactura, se eliminan las partes de la estructura que no sostienen a ningún elemento del sistema, como se aprecia en la Figura \ref{fig:BancoPruebas}.
+
+\begin{figure}[H]
+\centering		
+	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Estructura/Estructura_modificadaxd}
+	\caption{Estructura modificada del banco de pruebas}
+	\label{fig:BancoPruebas}
+\end{figure}
