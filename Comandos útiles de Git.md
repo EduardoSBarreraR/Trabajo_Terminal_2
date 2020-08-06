@@ -1,5 +1,16 @@
 ## Local - Git
 
+### Configuraciones generales
+
+`git config --global user.name "Nombre" ` Establece el nombre con que se registra el autor de los commits realizados
+`git config --global user.name "correo@xdxd.com" ` Establece el correo del autor
+El parámetro `--global` le indica a git que esa configuración se aplica a todos los repositorios creados en los que no se especifique el user.name y user.email de manera local
+
+`git config --global alias.nombre-alias "comandos a ejecutar" ` Nos permite crear nuestros propios comandos, e.g.
+
+`git config --global alias.lg "log --oneline --decorate --all --graph"`
+`git config --global alias.s "status -s -b"` Status silent que muestra las ramas
+
 ### Recuperación de archivos
 `git checkout -- .` Restaurar los cambios a la versión actual
 
