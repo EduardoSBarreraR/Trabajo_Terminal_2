@@ -117,14 +117,14 @@ Sustituyendo $m_{e_{1}}$ y $V_{e_{1}}$ en la ecuación \ref{eq:DensidadE1}, queda
  
 Una vez que se conoce la densidad máxima $\rho_{e_{1}}$ del material a seleccionar, se analiza la relación entre la densidad y el módulo de elasticidad de los materiales mostrada en el gráfico de la Figura \ref{fig:DensidadVSYoung_Seleccion}, que indica aquellos materiales que no se pueden elegir con un área sombreada, debido a que su densidad es mayor a la máxima establecida en el cálculo anterior, mostrando que la variedad de materiales entre los que se puede elegir es amplia. Esto incluye a los metales, los cuales son una buena elección debido a su módulo de elasticidad elevado, sobresaliendo entre éstos el aluminio, muy utilizado en aplicaciones aeroespaciales debido a su alta maquinabilidad sin comprometer el peso. En la Tabla \ref{tab:PropiedadesAluminio} se muestran las principales propiedades mecánicas del mismo\cite{SolidWorks}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering		
 	\includegraphics[scale=1]{imagenes/Dominio especifico/DensidadVSYoung_Seleccion}
 	\caption{Rango de materiales elegibles para el eslabón}
 	\label{fig:DensidadVSYoung_Seleccion}
 \end{figure}
 
-\begin{table}[t]
+\begin{table}
 \caption{Propiedades mecánicas del Aluminio 6061 T6}
 \centering
 \begin{footnotesize}
@@ -138,15 +138,6 @@ Coeficiente de Poisson & 0.33  & adimensional         \\ \hline
 \end{footnotesize}
 \label{tab:PropiedadesAluminio}
 \end{table}
-
-La Figura \ref{fig:CADE1Solido} muestra el modelo CAD del primer eslabón, generado en el software SolidWorks \textregistered \cite{SolidWorks}, con el que se realizan todos los modelos CAD.
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Primeros eslabones}
-	\caption{Modelo CAD del primer eslabón.}
-	\label{fig:CADE1Solido}
-\end{figure}
 
 Para seleccionar el material del segundo eslabón se sigue el mismo procedimiento, utilizando las dimensiones determinadas, las cuales son:
 
@@ -174,16 +165,37 @@ $\rho_{e_{2}} = \unitfrac[15575.93]{Kg}{m^3}$
  
 Como en el caso anterior, el cálculo demuestra que hay muchos materiales entre los cuales elegir, por lo que se selecciona nuevamente el aluminio, ya que presenta la ventaja añadida de que es más barato comprar el mismo material en mayor cantidad que una cantidad menor de distintos materiales.
 
-La Figura \ref{fig:CADE2Solido} muestra el modelo CAD del segundo eslabón.
+Considerando que unos eslabones sólidos tienen factores de seguridad grandes, y dado que uno de los objetivos del proyecto es reducir el consumo energético del sistema, se realizaron varios rediseños en las cuales se reduce la cantidad de material ranurando los eslabones y modificando la sección transversal, resultando en las siguientes dimensiones:
 
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Segundos eslabones}
-	\caption{Modelo CAD del segundo eslabón.}
-	\label{fig:CADE2Solido}
+\begin{itemize}
+\item $t_{e{1}} =$ 6.35 mm
+\item $t_{e{2}} =$ 6 mm
+\end{itemize}
+
+Los eslabones rediseñados pueden observarse en las Figuras \ref{fig:CADE1Ran} y \ref{fig:CADE2Ran}.
+
+\begin{figure}
+	\centering		
+		\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Primeros eslabones ranurados}
+		\caption{Modelo CAD del primer eslabón ranurado.}
+		\label{fig:CADE1Ran}
 \end{figure}
 
-Con la densidad descrita en la Tabla \ref{tab:PropiedadesAluminio}, se calcula la magnitud real de la masa, despejando la masa $m_{e}$ de la  ecuación \ref{eq:DensidadE1}, obteniendo como resultado \textbf{$m_{e_{1}} = 0.472$ Kg} y \textbf{$m_{e{2}} = 0.216$ Kg}.
+\begin{figure}
+	\centering		
+		\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Segundos eslabones ranurados}
+		\caption{Modelo CAD del segundo eslabón ranurado.}
+		\label{fig:CADE2Ran}
+\end{figure}
+
+El volumen ocupado por los eslabones y la masa de los mismos son los siguientes:
+
+\begin{itemize}
+	\item $V_{e{1}} =113.899e-6 m^{3}$
+	\item $V_{e{2}} =65.098e-6 m^{3}$
+	\item $m_{e{1}} =307.53g$ 
+	\item $m_{e{2}} =175.77g$ 
+\end{itemize}
 
 \subsubsection*{Validación de la selección}
 
@@ -209,158 +221,9 @@ En donde: $ \; F_{y} =$ Fuerzas existentes en el eje Y.
 En donde: $ \; M_{o} =$ Momentos generados por las fuerzas normales al punto O.
 \end{flushleft}
 
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/DP1}
-	\caption{Cargas aplicadas al sistema}
-	\label{fig:CargasS}
-\end{figure}
 
-En la Figura \ref{fig:CargasS} se pueden apreciar las cargas a las que está sometido el sistema, analizando las cargas aplicadas en el eslabón 1 en la Figura \ref{fig:CargasE1}, mientras que las cargas aplicadas al eslabón 2 son mostradas en la Figura \ref{fig:CargasE2}. Estos datos proporcionan la información necesaria para hacer las simulaciones.
 
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/E11}
-	\caption{Cargas aplicadas al eslabón 1.}
-	\label{fig:CargasE1}
-\end{figure}
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/E21}
-	\caption{Cargas aplicadas al eslabón 2.}
-	\label{fig:CargasE2}
-\end{figure}
-
-El estudio del eslabón 1, mostrado en la Figura \ref{fig:AnE1Solido}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE1Solido}.
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE1Solido}
-	\caption{Características de mallado del estudio de resistencia del eslabón 1}
-	\label{fig:MallaE1Solido}
-\end{figure}
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_1_solido}
-	\caption{Estudio de resistencia del eslabón 1 sólido}
-	\label{fig:AnE1Solido}
-\end{figure}
-
-El estudio del eslabón 2, mostrado en la Figura \ref{fig:AnE2Solido}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE2Solido}.
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE2Solido}
-	\caption{Características de mallado del estudio de resistencia del eslabón 2}
-	\label{fig:MallaE2Solido}
-\end{figure}
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_2_solido}
-	\caption{Estudio de resistencia del eslabón 2 sólido}
-	\label{fig:AnE2Solido}
-\end{figure}
-
-Los resultados de los estudios indican que el esfuerzo von Mises máximo en el primer eslabón, mostrado en la Figura \ref{fig:AnE1Solido}, es 3.036 MPa, mientras que en el segundo estudio (Figura \ref{fig:AnE2Solido} es 5.581 MPa. Dado que el límite elástico del aluminio 6061 T6 es igual a 275 MPa, los factores de seguridad para cada elemento son 90.58 y 49.27 respectivamente, por lo que se puede concluir que el material no fallará.
-
-\subsubsection*{Rediseño orientado a integridad estructural}
-
-Debido a que los resultados de la validación son favorables, existe la oportunidad de mejorar el diseño con el objetivo de incrementar la integridad estructural, lo cual se logra al añadir travesaños a lo largo del eslabón, cuyos modelos CAD se muestran en las Figuras \ref{fig:CADE1Traves} y \ref{fig:CADE2Traves} respectivamente.
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Primeros eslabones traves}
-	\caption{Modelo CAD del primer eslabón con travesaños.}
-	\label{fig:CADE1Traves}
-\end{figure}
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Segundos eslabones traves}
-	\caption{Modelo CAD del segundo eslabón con travesaños.}
-	\label{fig:CADE2Traves}
-\end{figure}
-
-\subsubsection*{Validación del rediseño}
-
-Ya que se realizaron cambios al diseño original, es necesario volver a comprobar el rendimiento del material frente a las cargas aplicadas, como se muestra a continuación.
-
-El estudio del eslabón 1 rediseñado, mostrado en la Figura \ref{fig:AnE1Traves}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE1Traves}.
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE1Traves}
-	\caption{Características de mallado del estudio de resistencia del eslabón 1 con travesaños}
-	\label{fig:MallaE1Traves}
-\end{figure}
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_1_traves}
-	\caption{Estudio de resistencia del eslabón 1 con travesaños}
-	\label{fig:AnE1Traves}
-\end{figure}
-
-El estudio del eslabón 1 rediseñado, mostrado en la Figura \ref{fig:AnE2Traves}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE2Traves}.
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE2Traves}
-	\caption{Características de mallado del estudio de resistencia del eslabón 2 con travesaños}
-	\label{fig:MallaE2Traves}
-\end{figure}
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_2_traves}
-	\caption{Estudio de resistencia del eslabón 2 con travesaños}
-	\label{fig:AnE2Traves}
-\end{figure}
-
-Este nuevo resultado indica que el esfuerzo von Mises máximo en el primer eslabón es 8.377 MPa, mientras que en el segundo es 3.782 MPa. Aunque estos valores hayan aumentado respecto de los obtenido con el diseño original, los factores de seguridad (32.82 y 72.71) siguen siendo favorables.
-
-\subsubsection*{Rediseño orientado a la reducción de masa}
-
-Considerando que los factores de seguridad son grandes, y dado que uno de los objetivos del proyecto es reducir el consumo energético del sistema, se propone reducir la cantidad de material utilizado ranurando los eslabones y modificando la sección transversal, resultando en las siguientes dimensiones:
-
-\begin{itemize}
-\item $t_{e{1}} =$ 6.35 mm
-\item $t_{e{2}} =$ 6 mm
-\end{itemize}
-
-Los eslabones rediseñados pueden observarse en las Figuras \ref{fig:CADE1Ran} y \ref{fig:CADE2Ran}.
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Primeros eslabones ranurados}
-	\caption{Modelo CAD del primer eslabón ranurado.}
-	\label{fig:CADE1Ran}
-\end{figure}
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Segundos eslabones ranurados}
-	\caption{Modelo CAD del segundo eslabón ranurado.}
-	\label{fig:CADE2Ran}
-\end{figure}
-
-Estos cambios provocan una reducción en el volumen ocupado por los eslabones y, por ende, en la masa de los mismos.
-
-\begin{itemize}
-\item $V_{e{1}} =113.899e-6 m^{3}$
-\item $V_{e{2}} =65.098e-6 m^{3}$
-\item $m_{e{1}} =307.53g$ 
-\item $m_{e{2}} =175.77g$ 
-\end{itemize}
-
-\subsubsection*{Validación del rediseño}
-
-Finalmente, es necesario validar de nuevo, calculando nuevas reacciones debidas al cambio en la masa de los eslabones, como se muestra a continuación:
-
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/DP1}
 	\caption{Cargas aplicadas al sistema con eslabones ranurados}
@@ -369,66 +232,50 @@ Finalmente, es necesario validar de nuevo, calculando nuevas reacciones debidas 
 
 En la Figura \ref{fig:CargasSRan} se pueden apreciar las cargas a las que está sometido el sistema, analizando las cargas aplicadas en el eslabón 1 en la Figura \ref{fig:CargasE1Ran}, mientras que las cargas aplicadas al eslabón 2 son mostradas en la Figura \ref{fig:CargasE2Ran}. Estos datos proporcionan la información necesaria para hacer las simulaciones.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/E12}
 	\caption{Cargas aplicadas al eslabón 1 ranurado.}
 	\label{fig:CargasE1Ran}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/E22}
 	\caption{Cargas aplicadas al eslabón 2 ranurado.}
 	\label{fig:CargasE2Ran}
 \end{figure}
 
-El estudio del eslabón 1 rediseñado, mostrado en la Figura \ref{fig:AnE1Ran}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE1Ran}.
+Los estudios de los eslabones se muestran en las Figuras \ref{fig:AnE1Ran} y \ref{fig:AnE2Ran} respectivamente.
 
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE1Ranurado}
-	\caption{Características de mallado del estudio de resistencia del eslabón 1 ranurado}
-	\label{fig:MallaE1Ran}
-\end{figure}
-
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_1_ranurado}
 	\caption{Estudio de resistencia del eslabón 1 ranurado}
 	\label{fig:AnE1Ran}
 \end{figure}
 
-El estudio del eslabón 1 rediseñado, mostrado en la Figura \ref{fig:AnE2Ran}, se realizó con una mallado cuyas características se muestran en la figura \ref{fig:MallaE2Ran}.
-
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/MallaE2Ranurado}
-	\caption{Características de mallado del estudio de resistencia del eslabón 2 ranurado}
-	\label{fig:MallaE2Ran}
-\end{figure}
-
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Eslabon_2_ranurado}
 	\caption{Estudio de resistencia del eslabón 2 ranurado}
 	\label{fig:AnE2Ran}
 \end{figure}
 
-El esfuerzo von Mises máximo de 4.681 MPa en el primer eslabón y 8.19 MPa en el segundo arrojan un factor de seguridad de 58.74 y 33.57 respectivamente, por lo que es posible concluir que se logró reducir la masa en un 30\% sin que el material falle.
+El esfuerzo von Mises máximo de 4.681 MPa en el primer eslabón y 8.19 MPa en el segundo arrojan un factor de seguridad de 58.74 y 33.57 respectivamente, por lo que es posible concluir que se logró reducir la masa en un 30\% en comparación a eslabones sólidos sin que el material falle.
 
 \subsubsection*{Selección de actuadores para los eslabones}
 
 Para seleccionar los motores, es necesario determinar el torque que el motor debe aplicar para poder mover al sistema y la muestra, indicada en la Figura \ref{fig:CarMot1} para el segundo GDL, y la Figura \ref{fig:CarMot2} para el tercer GDL.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/TorMot1}
 	\caption{Diagrama de cargas aplicadas al motor del primer eslabón}
 	\label{fig:CarMot1}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/TorMot2}
 	\caption{Diagrama de cargas aplicadas al motor del segundo eslabón}
@@ -564,7 +411,7 @@ Poleas
 Estas poleas sirven para la transmisión de movimiento de todos los ejes de movimiento del brazo, sin embargo es importante tomar en cuenta que la banda necesita estar en tensión, por lo que es necesario diseñar un mecanismo que mantenga la tensión en la banda perteneciente al segundo eslabón, para lo cual se diseña un ``ocioso'' que puede colocarse en el eje del primer eslabón sin afectar su comportamiento, pues tiene rodamientos en la parte interna (Anexo \ref{An:RodChi}), como se muestra en la Figura \ref{fig:PoleaLoca}, con los cuales se ajusta al eje del primer eslabón, girando libremente sin aplicar torsión al mismo.
 La necesidad de diseñar la polea surge del hecho de que los fabricantes solo ofrecen ociosos para tensar una banda, mientras que esta aplicación requiere que dos bandas diferentes se muevan a la par, por lo que utilizar las poleas ociosas comerciales requiere unirlas mecánicamente, lo que puede representar riesgo de deformaciones o desalineamiento entre ejes de giro, por lo cual se opta por manufactura aditiva en un plástico de ingeniería \cite{Mat3D}, como es el Nylon12, PC, Ultem y Antero.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/PoleaLoca}
 	\caption{Vista de sección del ocioso con dientes}
@@ -577,7 +424,7 @@ La necesidad de diseñar la polea surge del hecho de que los fabricantes solo ofr
 
 El primer eje tiene está configurado por dos apoyos de rodamiento, una polea ociosa doble, una polea síncrona común y dos sujetadores, como se muestra en la Figura \ref{fig:DEje1}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/DiagramaEJE1}
 	\caption{Diagramas de cargas del eje 1}
@@ -586,14 +433,14 @@ El primer eje tiene está configurado por dos apoyos de rodamiento, una polea oci
 
 Para conocer la magnitud del momento flector y el momento torsionante, se analiza el eje como viga en dos planos, mostrados en las Figuras \ref{fig:CEje1} y \ref{fig:CEje1a}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/Eje1f}
 	\caption{Plano frontal de cargas del eje 1}
 	\label{fig:CEje1}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/Eje1s}
 	\caption{Plano superior de cargas del eje 1}
@@ -659,7 +506,7 @@ C_{eje-2} &= 105.75 N \left( \frac{4.002x10^{6}}{10^{6}}\right)^{1/3.33} \\
 
 De manera análoga al diseño del primer eje, se analizan las cargas a las que está sometido el segundo eje, como se muestra en la Figura \ref{fig:DEje2}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/DiagramaEJE2}
 	\caption{Diagramas de cargas del eje 2}
@@ -668,14 +515,14 @@ De manera análoga al diseño del primer eje, se analizan las cargas a las que est
 
 Como se puede ver en las Figuras \ref{fig:CEje2}  y \ref{fig:CEje2a}., solo la polea y los eslabones producen fuerzas sobre el eje, el cual también está apoyado en dos rodamientos.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/Eje2f}
 	\caption{Plano frontal de cargas del eje 2}
 	\label{fig:CEje2}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/Eje2s}
 	\caption{Plano superior de cargas del eje 2}
@@ -718,7 +565,7 @@ Considerando que el eje de giro se encuentra sometido a cargas y esfuerzos debid
 
 Estas cargas se conocen al trasladar las reacciones generadas por el brazo robótico y la muestra que transporta hacia las direcciones radial y axial, como se muestra en la Figura \ref{fig:DCBase}, las cuales se distribuyen a rodamientos específicos para cada tipo de carga.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/Diagrama reacciones baleros 2}
 	\caption{Diagrama de cargas para el eje}
@@ -727,7 +574,7 @@ Estas cargas se conocen al trasladar las reacciones generadas por el brazo robót
 
 La Tabla \ref{tab:MasasBrazo} muestra las masas de los elementos del brazo, así como la distancia a la que se encuentran del punto D, que es en el que se realiza la suma de momentos.
 
-\begin{table}[H]
+\begin{table}
 \centering
 \caption{Masas de los elementos del brazo robótico}
 \begin{footnotesize}
@@ -827,14 +674,14 @@ De acuerdo al catálogo en línea del fabricante SKF\cite{SKF}, se seleccionan los
 
 La plataforma giratoria debe ser capaz de sostener a los dos motores que mueven los eslabones, así como el soporte del brazo. Por ello se utiliza una geometría de medio círculo en la parte posterior, mientras que en la parte frontal se colocan dos salientes, como se muestra en la Figura \ref{fig:PlataGiratoria}, sobre los que se montan las chumaceras que soportan al eje del primer grado de libertad, dejando un espacio libre entre estas para permitir que el eslabón gire por debajo del plano horizontal evitando la colisión con la plataforma. Para facilitar la comprensión de la geometría, se recurre a una perspectiva isométrica y a la vista superior, mostradas en la Figura \ref{fig:PlataformaVistas}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Plataforma}
 	\caption{Modelo CAD de la plataforma giratoria}
 	\label{fig:PlataGiratoria}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Plataforma_Vistas}
 	\caption{Vistas de referencia para la plataforma giratoria}
@@ -844,7 +691,7 @@ La plataforma giratoria debe ser capaz de sostener a los dos motores que mueven 
 El cilindro está diseñado de acuerdo a las dimensiones del eje del motor acoplado y los rodamientos seleccionados previamente, además de añadir barrenos para atornillarlo a la base fija, 
 cuyo resultado se muestra en la Figura \ref{fig:CilindroFijo}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/CilindroFijo}
 	\caption{Modelo CAD del cilindro base}
@@ -853,14 +700,14 @@ cuyo resultado se muestra en la Figura \ref{fig:CilindroFijo}.
 
 Finalmente, la base fija, mostrada en la Figura \ref{fig:BaseFija}, es aquella que debe soportar los esfuerzos generados por todo el manipulador, en la que se acopla el cilindro base de la Figura \ref{fig:CilindroFijo} a la placa, como se muestra en la Figura \ref{fig:CilindroBase}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/BaseFija}
 	\caption{Modelo CAD de la base fija del manipulador}
 	\label{fig:BaseFija}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Cilindro-Base}
 	\caption{Cilindro base acoplado a la base fija}
@@ -873,25 +720,18 @@ Para comprobar la integridad mecánica de las piezas que conforman la base, se re
 
 \textit{Plataforma giratoria}
 
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Plataforma_Nodos}
-	\caption{Características de la malla del análisis estático de la plataforma}
-	\label{fig:PlatGirNodos}
-\end{figure}
-
 Para la plataforma giratoria, que tiene una masa de 0.128[Kg], el análisis con características mostradas en la Figura \ref{fig:PlatGirNodos} queda como sigue:
 
 La Figura \ref{fig:PlatGirEsfuerzos} muestra que el esfuerzo von Mises máximo es 53.73[MPa], por lo que tiene un factor de seguridad de 5.11. Mientras que la Figura \ref{fig:PlatGirDef} muestra que la deformación máxima es 0.8[mm].
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Plataforma_Analisis}
 	\caption{Análisis estático de resistencia de la plataforma giratoria}
 	\label{fig:PlatGirEsfuerzos}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Plataforma_Deformacion}
 	\caption{Análisis estático de rigidez de la plataforma giratoria}
@@ -900,25 +740,18 @@ La Figura \ref{fig:PlatGirEsfuerzos} muestra que el esfuerzo von Mises máximo es
 
 \textit{Cilindro base}
 
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/CilindroFijo_Nodos}
-	\caption{Características de la malla del análisis estático del cilindro base}
-	\label{fig:CilBaseNodos}
-\end{figure}
-
 Para el cilindro base, que tiene una masa de 0.096[Kg], el análisis con características mostradas en la Figura \ref{fig:CilBaseNodos} queda como sigue:
 
 La Figura \ref{fig:CilBaseEsfuerzos} muestra que el esfuerzo von Mises máximo es 52[MPa], por lo que tiene un factor de seguridad de 5.28. Mientras que la Figura \ref{fig:CilBaseDef} muestra que la deformación máxima es 0.004[mm].
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/CilindroFijo_Analisis}
 	\caption{Análisis estático de resistencia del cilindro base}
 	\label{fig:CilBaseEsfuerzos}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/CilindroFijo_Deformacion}
 	\caption{Análisis estático de rigidez del cilindro base}
@@ -927,25 +760,18 @@ La Figura \ref{fig:CilBaseEsfuerzos} muestra que el esfuerzo von Mises máximo es
 
 \textit{Base fija}
 
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Cilindro-Base_Nodos}
-	\caption{Características de la malla del análisis estático de la base fija}
-	\label{fig:CilindroBaseNodos}
-\end{figure}
-
 Para la base fija, que tiene una masa de .230[Kg], el análisis con características mostradas en la Figura \ref{fig:CilindroBaseNodos} queda como sigue:
 
 La Figura \ref{fig:CilindroBaseEsfuerzos} muestra que el esfuerzo von Mises máximo es 19.9[MPa], por lo que tiene un factor de seguridad de 13.18. Mientras que la Figura \ref{fig:CilindroBaseDef} muestra que la deformación máxima es 0.028[mm].
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Cilindro-Base_Analisis}
 	\caption{Análisis estático de resistencia de la base fija}
 	\label{fig:CilindroBaseEsfuerzos}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Cilindro-Base_Deformacion}
 	\caption{Análisis estático de rigidez de la base fija}
@@ -956,14 +782,14 @@ La Figura \ref{fig:CilindroBaseEsfuerzos} muestra que el esfuerzo von Mises máxi
 
 La Figura \ref{fig:MesaCAD} muestra la configuración final de la mesa ensamblada, mientras que la Figura \ref{fig:MesaExplosionada} muestra una vista explosionada que permite apreciar los elementos que la conforman.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/VistaIso}
 	\caption{Modelo CAD de la base del manipulador}
 	\label{fig:MesaCAD}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/Mesa/Mesa explosionada}
 	\caption{Vista explosionada del modelo CAD de la base del manipulador}
@@ -978,7 +804,7 @@ Debido a que se cuenta con poco espacio y son fáciles de utilizar, se propone ut
 
 Con la finalidad de acoplar el servomotor al segundo eslabón, y para soportar los esfuerzos radiales, se utiliza una estructura de carga comercial que, como puede apreciarse en la vista explosionada de la Figura \ref{fig:MuneMot1Exp}, consta de dos soportes laterales, un marco para el servomotor, una chumacera y un adaptador para el eje del mismo. La estructura armada se muestra en la Figura \ref{fig:PrimerMotor}.
 
-\begin{figure}[H]
+\begin{figure}
   \centering
   \begin{minipage}[b]{0.4\textwidth}
 \begin{figure}[H]
@@ -1011,7 +837,7 @@ Además, se adquieren dos acopladores el eje de de los servomotores de los último
 
 Estas piezas pueden observarse a detalle en la Figura \ref{fig:Motor23Exp}, mientras que el ensamble se muestra en la Figura \ref{fig:Motor23}. Las piezas adquiridas se encuentran en el Anexo \ref{An:PiezasMueca}, mientras que los rodamientos aparecen en el Anexo \ref{An:RodChi}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{minipage}[b]{0.4\textwidth}
 \begin{figure}[H]
@@ -1034,7 +860,7 @@ Estas piezas pueden observarse a detalle en la Figura \ref{fig:Motor23Exp}, mien
 
 La muñeca esférica completa con los servomotores se puede apreciar en la Figura \ref{fig:MuneCAD}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Muneca/MunecaCompleta}
 	\caption{Modelo CAD de la muñeca esférica}
@@ -1045,7 +871,7 @@ Debido a que estas piezas presentan geometrías complejas, y que no se someten a 
 
 Finalmente, resta seleccionar los servomotores a usar, para lo cual se calcula el par máximo que deben de soportar, utilizando los diagramas mostrados en las Figuras \ref{fig:ParMuneca1} y \ref{fig:ParMuneca1}, destacando que, dado que las cargas se encuentran muy cerca del eje de giro del tercer GDL, el momento que generan es muy pequeño, por lo que se omite su cálculo.
 
-\begin{figure}[H]
+\begin{figure}
   \centering
   \begin{minipage}[b]{0.4\textwidth}
 \begin{figure}[H]
@@ -1085,7 +911,7 @@ and Educational Purposes''\cite{GripperOS}, el cual, como se presenta en el abst
 
 La acción de agarre de las falanges se basa en un mecanismo subactuado de dos grados de libertad. En la Figura \ref{fig:MecGrip} se muestra un diagrama esquemático de los elementos del mecanismo. 
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.3]{imagenes/MecanismoGripper}
 	\caption{Elementos del mecanismo del gripper, IEEE}
@@ -1094,7 +920,7 @@ La acción de agarre de las falanges se basa en un mecanismo subactuado de dos gr
 
 El torque de un actuador se aplica en $O_{1}$, donde el torque $T_{a}$ genera un desplazamiento angular $\theta_{1}$. El resorte con módulo elástico $K$, ejerce una fuerza que mantiene el ángulo $\theta_{2}$ fijo. Cuando el eslabón $O_{1}-O_{2}$ se ve detenido en su movimiento, el torque $T_{a}$ provoca una elongación en el resorte, lo que provoca un movimiento angular en $\theta_{2}$. Dicha secuencia es mostrada en la Figura \ref{fig:SecGrip}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.3]{imagenes/SecuenciaGripper}
 	\caption{Secuencia de movimientos del mecanismo del gripper, IEEE}
@@ -1103,7 +929,7 @@ El torque de un actuador se aplica en $O_{1}$, donde el torque $T_{a}$ genera un
 
 En la Figura \ref{fig:Grip1D} se muestra el ensamblaje de una falange con el mecanismo de actuación, que consiste en un tornillo sin fin más un engrane que transmite el movimiento al piñón que, unido al eslabón, transmite el torque al mecanismo.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.3]{imagenes/DedoYEngranes}
 	\caption{Ensamblaje de una falange del gripper, IEEE}
@@ -1112,14 +938,14 @@ En la Figura \ref{fig:Grip1D} se muestra el ensamblaje de una falange con el mec
 
 Según los resultados de las pruebas mostradas en la fuente\cite{GripperOS}, el efector es capaz de sujetar objetos con diversas geometrías. En la Figura \ref{fig:Balonxd}, el lector puede observar que el objeto agarrado es una pelota de geometría esférica. Se busca que el agarre para la muestra de roca sea similar, sin embargo, la pelota tiene dimensiones mayores al tamaño propuesto en el requerimiento R2, como se puede apreciar en el diagrama simplificado mostrado en la Figura \ref{fig:EFDSOri}, por lo que se propone un cambio de dimensiones en los ``dedos'' y la plataforma que funciona como ``palma''.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Balonxd}
 	\caption{Agarre del gripper con una pelota esférica, IEEE}
 	\label{fig:Balonxd}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.25]{imagenes/Dominio especifico/Efector/Original1}
 	\caption{Diagrama simplificado de un dedo y la muestra objetivo}
@@ -1136,7 +962,7 @@ Después de realizar un análisis geométrico con el software Geogebra\textregister
 
 Con las dimensiones modificadas se aprecia que, aunque la palma no tenga contacto con la muestra, existe una mejora en el agarre de la misma, a la vez que se disminuye la probabilidad de golpear el suelo al disminuir la distancia necesaria para asegurar la sujeción. Esto se puede apreciar en la Figura \ref{fig:EFDSMod}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.25]{imagenes/Dominio especifico/Efector/Modificado1}
 	\caption{Diagrama simplificado de un dedo y la muestra objetivo}
@@ -1167,7 +993,7 @@ La distribución de los dedos del efector se pueden apreciar claramente en la vis
 
 Además de la modificación a las dimensiones, se agrega una placa deslizante que permite introducir un sensor de fuerza para determinar cuando la muestra es asegurada, de manera que no se ejerza una fuerza excesiva que resulte en un daño a la muestra o al efector, como se muestra en la Figura \ref{fig:EfectorSensores}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.4]{imagenes/Dominio especifico/Efector/Acoplamiento sensores}
 	\caption{Ensamble de sensor de presión en la falange del efector}
@@ -1234,7 +1060,7 @@ Para comprobar que el efector tiene un rango de agarre por encima y debajo de la
 
 Para abordar el problema de cinemática directa, primeramente se establecen marcos coordenados, que sirven como referencia para la posición y orientación de cada eslabón, de acuerdo a la convención de Denavit-Hartenberg \cite{Spong}, como se ve en la Figura \ref{fig:AsigMarcos}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.35]{imagenes/Dominio especifico/AsignacionMarcos}
 	\caption{Asignación de los marcos de referencia a las articulaciones del robot}
@@ -1243,7 +1069,7 @@ Para abordar el problema de cinemática directa, primeramente se establecen marco
 
 Para determinar la relación de posición y orientación del marco de referencia del efector final respecto al marco fijo $T_{0}^{6}$, se utilizan las matrices de transformación homogénea $A_{i}$, que relacionan la posición y orientación del marco de referencia $i$ respecto al marco $i-1$, construidas con la ecuación \ref{eq:MTH}.
 
-\begin{table}[H]
+\begin{table}
 \centering
 \caption{Parámetros de Denavit-Hartenberg}
 \begin{footnotesize}
@@ -1380,7 +1206,7 @@ $$
 \subsubsection*{Validación del modelo cinemático}
 A forma de comprobación, los parámetros de Denavit-Hartenberg obtenidos se colocan en el toolbox \textit{``Robotics''} para MATLAB\textregistered , desarrollado por Peter Corke para simular sistemas robóticos (el código puede encontrarse en el Apéndice \ref{Ap:CodigoRoboCorke}), en el que se construye un modelo tridimensional del sistema en desarrollo, mostrado en la Figura \ref{fig:RoboCorke}, en donde se puede observar que la configuración formada por los parámetros de la Tabla \ref{tab:PDH} son congruentes con la configuración de la asignación de marcos de la Figura \ref{fig:AsigMarcos}. 
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Validaciones eslabones/ROBOTNPG}
 	\caption{Modelo tridimensional del sistema robótico desarrollado en el toolbox Robotics de Peter Corke para MATLAB\textregistered}
@@ -1396,7 +1222,7 @@ Debido a que este manipulador robótico se compone de un brazo articulado de codo
 
 Para conocer los valores de las juntas pertenecientes al brazo articulado, es conveniente utilizar un enfoque geométrico, proyectando el centro de la muñeca esférica. La Figura  \ref{fig:ProyT1} muestra la proyección del centro de la muñeca en el plano $x_{0}-y_{0}$, permitiendo ver fácilmente el valor de $\theta_{1}$ como una relación entre las coordenadas $x_{c}$ y $y_{c}$ del centro de la muñeca, como se muestra en la ecuación \ref{eq:T1}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Validaciones eslabones/EsquemaT1.pdf}
 	\caption{Proyección del centro de la muñeca en el plano $x_{0}-y_{0}$}
@@ -1417,7 +1243,7 @@ En donde: $ \; \theta_{1} =$ Valor de la variable del primer grado de libertad.
 
 Para encontrar el valor de $\theta_{2}$ y $\theta_{3}$, resulta de gran utilidad la Figura \ref{fig:ProyT2T3}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Validaciones eslabones/EsquemaT2T3.pdf}
 	\caption{Proyección del centro de la muñeca en el plano formado por los eslabones}
@@ -1902,7 +1728,7 @@ Para la implementación de este algortimo, se propone utilizar software libre, si
 
 Dado que el sistema involucra varios agentes que intercambian datos entre sí, es necesario identificar la forma en que interactúan. Esta interacción está ilustrada en la Figura \ref{fig:ComDiag}. Debido a que estos componentes forman parte de diferentes sistemas, la unión de ellos se realiza en el capítulo ``Integración''.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Comunicacion/Comunicacion diagrama}
 	\caption{Diagrama de comunicación entre módulos}
@@ -1948,7 +1774,7 @@ Como se puede ver, esta interfaz cuenta con los siguientes elementos.
 \item Información del sistema dependiendo del resultado de la operación, si la función principal se realizó con éxito, mostrará los parámetros obtenidos de la muestra, en caso contrario, enviará un mensaje de error.
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Comunicacion/FrontEnd}
 	\caption{Elementos básicos de la interfaz de usuario}
@@ -1973,7 +1799,7 @@ El hecho de implementar la comunicación, lectura de datos y el control de posici
 
 En la Figura \ref{fig:ARMProc}, proporcionada por el fabricante ARM\cite{ARMCM}, se pueden apreciar las diferentes familias de procesadores disponibles, especificando las aplicaciones típicas para cada una, lo cual se revisa con más detalle en la Tabla \ref{Tab:ARMSum}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.7]{imagenes/Dominio especifico/Comunicacion/ARMProc}
 	\caption{Familia de procesadores ARM, ARM}
@@ -2117,7 +1943,7 @@ El contenedor de la muestra con forma de cono trunco de la Figura \ref{fig:Conce
 Además de la disminución de velocidad de impacto por la pendiente del cono, se reduce la distancia entre el punto en donde el efector suelta la muestra hasta la superficie de medición.
 Para la manufactura de esta pieza, la manufactura aditiva resulta muy complicado por sus dimensiones, siendo una solución simple el uso de un polímero rígido para la parte plana (PVC), y un polímero semiflexible para la parte curva (PET), puesto que la primera se une a la estructura y soporta el mecanismo de desecho, mientras que la última debe adoptar una geometría curva.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Laboratorio/Cono}
 	\caption{Contenedor de la muestra}
@@ -2126,7 +1952,7 @@ Para la manufactura de esta pieza, la manufactura aditiva resulta muy complicado
 
 Como se ve en la Figura \ref{fig:SupMed}, la superficie de medición es una pieza sencilla, ya que solamente se encarga de soportar la muestra durante el proceso de pesado, por lo que se acopla sobre la celda de carga.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.2]{imagenes/Dominio especifico/Laboratorio/SupMedicion}
 	\caption{Superficie de medición}
@@ -2139,7 +1965,7 @@ El actuador es un servomotor estándar MG1501, pues solo debe alcanzar dos posici
 
 Este motor se acopla al contenedor con una cubierta comercial ASBI24, mientras que el eje transmite el movimiento a través de un cople fijado a una plataforma sobre la que se coloca la celda de carga.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Laboratorio/Laboratorio_Isometrico_Posterior}
 	\caption{Mecanismo de desecho}
@@ -2148,7 +1974,7 @@ Este motor se acopla al contenedor con una cubierta comercial ASBI24, mientras q
 
 La distribución de estos módulos se puede apreciar fácilmente con la ayuda de la vista lateral, mostrada en la Figura \ref{fig:LabLat}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Laboratorio/LaboratorioLateral2}
 	\caption{Vista lateral del laboratorio}
@@ -2157,24 +1983,24 @@ La distribución de estos módulos se puede apreciar fácilmente con la ayuda de la
 
 Finalmente, los módulos que conforman el laboratorio pueden observarse en la Figura \ref{fig:LabExp}, mientras que el ensamble completo se muestra en la Figura \ref{fig:Lab}.
 
-\begin{figure}[H]
+\begin{figure}
   \centering
   \begin{minipage}[b]{0.4\textwidth}
-\begin{figure}[H]
-\centering		
-	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Laboratorio/Laboratorio_Explosionado}
-	\caption{Vista explosionada del laboratorio}
-	\label{fig:LabExp}
-\end{figure}
-\end{minipage}
+	\begin{figure}[H]
+		\centering		
+		\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Laboratorio/Laboratorio_Explosionado}
+		\caption{Vista explosionada del laboratorio}
+		\label{fig:LabExp}
+	\end{figure}
+	\end{minipage}
   \hfill
   \begin{minipage}[b]{0.4\textwidth}
-\begin{figure}[H]
-\centering		
-	\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Laboratorio/Laboratorio_Isometrico}
-	\caption{Laboratorio ensamblado}
-	\label{fig:Lab}
-\end{figure}    
+	\begin{figure}[H]
+	\centering		
+		\includegraphics[width=\textwidth]{imagenes/Dominio especifico/Laboratorio/Laboratorio_Isometrico}
+		\caption{Laboratorio ensamblado}
+		\label{fig:Lab}
+	\end{figure}    
   \end{minipage}
 \end{figure}
 
@@ -2191,14 +2017,7 @@ El estudio se realiza tomando en cuenta las siguientes características
 \item Características de malla: Mostradas en la Figura \ref{fig:MallaLab}.
 \end{itemize}
 
-\begin{figure}[H]
-\centering		
-	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Laboratorio/Lab_Impacto_mallado}
-	\caption{Características de mallado del análisis dinámico}
-	\label{fig:MallaLab}
-\end{figure}
-
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Laboratorio/Lab_Impacto}
 	\caption{Análisis dinámico de impacto de la muestra sobre la superficie de medición del laboratorio}
@@ -2215,7 +2034,7 @@ La estructura básica debe ser reproducida para el banco de pruebas, el cual cons
 
 Para reducir costos y tiempo de manufactura, se eliminan las partes de la estructura que no sostienen a ningún elemento del sistema, como se aprecia en la Figura \ref{fig:BancoPruebas}.
 
-\begin{figure}[H]
+\begin{figure}
 \centering		
 	\includegraphics[scale=0.5]{imagenes/Dominio especifico/Estructura/Estructura_modificadaxd}
 	\caption{Estructura modificada del banco de pruebas}

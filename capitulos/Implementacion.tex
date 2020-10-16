@@ -1,0 +1,160 @@
+\chapter{Implementación}
+
+En este capítulo se describe la construcción realizada, siguiendo la secuencia de integración descrita en el capítulo anterior indicando, de ser necesario, las modificaciones realizadas al diseño original.\footnote{Por causas externas al proyecto (COVID-19) fue necesario realizar modificaciones en el diseño, así como una nueva selección de componentes con el fin de reducir costos y simplificar la construcción.}
+
+Para reducir costos, el requerimiento R1 de la Tabla \ref{Tabla:TabReq} fue modificado para tomar una muestra de 100 gramos.
+
+\section{S5. Estructural}
+
+El diseño original contemplaba perfil estructural IPS 2020 de aluminio, sin embargo, se opta por utilizar una estructura soldada de PTR (Perfil Tubular Rectangular) de $1\frac{1}{4}"$ calibre 14, ya que el material es más barato, más pesado (lo cual ayuda a equilibrar las cargas generadas por el brazo) y es más sencillo de trabajar.
+
+\section{S1. Robótico}
+\subsection{M1. Manipulador}
+
+\subsubsection{Eslabones}
+
+Debido a que no se cuenta con la infraestructura requerida (Fresadora CNC) para la manufactura en aluminio, y que manufacturarlas de manera externa elevaba demasiado el precio, se modificó el material a Alucobond de 4[mm] de grosor.
+
+El nuevo peso de los eslabones es el siguiente:
+
+\begin{itemize}
+    \item Eslabón 1: POR PESAR
+    \item Eslabón 2: POR PESAR TAMBIÉN
+\end{itemize}
+
+Los modelos CAD de los eslabones rediseñados se muestran en las Figuras \ref{fig:E1Red} y \ref{fig:E2Red}, mientras que los eslabones construidos están en las Figuras \ref{fig:E1Real} y \ref{fig:E2Real} respectivamente.
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon1.png}
+        \caption{Modelo CAD del eslabón 1 rediseñado}
+        \label{fig:E1Red}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/Eslabon1Placa.jpeg}
+        \caption{Eslabón 1 construido}
+        \label{fig:E1Real}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon2.png}
+        \caption{Modelo CAD del eslabón 2 rediseñado}
+        \label{fig:E2Red}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/Eslabon2placa.jpeg}
+        \caption{Eslabón 2 construido}
+        \label{fig:E2Real}
+\end{figure}
+
+\subsubsection*{Validación}
+Ya que el Alucobond es un material compuesto de aluminio y un polímero poderoso, no existe en la biblioteca de materiales de SOLIDWORKS, por lo que se utiliza acrílico (Módulo elástico = 45 MPa), pues al ser un material más frágil y quebradizo, si este material es capaz de resistir los esfuerzos, el Alucobond también lo será.
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon1Analisis.png}
+        \caption{Análisis de resistencia del eslabón 1 con acrílico}
+        \label{fig:AnE1Acril}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon2Analisis.png}
+        \caption{Análisis de resistencia del eslabón 2 con acrílico}
+        \label{fig:AnE2Acril}
+\end{figure}
+
+Las Figuras {fig:AnE1Acril} y \ref{fig:AnE2Acril} indican que los factores de seguridad son de 3.26 y 5.79 respectivamente, por lo que se concluye que el material resiste las cargas a las que es sometido.
+
+\subsubsection{Muñeca esférica}
+
+Las piezas realizada con manufactura aditiva, se imprimieron con ABS al 100\% en resolución estándar, como se muestra en las siguientes Figuras:
+
+\begin{itemize}
+    \item Pieza en C: Figura \ref{fig:PiezaC}
+    \item Unión de servos: Figura \ref{fig:ServoPieza}
+    \item Tapa de unión de servos: Figura \ref{fig:ServoPiezaTapa}
+\end{itemize}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/PiezaC.jpeg}
+        \caption{Pieza en C impresa}
+        \label{fig:PiezaC}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/ServoPieza.jpeg}
+        \caption{Unión de servos impresa}
+        \label{fig:ServoPieza}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/TapaServopieza.jpeg}
+        \caption{Tapa de unión de servos impresa}
+        \label{fig:ServoPiezaTapa}
+\end{figure}
+
+\subsubsection{Base fija}
+De acuerdo al cambio de material en la estructura (S5), se utilizan tornillos de $\frac{3}{8}"$, por lo que se modifica el diámetro de los barrenos de la base fija de 10[mm] a $\frac{3}{8}"$.
+
+\subsubsection{Componentes}
+
+Gracias a que la masa fue reducida a 100 gramos, se puede elegir un motor que ofrezca un menor par, por lo que el modelo seleccionado es el motor de engranes planetarios Yellow Jacket 5202 Series, que proporciona 24.51[Nm] (Anexo XD).
+
+Así mismo, se selecciona un eje de acero inoxidable de 12[mm] de diámetro vendido por ServoCity (Anexo XD2), y las piezas compatibles con este.
+
+Debido a que el diseño original del ocioso dentado mostrado en la Figura \ref{fig:PoleaLoca} contiene bordes complicados de hacer por las impresoras 3D, se modifica el CAD eliminando los mismos, com se puede apreciar en la Figura \ref{fig:NuevOcioso}, mientras que la pieza, impresa en HIPS (Poliestireno de alto impacto por sus siglás en inglés \textit{High Impact Polystyrene}) con resolución media, se encuentra en la Figura \ref{fig:OciosoImpreso}.
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Validaciones/PoleaLoca.png}
+        \caption{CAD del ocioso dentado modificado}
+        \label{fig:NuevOcioso}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/PoleaLoca.jpeg}
+        \caption{Ocioso dentado impreso}
+        \label{fig:OciosoImpreso}
+\end{figure}
+
+
+\subsection{M2. Efector final}
+
+Las piezas del efector se imprimieron en ABS con alta resolución para los engranes y el tornillo sin fin, estas piezas se muestran en las siguientes Figuras:
+
+\begin{itemize}
+    \item Tornillo sin fin y engranes: Figura \ref{fig:GearsWormImp}
+    \item Efector con palma y 3 dedos: Figura \ref{fig:EfectorDedosImp}
+    \item Base del efector: Figura \ref{fig:BasEfectorImp}
+\end{itemize}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/GearsWorm.jpeg}
+        \caption{Tornillo sin fin y engranes impresos}
+        \label{fig:GearsWormImp}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/EfectorDedos.jpeg}
+        \caption{Dedos y palma del efector impresos}
+        \label{fig:EfectorDedosImp}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/BasEfector.jpeg}
+        \caption{Base del efector impresa}
+        \label{fig:BasEfectorImp}
+\end{figure}
