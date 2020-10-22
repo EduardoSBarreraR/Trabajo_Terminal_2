@@ -1,6 +1,74 @@
 \chapter{Apéndice 4: Herramienta de selección multicriterio}
 \setcounter{section}{0}
 
+\section{Criterios de selección}
+
+\begin{itemize}
+	\item Módulo de manipulador robótico
+		\begin{itemize}
+	
+		\item[Cr1] \textbf{Potencia requerida:} Potencia necesaria para que el manipulador efectúe movimiento. 
+	
+		\item[Cr2] \textbf{Complejidad de la transmisión de movimiento angular:} Cantidad de piezas y complejidad de las mismas, que transmiten la potencia desde el actuador hasta el elemento que debe mover. 
+	
+		\item[Cr3] \textbf{Facilidad de acoplamiento al \textit{rover}:} Cantidad de piezas necesarias y su complejidad, para asegurar el manipulador a la estructura del \textit{rover}. 
+		
+		\item[Cr4] \textbf{Riesgo de daño a la estructura del \textit{rover}:} La generación de esfuerzos excesivos en los puntos de acoplamiento puede provocar que la estructura se deforme y falle.
+		
+		\item[Cr5] \textbf{Espacio de trabajo:} Puntos en el espacio que son alcanzables por el efector final del brazo.
+	
+		\item[Cr6] \textbf{Modificación de equilibrio al \textit{rover} por el manipulador:} Reducción de la posibilidad de volcadura del \textit{rover} debida a un brazo de palanca excesivo producido por el manipulador. 
+	
+		\item[Cr7] \textbf{Facilidad de acoplamiento entre el eslabón y el actuador:} Cantidad
+	de piezas y complejidad de las mismas, para transmitir la potencia
+	desde el actuador hasta el elemento que debe mover.
+	
+		\end{itemize}
+		
+	%-----------------------------------------
+	\item Módulo del efector final
+		\begin{enumerate}
+		\item[Cr8] \textbf{Generación de reacción a los actuadores del manipulador:} Potencia requerida por los actuadores del manipulador a causa del peso propio del efector.  
+		\item[Cr9] \textbf{Transmisión de fuerza al punto de contacto con la muestra:} La fuerza generada por el actuador debe aplicarse al punto de contacto con la piedra para permitir la sujeción. 
+		\item[Cr10] \textbf{Eficiencia en la sujeción:} La sujeción debe ser tal que se obtenga máximo agarre con la menor fuerza posible.
+		\item[Cr11] \textbf{Facilidad de colocación de los sensores de fuerza:} Los sensores de fuerza deben colocarse en espacios que no afecten a la eficiencia de sujeción.
+		\item[Cr12] \textbf{Complejidad de la transmisión de fuerza:} Cantidad de componentes y complejidad de los mismos en la transmisión de fuerza desde el actuador al punto de contacto.
+		\item[Cr13] \textbf{Riesgo de daños a la muestra o efector: } Confiabilidad de que la muestra no se dañe o se dañe el efector al intentar tomarla.
+		
+		\end{enumerate}
+		
+	%-----------------------------------------
+	\item Módulo de información
+		\begin{enumerate}
+		
+		\item[Cr14] \textbf{Colocación de las cámaras: }Por su posición procurar que no haya elementos que obstruyan el campo de visión.
+		\item[Cr15] \textbf{Pérdida de información:} La pérdida por desconexión o por longitud excesiva de cableado. 
+		\item[Cr16] \textbf{Precisión de medición de temperatura:} Proximidad del valor real de temperatura al valor medido.
+		\item[Cr17] \textbf{Influencia de los cambios térmicos del ambiente a los componentes:} Capacidad del sistema para evitar que la temperatura afecte al comportamiento de los componentes. 
+		\item[Cr18] \textbf{Confiabilidad de sujeción:} Sujeción adecuada de los componentes en la estructura.
+	
+		\end{enumerate}
+		
+	\item Módulo de laboratorio
+		\begin{enumerate}
+		\item[Cr19] \textbf{Efectividad del mecanismo de desecho:} Asegurar que la muestra no permanezca en el \textit{rover}.
+		\item[Cr20] \textbf{Complejidad del mecanismo de desecho:} Cantidad de piezas y complejidad de las mismas, para efectuar la tarea de deshacerse de la muestra una vez analizada.
+		\item[Cr21] \textbf{Aprovechamiento del espacio ocupado por el mecanismo de desecho}
+		\item[Cr22] \textbf{Aseguramiento de la muestra: }  Garantizar que la muestra permanezca en el lugar donde puede obtenerse información de ella.
+		\item[Cr23] \textbf{Aprovechamiento del espacio ocupado por el sistema de medición de peso} 	
+		
+		\end{enumerate}
+		
+	\item Sistema de administración energética
+		\begin{enumerate}
+		\item[Cr24] \textbf{Distribución del peso:} Modificación del centro de masa del sistema debido a la posición de los componentes.
+		\item[Cr25] \textbf{Aprovechamiento del espacio ocupado:} Aprovechamiento del espacio debido al tamaño.
+		\item[Cr26] \textbf{Pérdidas energéticas: } Pérdidas ocasionadas por la longitud de los cables.
+		\item[Cr27] \textbf{Riesgo de daños a las baterías:} Posibilidad de que las baterías se dañen por efectos del ambiente.
+		\end{enumerate}
+	
+	\end{itemize}
+
 \section{Selección de concepto mediante AHP}
 \label{Ap:AHP}
 

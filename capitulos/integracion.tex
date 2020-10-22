@@ -2,24 +2,34 @@
 
 En este capítulo se realiza la integración, la cual es un proceso jerárquico que comprende la unión de  los distintos módulos que conforman al sistema, partiendo de la integración de componentes en ensamblajes, ensamblajes en módulos, módulos en sistemas y, finalmente, la integración de los sistemas para consolidar el sistema mecatrónico\footnote{Para este punto ya se ha realizado la integración de los módulos a través del diseño de dominio específico}.
 
-Recuérdese que:
+Con ayuda de la Tabla \ref{tab:NomenclaturaSisMod}, recuérdese que\footnote{El estado de integración se define por $SIx$ en donde $x$ indica la secuencia de integración.}:
 
-\begin{align*}
-S1 &:= \textrm{Sistema 1: Manipulador robótico}\\
-M1 &:= \textrm{Módulo 1: Manipulador robótico}\\
-M2 &:= \textrm{Módulo 2: Efector}\\
-S2 &:= \textrm{Sistema 2: Información}\\
-M3 &:= \textrm{Módulo 3: Percepción}\\
-M4 &:= \textrm{Módulo 4: Comunicación}\\
-M5 &:= \textrm{Módulo 5: Procesamiento}\\
-S3 &:= \textrm{Sistema 3: Energético}\\
-S4 &:= \textrm{Sistema 4: Laboratorio}\\
-M6 &:= \textrm{Módulo 6: Obtención de datos}\\
-M7 &:= \textrm{Módulo 7: Desechador}\\
-S5 &:= \textrm{Sistema 5: Estructural}
-\end{align*}
-
-El estado de integración se define por $SIx$ en donde $x$ indica la secuencia de integración.
+\begin{table}
+	\centering
+	\caption{Nomenclatura de sistemas y módulos}
+	\label{tab:NomenclaturaSisMod}
+	\begin{tabular}{|c|c|} 
+	\hline
+	\multirow{2}{*}{S1: Sistema robótico~} & M1: Manipulador         \\ 
+	\cline{2-2}
+										   & M2: Efector             \\ 
+	\hline
+	\multirow{3}{*}{S2: Información}       & M3: Percepción          \\ 
+	\cline{2-2}
+										   & M4: Comunicación        \\ 
+	\cline{2-2}
+										   & M5: Procesamiento       \\ 
+	\hline
+	\multicolumn{2}{|c|}{S3: Energético}                             \\ 
+	\hline
+	\multirow{2}{*}{S4: Laboratorio}       & M6: Obtención de datos  \\ 
+	\cline{2-2}
+										   & M7: Desechador          \\ 
+	\hline
+	\multicolumn{2}{|c|}{S5: Estructural}                            \\
+	\hline
+	\end{tabular}
+\end{table}
 
 \section{Integración de hardware}
 
@@ -338,8 +348,6 @@ Debido a que los periféricos de la tarjeta no son capaces de suministrar la corr
 	\end{itemize}
 \end{itemize}
 
-\pagebreak
-
 \begin{align*}
 SI1543+S2=SI5432
 \end{align*}
@@ -348,8 +356,6 @@ SI1543+S2=SI5432
 \centering		
 	\includegraphics[scale=0.75]{imagenes/render sistema 4}
 \end{figure}
-
-\pagebreak
 
 \section{Integración de software}
 

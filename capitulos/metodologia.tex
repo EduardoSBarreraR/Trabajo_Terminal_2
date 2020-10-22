@@ -1,6 +1,8 @@
 \chapter{Marco de referencia}
 
-\section{Descripción de forma de partículas}
+\section{Marco teórico}
+
+\subsection{Descripción de forma de partículas}
 
 Medir dimensiones y características de partículas individuales es un proceso tardado y costoso, por ellos existen escalas cualitativas que permiten una rápida evaluación visual de la misma. Dichas tablas evalúan parámetros como la angularidad y esfericidad. De acuerdo a \cite{Esfericidad}, una escala como esta es usada en la norma ASTM F1632 2003, como se muestra en la Figura \ref{fig:Esfericidaddd}.
 
@@ -11,9 +13,9 @@ Medir dimensiones y características de partículas individuales es un proceso tar
 	\label{fig:Esfericidaddd}
 \end{figure}
 
-\section{Diseño mecánico}
+\subsection{Diseño mecánico}
 
-\subsection{Selección de materiales}
+\subsubsection{Selección de materiales}
 
 Las propiedades mecánicas de los materiales influyen en el desempeño de los componentes físicos, por esta razón es necesario tomar en cuenta sus límites para el diseño. Además es importante considerar la relación existente entre las propiedades, pues suele tomarse en cuenta la combinación de ellas para realizar la selección.
 
@@ -26,7 +28,7 @@ En este documento, son de particular interés las propiedades de rigidez y densid
 	\label{fig:DensidadVSYoung}
 \end{figure}
 
-\subsection{Diseño de transmisión por bandas}
+\subsubsection{Diseño de transmisión por bandas}
 
 Para seleccionar las bandas a usar, se debe establecer la relación de velocidades entre la polea conductora y la polea conducida, además del par que el motor suministra.
 
@@ -94,7 +96,7 @@ V_{banda-1}&=\frac{PD_{1}}{2}*\omega_{1}\\
 V_{banda-2}&=\frac{PD_{2}}{2}*\omega_{2}
 \end{align} 
 
-\subsection{Diseño de ejes}
+\subsubsection{Diseño de ejes}
 
 El diseño de un eje consiste en determinar el diámetro mínimo para un estado de esfuerzos estático. Primero se obtienen los esfuerzos debidos a momentos flectores, para buscar el momento flector máximo para todos los diámetros diferentes del eje\cite{Mott}. Después se consideran los momentos torsionantes a los que esté sometido el eje.
 
@@ -158,7 +160,7 @@ T &= \textrm{Esfuerzo torsionante}\\
 S_{y} &= \textrm{Esfuerzo de cedencia}
 \end{align*}
 
-\subsection{Selección de rodamientos}
+\subsubsection{Selección de rodamientos}
 
 Para seleccionar rodamientos aleados, es necesario conocer las reacciones que tienen ante las fuerzas del eje, utilizando la ecuación \ref{eq:RodamientosAleados} para conocer la carga dinámica, que es el dato que ofrece el fabricante para su selección.
 
@@ -175,11 +177,11 @@ L_{d} &= \textrm{Vida de diseño del rodamiento, en número de revoluciones}\\
 k_{rod} &= 3.33 \textrm{ para rodamientos de rodillos}
 \end{align*}
 
-\section{Cinemática de robots}
+\subsection{Cinemática de robots}
 
 Para conocer la manera en la que el manipulador se mueve, es necesario identificar las relaciones que hay entre los diferentes grados de libertad que lo conforman, en este apartado se desarrolla dicha relación desde un enfoque puramente geométrico, conocido como cinemática del robot, sin tomar en cuenta las fuerzas y torques que generan los movimientos, pues estos se tomarán en cuenta para desarrollar la dinámica del robot.
 
-\subsection{Cinemática directa}
+\subsubsection{Cinemática directa}
 
 Como ya se mencionó, el modelo cinemático sirve para describir geométricamente el movimiento del manipulador, para lo que se considera en primer lugar el problema de la cinemática directa, la cual describe la posición y orientación del efector final dados los valores de las variables de las juntas del robot. 
 
@@ -242,7 +244,7 @@ d &= \textrm{Desplazamiento del eslabón, definido como la distancia sobre el eje
 \alpha &= \textrm{Ángulo de giro del eslabón, formado entre} \; z_{i-1} \; \textrm{y} \; z_{i} \; \textrm{sobre el eje} \; x_{i}.
 \end{align*}
 
-\subsection{Cinemática inversa}
+\subsubsection{Cinemática inversa}
 
 Una vez que se ha resuelto el problema de cinemática directa, se puede realizar el proceso contrario, conocido como cinemática inversa, utilizado para conocer los valores de las variables de las juntas dada la posición y orientación del efector final.
 
@@ -296,7 +298,7 @@ Conociendo $R_{3}^{0}$ se puede calcular $\theta_{1}$, $\theta_{2}$ y $\theta_{3
 R_{6}^{3} = \left(R_{3}^{0}\right)^{T}R
 \end{align}
 
-\subsection{Cinemática diferencial - El Jacobiano}
+\subsubsection{Cinemática diferencial - El Jacobiano}
 
 Matemáticamente la cinemática directa define una función entre el espacio de posiciones y orientaciones del efector final y el espacio de posiciones de las juntas. Las relaciones de velocidad están determinadas por el jacobiano de esta función. 
 
@@ -383,7 +385,7 @@ De forma que las singularidades del sistema son las singularidades del brazo $de
 
 Cabe señalar que esta forma de Jacobiano solo sirve para la determinación de singularidades, pues no se corresponde con la matriz que relaciona la velocidad el efector final con las velocidades de las juntas, ya que usa la suposición de que $o_{6}$ está en el mismo punto que $o_{5}$, lo cual no es cierto, pues está desplazado por una distancia $d$. 
 
-\section{Dinámica de robots}
+\subsection{Dinámica de robots}
 
 Mientras que la cinemática de robots describe el movimiento de robots sin considerar las fuerzas y torques involucrados, las ecuaciones dinámicas relacionan explícitamente estas fuerzas con el movimiento.
 
@@ -432,7 +434,7 @@ Para encontrar las fuerzas generalizadas $\mathcal{Q}_{i}$ ligadas a las coorden
 
 Para calcular las ecuaciones dinámicas que describen el movimiento del robot utilizando el sistema de ecuaciones diferenciales ordinarias de segundo orden presentado en la ecuación \ref{eq:EulerLagrangeGeneral}, es necesario expresar las energías cinética y potencial en términos de las coordenadas y fuerzas generalizadas $\theta$ y $\mathcal{Q}$ respectivamente. A continuación se desarrollan las fórmulas necesarias para lograr esto.
 
-\subsection{Energía cinética}
+\subsubsection{Energía cinética}
 La energía cinética de un cuerpo rígido es la suma de la energía traslacional obtenida al concentrar la masa del cuerpo en su centro de masa, y la energía rotacional alrededor del mismo. Esta suma se presenta en la ecuación \ref{eq:KGeneral}.
 
 \begin{align}
@@ -507,7 +509,7 @@ K &= \frac{1}{2} \dot{\theta}^{T}D(\theta)\dot{\theta}
 
 En donde $D(\theta)$ es una matriz simétrica definida positiva llamada \textbf{Matriz de inercia}, lo que indica que depende de la configuración del robot.
 
-\subsection{Energía potencial}
+\subsubsection{Energía potencial}
 
 En la mayoría de robots, en los que se consideran cuerpos rígidos, la única fuente de energía potencial es la gravedad, aunque puede darse el caso de robots con elementos flexibles, tales como resortes, que también sean una fuente de energía potencial. Sin embargo, este no es el caso del manipulador presentado en este documento, por lo que la energía potencial se calcula concentrando toda la masa en su centro de masa, quedando lo siguiente
 
@@ -522,7 +524,7 @@ g&=\textrm{Vector de dirección de la gravedad en el marco inercial}\\
 r_{ci} &= \textrm{Coordenadas del centro de masa}
 \end{align*}
 
-\subsection{Ecuaciones de movimiento}
+\subsubsection{Ecuaciones de movimiento}
 
 El desarrollo de las ecuaciones de movimiento con las ecuaciones de Euler-Lagrange orientadas a sistemas mecánicos requiere que se cumpla lo siguiente:
 
@@ -696,7 +698,7 @@ C(\theta,\dot{\theta}) &= \textrm{Vector de fuerzas/pares centrífugas y de Corio
 g(\theta) &= \textrm{Vector de fuerzas/pares gravitacionales y potencial}
 \end{align*}
 
-\section{Dinámica de actuadores}
+\subsection{Dinámica de actuadores}
 
 En un motor de CD, el par generado es proporcional a la corriente de armadura y a la fuerza del campo magnético, como se muestra en la ecuación.
 
@@ -743,7 +745,7 @@ Entonces
 K_{m} = \frac{\tau_{0}}{i_{a}}
 \end{align}
 
-\section{Convertidores CD-CD}
+\subsection{Convertidores CD-CD}
 
 Los reguladores lineales, cuyo principio de operación está basado en divisores de corriente o voltaje, son ineficientes, pues su voltaje de salida está limitado a ser menos que el voltaje de entrada, además de que requieren filtros y transformadores de línea de baja frecuencia. Por esta razón su principal uso es en aplicaciones de baja potencia, mientras que en aplicaciones de mayor potencia se usan reguladores conmutados.
 
@@ -769,7 +771,7 @@ La Tabla \ref{Tab:Reguladores} muestra una comparación entre reguladores.
 \label{Tab:Reguladores}
 \end{table}
 
-\section{Selección de cables}
+\subsection{Selección de cables}
 
 Dependiendo de la intensidad de corriente que un cable debe transportar, y de la longitud del mismo, debe elegirse un calibre de cable siguiendo la Figura \ref{fig:CableCalibre}, desarrollada por Enerdrive\cite{CablEner} bajo el estándar AWG (Calibres de Alambre Americanos - American Wire Gauges por sus siglas en inglés) con ayuda de estos pasos:
 
@@ -792,13 +794,13 @@ Dependiendo de la intensidad de corriente que un cable debe transportar, y de la
 	\label{fig:CableCalibre}
 \end{figure}
 
-\section{Visión artificial}
+\subsection{Visión artificial}
 
 La visión por computadora es una de las herramientas más poderosas que existen en la actualidad para permitir a un robot identificar las condiciones del ambiente en el que opera.
 
 Dos técnicas útiles para obtener esto son la visión estereoscópica, conocida como estereopsis, y la corrección de perspectiva, conocida como homografía.
 
-\subsection*{Homografía}
+\subsubsection*{Homografía}
 
 Una homografía es una matriz que mapea las coordenadas de una imagen tomada en una perspectiva que no es normal a la superficie que se desea observar a una imagen no distorsionada con una perspectiva normal.
 
@@ -884,7 +886,7 @@ h_{31} & h_{32} & 1\\
 	\label{fig:NuestraDonaComp}
 \end{figure}
 
-\subsection*{Estereopsis}
+\subsubsection*{Estereopsis}
 
 La visión estereoscópica implica tomar dos imágenes de un mismo objeto desde 2 puntos de vista distintos para estimar la distancia que hay entre las cámaras y el objeto. Normalmente se colocan dos cámaras iguales con sus ejes ópticos paralelos separados por una distancia conocida referida como línea base de las cámaras\cite{RoboCorke}.
 
@@ -927,7 +929,9 @@ b&=\textrm{Distancia entre cámaras}\\
 x&=\textrm{Distancia real}
 \end{align*}
 
-\section{Metodología mecatrónica}
+\section{Marco procedimental}
+
+\subsection{Metodología mecatrónica}
 La metodología de diseño mecatrónico que se utiliza es el modelo V, descrito en el estándar VDI 2206\cite{VDI2206}, el cual considera al proceso de diseño como un
 ``macro-ciclo'' en el que el grado de madurez se incrementa con cada iteración, y cuyo número
 de iteraciones depende del progreso realizado con cada una hasta llegar a un producto final

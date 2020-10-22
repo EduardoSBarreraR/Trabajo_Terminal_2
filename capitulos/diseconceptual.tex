@@ -34,6 +34,7 @@ N10                    & Consumir poca energía.                                 
 Una vez que se han establecido las necesidades que el sistema debe satisfacer, es posible establecer los \textbf{requerimientos}\cite{Trazabilidad} técnicos que  componen las espeficaciones del mismo, pues estos son el resultado de transformar las necesidades en una obligación para cumplir cierta función dentro de las cotas establecidas, de manera análoga a la tabla de necesidades (Tabla \ref{Tabla:TabNec}), la Tabla \ref{Tabla:TabReq} asocia cada requerimiento con un identificador.
 
 \begin{table}
+\centering
 \caption{Requerimientos técnicos del sistema}
 \begin{footnotesize}
 \begin{tabular}{|c|c|c|}
@@ -115,38 +116,6 @@ a modo de que sea más sencillo comprender los problemas a los que el diseñador d
 enfrentarse.
 Una forma de realizar esta descomposición es utilizar una herramienta denominada FBS\cite{FBS}
 (\textit{Functional Breakdown Structure} por sus siglas en inglés), mostrada en la Figura \ref{fig:FBS}, la cual permite ver las funciones que desempeña el sistema de una manera organizada y jerárquica, las cuales se enlistan a continuación.
-\\
-\\
-Función general: Analizar muestras \textit{in situ}.
-\begin{enumerate}
-\item[f1]	Manipular la muestra: Trasladar la muestra de su lugar de origen al laboratorio.
-	\begin{enumerate}
-	\item[f1.1]	Posicionar brazo: Cambiar la posición del efector.
-	\item[f1.2] Orientar efector: Cambiar la orientación del efector.
-	\item[f1.3]	Tomar/dejar muestra: Activar y desactivar el efector para sujetar la muestra.
-	\item[f1.4]	Deshacerse de la muestra: Desechar la muestra después de ser analizada.
-	\end{enumerate}
-\item[f2]	Administrar energía: Asegurar que cada elemento obtenga la energía necesaria para realizar su tarea.
-	\begin{enumerate}
-	\item[f2.1]	Distribuir energía: Suministrar la energía que cada elemento requiere.
-	\item[f2.2]	Acondicionar energía: Adaptar la energía suministrada a la que los elementos necesiten.
-	\end{enumerate}
-\item[f3]	Analizar información: Obtener datos y, a partir de estos, tomar decisiones.
-	\begin{enumerate}
-	\item[f3.1]	Determinar modos de operación: Decidir las acciones que el sistema realizará de acuerdo a las condiciones de trabajo.
-	\item[f3.2]	Comunicar: Intercambiar información.
-		\begin{enumerate}
-		\item[f3.2.1]	Comunicar internamente: Intercambiar información entre los elementos que conforman el sistema.
-		\item[f3.2.2]	Comunicar externamente: Intercambiar la información con los elementos externos al sistema.
-			\begin{enumerate}
-			\item[f3.2.2.1]	Intercambiar información: Transmitir información al usuario y recibir órdenes.
-			\item[f3.2.2.2]	Interactuar con \textit{rover}: Intercambiar información con el vehículo de exploración.
-			\end{enumerate}
-		\end{enumerate}
-	\item[f3.3]	Caracterizar la muestra: Obtener información de la muestra de interés.
-	\item[f3.4]	Conocer condiciones del entorno: Obtener información del ambiente.
-	\end{enumerate}
-\end{enumerate}
 
 \begin{figure}
 	\centering		
@@ -319,46 +288,9 @@ La Figura \ref{fig:ArqFis} muestra como el sistema estructural se encarga de int
 
 Una vez que se han determinado los módulos que compondrán el sistema completo, es posible comenzar a proponer soluciones específicas para cada uno, las cuales serán sometidas a un proceso de selección utlizando una herramienta de selección multicriterio. 
 
-Las Figuras \ref{fig:Concepto1}, \ref{fig:Concepto1Trans}, \ref{fig:Concepto2}, \ref{fig:Concepto3}, \ref{fig:Concepto3Lab}, \ref{fig:Concepto4}, \ref{fig:Concepto4Base}, \ref{fig:Concepto5} y \ref{fig:Concepto6} muestran los modelos tridimensionales de las soluciones propuestas.
+Las Figuras \ref{fig:Concepto1}, \ref{fig:Concepto2}, \ref{fig:Concepto3}, \ref{fig:Concepto4}, \ref{fig:Concepto5} y \ref{fig:Concepto6} muestran los modelos tridimensionales de las soluciones propuestas.
 
-\textbf{Nota: } Los modelos mostrados en la Figura \ref{fig:Concepto1}, \ref{fig:Concepto3}, \ref{fig:Concepto4}, \ref{fig:Concepto5} y \ref{fig:Concepto6} contemplan un recubrimiento protector a los componentes internos (tales como actuadores y transmisiones, entre otros), con el fin de que los aísle de las condiciones hostiles del ambiente, sin reducir su movilidad.
-
-Los elementos que son comunes a todos los conceptos son los siguientes:
-
-\begin{itemize}
-\item[S2] Información
-	\begin{itemize}
-	
-	\item[M3] Percepción
-	
-		\begin{itemize}
-		
-		\item Cámaras colocadas en la estructura del banco de pruebas.
-		
-		\end{itemize}			
-	\item[M4] Comunicación
-		\begin{itemize}
-		
-		\item Comunicación realizada por medio de cables.	
-		
-		\end{itemize}
-		\end{itemize}
-
-\item[S3] Administración energética
-	\begin{itemize}
-	
-	\item La generación de energía se realiza mediante una batería recargable, ubicada en la estructura.
-	
-	\end{itemize}
-	
-\item[S5] Estructural
-	\begin{itemize}
-	
-	\item Similar a la estructura del rover. 
-	
-	\end{itemize}
-		
-\end{itemize}
+% \textbf{Nota: } Los modelos mostrados en la Figura \ref{fig:Concepto1}, \ref{fig:Concepto3}, \ref{fig:Concepto4}, \ref{fig:Concepto5} y \ref{fig:Concepto6} contemplan un recubrimiento protector a los componentes internos (tales como actuadores y transmisiones, entre otros), con el fin de que los aísle de las condiciones hostiles del ambiente, sin reducir su movilidad.
 
 %------------Concepto 1------------------------
 
@@ -369,75 +301,6 @@ Los elementos que son comunes a todos los conceptos son los siguientes:
 \label{fig:Concepto1}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.7]{imagenes/Conceptos/Concepto1Trans}
-\caption{Acercamiento a la transmisión de movimiento del concepto 1}
-\label{fig:Concepto1Trans}
-\end{figure}
-
-\begin{itemize}
-
-\item Concepto 1
-
-\item[S1] Robótico
-	\begin{itemize}
-	
-	\item[M1] Manipulador
-	
-		\begin{itemize}
-		
-		\item Brazo de codo planar con los motores de los primeros dos eslabones en la base de la cadera.
-		\item Transmisión de movimiento por medio de bandas síncronas.
-		\item La estructura del brazo está conformada por dos segmentos planos paralelos.
-		\item En la cintura (primer GDL) un motor en la parte superior de la estructura transmite movimiento mediante una banda síncrona a un eje vertical que mueve una plataforma donde se colocan los demás motores y sus transmisiones.
-		\item Los sensores de posición angular se encuentran acoplados al eje de movimiento y no al motor. 
-		
-		\end{itemize}			
-	\item[M2] Efector
-		\begin{itemize}
-		
-		\item El efector es un gripper de 2 dedos a modo de pinza.		
-		
-		\end{itemize}			
-		
-	\end{itemize}
-	
-\item[S2] Información
-	\begin{itemize}
-	
-	\item[M5] Procesamiento
-		\begin{itemize}
-		
-		\item Las tarjetas de electrónica están dispuestas una sobre otra cerca del centro de la estructura.	
-		
-		\end{itemize}			
-		
-	\end{itemize}
-
-\item[S4] Laboratorio
-	\begin{itemize}
-	
-	\item El laboratorio se ubica sobre la estructura, del lado derecho de la misma.
-	
-	\item[M6] Obtención de datos de la muestra
-	
-		\begin{itemize}
-		
-			\item El cono trunco guía la muestra hacia el área de obtención de datos.	
-		
-		\end{itemize}			
-	\item[M7] Desechador
-		\begin{itemize}
-			
-			\item El cilindro del área de obtención se mueve lateralmente para dejar caer la piedra, mientras el cono trunco se queda fijo.
-		
-		\end{itemize}
-	
-	\end{itemize}	
-		
-\end{itemize}
-
 %------------Concepto 2---------------------------
 
 \begin{figure}
@@ -446,68 +309,6 @@ Los elementos que son comunes a todos los conceptos son los siguientes:
 \caption{Modelo tridimensional del concepto 2}
 \label{fig:Concepto2}
 \end{figure}
-
-\begin{itemize}
-
-\item Concepto 2
-
-\item[S1] Robótico
-	\begin{itemize}
-	
-	\item[M1] Manipulador
-	
-		\begin{itemize}
-		
-			\item Brazo de codo planar de eslabones tubulares.
-			\item Motores acoplados directamente en cada junta.
-			\item 2 GDL en la cintura y uno más en el codo.
-			\item Muñeca esférica de 3 GDL.
-			\item En la cintura (primer GDL) un motor en la parte inferior de la estructura mueve un eje rotatorio sobre el que existe una plataforma en la que se coloca el motor que mueve el primer eslabón.
-			\item Los sensores de posición angular se encuentran ubicados directamente en el acoplamiento del eslabón con el motor.
-		
-		\end{itemize}			
-	\item[M2] Efector
-		\begin{itemize}
-		
-		\item Efector similar a los presentes en las excavadoras.		
-		
-		\end{itemize}			
-		
-	\end{itemize}
-	
-\item[S2] Información
-	\begin{itemize}
-	
-	\item[M5] Procesamiento
-		\begin{itemize}
-		
-		\item Las tarjetas de electrónica están dispuestas una sobre otra en la esquina superior izquierda (vista superior).
-		
-		\end{itemize}			
-		
-	\end{itemize}
-
-\item[S4] Laboratorio
-	\begin{itemize}
-	
-	\item El laboratorio se ubica sobre la estructura, del lado derecho y hasta el frente de la misma.
-	
-	\item[M6] Obtención de datos de la muestra
-		\begin{itemize}
-		
-			\item El cono trunco guía la muestra hacia el área de obtención de datos.	
-		
-		\end{itemize}			
-	\item[M7] Desechador
-		\begin{itemize}
-			
-			\item El cilindro del área de obtención se mueve lateralmente para dejar caer la piedra, mientras el cono trunco se queda fijo.
-		
-		\end{itemize}
-	
-	\end{itemize}		
-
-\end{itemize}
 
 %----------Concepto 3-------------------------
 
@@ -518,74 +319,6 @@ Los elementos que son comunes a todos los conceptos son los siguientes:
 \label{fig:Concepto3}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{imagenes/Conceptos/Concepto 3 laboratorio}
-\caption{Acercamiento al laboratorio del concepto 3}
-\label{fig:Concepto3Lab}
-\end{figure}
-
-\begin{itemize}
-\item Concepto 3
-\item[S1] Robótico
-	\begin{itemize}
-
-
-	\item[M1] Manipulador
-	
-		\begin{itemize}
-		
-		\item Brazo de codo planar con los motores de los primeros dos eslabones en la base de la cadera.
-		\item Transmisión de movimiento por medio de bandas síncronas.
-		\item La estructura del brazo está conformada por dos segmentos planos paralelos.
-		\item En la cintura (primer GDL) un motor en la parte superior de la estructura transmite movimiento mediante una banda síncrona a un eje vertical que mueve una plataforma donde se colocan los demás motores y sus transmisiones.
-		\item Los sensores de posición angular se encuentran acoplados al eje de movimiento y no al motor. 
-		
-		\end{itemize}			
-	\item[M2] Efector
-		\begin{itemize}
-		
-		\item Un gripper de 3 dedos.	
-		
-		\end{itemize}			
-		
-	\end{itemize}
-	
-\item[S2] Información
-	\begin{itemize}
-	
-	\item[M5] Procesamiento
-		\begin{itemize}
-		
-		\item Las tarjetas de electrónica están dispuestas una sobre otra cerca del centro de la estructura.	
-		
-		\end{itemize}			
-		
-	\end{itemize}
-
-\item[S4] Laboratorio
-	\begin{itemize}
-	
-	\item El laboratorio se ubica dentro de la estructura, del lado derecho de la misma.
-	
-	\item[M6] Obtención de datos de la muestra
-	
-		\begin{itemize}
-		
-			\item El laboratorio es un cilindro rotatorio sin fondo. Debajo existe una superficie donde se colocan los sensores y un hueco. 	
-		
-		\end{itemize}			
-	\item[M7] Desechador
-		\begin{itemize}
-			
-			\item Al girar 180°, el cilindro deja caer la muestra.	
-		
-		\end{itemize}
-	
-	\end{itemize}	
-
-\end{itemize}
-
 %----------Concepto 4----------------------
 
 \begin{figure}
@@ -594,71 +327,6 @@ Los elementos que son comunes a todos los conceptos son los siguientes:
 \caption{Modelo tridimensional del concepto 4}
 \label{fig:Concepto4}
 \end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{imagenes/Conceptos/Concepto 4 base}
-\caption{Acercamiento al ensamble de la cintura del concepto 4}
-\label{fig:Concepto4Base}
-\end{figure}
-
-\begin{itemize}
-\item Concepto 4
-\item[S1] Robótico
-	\begin{itemize}
-
-	\item[M1] Manipulador
-	
-		\begin{itemize}
-		
-			\item Brazo de codo planar con actuadores en cada eslabón y con la cintura del brazo antropomórfico sujeta a una base y acoplada con un rodamiento.
-			\item La cintura (GDL 1) está conformada por elementos fijos unidos a la estructura, acoplados con un rodamiento para permitir el giro de los demás eslabones del manipulador.
-			\item Los sensores de posición angular se encuentran ubicados directamente en el acoplamiento del eslabón con el motor.
-		
-		\end{itemize}			
-	\item[M2] Efector
-		\begin{itemize}
-		
-		\item El efector es un gripper de 2 dedos a modo de pinza.	
-		
-		\end{itemize}			
-		
-	\end{itemize}
-	
-\item[S2] Información
-	\begin{itemize}
-	
-	\item[M5] Procesamiento
-		\begin{itemize}
-		
-		\item Las tarjetas de electrónica están dispuestas una a lado de la otra.
-		
-		\end{itemize}			
-		
-	\end{itemize}
-
-\item[S4] Laboratorio
-	\begin{itemize}
-	
-	\item El laboratorio se ubica sobre la estructura, del lado derecho de la misma.
-
-	\item[M6] Obtención de datos de la muestra
-		\begin{itemize}
-		
-			\item El cono trunco guía la muestra hacia el área de obtención de datos.	
-		
-		\end{itemize}			
-	\item[M7] Desechador
-		\begin{itemize}
-			
-			\item La base del área de obtención se mueve lateralmente para dejar caer la piedra, mientras el cono trunco se queda fijo.
-		
-		\end{itemize}	
-
-	\end{itemize}		
-
-\end{itemize}
-
 
 %------------Concepto 5------------------------
 
@@ -669,63 +337,6 @@ Los elementos que son comunes a todos los conceptos son los siguientes:
 \label{fig:Concepto5}
 \end{figure}
 
-\begin{itemize}
-\item Concepto 5
-\item[S1] Robótico
-	\begin{itemize}
-
-	\item[M1] Manipulador
-	
-		\begin{itemize}
-		
-		\item Brazo de codo planar con los motores de los primeros dos eslabones en la base de la cadera, con transmisión de movimiento por medio de bandas síncronas. La estructura del brazo está conformada por dos segmentos planos paralelos.
-		\item En la cintura (primer GDL) un motor en la parte superior de la estructura transmite movimiento mediante una banda síncrona a un eje vertical que mueve una plataforma donde se colocan los demás motores y sus transmisiones.
-		\item Los sensores de posición angular se encuentran ubicados directamente en el acoplamiento del eslabón con el motor.
-		
-		\end{itemize}			
-	\item[M2] Efector
-		\begin{itemize}
-		
-		\item Un gripper de 3 dedos.	
-		
-		\end{itemize}			
-		
-	\end{itemize}
-	
-\item[S2] Información
-	\begin{itemize}
-	
-	\item[M5] Procesamiento
-		\begin{itemize}
-		
-		\item Las tarjetas de electrónica están dispuestas una sobre otra cerca del centro del lado izquierdo de la estructura.
-		
-		\end{itemize}			
-		
-	\end{itemize}
-
-\item[S4] Laboratorio
-	\begin{itemize}
-	
-	\item El laboratorio se ubica sobre la estructura, del lado derecho de la misma.
-	
-	\item[M6] Obtención de datos de la muestra
-		\begin{itemize}
-		
-			\item El cono trunco guía la muestra hacia el área de obtención de datos.	
-		
-		\end{itemize}			
-	\item[M7] Desechador
-		\begin{itemize}
-			
-			\item La base del área de obtención se mueve lateralmente para dejar caer la piedra, mientras el cono trunco se queda fijo.
-		
-		\end{itemize}
-	
-	\end{itemize}		
-
-\end{itemize}
-
 %-----------Concepto 6-------------------------
 
 \begin{figure}
@@ -735,133 +346,7 @@ Los elementos que son comunes a todos los conceptos son los siguientes:
 \label{fig:Concepto6}
 \end{figure}
 
-\begin{itemize}
-\item Concepto 6
-\item[S1] Robótico
-	\begin{itemize}
-	
-	\item[M1] Manipulador
-	
-		\begin{itemize}
-		
-		\item Brazo de codo planar con actuadores en la cintura, la cual se sujeta a una base y se acopla al brazo con un rodamiento.
-			\item La cintura (GDL 1) está conformada por elementos fijos unidos a la estructura del lado derecho, acoplados con un rodamiento para permitir el giro de los demás eslabones del manipulador.
-			\item Los sensores de posición angular se encuentran ubicados directamente en el acoplamiento del eslabón con el motor.
-		
-		\end{itemize}			
-	\item[M2] Efector
-		\begin{itemize}
-		
-		\item El efector es un gripper de 2 dedos a modo de pinza.
-		
-		\end{itemize}			
-		
-	\end{itemize}
-	
-\item[S2] Información
-	\begin{itemize}
-
-	\item[M5] Procesamiento
-		\begin{itemize}
-		
-		\item Las tarjetas de electrónica están dispuestas una a lado de la otra dentro de la estructura, del lado derecho.
-		
-		\end{itemize}			
-		
-	\end{itemize}
-
-\item[S4] Laboratorio
-	\begin{itemize}
-	
-	\item El laboratorio se encuentra sobre la estructura, en la esquina superior izquierda (vista superior).
-	
-	\item[M6] Obtención de datos de la muestra
-	
-		\begin{itemize}
-		
-			\item El efector deposita la muestra directamente sobre el área de recolección de datos.		
-		
-		\end{itemize}			
-	\item[M7] Desechador
-		\begin{itemize}
-			
-			\item La base del laboratorio se inclina para que la piedra ruede hacia el agujero y caiga.		
-		
-		\end{itemize}
-	
-	\end{itemize}			
-
-\end{itemize}
-
-Con el objetivo de determinar cuál es la propuesta que mejor se desempeña en la realización de las funciones, se utiliza una herramienta de selección multicriterio denominada \textit{Proceso analítico de jerarquía}, (\textit{Analytic Hierarchy Process} - AHP por sus siglas en inglés)\cite{AHP}; la cual se ayuda de criterios originados a partir del análisis de las diferencias que hay entre ellas.
-
-\begin{itemize}
-\item Módulo de manipulador robótico
-	\begin{itemize}
-
-	\item[Cr1] \textbf{Potencia requerida:} Potencia necesaria para que el manipulador efectúe movimiento. 
-
-	\item[Cr2] \textbf{Complejidad de la transmisión de movimiento angular:} Cantidad de piezas y complejidad de las mismas, que transmiten la potencia desde el actuador hasta el elemento que debe mover. 
-
-	\item[Cr3] \textbf{Facilidad de acoplamiento al \textit{rover}:} Cantidad de piezas necesarias y su complejidad, para asegurar el manipulador a la estructura del \textit{rover}. 
-	
-	\item[Cr4] \textbf{Riesgo de daño a la estructura del \textit{rover}:} La generación de esfuerzos excesivos en los puntos de acoplamiento puede provocar que la estructura se deforme y falle.
-	
-	\item[Cr5] \textbf{Espacio de trabajo:} Puntos en el espacio que son alcanzables por el efector final del brazo.
-
-	\item[Cr6] \textbf{Modificación de equilibrio al \textit{rover} por el manipulador:} Reducción de la posibilidad de volcadura del \textit{rover} debida a un brazo de palanca excesivo producido por el manipulador. 
-
-	\item[Cr7] \textbf{Facilidad de acoplamiento entre el eslabón y el actuador:} Cantidad
-de piezas y complejidad de las mismas, para transmitir la potencia
-desde el actuador hasta el elemento que debe mover.
-
-	\end{itemize}
-	
-%-----------------------------------------
-\item Módulo del efector final
-	\begin{enumerate}
-	\item[Cr8] \textbf{Generación de reacción a los actuadores del manipulador:} Potencia requerida por los actuadores del manipulador a causa del peso propio del efector.  
-	\item[Cr9] \textbf{Transmisión de fuerza al punto de contacto con la muestra:} La fuerza generada por el actuador debe aplicarse al punto de contacto con la piedra para permitir la sujeción. 
-	\item[Cr10] \textbf{Eficiencia en la sujeción:} La sujeción debe ser tal que se obtenga máximo agarre con la menor fuerza posible.
-	\item[Cr11] \textbf{Facilidad de colocación de los sensores de fuerza:} Los sensores de fuerza deben colocarse en espacios que no afecten a la eficiencia de sujeción.
-	\item[Cr12] \textbf{Complejidad de la transmisión de fuerza:} Cantidad de componentes y complejidad de los mismos en la transmisión de fuerza desde el actuador al punto de contacto.
-	\item[Cr13] \textbf{Riesgo de daños a la muestra o efector: } Confiabilidad de que la muestra no se dañe o se dañe el efector al intentar tomarla.
-	
-	\end{enumerate}
-	
-%-----------------------------------------
-\item Módulo de información
-	\begin{enumerate}
-	
-	\item[Cr14] \textbf{Colocación de las cámaras: }Por su posición procurar que no haya elementos que obstruyan el campo de visión.
-	\item[Cr15] \textbf{Pérdida de información:} La pérdida por desconexión o por longitud excesiva de cableado. 
-	\item[Cr16] \textbf{Precisión de medición de temperatura:} Proximidad del valor real de temperatura al valor medido.
-	\item[Cr17] \textbf{Influencia de los cambios térmicos del ambiente a los componentes:} Capacidad del sistema para evitar que la temperatura afecte al comportamiento de los componentes. 
-	\item[Cr18] \textbf{Confiabilidad de sujeción:} Sujeción adecuada de los componentes en la estructura.
-
-	\end{enumerate}
-	
-\item Módulo de laboratorio
-	\begin{enumerate}
-	\item[Cr19] \textbf{Efectividad del mecanismo de desecho:} Asegurar que la muestra no permanezca en el \textit{rover}.
-	\item[Cr20] \textbf{Complejidad del mecanismo de desecho:} Cantidad de piezas y complejidad de las mismas, para efectuar la tarea de deshacerse de la muestra una vez analizada.
-	\item[Cr21] \textbf{Aprovechamiento del espacio ocupado por el mecanismo de desecho}
-	\item[Cr22] \textbf{Aseguramiento de la muestra: }  Garantizar que la muestra permanezca en el lugar donde puede obtenerse información de ella.
-	\item[Cr23] \textbf{Aprovechamiento del espacio ocupado por el sistema de medición de peso} 	
-	
-	\end{enumerate}
-	
-\item Sistema de administración energética
-	\begin{enumerate}
-	\item[Cr24] \textbf{Distribución del peso:} Modificación del centro de masa del sistema debido a la posición de los componentes.
-	\item[Cr25] \textbf{Aprovechamiento del espacio ocupado:} Aprovechamiento del espacio debido al tamaño.
-	\item[Cr26] \textbf{Pérdidas energéticas: } Pérdidas ocasionadas por la longitud de los cables.
-	\item[Cr27] \textbf{Riesgo de daños a las baterías:} Posibilidad de que las baterías se dañen por efectos del ambiente.
-	\end{enumerate}
-
-\end{itemize}
-
-
+Con el objetivo de determinar cuál es la propuesta que mejor se desempeña en la realización de las funciones, se utiliza una herramienta de selección multicriterio denominada \textit{Proceso analítico de jerarquía}, (\textit{Analytic Hierarchy Process} - AHP por sus siglas en inglés)\cite{AHP}; la cual se ayuda de criterios originados a partir del análisis de las diferencias que hay entre ellas, los cuales se muestran en el Apéndice \ref{Ap:AHP}.
 
 El proceso de selección comienza con una tabla en la que se compara la importancia de cada criterio contra el resto en una relación de 1:1, obteniendo el llamado ``vector de prioridad'', en el cuál se establece la jerarquía de los criterios, como se muestra en el gráfico de la Figura \ref{fig:VPCriterios}.
 
@@ -874,7 +359,7 @@ El proceso de selección comienza con una tabla en la que se compara la importanc
 
 Para determinar cual es el concepto que mejor satisface las necesidades, se compara uno a uno el nivel en el que se desmpeña en cada criterio.
 
-De esta manera, para cada criterio se obtiene un concepto que destaca, y posteriormente se relaciona el desempeño en cada criterio con la importancia de este, encontrando el valor de desempeño general de cada concepto, como muestra la Figura \ref{fig:ConceptoGanador}, donde se observa que el mayor valor pertenece al concepto número 5, presentado en la figura \ref{fig:Concepto5}.
+De esta manera, para cada criterio se obtiene un concepto que destaca, y posteriormente se relaciona el desempeño en cada criterio con la importancia de este, encontrando el valor de desempeño general de cada concepto, como muestra la Figura \ref{fig:ConceptoGanador}, donde se observa que el mayor valor pertenece al concepto número 5, presentado en la Figura \ref{fig:Concepto5}.
 
 \begin{figure}
 \centering
@@ -889,92 +374,10 @@ El proceso completo se encuentra en el Apéndice \ref{Ap:AHP}.
 
 A pesar de que el concepto número 5 es el concepto elegido (\textbf{Ce}), se puede proponer una nueva configuración, donde se revisa el desempeño de cada concepto con respecto a los criterios, analizándolos para extraer las características que lo hicieron superior en ese criterio en específico.
 
-A continuación se analizan los criterios en los que el \textbf{Ce} no obtuvo el mejor desempeño, para identificar las características del concepto que sí lo obtuvo. 
-
-\begin{itemize}
-\item[Cr1] \textbf{Potencia requerida - Concepto mejor evaluado: Concepto 6 } 
-	\begin{itemize}
-	\item Eslabones ranurados para reducir la masa.
-	\item Actuadores ubicados en la base, haciendo uso de una transmisión.
-	\end{itemize}
-	
-\item[Cr2] \textbf{Complejidad de transmisión de movimiento angular - Concepto mejor evaluado: Concepto 4 } 
-	\begin{itemize}
-	\item Motores acoplados directamente a la junta.
-	\end{itemize}
-
-\item[Cr3] \textbf{Facilidad de acoplamiento al \textit{rover} - Concepto mejor evaluado: Concepto 4}
-	\begin{itemize}
-	\item Se vale de una placa en la que se encuentran todos los componentes y puntos de sujeción.
-	\end{itemize}
-
-\item[Cr4] \textbf{Riesgo de daño a la estructura del \textit{rover} - Concepto mejor evaluado: Concepto 6}
-	\begin{itemize}
-	\item Utiliza más elementos de soporte.
-	\item El manipulador es más ligero y utiliza menos componentes de sujeción.
-	\end{itemize}
-	
-\item[Cr7] \textbf{Facilidad de acoplamiento entre eslabón y actuador - Concepto mejor evaluado: Concepto 4}
-	\begin{itemize}
-	\item Actuadores acoplados directamente a las juntas.
-	\end{itemize}
-	
-\item[Cr8] \textbf{Generación de reacción a los actuadores del manipulador - Conceptos mejor evaluados: Conceptos 1 y 4}
-	\begin{itemize}
-	\item Gripper de 2 dedos, es más sencillo y, por lo tanto, menos pesado.
-	\end{itemize}
-	
-\item[Cr11] \textbf{Facilidad de colocación de los sensores de fuerza - Conceptos mejor evaluados: Conceptos 1, 4 y 6}
-	\begin{itemize}
-	\item Tiene menos dedos, por lo que requiere menos sensores.
-	\end{itemize}		
-	
-\item[Cr12] \textbf{Complejidad de la transmisión de fuerza - Conceptos mejor evaluados: Conceptos 1 y 4}
-	\begin{itemize}
-	\item Tiene menos dedos.
-	\end{itemize}
-	
-\item[Cr15] \textbf{Pérdida de información - Concepto mejor evaluado: Concepto 3}
-	\begin{itemize}
-	\item Componentes electrónicos en el centro.
-	\end{itemize}
-	
-\item[Cr16] \textbf{Precisión de la medición de temperatura - Concepto mejor evaluado: Concepto 4}
-	\begin{itemize}
-	\item Utiliza más sensores.
-	\item Se mide directamente la temperatura de los componentes de interés.
-	\end{itemize}
-	
-\item[Cr17] \textbf{Influencia de los cambios térmicos del ambiente a los componentes - Concepto mejor evaluado: Concepto 3}
-	\begin{itemize}
-	\item Los componentes se encuentra dentro de la estructura, además de que están más cerca entre ellos.
-	\end{itemize}
-
-\item[Cr18] \textbf{Confiabilidad de sujeción - Conceptos mejor evaluados: Conceptos 1 y 3}
-	\begin{itemize}
-	\item Componentes electrónicos en el centro.
-	\end{itemize}
-
-\item[Cr20] \textbf{Complejidad del mecanismo de desecho - Concepto mejor evaluado: Concepto 3}
-	\begin{itemize}
-	\item El cilindro tiene menos piezas, realizando únicamente un movimiento angular.
-	\end{itemize}
-	
-\item[Cr21] \textbf{Aprovechamiento del espacio ocupado por el mecanismo de desecho - Concepto mejor evaluado: Concepto 6} 
-	\begin{itemize}
-	\item El laboratorio es más pequeño y simple.
-	\end{itemize}
-	
-\item[Cr23] \textbf{Aprovechamiento del espacio ocupado por el módulo de medición de peso - Concepto mejor evaluado: Concepto 3}
-	\begin{itemize}
-	\item El cilindro no requiere de más espacio para deshacerse de la muestra.
-	\end{itemize}
-
-\end{itemize}
-
 Una vez que se han identificado las características a mejorar del \textbf{Ce}, se pueden realizar modificaciones a estas, sin embargo, hay algunas características que están contrapuestas. Para determinar el cambio a realizar, se utiliza la Tabla \ref{Tab:ConflictosMejoramiento}, en la cual se comparan las características con sus criterios asociados y sus valores, realizando una suma directa de estos para elegir el que tenga un resultado mayor.
 
 \begin{table}
+\centering
 \caption{Tabla de comparación de caracaterísticas contrarias para el mejoramiento del concepto elegido}
 \begin{footnotesize}
 \begin{tabular}{|cccc|}
