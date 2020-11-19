@@ -20,7 +20,7 @@ BH = \sqrt{BT^2-BV^2}
 \end{equation}
 \\ \\
 \begin{flushleft}
-En donde: $ \; BH =$ Distancia horizontal al punto más lejando.
+En donde: $ \; BH =$ Distancia horizontal al punto más lejano.
 \\
 $\qquad \quad \qquad BT =$ Longitud del brazo totalmente estirado.
 \\
@@ -45,7 +45,7 @@ Con el fin de determinar el material para construir el sistema robótico, se debe
 
 Con el objetivo de generar reacciones pequeñas, se establece que el primer eslabón ocupe la mayor parte de la masa, ya que es el que soporta al resto del manipulador, mientras que el eslabón 2 y la muñeca deben ser más ligeros que el primer eslabón al estar más lejos de los ejes de giro de los primeros 2 GDL, por lo que se reduce la masa asignada en un Kg para cada elemento, quedando de la siguiente manera:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Eslabón 1: \unit[3.5]{Kg}.
 \item Eslabón 2: 2.5 Kg.
 \item Muñeca: 1.5 Kg.
@@ -59,7 +59,7 @@ Contando con estos datos, es posible calcular la densidad máxima que debe poseer
 
 La geometría del primer eslabón está determinada por las siguientes dimensiones:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Longitud: 32 cm.
 \item Espesor: 8 mm.
 \item Alto: 3 cm.
@@ -125,7 +125,7 @@ Una vez que se conoce la densidad máxima $\rho_{e_{1}}$ del material a seleccion
 \begin{table}
 \caption{Propiedades mecánicas del Aluminio 6061 T6}
 \centering
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{|c|c|c|}
 \hline
 Propiedad              & Valor & Unidades \\ \hline
@@ -133,13 +133,13 @@ Densidad               & 2700  & $\unitfrac{Kg}{m^3} $   \\ \hline
 Módulo elástico        & 69    & GPa      \\ \hline
 Coeficiente de Poisson & 0.33  & adimensional         \\ \hline
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 \label{tab:PropiedadesAluminio}
 \end{table}
 
 Para seleccionar el material del segundo eslabón se sigue el mismo procedimiento, utilizando las dimensiones determinadas, las cuales son:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Longitud: 24 cm.
 \item Espesor: 6 mm.
 \item Alto: 2.25 cm.
@@ -158,7 +158,7 @@ Como en el caso anterior, el cálculo demuestra que hay muchos materiales entre l
 
 Considerando que unos eslabones sólidos tienen factores de seguridad grandes, y dado que uno de los objetivos del proyecto es reducir el consumo energético del sistema, se realizaron varios rediseños en las cuales se reduce la cantidad de material ranurando los eslabones y modificando la sección transversal, resultando en las siguientes dimensiones:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item $t_{e{1}} =$ 6.35 mm
 \item $t_{e{2}} =$ 6 mm
 \end{itemize}
@@ -181,7 +181,7 @@ Los eslabones rediseñados pueden observarse en las Figuras \ref{fig:CADE1Ran} y 
 
 El volumen ocupado por los eslabones y la masa de los mismos son los siguientes:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 	\item $V_{e{1}} =113.899e-6 m^{3}$
 	\item $V_{e{2}} =65.098e-6 m^{3}$
 	\item $m_{e{1}} =307.53g$ 
@@ -275,7 +275,7 @@ Para seleccionar los motores, es necesario determinar el torque que el motor deb
 
 Conociendo este valor, se comparan diversos motores en el mercado utilizando el árbol de decisiones mostrado en el Apéndice \ref{ApA1:MotCD}, y se selecciona el motorreductor Planetario Premium HD 12V, 23RPM 4166.2oz-in con codificador, fabricado por Servo City, que de acuerdo a la hoja de especificaciones (Anexo \ref{An:Mot}), cuenta con las siguientes características.
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Par máximo = 4166.2 oz-in = 29.4198 Nm
 \item Velocidad nominal = 23 rpm
 \item Corriente sin carga = 0.54 A
@@ -308,7 +308,7 @@ i_{a} = \frac{\tau_{0}}{K_{m}}=\frac{11.145N-m}{1.475\unitfrac{N-m}{A}} = 7.55[A
 Las bandas síncronas son cada vez más utilizadas en aplicaciones donde antes se consideraba utilizar engranes o cadenas\cite{Mott}, pues tienen la ventaja de presentar bajas vibraciones de operación, poco ruido, facilidad de determinar la posición actual entre otras, sin sacrificar la capacidad de carga que pueden mover. Por esta razón, se utilizan bandas para transmitir la potencia generada por los actuadores.
 Los parámetros que debe cumplir la banda de transmisión son los siguientes:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Velocidad de movimiento del efector: $0.05 \unitfrac{m}{s}$
 \item Relacion de velocidad: \textit{1:1}
 \end{itemize}
@@ -366,6 +366,7 @@ Las características de las bandas seleccionadas se muestran en la tabla \ref{tab
 	\centering
 	\caption{Características de las bandas seleccionadas}
 	\label{tab:BandasModelos}
+	\scriptsize
 	\begin{tabular}{|c|c|c|} 
 	\cline{2-3}
 	\multicolumn{1}{c|}{} & Primer eslabón & Segundo eslabón      \\ 
@@ -391,6 +392,7 @@ Las características de las bandas seleccionadas se muestran en la tabla \ref{tab
 	\centering
 	\caption{Características de las poleas seleccionadas}
 	\label{tab:PoleasModelos}
+	\scriptsize
 	\begin{tabular}{|c|c|c|} 
 	\cline{2-3}
 	\multicolumn{1}{c|}{}      & Conductora & Conducida                         \\ 
@@ -463,7 +465,7 @@ F_{s} &= 1.5*278.568=417.852N
 
 Con los valores obtenidos, enlistados a continuación, se propone utilizar acero 1060 rolado, cuyas características son:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Densidad: $7850 \unitfrac{Kg}{m^{3}}$
 \item Módulo de elasticidad: $205 GPa$
 \item Límite elástico: $814 MPa$
@@ -472,7 +474,7 @@ Con los valores obtenidos, enlistados a continuación, se propone utilizar acero 
 
 Se ajusta el valor del límite elástico con las ecuaciones \ref{eq:Sn} y \ref{eq:SnC} con los siguientes factores de corrección\cite{Mott}
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Factor de material: $C_{m} = 0.8$
 \item Factor de tipo de esfuerzo (flexionante): $C_{st} = 1$
 \item Factor de confiabilidad al 90\%: $C_{R} = 0.9$
@@ -543,7 +545,7 @@ C_{2} &= 95.240 N
 
 Las piezas comerciales adquiridas para ensamblar el manipulador, las cuales pueden verse en el Anexo \ref{An:PiezasExtra}, son:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Chumacera de piso: Soporte para el eje del eslabón perteneciente al segundo GDL.
 \item Abrazadera para motor: Sujeción de los motores a la base giratoria.
 \item Chumacera de pared: Soporte para el eje del eslabón perteneciente al tercer GDL.
@@ -570,7 +572,7 @@ La Tabla \ref{tab:MasasBrazo} muestra las masas de los elementos del brazo, así 
 \begin{table}
 \centering
 \caption{Masas de los elementos del brazo robótico}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{|c|c|c|c|}
 \hline
                   & \textbf{Símbolo} & \textbf{Masa {[}kg{]}} & \textbf{Distancia {[}m{]}} \\ \hline
@@ -583,7 +585,7 @@ Soporte del brazo & $m_{soporte}$         & 0.5                    & 0.095      
 Base giratoria    & $m_{base}$            & 2.375                  & 0.0275                     \\ \hline
 \end{tabular}
 \label{tab:MasasBrazo}
-\end{footnotesize}
+\end{scriptsize}
 \end{table}
 
 \begin{align*}
@@ -597,7 +599,7 @@ Con las reacciones $R_{A}$ y $R_{B}$, es posible diseñar el eje, pues son las ún
 
 El material disponible para acoplar el eje del motor, y sobre el cual se aplican las reacciones, es acero inoxidable 303, cuyas características se enlistan a continuación. 
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Densidad: $8000 \unitfrac{Kg}{m^{3}}$
 \item Módulo de elasticidad: $193 GPa$
 \item Límite elástico: $620 MPa$
@@ -773,7 +775,7 @@ Con la finalidad de acoplar el servomotor al segundo eslabón, y para soportar lo
 
 Para soportar los motores restantes, manteniendo la intersección de sus ejes, se diseñan varias piezas como sigue:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Un conector tipo C que transmite la rotación del primer GDL.
 \item Una pieza a modo de cubierta que sostiene a los servomotores manteniendo la ortogonalidad entre sus ejes de giro, a la vez que absorbe las cargas radiales aplicadas al eje a través de rodamientos.
 \item Una tapa para la cubierta con espacio para rodamiento radial, además de un cople para unir el eje del tercer servomotor con la base del efector final.
@@ -840,7 +842,7 @@ Finalmente, resta seleccionar los servomotores a usar, para lo cual se calcula e
 
 Conociendo este valor, se comparan los distintos motores disponibles en el mercado, utilizando un árbol de decisiones (Apéndice \ref{ApA2:Servo}) y, con base en este, se selecciona el servo de alto rendimiento de EzRobot, con las siguientes características:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Par máximo a 7.4[V] = 19 [Kg cm]
 \item Corriente a motor bloqueado = 3[A]
 \item Voltaje de operación = 4.8[V] a 8.4[V]
@@ -900,7 +902,7 @@ Según los resultados de las pruebas mostradas en la fuente\cite{GripperOS}, el e
 
 Después de realizar un análisis geométrico con el software Geogebra\textregistered , y comprobar varias opciones, se determinan las siguientes dimensiones:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Distancia del eje central de la palma al inicio de la falange: 2.5[cm]
 \item Longitud de la primer falange: 6[cm]
 \item Longitud de la segunda falange: 2.5[cm]
@@ -1018,7 +1020,7 @@ Para determinar la relación de posición y orientación del marco de referencia de
 \begin{table}
 \centering
 \caption{Parámetros de Denavit-Hartenberg}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 $i$  & $\theta$ & $d$  & $a$  & $\alpha$ & Offset \\ \hline
@@ -1030,7 +1032,7 @@ $i$  & $\theta$ & $d$  & $a$  & $\alpha$ & Offset \\ \hline
 5  & $\theta_{5}$    & 0  & 0  & $\frac{\pi}{2}$  & $\pi$     \\ \hline
 6  & $\theta_{6}$    & $l_{3}$ & 0  & 0     & 0      \\ \hline
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 \label{tab:PDH}
 \end{table}
 
@@ -1588,7 +1590,7 @@ Los componentes electrónicos deben interactuar entre sí para lograr que el siste
 \begin{table}
 \centering
 \caption{Requerimientos de comunicación}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{|c|c|c|}
 \hline
 Elemento                   & Numero de terminales & Tipo      \\ \hline
@@ -1601,7 +1603,7 @@ Sensores de fuerza (x3)    & 1                    & Analógico \\ \hline
 Camara (x2)                & 2                    & SPI       \\ \hline
 Computadora                & 2                    & UART      \\ \hline
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 \label{Tab:ElementosComunicacion}
 \end{table}
 
@@ -1611,7 +1613,7 @@ Para interactuar con el usuario, se plantea utilizar una interfaz gráfica, como 
 
 Como se puede ver, esta interfaz cuenta con los siguientes elementos.
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Botón de activación y desactivación, además cuando se cierre la aplicación se realiza la comprobación del estado del sistema, si se encuentra activo, envía el brazo a la posición de reposo y lo desactiva.
 \item La imagen del entorno obtenida por el sistema de visión, mostrada al usuario en la parte central para que este, a su vez, identifique la ubicación de la muestra de interés.
 \item Botón de corrección de selección, en caso de que el usuario desee cambiar la muestra de interés
@@ -1652,7 +1654,7 @@ En la Figura \ref{fig:ARMProc}, proporcionada por el fabricante ARM\cite{ARMCM},
 
 \begin{table}
 \centering
-\begin{footnotesize}
+\begin{scriptsize}
 \caption{Características de los procesadores ARM, STM}
 \begin{tabular}{c|c|c|c|}
 \cline{2-4}
@@ -1662,7 +1664,7 @@ En la Figura \ref{fig:ARMProc}, proporcionada por el fabricante ARM\cite{ARMCM},
 \multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}Mercado\\ objetivo\end{tabular}}                	& \begin{tabular}[c]{@{}c@{}}Cómputo móvil, teléfonos\\ inteligentes.\\ Servidores energéticamente \\ eficientes, \\ Microprocesadores de gama \\ alta\end{tabular} & \begin{tabular}[c]{@{}c@{}}Microcontroladores\\ industriales, automotrices, \\ Controladores de disco duro, \\ modems de linea base\end{tabular} & \begin{tabular}[c]{@{}c@{}}Microcontroladores,\\ sistemas profundamente\\ embebidos (e.g sensores, \\ MEMS, circuitos integrados \\ de señal mezclada), \\ Internet de las cosas\end{tabular} \\ \hline
 \end{tabular}
 \label{Tab:ARMSum}
-\end{footnotesize}
+\end{scriptsize}
 \end{table}
 
 De acuerdo a esto, se selecciona la tarjeta de desarrollo STM32F446 (Anexo \ref{An:Nucleo}), pues cumple con las características necesarias y ya se cuenta con ella.
@@ -1676,7 +1678,7 @@ De acuerdo al modelo eFFBD, mostrado en la Figura \ref{fig:eFFBD}, es posible se
 
 \begin{table}[]
 \centering
-\begin{footnotesize}
+\begin{scriptsize}
 \caption{Consumo energético de los componentes}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
@@ -1693,7 +1695,7 @@ Servomotor (x5)              	& 7.6 	& -                                        
 Camara (x2)                  	& 5   	& -                                                                               	& 0.390                                                     	& 0.390                                                   	\\ \hline
 \end{tabular}
 \label{Tab:ConsumoGeneral}
-\end{footnotesize}
+\end{scriptsize}
 \end{table}
 
 Con esta información, el consumo mínimo del sistema cuando se encuentra en reposo es de $57.65$ [mA], mientras que la corriente máxima requiere tomar en cuenta que sólo se mueve un actuador a la vez para evitar picos de corriente y aceleraciones de Coriolis, mientras que los otros solo consumen la corriente mínima para mantener su posición, de esta manera el caso de consumo máximo se asocia al motor del primer eslabón, pues es el que debe generar un mayor par (11.145[Nm]), resultando en un consumo de $24.768$ [A]. Estos valores se obtienen de acuerdo a las siguientes ecuaciones:
@@ -1711,7 +1713,7 @@ Según la Tabla \ref{Tab:ConsumoGeneral}, existen 3 niveles distintos de tensión 
 
 De acuerdo a la Tabla \ref{Tab:Reguladores} los reguladores conmutados son una buena opción para aplicaciones de alta potencia, sin embargo, también menciona que son muy complejas de construir, por ello se buscan modelos en el mercado que cumplan las características mínimas de acuerdo a cada nivel de tensión, como se muestra a continuación:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item 12[V]: No requiere convertidor.
 \item 7.6[V]: $7.15[A]$
 \item 5[V]: $0.939[A]$
@@ -1719,7 +1721,7 @@ De acuerdo a la Tabla \ref{Tab:Reguladores} los reguladores conmutados son una b
 
 El único proveedor con precios accesibles es RobotShop, por lo que los componentes seleccionados son:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item 7.6[V] a 7.15[A]: 2xGS2678 de DFRobot en paralelo para sumar corrientes (cada uno suministra 5[A]) (Anexo \ref{An:RegServ})
 \item 5[V] a 0.939[A]: S9V11F3S5 de Pololu (Anexo \ref{An:Reg5V})
 \end{itemize}
@@ -1837,7 +1839,7 @@ Para determinar que los elementos que conforman la superficie de medición mantie
 
 El estudio se realiza tomando en cuenta las siguientes características
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Material: ABS
 \item Velocidad de impacto: 10 [m/s] exagerando la altura a la que se deja caer. (5[m])
 \item Masa de la muestra: 1[Kg]

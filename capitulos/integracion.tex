@@ -1,13 +1,14 @@
 \chapter{Integración del sistema mecatrónico}
 
-En este capítulo se realiza la integración, la cual es un proceso jerárquico que comprende la unión de  los distintos módulos que conforman al sistema, partiendo de la integración de componentes en ensamblajes, ensamblajes en módulos, módulos en sistemas y, finalmente, la integración de los sistemas para consolidar el sistema mecatrónico\footnote{Para este punto ya se ha realizado la integración de los módulos a través del diseño de dominio específico}.
+En este capítulo se realiza la integración, la cual es un proceso jerárquico que comprende la unión de  los distintos módulos que conforman al sistema, partiendo de la integración de componentes en ensamblajes, ensamblajes en módulos, módulos en sistemas y, finalmente, la integración de los sistemas para consolidar el sistema mecatrónico.
 
-Con ayuda de la Tabla \ref{tab:NomenclaturaSisMod}, recuérdese que\footnote{El estado de integración se define por $SIx$ en donde $x$ indica la secuencia de integración.}:
+Con ayuda de la Tabla \ref{tab:NomenclaturaSisMod}, se define el estado de integración $SIx$ en donde $x$ indica la secuencia de integración:
 
 \begin{table}
 	\centering
 	\caption{Nomenclatura de sistemas y módulos}
 	\label{tab:NomenclaturaSisMod}
+	\scriptsize
 	\begin{tabular}{|c|c|} 
 	\hline
 	\multirow{2}{*}{S1: Sistema robótico~} & M1: Manipulador         \\ 
@@ -211,7 +212,7 @@ Los periféricos que utilizan los componentes se organizan de acuerdo a los reque
 
 \begin{table}
 \centering
-\footnotesize
+\scriptsize
 \caption{Conexiones de los periféricos al controlador}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -331,16 +332,16 @@ Para colocar el sistema de procesamiento en la estructura, se diseña una platafo
 
 Debido a que los periféricos de la tarjeta no son capaces de suministrar la corriente necesaria para mover los actuadores, se utilizan controladores para motores de CD basados en conmutadores de estado sólido que permiten el control por PWM, cuyas características son: 
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item MDD10A (Anexo  \ref{An:DrivServ})
-	\begin{itemize}
+	\begin{itemize}[noitemsep,nolistsep]
 	\item Voltaje de alimentación: 5-30[V]
 	\item Corriente máxima continua: 5 [A]
 	\item Corriente pico: 30 [A] por menos de 10 segundos
 	\item Frecuencia máxima de PWM: 20 [KHz]
 	\end{itemize}
 \item MD20A (Anexo \ref{An:DrivMot})
-	\begin{itemize}
+	\begin{itemize}[noitemsep,nolistsep]
 	\item Voltaje de alimentación: 6-30[V]
 	\item Corriente máxima continua: 20 [A]
 	\item Corriente pico: 60 [A] por menos de 10 segundos
@@ -409,14 +410,14 @@ Fin de programa
 
 El diagrama de flujo del microcontrolador se muestra en la Figura \ref{fig:DFMicro}.
 
-\newgeometry{left=0.1cm,bottom=1cm}
+
 \begin{figure}
 \centering		
 	\includegraphics[scale=0.8]{imagenes/INTEGRACION/DiagramasDeFlujo_Micro}
 	\caption{Diagrama de flujo del algoritmo ejecutado por el microcontrolador}
 	\label{fig:DFMicro}
 \end{figure}
-\restoregeometry
+
 
 El pseudocódigo del proceso realizado por el microcontrolador se presenta a continuación.
 

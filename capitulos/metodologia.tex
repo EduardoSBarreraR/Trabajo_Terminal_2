@@ -13,7 +13,7 @@ Medir dimensiones y características de partículas individuales es un proceso tar
 	\label{fig:Esfericidaddd}
 \end{figure}
 
-\subsection{Diseño mecánico}
+\subsection{Diseño de componentes de máquinas}
 
 \subsubsection{Selección de materiales}
 
@@ -217,7 +217,7 @@ H &= T_{n}^{0} = A_{1}( \theta_{1} ) \dots A_{n}\theta_{n}
 
 Para facilitar la asignación de marcos y la obtención de las matrices se utiliza la convención de Denavit-Hartenberg, asumiendo lo siguiente:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item El eje $x_{1}$ es perpendicular al eje $z_{0}$
 \item El eje $x_{1}$ se interseca con el eje $z_{0}$
 \end{itemize}
@@ -316,7 +316,7 @@ El robot desarrollado en este proyecto tiene solo juntas de tipo revoluta. Todas
 Singularidades.
 
 El rango de la matriz Jacobiana no es constante, pues depende de la configuración de las juntas del robot. Las configuraciones para los cuales el Jacobiano pierde rango se llaman singularidades, y su identificación es importante porque:
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item[a)]	Pueden representar configuraciones para las cuales ciertas direcciones de movimiento son inalcanzables.
 \item[b)]	La velocidad de movimiento de las juntas puede diverger conforme se acercan a una posición singular.
 \item[c)]	En las singularidades, fuerzas y momentos acotados del efector final pueden requerir fuerzas y momentos divergentes en las juntas.
@@ -409,7 +409,7 @@ En este documento se aborda el tema de dinámica de robots a través del enfoque d
 
 Las coordenadas generalizadas $\theta$ son aquellas que describen el movimiento del robot, y tienen las siguientes características \cite{MITDyn}:
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item No necesitan ser cartesianas
 \item No necesitan ser inercialmente simétricas, i.e. sus momentos de inercia pueden describirse con matrices no diagonales.
 \item Deben ser independientes, i.e. si se fijan todas la coordenadas generalizadas excepto por una, el grado de libertad descrito por esa coordenada aún tiene un rango continuo de movimiento.
@@ -755,7 +755,7 @@ La Tabla \ref{Tab:Reguladores} muestra una comparación entre reguladores.
 
 \begin{table}
 \caption{Guía de selección de reguladores de tensión}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{c|c|c|}
 \cline{2-3}
                                                                                                                 	& \textbf{Regulador lineal}                                                                                                                      	& \textbf{Regulador conmutado}                                                                                            	\\ \hline
@@ -767,7 +767,7 @@ La Tabla \ref{Tab:Reguladores} muestra una comparación entre reguladores.
 \multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Rizo/ruido/interferencia \\ electromagnética\end{tabular}}} & Bajo                                                                                                                                           	& De medio a alto                                                                                                         	\\ \hline
 \multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Rango de tensión \\ de entrada\end{tabular}}}           	& \begin{tabular}[c]{@{}c@{}}Estrecho debido a la \\ disipación de potencia\end{tabular}                                                         	& Amplio                                                                                                                  	\\ \hline
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 \label{Tab:Reguladores}
 \end{table}
 
@@ -778,7 +778,7 @@ Dependiendo de la intensidad de corriente que un cable debe transportar, y de la
 \begin{enumerate}
 \item Localizar en la Figura la intensidad de corriente en CD que fluye por el cable.
 \item Determinar el tipo de circuito en los siguientes tipos
-	\begin{itemize}
+	\begin{itemize}[noitemsep,nolistsep]
 	\item Crítico: Aplicaciones como paneles de alimentación, electrónica, extractores y luces de navegación.
 	\item No crítico: Aplicaciones como iluminación general, electrodomésticos. 
 	\end{itemize} 

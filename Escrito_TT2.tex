@@ -55,7 +55,11 @@
 \usepackage{grffile}
 \usepackage[intoc, spanish]{nomencl}
 \usepackage{flafter} %% Para que las figuras no aparezcan nunca antes de su inclusion en el codigo
+\usepackage{enumitem} %% Para eliminar interlineado de listas
 \makenomenclature
+
+\setlength{\nomitemsep}{-\parsep} % Sin separación entre elementos de nomenclatura
+\renewcommand{\nompreamble}{\footnotesize} % Tamaño de letra de la nomenclatura
 
 %\usepackage{apacite}
 %%%%% Inicio de Sección de preliminares
@@ -108,7 +112,9 @@
 \renewcommand{\tablename}{Tabla}
 \renewcommand{\figurename}{Figura}
 \renewcommand{\headrulewidth}{0pt}
-\renewcommand\lstlistingname{Algoritmo}
+\renewcommand{\lstlistingname}{Algoritmo}
+
+\renewcommand{\arraystretch}{0.85}%%Interlineado de tablas
 
 \renewcommand{\nomname}{Nomenclatura y simbología}
 \renewcommand\nomgroup[1]{%

@@ -10,7 +10,7 @@ Para dar comienzo con el diseño del sistema, es preciso determinar cuales son la
 \begin{table}
 \centering
 \caption{Necesidades que el sistema debe cumplir}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{|c|c|}
 \hline
 \textbf{Identificador} & \textbf{Necesidad}                                                                                                          \\ \hline
@@ -25,7 +25,7 @@ N8                     & Tener dimensiones reducidas.                           
 N9                     & Trabajar bajo el sol.                                                                                                       \\ \hline
 N10                    & Consumir poca energía.                                                                                                      \\ \hline
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 \label{Tabla:TabNec}
 \end{table}
 
@@ -36,7 +36,7 @@ Una vez que se han establecido las necesidades que el sistema debe satisfacer, e
 \begin{table}
 \centering
 \caption{Requerimientos técnicos del sistema}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{|c|c|c|}
 \hline
 \textbf{Identificador} & \textbf{Requerimiento}               & \textbf{Valor}                   \\ \hline
@@ -54,7 +54,7 @@ R11                    & Temperatura de trabajo               & $5^{\circ}C<t_{a
 R12                    & Humedad del ambiente                 & $20\%<h_{amb}<70\%)$             \\ \hline
 R13                    & Tiempo de ciclos de operación & 10 min                           \\ \hline
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 \label{Tabla:TabReq}
 \end{table}
 
@@ -84,7 +84,7 @@ Para asegurar un bajo consumo de energía, se deben establecer límites a la masa 
 \begin{table}
 \centering
 \caption{Matriz de trazabilidad para la validación de requerimientos respecto a necesidades}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|}
 \cline{2-11}
                           & N1                    & N2                              & N3                    & N4                    & N5                    & N6                    & N7                    & N8                    & N9                    & N10        \\ \hline
@@ -102,7 +102,7 @@ Para asegurar un bajo consumo de energía, se deben establecer límites a la masa 
 \multicolumn{1}{|c|}{R12} &                       & \Checkmark                      &                       &                       &                       &                       &                       &                       &                       &            \\ \hline
 \multicolumn{1}{|c|}{R13} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \Checkmark \\ \hline
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 \label{Tabla:TrazaReq}
 \end{table}
 
@@ -149,7 +149,7 @@ Conocer el nivel de energía disponible (f3.2.1), permite saber si es posible rea
 \begin{table}
 \centering
 \caption{Matriz de trazabilidad para la validación de funciones respecto a requerimientos}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \cline{2-14}
                            	& \multicolumn{1}{c|}{R1} & \multicolumn{1}{c|}{R2} & \multicolumn{1}{c|}{R3} & \multicolumn{1}{c|}{R4} & \multicolumn{1}{c|}{R5} & \multicolumn{1}{c|}{R6} & \multicolumn{1}{c|}{R7} & \multicolumn{1}{c|}{R8} & \multicolumn{1}{c|}{R9} & \multicolumn{1}{c|}{R10} & \multicolumn{1}{c|}{R11} & \multicolumn{1}{c|}{R12} & R13 \\ \hline
@@ -166,7 +166,7 @@ Conocer el nivel de energía disponible (f3.2.1), permite saber si es posible rea
 \multicolumn{1}{|c|}{f3.3} 	&   \Checkmark                  	& \Checkmark                   	& \Checkmark                   	& \Checkmark                   	&  	&                     	&                     	& \Checkmark                   	&                     	&                      	&                      	&                      	& 	\\ \hline
 \multicolumn{1}{|c|}{f3.4} 	& \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{}   & \multicolumn{1}{c|}{\Checkmark}   & \multicolumn{1}{c|}{\Checkmark}   & \multicolumn{1}{c|}{\Checkmark}   & 	\\ \hline
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 \label{Tabla:TrazaFun}
 \end{table}
 
@@ -174,31 +174,30 @@ Una vez que se han determinado las funciones que desempeña el sistema, es posibl
 definir los \textbf{módulos} que lo componen, con el objetivo de dar solución a problemas
 específicos. Para ello resulta útil determinar la relación existente entre las mismas a través del modelo IDEF-0\cite{IDEF0}. El modelo del nodo A0 expandido, mostrado en la Figura \ref{fig:IDEF0A0E} permite dimensionar la complejidad del proyecto, facilitando la comprensión del comportamiento del sistema y por ende, la búsqueda de posibles soluciones. 
 
-\newgeometry{left=0.1cm,bottom=1cm}
+
 \begin{landscape}
 	\begin{figure}[p]
 		\centering		
-		\includegraphics[width=1.3\textwidth ,height=0.8\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/IDEF0}
+		\includegraphics[width=1.5\textwidth ,height=1.1\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/IDEF0}
 		\caption{Modelo IDEF0 del sistema}
 		\label{fig:IDEF0A0E}
 	\end{figure}
 \end{landscape}
-\restoregeometry
+
 
 Así mismo, resulta de gran utilidad analizar el comportamiento del sistema mediante la ejecución de las funciones. Esto permite observar como cada función contribuye al cumplimiento de la función principal del sistema y como se relacionan entre si, identificando las condiciones que cada una necesita para ejecutarse, mostrando la interacción entre las entradas y salidas a lo largo de las transformaciones realizadas. 
 Para ello se utiliza el modelo mostrado en la Figura \ref{fig:eFFBD}, el cual es un diagrama a bloques mejorado del flujo de funciones (\textit{eFFBD - enhanced Function Flow Block Diagram} por sus siglas en inglés)\cite{eFFBD}. Este modelo permite observar que la comunicación y la administración energética permanecen activas hasta que el sistema sea desactivado, mientras que para que se realice la función general, es necesario que el usuario lo ordene, pues de lo contrario el proceso nunca dará inicio. Por otro lado, el sistema evalúa las condiciones de trabajo actuales, tanto externas como internas, y con base en ellas decide la acción a realizar, ya sea quedarse en la posición de reposo o la toma de la muestra, cuyo proceso se realiza a través del posicionamiento y orientación del sistema robótico hacia la ubicación de la muestra en el entorno, seguido del traslado al laboratorio, el cual, tras obtener información de ella la devuelve al ambiente.
 
-\newgeometry{left=0.1cm,bottom=1cm}
-\begin{landscape}
 
+\begin{landscape}
 	\begin{figure}[p]
 		\centering		
-		\includegraphics[width=1.3\textwidth ,height=0.8\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/eFFBD}
+		\includegraphics[width=1.55\textwidth ,height=0.85\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/eFFBD}
 		\caption{Modelo mejorado del diagrama a bloques de flujo funcional}
 		\label{fig:eFFBD}
 	\end{figure}
 \end{landscape}
-\restoregeometry
+
 
 \section{Arquitectura física}
 
@@ -206,20 +205,20 @@ Una vez que se ha analizado el comportamiento del sistema mediante las funciones
 
 \begin{itemize}
 \item[S1] Robótico.
-	\begin{itemize}
+	\begin{itemize}[noitemsep,nolistsep]
 	\item[M1] Manipulador: Un brazo de 3 grados de libertad (GDL) más una muñeca esférica de 3 GDL que realizará la función de posicionar y orientar al efector final, con el objetivo de trasladar la muestra.
 	\item[M2] Efector final: Herramienta colocada en el extremo del manipulador capaz de sujetar la muestra.
 	\end{itemize}
 
 \item[S2] Información
-	\begin{itemize}
+	\begin{itemize}[noitemsep,nolistsep]
 	\item[M3] Percepción: Sensores que le permitirán al sistema obtener información de sí mismo y de su entorno con el fin de conocer los parámetros necesarios para tomar decisiones.
 	\item[M4] Comunicación: Elementos que permitan realizar la transmisión y recepción de información.
 	\item[M5] Procesamiento: Componentes electrónicos que permitan analizar la información, tomar decisiones y enviar órdenes.
 	\end{itemize}
 \item[S3] Administración energética: Fuente de alimentación y circuitos que adapten la energía de acuerdo a las necesidades de cada componente.
 \item[S4] Laboratorio
-	\begin{itemize}
+	\begin{itemize}[noitemsep,nolistsep]
 	\item[M6] Obtención de datos de la muestra: Sensores que le permitirán al sistema obtener información de la muestra de interés.
 	\item[M7] Desechador: Mecanismo encargado de expulsar la muestra del sistema.
 	\end{itemize}
@@ -251,7 +250,7 @@ Las condiciones del entorno se obtienen a través de M3.
 \begin{table}
 \centering
 \caption{Matriz de trazabilidad para la validación de módulos respecto a funciones}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \cline{2-13}
                      	& f1.1                                       	& f1.2                                       	& f1.3                                       	& f1.4                                       	& f2.1                                       	& f2.2                                       	& f3.1                                       	& f3.2.1                                     	& f3.2.2.1                                   	& f.3.2.2                                    	& f3.3                                       	& f3.4                                       	\\ \hline
@@ -265,7 +264,7 @@ Las condiciones del entorno se obtienen a través de M3.
 \multicolumn{1}{|c|}{M7} & \multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{}                      	\\ \hline
 \multicolumn{1}{|c|}{S5} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} & \multicolumn{1}{c|}{\Checkmark} \\ \hline
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 \label{Tabla:TrazaMod}
 \end{table}
 
@@ -273,16 +272,16 @@ Una vez que se han validado los módulos es útil comenzar a agruparlos en sistema
 
 La Figura \ref{fig:ArqFis} muestra como el sistema estructural se encarga de integrar el resto de sistema y módulos para que trabajen en conjunto.El sistema de información se conforma del módulo de percepción, el cual obtiene datos de las condiciones internas y externas al sistema; el módulo de comunicación, controlando el tráfico de datos; y por último el módulo de procesamiento, el cual se encarga de recibir los datos, interpretarlos, tomar decisiones con base en ellos y, finalmente, emitir órdenes al resto de módulos. El sistema robótico se compone del efector, que es la herramienta que permite sujetar y soltar la muestra, y del manipulador, que consta de un brazo articulado de 3 GDL para posicionar el efector, y de una muñeca esférica para orientarlo. El sistema energético suministra de energía a todo el sistema, adaptándola a las específicas de cada uno. Finalmente el laboratorio se compone del módulo de obtención de datos, y del desechador, que devuelve la muestra al ambiente una vez que ha sido analizada.
 
-\newgeometry{left=0.1cm,bottom=1cm}
+
 \begin{landscape}
 	\begin{figure}[p]
 		\centering		
-		\includegraphics[width=1.3\textwidth ,height=0.8\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/Arquitectura fisica}
+		\includegraphics[width=1.5\textwidth ,height=0.8\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/Arquitectura fisica}
 		\caption{Arquitectura física que muestra la interacción de los sistemas y módulos}
 		\label{fig:ArqFis}
 	\end{figure}
 \end{landscape}
-\restoregeometry
+
 
 \section{Concepto solución}
 
@@ -379,7 +378,7 @@ Una vez que se han identificado las características a mejorar del \textbf{Ce}, s
 \begin{table}
 \centering
 \caption{Tabla de comparación de caracaterísticas contrarias para el mejoramiento del concepto elegido}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{|cccc|}
 \hline
 \multicolumn{1}{|c|}{Característica}          	& \multicolumn{1}{c|}{Criterios favorecidos} & \multicolumn{1}{c|}{Valor de los cirterios} & Suma  \\ \hline
@@ -392,13 +391,13 @@ Una vez que se han identificado las características a mejorar del \textbf{Ce}, s
 \multicolumn{1}{|c|}{Efector de 2 dedos}      	& \multicolumn{1}{c|}{Cr8,Cr11,Cr12}     	& \multicolumn{1}{c|}{0.04,0.013,0.021}   	& 0.074 \\ \hline
 \multicolumn{1}{|c|}{Efector de 3 dedos}      	& \multicolumn{1}{c|}{Cr9,Cr10,Cr13}     	& \multicolumn{1}{c|}{0.03,0.059,0.085}   	& 0.174 \\ \hline
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 \label{Tab:ConflictosMejoramiento}
 \end{table}
 
 Por lo tanto, las modificaciones a realizar son: 
 
-\begin{itemize}
+\begin{itemize}[noitemsep,nolistsep]
 \item Para reducir la potencia, se usa el brazo ranurado con actuadores en la base.
 \item Se sustituye el eje largo de acoplamiento a la estructura por una placa similar a la del concepto 4.
 \item Se elimina la plataforma deslizable del laboratorio cónico para recuperar la forma cilíndrica del concepto 3, lo cual mejora el aprovechamiento del espacio tanto del módulo desechador como del de medición de peso.
