@@ -61,6 +61,14 @@
 \setlength{\nomitemsep}{-\parsep} % Sin separación entre elementos de nomenclatura
 \renewcommand{\nompreamble}{\footnotesize} % Tamaño de letra de la nomenclatura
 
+%% Comando para agrupar figuras
+\newcommand{\subf}[2]{%
+  {\small\begin{tabular}[b]{@{}c@{}}
+   \mbox{}\\[-\ht\strutbox]
+   #1\\#2
+   \end{tabular}}%
+}
+
 %\usepackage{apacite}
 %%%%% Inicio de Sección de preliminares
 \frontmatter
@@ -124,7 +132,6 @@
 ]}
 
 %%\renewcommand*\thetable{\Roman{table}}
-
 
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
 

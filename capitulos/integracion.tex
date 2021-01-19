@@ -1,4 +1,4 @@
-\chapter{Integración del sistema mecatrónico}
+\section{Integración del sistema mecatrónico}
 
 En este capítulo se realiza la integración, la cual es un proceso jerárquico que comprende la unión de  los distintos módulos que conforman al sistema, partiendo de la integración de componentes en ensamblajes, ensamblajes en módulos, módulos en sistemas y, finalmente, la integración de los sistemas para consolidar el sistema mecatrónico.
 
@@ -32,15 +32,15 @@ Con ayuda de la Tabla \ref{tab:NomenclaturaSisMod}, se define el estado de integ
 	\end{tabular}
 \end{table}
 
-\section{Integración de hardware}
+\subsection{Integración de hardware}
 
-\subsection*{Sistema robótico}
+\subsubsection*{Sistema robótico}
 
 En primer lugar, se integra el módulo del manipulador robótico con el efector final a través del último GDL de la muñeca, utilizando un cople en el eje del servomotor para unirlo con la base del efector, como se muestra en la Figura \ref{fig:IntMunEfe}.
 
 \begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Munefector}
+	\centering		
+	\includegraphics[scale=0.4]{imagenes/INTEGRACION/Munefector.pdf}
 	\caption{Integración del manipulador a través de la muñeca}
 	\label{fig:IntMunEfe}
 \end{figure}
@@ -51,121 +51,123 @@ Estado de integración
 M1+M2 = S1
 \end{align*}
 
-\subsection*{Sistema estructural}
+\subsubsection*{Sistema estructural}
 
 La base que soporta al sistema robótico se fija en la estructura mediante tornillos. Una vez que se ensamblan estos sistemas, se obtiene la configuración mostrada en la Figura \ref{fig:IntRobEst}. 
 
 \begin{figure}
-\centering		
-	\includegraphics[scale=0.4]{imagenes/INTEGRACION/robotico-estructura}
+	\centering		
+	\includegraphics[scale=0.3]{imagenes/INTEGRACION/robotico-estructura.png}
 	\caption{Integración del sistema robótico con el sistema estructural}
 	\label{fig:IntRobEst}
 \end{figure}
 
-\subsubsection{Validación}
+\begin{flushright}
+	Validación
+\end{flushright}
 
 Debido a que la estructura soporta al sistema robótico, es necesario comprobar la integridad de la misma frente a las cargas que eso implica, para lo que se realiza un análisis estático de elemento finito.
 
-El análisis estático, realizado con una malla de características mostradas en la Figura \ref{fig:MallaEstructura}, comprende un estudio de resistencia, el cual se muestra en la Figura \ref{fig:RobEstRes}, que indica que el esfuerzo torsional y axial máximo de 7.04[MPa], mientras que, de acuerdo al fabricante\cite{IPS2020}, el esfuerzo de cedencia es 241[MPa]. Por otro lado, el estudio de rigidez, mostrado en la Figura \ref{fig:RobEstRig}, indica que la deflexión máxima es de 1.9[mm].
+El análisis estático comprende un estudio de resistencia, el cual se muestra en la Figura \ref{fig:EstAn}a, que indica que el esfuerzo torsional y axial máximo de 7.04[MPa], mientras que, de acuerdo al fabricante\cite{IPS2020}, el esfuerzo de cedencia es 241[MPa]. Por otro lado, el estudio de rigidez, mostrado en la Figura \ref{fig:EstAn}b, indica que la deflexión máxima es de 1.9[mm].
 
 \begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Validaciones/Estructura_modificada_AnalisisAxialYflexion xd}
-	\caption{Análisis de resistencia de la estructura}
-	\label{fig:RobEstRes}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Validaciones/Estructura_modificada_AnalisisAxialYflexion xd.png}}
+			{a) Análisis de resistencia}
+		&
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Validaciones/Estructura_modificada_deformacion.png}}
+			{b) Análisis de rigidez de la estructura}
+		\\
+	\end{tabular}
+	\caption{Análisis de elemento finito de la estructura}
+	\label{fig:EstAn}
 \end{figure}
 
-\begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Validaciones/Estructura_modificada_deformacion}
-	\caption{Análisis de rigidez de la estructura}
-	\label{fig:RobEstRig}
-\end{figure}
 
-\subsubsection*{Espacio de trabajo}
+\begin{flushright}
+\textit{Espacio de trabajo}
+\end{flushright}
 
-Tomando en cuenta las restricciones de movimiento impuestas por la estructura, la forma del espacio de trabajo del robot es similar al mostrado en la Figura \ref{fig:WS}.\footnote{El volumen del espacio de trabajo no está a escala, debido a que la herramienta del software Mathematica \textregistered  solo permite graficar el espacio de trabajo con longitudes de eslabones preestablecidas.}
+Tomando en cuenta las restricciones de movimiento impuestas por la estructura, la forma del espacio de trabajo del robot es similar al mostrado en la Figura \ref{fig:WS}.(El volumen del espacio de trabajo no está a escala, debido a que la herramienta del software Mathematica \textregistered  solo permite graficar el espacio de trabajo con longitudes de eslabones preestablecidas).
 
 \begin{figure}
 \centering		
-	\includegraphics[scale=0.4]{imagenes/INTEGRACION/Workspace}
+	\includegraphics[scale=0.25]{imagenes/INTEGRACION/Workspace.png}
 	\caption{Espacio de trabajo del robot}
 	\label{fig:WS}
 \end{figure}
 
-\subsubsection*{Posición de reposo/``Home''}
+\textit{Posición de reposo/``Home''}
 
-Es necesario definir una posición en la que el robot descanse sin caerse cuando se encuentre inactivo, como se muestra en la Figura \ref{fig:RoboHome}. Para ello se aprovecha la estructura del rover, colocando dos soportes angulares que aseguren el robot desde su segundo eslabón a través de dos ejes sencillos que sirven para mantener la posición, como se muestra en la Figura \ref{fig:AnguloEslabon}, mientras que en la Figura \ref{fig:TelaEfector} se utiliza una tela para que repose el efector final.
+Es necesario definir una posición en la que el robot descanse sin caerse cuando se encuentre inactivo, como se muestra en la Figura \ref{fig:Home}a. Para ello se aprovecha la estructura del rover, colocando dos soportes angulares que aseguren el robot desde su segundo eslabón a través de dos ejes sencillos que sirven para mantener la posición, como se muestra en la Figura \ref{fig:Home}b.
 Aunado a ello, es importante recordar que los encoders utilizados son incrementales, i.e. la posición que se puede obtener de ellos es relativa, por tanto es necesario conocer la configuración inicial del robot al momento de la activación, por lo que la posición de reposo sirve como punto de referencia.
 
 \begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Posicion_Home_3}
-	\caption{Robot en posición de reposo}
-	\label{fig:RoboHome}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/PosicionHome3.png}}
+			{a}
+		&
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Posicion_Home_2.png}}
+			{b}
+	\end{tabular}
+	\caption{Robot en reposo}
+	\label{fig:Home}
 \end{figure}
 
-\begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Posicion_Home_2}
-	\caption{Soporte para el eslabón en posición de reposo}
-	\label{fig:AnguloEslabon}
-\end{figure}
 
-\begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Posicion_Home}
-	\caption{Soporte para el efector final en posición de reposo}
-	\label{fig:TelaEfector}
-\end{figure}
 
 \begin{align*}
 S1+S5 = SI15
 \end{align*}
 
-\subsection*{Laboratorio}
+\subsubsection*{Laboratorio}
 
-Para fijar el sistema del laboratorio al sistema estructural, se realizan 3 barrenos para utilizar tornillos en el perfil de aluminio de la estructura. El ensamble se muestra en la Figura \ref{fig:InteLab}.
+Para fijar el sistema del laboratorio al sistema estructural, se realizan 3 barrenos para utilizar tornillos en el perfil de aluminio de la estructura. El ensamblaje se muestra en la Figura \ref{fig:VaLab}a.
 
-\begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Laboratorio}
-	\caption{Integración del laboratorio con el sistema estructural}
-	\label{fig:InteLab}
-\end{figure}
-
-\subsubsection*{Validación}
-
-La Figura \ref{fig:VLab} muestra que la posición del laboratorio está dentro del espacio de trabajo del robot.
 
 \begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Validaciones/V_Laboratorio}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Laboratorio.png}}
+			{a}
+		&
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Validaciones/V_Laboratorio.png}}
+			{b}
+	\end{tabular}
 	\caption{Integración del laboratorio con el sistema estructural}
-	\label{fig:VLab}
+	\label{fig:VaLab}
 \end{figure}
+
+
+\begin{flushright}
+	Validación
+\end{flushright}
+
+La Figura \ref{fig:VaLab}b muestra que la posición del laboratorio está dentro del espacio de trabajo del robot.
 
 \begin{align*}
 SI15+S4=SI154
 \end{align*}
 
-\section*{Energético}
+\subsubsection{Energético}
 
-En la Figura \ref{fig:Fuente} se muestra la fuente de alimentación seleccionada en la posición determinada en la Figura \ref{fig:ConceptoMejorado}, correspondiente al concepto mejorado y elegida para ayudar a equilibrar el peso del sistema robótico.
+En la Figura \ref{fig:Fuente}b se muestra la fuente de alimentación seleccionada en la posición determinada en la Figura \ref{fig:ConceptoMejorado}, correspondiente al concepto mejorado y elegida para ayudar a equilibrar el peso del sistema robótico.
 
-Para colocar el sistema energético en la estructura, se diseña una plataforma de soporte, mostrada en la Figura \ref{fig:FuenteSoporte}.
-
-\begin{figure}
-\centering		
-	\includegraphics[scale=0.3]{imagenes/INTEGRACION/Placa_superficie_energia}
-	\caption{Soporte del sistema energético}
-	\label{fig:FuenteSoporte}
-\end{figure}
+Para colocar el sistema energético en la estructura, se diseña una plataforma de soporte, mostrada en la Figura \ref{fig:Fuente}a.
 
 \begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Fuente}
-	\caption{Integración del sistema energético con el sistema estructural}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Placa_superficie_energia.png}}
+			{a) Soporte}
+		&
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Fuente.png}}
+			{b) Integración}
+		\\
+	\end{tabular}
+	\caption{Integración del sistema energético}
 	\label{fig:Fuente}
 \end{figure}
 
@@ -173,42 +175,39 @@ Para colocar el sistema energético en la estructura, se diseña una plataforma de
 SI154+S3=SI543
 \end{align*}
 
-\section*{Información}
+\subsubsection{Información}
 
-\subsection*{Percepción}
+\subsubsection*{Percepción}
 
-\subsubsection*{Condiciones de operación}
+\begin{flushright}
+\textit{Condiciones de operación}
+\end{flushright}
 
 Una vez que se conoce la ubicación de los puntos críticos en los que la temperatura alcanza valores altos, se colocan los sensores de temperatura DHT11 seleccionados previamente, indicados con un círculo en la Figura \ref{fig:SensoresMontados}.
 
 \begin{figure}
 \centering		
-	\includegraphics[scale=0.3]{imagenes/INTEGRACION/SensoresTemp}
-	\caption{Sensores de temperatura y humedad montados en la estructura}
+	\includegraphics[scale=0.3]{imagenes/INTEGRACION/SensoresTemp.png}
+	\caption{Sensores de temperatura y humedad montados en la estructura (Encerrados en círculos)}
 	\label{fig:SensoresMontados}
 \end{figure}
 
-\subsubsection*{Visión artificial}
+\begin{flushright}
+\textit{Visión artificial}
+\end{flushright}
 
-De acuerdo al concepto mejorado, mostrado en la Figura \ref{fig:ConceptoMejorado}, las cámaras se colocan en la parte frontal inferior de la estructura, para lo cual se diseña una pieza que puede ensamblarse dentro del perfil de aluminio, que permite el ajuste del ángulo de inclinación de las cámaras, dicha pieza, junto con la cámara montada, se aprecia en la Figura \ref{fig:PiezaCamara}, y las dos piezas necesarias se muestran en la Figura \ref{fig:CamarasMontadas}.
-
-\begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Camara_Zoom}
-	\caption{Pieza de acoplamiento para cámara}
-	\label{fig:PiezaCamara}
-\end{figure}
+De acuerdo al concepto mejorado, mostrado en la Figura \ref{fig:ConceptoMejorado}, las cámaras se colocan en la parte frontal inferior de la estructura, para lo cual se diseña una pieza que puede ensamblarse dentro del perfil de aluminio, que permite el ajuste del ángulo de inclinación de las cámaras, estas cámaras se muestran en la Figura \ref{fig:CamarasMontadas}.
 
 \begin{figure}
 \centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Camaras}
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Camaras.png}
 	\caption{Cámaras montadas en la estructura}
 	\label{fig:CamarasMontadas}
 \end{figure}
 
-\subsection*{Procesamiento}
+\subsubsection*{Procesamiento}
 
-Los periféricos que utilizan los componentes se organizan de acuerdo a los requerimientos establecidos en la Tabla \ref{Tab:DistribucionPines}, en la cual se determina el tipo de periférico utilizado, para posteriormente realizar la distribución de pines como se muestra en la Figura \ref{fig:DistPines}\footnote{Las cámaras están conectadas al mismo puerto SPI, y son activadas por software mediante CS1 y CS2}.
+Los periféricos que utilizan los componentes se organizan de acuerdo a los requerimientos establecidos en la Tabla \ref{Tab:DistribucionPines}, en la cual se determina el tipo de periférico utilizado, para posteriormente realizar la distribución de pines como se muestra en la Figura \ref{fig:DistPines} (Las cámaras están conectadas al mismo puerto SPI, y son activadas por software mediante CS1 y CS2).
 
 \begin{table}
 \centering
@@ -284,48 +283,48 @@ Servomotor Desechador & PC9 (Timer 3 Canal 1) & CN10-4 \\
 
 \begin{figure}
 \centering		
-	\includegraphics[scale=1.5]{imagenes/INTEGRACION/Distribucion pines}
+	\includegraphics[scale=1.5]{imagenes/INTEGRACION/Distribucion pines.pdf}
 	\caption{Conexión de los periféricos al controlador}
 	\label{fig:DistPines}
 \end{figure}
 
-Conociendo los pines a utilizar, se diseña una placa de circuito impreso (PCB - Printed Circuit Board por sus siglas en inglés), mostrada en la Figura \ref{fig:PCB}, y cuyo diagrama esquemático se muestra en la Figura \ref{fig:PCBEsq}.
+Conociendo los pines a utilizar, se diseña una placa de circuito impreso (PCB - Printed Circuit Board por sus siglas en inglés), mostrada en la Figura \ref{fig:PCBEsq}a, y cuyo diagrama esquemático se muestra en la Figura \ref{fig:PCBEsq}b.
 
 \begin{figure}
-\centering		
-	\includegraphics[scale=1.5]{imagenes/INTEGRACION/Placa2PCB}
-	\caption{Placa de circuito impreso}
-	\label{fig:PCB}
-\end{figure}
-
-\begin{figure}
-\centering		
-	\includegraphics[scale=0.7]{imagenes/INTEGRACION/Placa2PCB_Esquematico}
-	\caption{Diagrama esquemático de la placa de circuito impreso}
+	\centering
+	\begin{tabular}{c}
+		\subf{\includegraphics[height = 0.4\textheight, keepaspectratio]{imagenes/INTEGRACION/Placa2PCB_Esquematico.PDF}}
+			{a) Diagrama esquemático}
+		\\
+		\subf{\includegraphics[height = 0.4\textheight, keepaspectratio]{imagenes/INTEGRACION/Placa2PCB.PDF}}
+			{b) Placa de circuito impreso}
+		\\
+	\end{tabular}
+	\caption{Diseño del circuito del sistema}
 	\label{fig:PCBEsq}
 \end{figure}
 
-La placa se diseña para acoplarse directamente con la tarjeta del microcontrolador, como se muestra en la Figura \ref{fig:PlakaYNukleo}.
+La placa se diseña para acoplarse directamente con la tarjeta del microcontrolador, como se muestra en la Figura \ref{fig:PlakaYNukleo}a.
 
 \begin{figure}
-\centering		
-	\includegraphics[scale=0.7]{imagenes/INTEGRACION/plakaynucleo}
-	\caption{Ensamblaje de PCB con microcontrolador}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/plakaynucleo.png}}
+			{a}
+		&
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Placa_superficie_informacion.png}}
+			{b}
+		\\
+	\end{tabular}
+	\caption{Ensamblaje de PCB con microcontrolador y soporte del sistema de información}
 	\label{fig:PlakaYNukleo}
 \end{figure}
 
-Para colocar el sistema de procesamiento en la estructura, se diseña una plataforma de soporte, mostrada en la Figura \ref{fig:PlakaSup}. El ensamblaje resultante se acopla en la parte central de la estructura de acuerdo a la Figura \ref{fig:Plaka}.
+Para colocar el sistema de procesamiento en la estructura, se diseña una plataforma de soporte, mostrada en la Figura \ref{fig:PlakaYNukleo}b. El ensamblaje resultante se acopla en la parte central de la estructura de acuerdo a la Figura \ref{fig:Plaka}.
 
 \begin{figure}
 \centering		
-	\includegraphics[scale=0.3]{imagenes/INTEGRACION/Placa_superficie_informacion}
-	\caption{Soporte del sistema de información}
-	\label{fig:PlakaSup}
-\end{figure}
-
-\begin{figure}
-\centering		
-	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Plaka}
+	\includegraphics[scale=0.5]{imagenes/INTEGRACION/Plaka.png}
 	\caption{Placas colocadas en la estructura}
 	\label{fig:Plaka}
 \end{figure}
@@ -355,18 +354,18 @@ SI1543+S2=SI5432
 
 \begin{figure}
 \centering		
-	\includegraphics[scale=0.75]{imagenes/render sistema 4}
+	\includegraphics[scale=0.75]{imagenes/render sistema 4.jpg}
 \end{figure}
 
-\section{Integración de software}
+\subsection{Integración de software}
 
 Según el modelo eFFBD de la Figura \ref{fig:eFFBD}, el funcionamiento del sistema se puede clasificar en procesos realizados por el computador y procesos realizados por el microcontrolador, para entender mejor estos procesos es útil recurrir a un diagrama de flujo, y la redacción de un pseudocódigo que posteriormente facilite su implementación en un lenguaje de programación real.
 
-A continuación se muestra el diagrama de flujo del proceso realizado por el computador, acompañado del pseudocógido correspondiente.
+En la Figura \ref{fig:DFPC} se muestra el diagrama de flujo del proceso realizado por el computador, acompañado del pseudocógido correspondiente. Este algoritmo consiste en recibir la orden del usuario de activar la cámara, tomar una fotografía e interpretarla con la finalidad de obtener los parámetros necesarios para que el robot tome la muestra de interés, y finalmente recibir la información del peso de la muestra.
 
 \begin{figure}
 \centering		
-	\includegraphics[scale=1]{imagenes/INTEGRACION/DiagramasDeFlujo_PC}
+	\includegraphics[scale=1]{imagenes/INTEGRACION/DiagramasDeFlujo_PC.pdf}
 	\caption{Diagrama de flujo del algoritmo ejecutado por la PC}
 	\label{fig:DFPC}
 \end{figure}
@@ -408,18 +407,14 @@ Fin de programa
 
 \end{lstlisting}
 
-El diagrama de flujo del microcontrolador se muestra en la Figura \ref{fig:DFMicro}.
-
+El diagrama de flujo del microcontrolador se muestra en la Figura \ref{fig:DFMicro}, en el que se puede apreciar que se espera a la orden de activación del usuario, realizada desde el ordenador, en la que también se reciben los parámetros de las juntas de los motores del brazo para trasladarlo a la posición de la muestra una junta a la vez, una vez que la haya tomado la lleva a la posición del laboratorio, la libera, se realiza y envía el resultado de la medición, y finalmente el brazo vuelve a la posición de reposo en espera de una nueva orden.
 
 \begin{figure}
 \centering		
-	\includegraphics[scale=0.8]{imagenes/INTEGRACION/DiagramasDeFlujo_Micro}
+	\includegraphics[scale=0.8]{imagenes/INTEGRACION/DiagramasDeFlujo_Micro.pdf}
 	\caption{Diagrama de flujo del algoritmo ejecutado por el microcontrolador}
 	\label{fig:DFMicro}
 \end{figure}
-
-
-El pseudocódigo del proceso realizado por el microcontrolador se presenta a continuación.
 
 \begin{lstlisting}[language=C, caption=Pseudocódigo del microcontrolador]
 Inicio de programa
@@ -499,7 +494,7 @@ Fin del programa
 
 \end{lstlisting}
 
-\section*{Estimación de costos}
+\subsubsection{Estimación de costos}
 
 La Tabla \ref{Tab:Costos}  refleja el costo aproximado del proyecto, considerando los componentes adquiridos y los manufacturados
 

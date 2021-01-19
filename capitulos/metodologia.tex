@@ -8,7 +8,7 @@ Medir dimensiones y características de partículas individuales es un proceso tar
 
 \begin{figure}
 \centering		
-	\includegraphics[scale=0.3]{imagenes/Marco Teorico/Esfericidad}
+	\includegraphics[scale=0.3]{imagenes/Marco Teorico/Esfericidad.png}
 	\caption{Cuadro cualitativo para determinar visualmente la forma de una partícula}
 	\label{fig:Esfericidaddd}
 \end{figure}
@@ -19,14 +19,7 @@ Medir dimensiones y características de partículas individuales es un proceso tar
 
 Las propiedades mecánicas de los materiales influyen en el desempeño de los componentes físicos, por esta razón es necesario tomar en cuenta sus límites para el diseño. Además es importante considerar la relación existente entre las propiedades, pues suele tomarse en cuenta la combinación de ellas para realizar la selección.
 
-En este documento, son de particular interés las propiedades de rigidez y densidad, por lo que se utiliza la relación entre el módulo de Young y la densidad\cite{Ashby}, mostrada gráficamente en la Figura \ref{fig:DensidadVSYoung}.
-
-\begin{figure}
-\centering		
-	\includegraphics[scale=1]{imagenes/Dominio especifico/DensidadVSYoung_Ashby}
-	\caption{Gráfico que relaciona el módulo de elasticidad de los materiales contra su densidad, Ashby.}
-	\label{fig:DensidadVSYoung}
-\end{figure}
+En este documento, son de particular interés las propiedades de rigidez y densidad, por lo que se utiliza la relación entre el módulo de Young y la densidad\cite{Ashby}.
 
 \subsubsection{Diseño de transmisión por bandas}
 
@@ -51,14 +44,7 @@ P &= \tau \omega =
 P_{ajustada} &= P*F_S 
 \end{align}
 
-Posteriormente, se determina el paso requerido de la banda utilizando la guía de selección de perfil del proveedor\cite{BandasSDPSI}, mostrada en la Figura \ref{fig:PasoBanda}.
-
-\begin{figure}
-\centering		
-	\includegraphics[scale=0.85]{imagenes/Dominio especifico/Validaciones eslabones/Transmision/PerfilesBandas}
-	\caption{Guía de selección de paso de bandas}
-	\label{fig:PasoBanda}
-\end{figure}
+Posteriormente, se determina el paso requerido de la banda utilizando la guía de selección de perfil del proveedor\cite{BandasSDPSI}.
 
 Seleccionar la combinación de poleas que producen la relación de velocidad especificada, basándose en el catálogo de proveedores \cite{PoleasSDPSI}, en el cual también se indica el ancho apropiado de las bandas.
 
@@ -69,13 +55,7 @@ Conociendo el diámetro de las poleas seleccionadas, se calcula la longitud de la
 L_{b} &=  2C+N_{polea}*PD
 \end{align}
 
-\begin{align*}
-\textrm{En donde:}\\
-L_{b} &= \textrm{Longitud de la banda.}\\
-C &= \textrm{Distancia entre centros.}\\
-N_{polea} &= \textrm{Número de dientes de la polea.}\\
-PD &= \textrm{Paso.}
-\end{align*}
+En donde $L_{b}$ es la longitud de la banda, $C$ es la distancia entre centros, $N_{polea}$, el número de dientes de la polea y $PD$ el paso de la banda.
 
 Con la longitud de la banda calculada, se ajusta el valor de la potencia con la ecuación \ref{eq:PotBandAjus}.
 
@@ -108,13 +88,7 @@ F_{n} &= \frac{T_{banda}}{r}\\
 F_{s} &= 1.5F_{n}
 \end{align}
 
-\begin{align*}
-\textrm{En donde:}\\
-F_{n} &= \textrm{Fuerza neta asociada al torque transmitido}\\
-F_{s} &= \textrm{Fuerza flexionante}\\
-T_{banda} &= \textrm{Torque transmitido por la banda}\\
-r &= \textrm{Radio de la polea}
-\end{align*}
+En donde $F_{n}$ es la fuerza neta asociada al torque transmitido, $F_{s}$ es la fuerza flexionante, $T_{banda}$ es el torque transmitido por la banda y $r$ es el radio de la polea.
 
 Una vez que se obtienen estos valores, se propone un material y se corrigen los valores de resistencia última a fatiga con las ecuaciones \ref{eq:Sn} y \ref{eq:SnC}.
 
@@ -123,25 +97,14 @@ Una vez que se obtienen estos valores, se propone un material y se corrigen los 
 S_{n} &=0.5S_{u}
 \end{align}
 
-\begin{align*}
-\textrm{En donde:} \\
-S_{n} &= \textrm{Límite de fatiga}\\
-S_{u} &= \textrm{Esfuerzo último a la tensión}
-\end{align*}
+En donde $S_n$ es el límite de fatiga y $S_u$ es el esfuerzo último a la tensión.
 
 \begin{align}
 \label{eq:SnC}
 S'_{n} &= S_{n}C_{m}C_{st}C_{R}C_{s} 
 \end{align}
 
-\begin{align*}
-\textrm{En donde:} \\
-S'_{n} &= \textrm{Límite de fatiga modificado}\\
-C_{m} &= \textrm{Factor de material}\\
-C_{st} &= \textrm{Factor de tipo de esfuerzo}\\
-C_{R} &= \textrm{Factor de confiabilidad}\\
-C_{s} &= \textrm{Factor de tamaño}
-\end{align*}
+En donde $S'_n$ es el límite de fatiga modificado, $C_m$ es el factor del material, $C_{st}$ es el factor del tipo de esfuerzo, $C_R$ es el factor de confiabilidad y $C_s$ es el factor de tamaño.
 
 Finalmente, se utiliza la fórmula \ref{eq:DiamEje} para calcular el diámetro mínimo del eje.
 
@@ -150,15 +113,7 @@ Finalmente, se utiliza la fórmula \ref{eq:DiamEje} para calcular el diámetro mín
 D &=\sqrt[3]{\frac{32N}{\pi}\sqrt{\left[ \frac{K_{t}M}{S'_{n}}^{2} \right] + \frac{3}{4} \left[ \frac{T}{S_{y}} \right]^{2} }}
 \end{align}
 
-\begin{align*}
-\textrm{En donde:} \\
-D &= \textrm{Diámetro mínimo del eje}\\
-N &= \textrm{Factor de seguridad}\\
-K_{t} &= \textrm{Factor de concentración de esfuerzos}\\
-M &= \textrm{Momento flexionante}\\
-T &= \textrm{Esfuerzo torsionante}\\
-S_{y} &= \textrm{Esfuerzo de cedencia}
-\end{align*}
+En donde $D$ es el diámetro máximo del eje, $N$ es el factor de seguridad, $K_t$ es el factor de concentración de esfuerzos, $M$ es el momento flexionante, $T$ el momento torsionante y $S_y$ es el esfuerzo de cedencia.
 
 \subsubsection{Selección de rodamientos}
 
@@ -169,13 +124,7 @@ Para seleccionar rodamientos aleados, es necesario conocer las reacciones que ti
 C_{din\acute{a}mica} &= P_{d} \left( \frac{L_{d}}{10^{6}}\right)^{1/k_{rod}}
 \end{align}
 
-\begin{align*}
-\textrm{En donde:} \\
-C_{din\acute{a}mica} &= \textrm{Capacidad de carga dinámica mínima del rodamiento}\\
-P_{d} &= \textrm{Carga de diseño}\\
-L_{d} &= \textrm{Vida de diseño del rodamiento, en número de revoluciones}\\
-k_{rod} &= 3.33 \textrm{ para rodamientos de rodillos}
-\end{align*}
+En donde $C_{din\acute{a}mica}$ es la capacidad de carga dinámica del rodamiento, $P_d$ es la carga de diseño, $L_d$ es la vida de diseño del rodamiento medida en número de revoluciones y $k_{rod}$ es la constante del rodamiento (3.33 para rodamientos de rodillos).
 
 \subsection{Cinemática de robots}
 
@@ -215,12 +164,7 @@ De esta manera, la matriz de la ecuación \ref{eq:MTH} se puede descomponer en un
 H &= T_{n}^{0} = A_{1}( \theta_{1} ) \dots A_{n}\theta_{n}
 \end{align}
 
-Para facilitar la asignación de marcos y la obtención de las matrices se utiliza la convención de Denavit-Hartenberg, asumiendo lo siguiente:
-
-\begin{itemize}[noitemsep,nolistsep]
-\item El eje $x_{1}$ es perpendicular al eje $z_{0}$
-\item El eje $x_{1}$ se interseca con el eje $z_{0}$
-\end{itemize}
+Para facilitar la asignación de marcos y la obtención de las matrices se utiliza la convención de Denavit-Hartenberg, asumiendo que el eje $x_1$ es perpendicular al eje $z_0$, y que se intersecan.
 
 De esta manera, se puede representar la transformación $H$ de la ecuación \ref{eq:MTH} con matrices de la forma:
 
@@ -234,15 +178,7 @@ s_{\theta_{i}} & c_{\theta_{i}}c_{\alpha_{i}} & -c_{\theta_{i}}s_{\alpha_{i}} & 
 \end{bmatrix}
 \end{align*}
 
-\begin{align*}
-\textrm{En donde:}\\
-\theta &= \textrm{Ángulo de la junta, formado entre} \; x_{i-1} \; \textrm{y} x_{i} \; \textrm{sobre el eje} \; z_{i-1}. \\
-a &= \textrm{Longitud del eslabón, definido como la distancia sobre el eje} \; x_{i} \\
-& \quad\; \textrm{desde el punto de intersección de} \; z_{i-1} \; \textrm{con} \; x_{i} \; \textrm{hasta el origen} \; O_{i}. \\
-d &= \textrm{Desplazamiento del eslabón, definido como la distancia sobre el eje} \; z_{i-1} \\
-& \quad\; \textrm{desde el origen} \; O_{i-1} \; \textrm{hasta la intersección de} \; z_{i-1} \; \textrm{con} \; x_{i}. \\
-\alpha &= \textrm{Ángulo de giro del eslabón, formado entre} \; z_{i-1} \; \textrm{y} \; z_{i} \; \textrm{sobre el eje} \; x_{i}.
-\end{align*}
+En donde $\theta$ es el ángulo de la junta, formado entre $x_{i-1}$ y $x_i$ sobre el eje $z_{i-1}$, $a$ es la longitud del eslabón, definida como la distancia sobre el eje $x_i$ desde el punto de intersección de $z_{i-1}$ con $x_{i}$ hasta el origen $O_i$, $d$ es el desplazamiento del eslabón, definido como la distancia sobre el eje $z_{i-1}$ desde el origen $O_{i-1}$ hasta la intersección de $z_{i-1}$ con $x_i$, y $\alpha$ es el ángulo de giro del eslabón, formado entre $z_{i-1}$ y $z_i$ sobre el eje $x_i$.
 
 \subsubsection{Cinemática inversa}
 
@@ -275,8 +211,8 @@ r_{31} & r_{32} & r_{33}
 \right]\\
 o=
 \begin{bmatrix}
-ox\\oy\\oz
-\end{bmatrix}
+ox & oy & oz
+\end{bmatrix}^T
 \end{align}
 
 \textbf{Cinemática inversa de posición}
@@ -285,8 +221,8 @@ Desplazando una distancia $d_{6}$ el efector final $o$ hacia el origen de la muñ
 
 \begin{align}
 o &= o_{c}^{0} + d_{6}R\begin{bmatrix}
-0\\0\\1
-\end{bmatrix}
+0 & 0 & 1
+\end{bmatrix}^T
 \end{align}
 
 \textbf{Cinemática inversa de orientación}
@@ -400,12 +336,7 @@ En este documento se aborda el tema de dinámica de robots a través del enfoque d
 -\frac{\partial \mathcal{L}}{\partial \theta}=\mathcal{Q}
 \end{align}
 
-\begin{align*}
-\textrm{En donde:}\\
-\mathcal{L} &= \textrm{Lagrangiano del sistema}\\
-\theta &= \textrm{Conjunto de coordenadas generalizadas}\\
-\mathcal{Q} &= \textrm{Conjunto de fuerzas generalizadas}
-\end{align*}
+En donde $\mathcal{L}$ es el Lagrangiano del sistema, $\theta$ es el conjunto de coordenadas generalizadas y $\mathcal{Q}$ es el conjunto de fuerzas generalizadas.
 
 Las coordenadas generalizadas $\theta$ son aquellas que describen el movimiento del robot, y tienen las siguientes características \cite{MITDyn}:
 
@@ -426,11 +357,7 @@ Para encontrar las fuerzas generalizadas $\mathcal{Q}_{i}$ ligadas a las coorden
 \delta W^{NC}_{i} &= \mathcal{Q}_{i} \delta_{\theta_{i}} = 0 
 \end{align}
 
-\begin{align*}
-\textrm{En donde:}\\
-\delta W^{NC}&=\textrm{Trabajo virtual asociado a las fuerzas generalizadas }\mathcal{Q}\\
-\delta \theta &= \textrm{Desplazamientos virtuales}
-\end{align*}
+En donde $\delta W^{NC}$ es el trabajo virtual asociado a las fuerzas no conservativas generalizadas $\mathcal{Q}$ y $\delta \theta$ son los desplazamientos virtuales.
 
 Para calcular las ecuaciones dinámicas que describen el movimiento del robot utilizando el sistema de ecuaciones diferenciales ordinarias de segundo orden presentado en la ecuación \ref{eq:EulerLagrangeGeneral}, es necesario expresar las energías cinética y potencial en términos de las coordenadas y fuerzas generalizadas $\theta$ y $\mathcal{Q}$ respectivamente. A continuación se desarrollan las fórmulas necesarias para lograr esto.
 
@@ -442,14 +369,7 @@ La energía cinética de un cuerpo rígido es la suma de la energía traslacional ob
 K &= \frac{1}{2} mv^{T}v+\frac{1}{2}\omega^{T}\mathcal{I}\omega
 \end{align}
 
-\begin{align*}
-\textrm{En donde:}\\
-K &= \textrm{Energía cinética}\\
-m &= \textrm{Masa total}\\
-v &= \textrm{Vector de velocidad lineal}\\
-\omega &= \textrm{Vector de velocidad angular}\\
-\mathcal{I} &= \textrm{Tensor de inercia}
-\end{align*}
+En donde $K$ es la energía cinética, $m$ es la masa total, $v$ es el vector de velocidad linea, $\omega$ es el vector de velocidad angular y $\mathcal{I}$ es el tensor de inercia.
 
 El tensor de inercia $\mathcal{I}$ es una matriz simétrica de $3 \times 3$ expresado en el marco inercial del objeto, por lo depende de la configuración del mismo. Es por esto que se utiliza el tensor de inercia $I$ expresado en el marco del cuerpo, ubicado en el centro de masa del mismo, por lo que es constante y no depende de la configuración. La ecuación \ref{eq:RIRT} relaciona $\mathcal{I}$ con $I$ de la forma a través de una matriz de rotación $R$ como sigue
 
@@ -507,7 +427,7 @@ Lo que es igual a
 K &= \frac{1}{2} \dot{\theta}^{T}D(\theta)\dot{\theta}
 \end{align}
 
-En donde $D(\theta)$ es una matriz simétrica definida positiva llamada \textbf{Matriz de inercia}, lo que indica que depende de la configuración del robot.
+En donde $D(\theta)$ es una matriz simétrica definida positiva llamada Matriz de inercia, lo que indica que depende de la configuración del robot.
 
 \subsubsection{Energía potencial}
 
@@ -518,17 +438,13 @@ En la mayoría de robots, en los que se consideran cuerpos rígidos, la única fuen
 P = \sum_{i=1}^{n} P_{i} = \sum_{i=1}^{n} g^{T}r_{ci}m_{i}
 \end{align}
 
-\begin{align*}
-\textrm{En donde:}\\
-g&=\textrm{Vector de dirección de la gravedad en el marco inercial}\\
-r_{ci} &= \textrm{Coordenadas del centro de masa}
-\end{align*}
+En donde $ g $ es el vector de dirección de la gravedad en el marco inercial y $ r_{ci} $  son las coordenadas del centro de masa
 
 \subsubsection{Ecuaciones de movimiento}
 
 El desarrollo de las ecuaciones de movimiento con las ecuaciones de Euler-Lagrange orientadas a sistemas mecánicos requiere que se cumpla lo siguiente:
 
-\begin{enumerate}
+\begin{enumerate}[noitemsep,nolistsep]
 \item La energía cinética es una función cuadrática del vector $\dot{\theta}$ de la forma
 
 \begin{align}
@@ -691,12 +607,7 @@ Una vez que se ha calculado la matriz $C$, es posible construir la forma matrici
 D(\theta)\ddot{\theta}+C(\theta,\dot{\theta})\dot{\theta}+g(\theta) = \mathcal{Q}
 \end{align}
 
-\begin{align*}
-\textrm{En donde:}\\
-D(\theta) &= \textrm{Matriz de inercia del sistema}\\
-C(\theta,\dot{\theta}) &= \textrm{Vector de fuerzas/pares centrífugas y de Coriolis}\\
-g(\theta) &= \textrm{Vector de fuerzas/pares gravitacionales y potencial}
-\end{align*}
+En donde $ D(\theta) $ es la matriz de inercia del sistema, $ C(\theta,\dot{\theta}) $ es el vector de fuerzas/pares centrífugas y de Coriolis y $ g(\theta) $ es el vector de fuerzas/pares gravitacionales y potencial.
 
 \subsection{Dinámica de actuadores}
 
@@ -706,13 +617,7 @@ En un motor de CD, el par generado es proporcional a la corriente de armadura y 
 \tau_{m}=K_{1} \phi i_{a}
 \end{align}
 
-\begin{align*}
-\textrm{En donde:}\\
-\tau_{m}&=\textrm{Par generado}\\
-K_{1}&=\textrm{Constante física}\\
-\phi &=\textrm{Flujo magnético debido al estator}\\
-i_{a} &= \textrm{Corriente de armadura}
-\end{align*}
+En donde $ \tau_{m} $ es el par generado, $ K_{1} $ es la constante física del motor, $ \phi $ es el flujo magnético debido al estator y $ i_{a} $ es la corriente de armadura. 
 
 En un motor de imanes permanentes, se considera que el campo magnético $\phi$ es constante, por lo que $K_{1}\phi$ es igual a una constante de par motor $K_{m}$, como lo indica la ecuación 
 
@@ -726,11 +631,7 @@ Cuando el rotor se bloquea, el par del rotor a un voltaje determinado $V_{r}$ se
 K_{m} = \frac{R_{a}\tau_{0}}{V_{r}}
 \end{align}
 
-\begin{align*}
-\textrm{En donde:}\\
-\tau_{0}&=\textrm{Par a rotor bloqueado}\\
-R_{a}&=\textrm{Resistencia de armadura}
-\end{align*}
+En donde $ \tau_{0} $ es el par a rotor bloqueado y $ R_{a} $ es la resistencia de la armadura.
 
 Pero
 
@@ -775,7 +676,7 @@ La Tabla \ref{Tab:Reguladores} muestra una comparación entre reguladores.
 
 Dependiendo de la intensidad de corriente que un cable debe transportar, y de la longitud del mismo, debe elegirse un calibre de cable siguiendo la Figura \ref{fig:CableCalibre}, desarrollada por Enerdrive\cite{CablEner} bajo el estándar AWG (Calibres de Alambre Americanos - American Wire Gauges por sus siglas en inglés) con ayuda de estos pasos:
 
-\begin{enumerate}
+\begin{enumerate}[noitemsep,nolistsep]
 \item Localizar en la Figura la intensidad de corriente en CD que fluye por el cable.
 \item Determinar el tipo de circuito en los siguientes tipos
 	\begin{itemize}[noitemsep,nolistsep]
@@ -787,147 +688,10 @@ Dependiendo de la intensidad de corriente que un cable debe transportar, y de la
 \item Relacionar el símbolo con el código de color para encontrar las especificaciones del cable.
 \end{enumerate}
 
-\begin{figure}
-	\centering		
-	\includegraphics[scale=1]{imagenes/Marco Teorico/CalibreCable}
-	\caption{Guía de selección para calibre de cables, Blue Sea Systems}
-	\label{fig:CableCalibre}
-\end{figure}
-
 \subsection{Visión artificial}
 
 La visión por computadora es una de las herramientas más poderosas que existen en la actualidad para permitir a un robot identificar las condiciones del ambiente en el que opera.
 
-Dos técnicas útiles para obtener esto son la visión estereoscópica, conocida como estereopsis, y la corrección de perspectiva, conocida como homografía.
-
-\subsubsection*{Homografía}
-
-Una homografía es una matriz que mapea las coordenadas de una imagen tomada en una perspectiva que no es normal a la superficie que se desea observar a una imagen no distorsionada con una perspectiva normal.
-
-\begin{align}
-\label{eq:Homografia}
-\tilde{P}_{2} &\simeq H_{m}\tilde{P}_{1}
-\end{align}
-
-\begin{align*}
-\textrm{En donde:}\\
-\tilde{P}_{1} &= \textrm{Imagen original}\\
-\tilde{P}_{2} &= \textrm{Imagen corregida}\\
-H_{m} &= \textrm{Matriz de homografía}
-\end{align*}
-
-Por ejemplo, suponga que toma una foto de una catedral a nivel del suelo, lo cual resulta en una imagen distorsionada por la perspectiva, mostrada en la Figura \ref{fig:NuestraDonaPersp}.
-
-Para corregirla, se seleccionan cuatro puntos de la imagen, como se muestra en el trapecio morado de coordenadas $X_{i},Y_{i}$ de la imagen. Este trapecio se mapea al rectángulo rojo con vértices en las coordenadas $x_{i},y_{i}$, resolviendo el sistema de ecuaciones  para obtener la matriz de homografía\cite{VISHUIT}.
-
-\begin{align*}
-\begin{bmatrix}
-X_{1} & Y_{1} & 1 & 0 & 0 & 0 & -x_{1}X_{1} & -x_{1}Y_{1}\\
-0 & 0 & 0 & X_{1} & Y_{1} & 1 & -y_{1}X_{1} & -y_{1}Y_{1}\\
-X_{2} & Y_{2} & 1 & 0 & 0 & 0 & -x_{2}X_{2} & -x_{2}Y_{2}\\
-0 & 0 & 0 & X_{2} & Y_{2} & 1 & -y_{2}X_{2} & -y_{2}Y_{2}\\
-X_{3} & Y_{3} & 1 & 0 & 0 & 0 & -x_{3}X_{3} & -x_{3}Y_{3}\\
-0 & 0 & 0 & X_{3} & Y_{3} & 1 & -y_{3}X_{3} & -y_{3}Y_{3}\\
-X_{4} & Y_{4} & 1 & 0 & 0 & 0 & -x_{4}X_{4} & -x_{4}Y_{4}\\
-0 & 0 & 0 & X_{4} & Y_{4} & 1 & -y_{4}X_{4} & -y_{4}Y_{4}\\
-\end{bmatrix}
-\begin{bmatrix}
-h_{11}\\
-h_{12}\\
-h_{13}\\
-h_{21}\\
-h_{22}\\
-h_{23}\\
-h_{31}\\
-h_{32}
-\end{bmatrix}
-=
-\begin{bmatrix}
-x_{1}\\
-y_{1}\\
-x_{2}\\
-y_{2}\\
-x_{3}\\
-y_{3}\\
-x_{4}\\
-y_{4}
-\end{bmatrix}
-\end{align*}
-
-La matriz $H_{m}$ es de la forma\footnote{El valor de $h_{33}$ se fija igual a 1 para que se pueda resolver el sistema de ecuaciones}
-
-\begin{align*}
-H_{m}=
-\begin{bmatrix}
-h_{11} & h_{12} & h_{13}\\
-h_{21} & h_{22} & h_{23}\\
-h_{31} & h_{32} & 1\\
-\end{bmatrix}
-\end{align*}
-
-\begin{figure}
-	\centering		
-	\includegraphics[scale=0.5]{imagenes/Marco Teorico/Robo1}
-	\caption{Imagen original tomada en perspectiva}
-	\label{fig:NuestraDonaPersp}
-\end{figure}
-
-\begin{figure}
-	\centering		
-	\includegraphics[scale=0.5]{imagenes/Marco Teorico/Robo2}
-	\caption{Imagen corregida por la homografía}
-	\label{fig:NuestraDonaChida}
-\end{figure}
-
-\begin{figure}
-	\centering		
-	\includegraphics[scale=0.5]{imagenes/Marco Teorico/comparacionNuestraDona}
-	\caption{Comparación de la imagen original contra la corregida}
-	\label{fig:NuestraDonaComp}
-\end{figure}
-
-\subsubsection*{Estereopsis}
-
-La visión estereoscópica implica tomar dos imágenes de un mismo objeto desde 2 puntos de vista distintos para estimar la distancia que hay entre las cámaras y el objeto. Normalmente se colocan dos cámaras iguales con sus ejes ópticos paralelos separados por una distancia conocida referida como línea base de las cámaras\cite{RoboCorke}.
-
-\begin{figure}
-	\centering		
-	\includegraphics[scale=0.3]{imagenes/Dominio especifico/Informacion/Diagramas vision.pdf}
-	\caption{Diagrama de referencia para la estereopsis}
-	\label{fig:DiagramaEstereo}
-\end{figure}
-
-Con ayuda del diagrama mostrado en la Figura \ref{fig:DiagramaEstereo}, se calcula la profundidad como sigue:
-
-Por triángulos semejantes
-
-\begin{align*}
-\frac{x_{I}}{f} &= \frac{\frac{b}{2}+x}{z}\\
-x_{I}&=f\left(\frac{\frac{b}{2}+x}{z}\right)\\
-\frac{-x_{D}}{f} &= \frac{\frac{b}{2}-x}{z}\\
--x_{D}&=f\left(\frac{\frac{b}{2}-x}{z}\right)
-\end{align*}
-
-Luego
-
-\begin{align*}
-x_{I}-x_{D}&=\frac{fb}{z}
-\end{align*}
-
-\begin{align*}
-z&=\frac{fb}{x_{I}-x_{D}}
-\end{align*}
-
-\begin{align*}
-\textrm{En donde:}\\
-x_{I}&=\textrm{\# de pixeles desde el origen hasta el} \\
-&\textrm{centro del objeto en la imagen izquierda}\\
-x_{D}&=\textrm{\# de pixeles desde el origen hasta el} \\
-&\textrm{centro del objeto en la imagen derecha}\\
-z&=\textrm{Profundidad}\\
-b&=\textrm{Distancia entre cámaras}\\
-x&=\textrm{Distancia real}
-\end{align*}
 
 \section{Marco procedimental}
 
@@ -951,7 +715,11 @@ módulo y determinar el grado de madurez del proyecto.
 
 \begin{figure}
 	\centering		
-	\includegraphics[scale=1.3]{imagenes/VDI2206}
+	\includegraphics[scale=1.3]{imagenes/VDI2206.pdf}
 	\caption{Modelo V como metodología para el diseño mecatrónico(VDI 2206)}
 	\label{fig:VDI2206}
 \end{figure}
+
+\subsubsection{FBS}
+\subsubsection{IDEF0}
+\subsubsection{eFFBD}

@@ -6,244 +6,194 @@ Para reducir costos, el requerimiento R1 de la Tabla \ref{Tabla:TabReq} fue modi
 
 \section{S5. Estructural}
 
-El diseño original contemplaba perfil estructural IPS 2020 de aluminio, sin embargo, se opta por utilizar una estructura soldada de PTR (Perfil Tubular Rectangular) de $1\frac{1}{4}"$ calibre 14, ya que el material es más barato, más pesado (lo cual ayuda a equilibrar las cargas generadas por el brazo) y es más sencillo de trabajar. Debido a que el material es acero estructural, se le aplica una capa de pintura para proteger el metal de la corrosión, además de que se elige un color cromado para ser estéticamente similar al aluminio.
+El diseño original contemplaba perfil estructural IPS 2020 de aluminio, sin embargo, se opta por utilizar una estructura soldada de PTR (Perfil Tubular Rectangular) de $1\frac{1}{4}"$ calibre 14, ya que el material es más barato, más pesado (lo cual ayuda a equilibrar las cargas generadas por el brazo), y además es fácil de trabajar con las herramientas típicas de una herrería. Debido a que el material es acero estructural, se le aplica una capa de pintura para proteger el metal de la corrosión, eligiendo un color cromado para ser estéticamente similar al aluminio.
 
 \begin{figure}
-    \centering		
-        \includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/Estructura1.JPG}
-        \caption{Estructura soldada y pintada}
-        \label{fig:EstructuraConstruida}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/Estructura1.JPG}}
+			{a) Estructura soldada y pintada}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/Reposo.JPG}}
+			{b) Acercamiento a la pieza donde reposa el brazo}
+        \\
+    \end{tabular}
+	\caption{Estructura construida}
+	\label{fig:EstructuraConstruida}
 \end{figure}
 
-Como se puede apreciar en la Figura \ref{fig:EstructuraConstruida}, se modifica la pieza en la que reposa el brazo por un fragmento de PTR que se ranura con el espacio adecuado para apoyar el brazo.
+Como se puede apreciar en la Figura \ref{fig:EstructuraConstruida}, se modifica la pieza en la que reposa el brazo (mostrada en la Figura \ref{fig:Home}) por un fragmento de PTR que se ranura con el espacio adecuado para apoyar el brazo.
 
 \section{S1. Robótico}
 \subsection{M1. Manipulador}
+
+\subsubsection{Base del manipulador}
+De acuerdo al cambio de material en la estructura (S5), se utilizan tornillos de $\frac{3}{8}"$, por lo que se modifica el diámetro de los barrenos de la base fija de 10[mm] a $\frac{3}{8}"$.
+
+La base fija que se une a la estructura junto con el cilindro sobre el que se colocan los rodamientos se muestran en la Figura \ref{fig:PiezasBase}a, mientras que la base giratoria sobre la que se colocan los motores del segundo y tercer GDL se observan en la Figura \ref{fig:PiezasBase}b.
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/BaseFija3.JPG}}
+			{a) Base fija con el cilindro montado y tapa del cilindro}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/Giratoria3.JPG}}
+			{b) Base giratoria}
+        \\
+	\end{tabular}
+	\caption{Base del manipulador}
+	\label{fig:PiezasBase}
+\end{figure}
+
+Gracias a que la masa fue reducida a 100 gramos, se puede elegir un motor que ofrezca un menor par, por lo que el modelo seleccionado es el motor de engranes planetarios Yellow Jacket 5202 Series, que proporciona 24.51[Nm] (Anexo XD).
+
+Debido a que hay problemas de compatibilidad entre los ejes de 1/2'' y algunos componentes acoplados a estos, se cambian por ejes de acero inoxidable de 12[mm] de diámetro y las piezas compatibles con los mismos, vendidos por ServoCity (Anexo XD2). A estos ejes se les hace un desbastado longitudinal a lo largo de todo el cuerpo para facilitar la colocación y sujeción de accesorios, como se muestra en la Figura \ref{fig:EjDesb}. 
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/Eje5cm.jpg}}
+			{a) Desbastado para un lado plano}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/EjePolea.jpg}}
+			{b) Polea sujeta al eje}
+		\\
+	\end{tabular}
+	\caption{Ejes desbastados}
+	\label{fig:EjDesb}
+\end{figure}
+
+Con estas modificaciones, es posible construir la base giratoria que constituye la cintura del manipulador, mostrada en la Figura \ref{fig:BaseGiratoria}, en la que también se puede apreciar la distribución de los motores de CD correspondientes a los GDL 2 y 3.
+
+\begin{figure}
+	\centering		
+		\includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/GiratoriaYMotores.jpg}
+		\caption{Base giratoria con motores}
+		\label{fig:BaseGiratoria}
+\end{figure}
+
+Debido a que el diseño original del ocioso dentado mostrado en la Figura \ref{fig:PoleaLoca} contiene bordes complicados de hacer por las impresoras 3D, se modifica el CAD eliminando los mismos, como se puede apreciar en la Figura \ref{fig:Ociosos}a, mientras que la pieza, impresa en HIPS (Poliestireno de alto impacto por sus siglás en inglés \textit{High Impact Polystyrene}) con resolución media, se encuentra en la Figura \ref{fig:Ociosos}b.
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.35\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/PoleaLoca.png}}
+			{a) CAD}
+		&
+		\subf{\includegraphics[width=0.35\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/PoleaLoca.jpeg}}
+			{b) Impreso}
+		\\
+	\end{tabular}
+	\caption{Rediseño del ocioso dentado}
+	\label{fig:Ociosos}
+\end{figure}
+
+La base del manipulador completa se puede apreciar en la Figura \ref{fig:BaseManipuladorCompleta}.
+
+\begin{figure}
+	\centering		
+		\includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/BaseManipulador.jpg}
+		\caption{Base del manipulador}
+		\label{fig:BaseManipuladorCompleta}
+\end{figure}
 
 \subsubsection{Eslabones}
 
 Debido a que no se cuenta con la infraestructura requerida (Fresadora CNC) para la manufactura en aluminio, y que manufacturarlas de manera externa elevaba demasiado el precio, se modificó el material a Alucobond de 4[mm] de grosor.
 
-El nuevo peso de los eslabones es el siguiente:
+Con estas modificaciones, el eslabón 1 pesa 0.16 Kg, y el eslabón 2 pesa 0.07 Kg.
 
-\begin{itemize}
-    \item Eslabón 1: POR PESAR
-    \item Eslabón 2: POR PESAR TAMBIÉN
-\end{itemize}
-
-Los modelos CAD de los eslabones rediseñados se muestran en las Figuras \ref{fig:E1Red} y \ref{fig:E2Red}, mientras que los eslabones construidos están en las Figuras \ref{fig:E1Real} y \ref{fig:E2Real} respectivamente.
+Los modelos CAD de los eslabones rediseñados se muestran en las Figuras \ref{fig:EslabonesReales}a y \ref{fig:EslabonesReales}b, mientras que los eslabones construidos están en las Figuras \ref{fig:EslabonesReales}c y \ref{fig:EslabonesReales}d respectivamente.
 
 \begin{figure}
-    \centering		
-        \includegraphics[scale=0.35]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon1.png}
-        \caption{Modelo CAD del eslabón 1 rediseñado}
-        \label{fig:E1Red}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon1.png}}
+			{a}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon2.png}}
+			{b}
+        \\
+        \subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/EslabonesLargosAlucobond.jpg}}
+			{c}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/EslabonesCortosAlucobond.jpg}}
+			{d}
+		\\
+	\end{tabular}
+	\caption{Modelos CAD de los eslabones y eslabones construidos}
+	\label{fig:EslabonesReales}
 \end{figure}
 
-\begin{figure}
-    \centering		
-        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/EslabonLargo1.JPG}
-        \caption{Eslabón 1 construido}
-        \label{fig:E1Real}
-\end{figure}
-
-\begin{figure}
-    \centering		
-        \includegraphics[scale=0.35]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon2.png}
-        \caption{Modelo CAD del eslabón 2 rediseñado}
-        \label{fig:E2Red}
-\end{figure}
-
-\begin{figure}
-    \centering		
-        \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/EslabonCorto1.JPG}
-        \caption{Eslabón 2 construido}
-        \label{fig:E2Real}
-\end{figure}
 
 \subsubsection*{Validación}
 Ya que el Alucobond es un material compuesto de aluminio y un polímero, no existe en la biblioteca de materiales de SOLIDWORKS, por lo que se utiliza acrílico (Módulo elástico = 45 MPa), pues al ser un material más frágil y quebradizo, si este material es capaz de resistir los esfuerzos, el Alucobond también lo será.
 
 \begin{figure}
-    \centering		
-        \includegraphics[scale=0.5]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon1Analisis.png}
-        \caption{Análisis de resistencia del eslabón 1 con acrílico}
-        \label{fig:AnE1Acril}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon1Analisis.png}}
+			{Eslabón 1}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon2Analisis.png}}
+			{Eslabón 2}
+		\\
+	\end{tabular}
+	\caption{Análisis de resistencia de eslabones de acrílico}
+	\label{fig:AnEsAcr}
 \end{figure}
 
-\begin{figure}
-    \centering		
-        \includegraphics[scale=0.5]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon2Analisis.png}
-        \caption{Análisis de resistencia del eslabón 2 con acrílico}
-        \label{fig:AnE2Acril}
-\end{figure}
-
-Las Figuras \ref{fig:AnE1Acril} y \ref{fig:AnE2Acril} indican que los factores de seguridad son de 3.26 y 5.79 respectivamente, por lo que se concluye que el material resiste las cargas a las que es sometido.
+Las Figuras \ref{fig:AnEsAcr}a y \ref{fig:AnEsAcr}b indican que los factores de seguridad son de 3.26 y 5.79 respectivamente, por lo que se concluye que el material resiste las cargas a las que es sometido.
 
 \subsubsection{Muñeca esférica}
 
-Las piezas realizadas con manufactura aditiva, se imprimieron con ABS al 100\% en resolución estándar, como se muestra en las siguientes Figuras:
-
-\begin{itemize}
-    \item Pieza en C: Figura \ref{fig:PiezaC}
-    \item Unión de servos: Figura \ref{fig:ServoPieza}
-    \item Tapa de unión de servos: Figura \ref{fig:ServoPiezaTapa}
-    \item Sostén del servo para el primer GDL de la muñeca esférica: Figura \ref{fig:ServoCHub}.
-\end{itemize}
-
+Las piezas realizadas con manufactura aditiva, se imprimieron con ABS al 100\% en resolución estándar, como se muestra en las siguientes Figuras: 1) Pieza en C: Figura \ref{fig:PiezasMun}a, 2) Unión de servos: Figura \ref{fig:PiezasMun}b, 3) Tapa de unión de servos: Figura \ref{fig:PiezasMun}c, 4) Sostén del servo para el primer GDL de la muñeca esférica: Figura \ref{fig:PiezasMun}d.
 
 \begin{figure}
-    \centering
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{figure}[H]
-        \centering		
-            \includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/PiezaC.jpeg}
-            \caption{Pieza en C impresa}
-            \label{fig:PiezaC}
-        \end{figure}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{figure}[H]
-        \centering		
-            \includegraphics[scale=0.3]{imagenes/Implementacion/Fotos/TapaServopieza.jpeg}
-            \caption{Tapa de unión de servos impresa}
-            \label{fig:ServoPiezaTapa}
-        \end{figure}    
-    \end{minipage}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{figure}[H]
-        \centering		
-            \includegraphics[scale=0.35]{imagenes/Implementacion/Fotos/ServoPieza.jpeg}
-            \caption{Unión de servos impresa}
-            \label{fig:ServoPieza}
-        \end{figure}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{figure}[H]
-        \centering		
-            \includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/ServoCHub.JPG}
-            \caption{Sostén del servo para el primer GDL de la muñeca}
-            \label{fig:ServoCHub}
-        \end{figure}    
-    \end{minipage}
-\end{figure}
-
-\subsubsection{Base del manipulador}
-De acuerdo al cambio de material en la estructura (S5), se utilizan tornillos de $\frac{3}{8}"$, por lo que se modifica el diámetro de los barrenos de la base fija de 10[mm] a $\frac{3}{8}"$.
-
-La base fija que se une a la estructura junto con el cilindro sobre el que se colocan los rodamientos se muestran en la Figura \ref{fig:FijaYCilindro}, mientras que la base giratoria sobre la que se colocan los motores del segundo y tercer GDL se observan en la Figura \ref{fig:Giratoria1}.
-
-\begin{figure}
-    \centering		
-        \includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/BaseFija3.JPG}
-        \caption{Base fija con el cilindro montado y tapa del cilindro}
-        \label{fig:FijaYCilindro}
-\end{figure}
-
-\begin{figure}
-    \centering		
-        \includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/Giratoria3.JPG}
-        \caption{Base giratoria}
-        \label{fig:Giratoria1}
-\end{figure}
-
-\subsubsection{Componentes}
-
-Gracias a que la masa fue reducida a 100 gramos, se puede elegir un motor que ofrezca un menor par, por lo que el modelo seleccionado es el motor de engranes planetarios Yellow Jacket 5202 Series, que proporciona 24.51[Nm] (Anexo XD), este motor se puede apreciar en la siguiente Figura.
-
-\begin{figure}
-    \centering		
-        \includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/Motor.JPG}
-        \caption{Foto del motor Yellow Jacket 5202 Series de 24.51 [Nm]}
-        \label{fig:MotorFoto}
-\end{figure}
-
-Debido a que hay problemas de compatibilidad entre los ejes de 1/2" y algunos componentes que se acoplan a estos, se cambian por ejes de acero inoxidable de 12[mm] de diámetro vendidos por ServoCity (Anexo XD2), y las piezas compatibles con este. A los ejes se les hace un desbastado longitudinal a lo largo de todo el cuerpo para facilitar la colocación y sujeción de accesorios en el eje, como se muestra en las Figuras \ref{fig:Eje5} y \ref{fig:EjePolea}. 
-
-\begin{figure}
-    \centering		
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/Eje5cm.jpg}
-            \caption{Eje desbastado con un lado plano}
-            \label{fig:Eje5}
-        \end{figure}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{figure}[H]
-            \centering		
-            \includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/EjePolea.jpg}
-            \caption{Eje de 15 [cm] acoplado a la polea}
-            \label{fig:EjePolea}
-        \end{figure}
-    \end{minipage}
-\end{figure}
-
-Debido a que el diseño original del ocioso dentado mostrado en la Figura \ref{fig:PoleaLoca} contiene bordes complicados de hacer por las impresoras 3D, se modifica el CAD eliminando los mismos, com se puede apreciar en la Figura \ref{fig:NuevOcioso}, mientras que la pieza, impresa en HIPS (Poliestireno de alto impacto por sus siglás en inglés \textit{High Impact Polystyrene}) con resolución media, se encuentra en la Figura \ref{fig:OciosoImpreso}.
-
-\begin{figure}
-    \centering		
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.35]{imagenes/Implementacion/Validaciones/PoleaLoca.png}
-            \caption{CAD del ocioso dentado modificado}
-            \label{fig:NuevOcioso}
-        \end{figure}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.4\textwidth}
-         \begin{figure}[H]
-            \centering		
-                \includegraphics[scale=0.4]{imagenes/Implementacion/Fotos/PoleaLoca.jpeg}
-                \caption{Ocioso dentado impreso}
-                \label{fig:OciosoImpreso}
-        \end{figure}
-    \end{minipage}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/PiezaC.jpeg}}
+			{a) Pieza en C }
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/TapaServopieza.jpeg}}
+			{b) Tapa de unión de servos }
+        \\
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/ServoPieza.jpeg}}
+			{c) Unión de servos}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/ServoCHub.JPG}}
+			{d) Sostén del servo para el primer GDL de la muñeca}
+		\\
+	\end{tabular}
+	\caption{Componentes impresos de la muñeca esférica}
+	\label{fig:PiezasMun}
 \end{figure}
 
 \subsection{M2. Efector final}
 
-Las piezas del efector se imprimieron en ABS con alta resolución para los engranes y el tornillo sin fin, estas piezas se muestran en las siguientes Figuras:
-
-\begin{itemize}
-    \item Tornillo sin fin y engranes: Figura \ref{fig:GearsWormImp}
-    \item Efector con palma y 3 dedos: Figura \ref{fig:EfectorDedosImp}
-    \item Base del efector: Figura \ref{fig:BasEfectorImp}
-\end{itemize}
+Las piezas del efector se imprimieron en ABS con alta resolución para los engranes y el tornillo sin fin, estas piezas se muestran en las siguientes Figuras: 1) Tornillo sin fin y engranes: Figura \ref{fig:FigsEfectorImpreso}a, 2) Efector con palma y 3 dedos: Figura \ref{fig:FigsEfectorImpreso}b, 3) Base del efector: Figura \ref{fig:FigsEfectorImpreso}c.
 
 \begin{figure}
-    \centering		
-        \includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/GearsWorm.jpeg}
-        \caption{Tornillo sin fin y engranes impresos}
-        \label{fig:GearsWormImp}
+	\centering
+	\begin{tabular}{ccc}
+		\subf{\includegraphics[width=0.3\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/Efector.jpg}}
+			{a) Dedos y palma}
+		&
+		\subf{\includegraphics[width=0.3\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/GearsWorm.jpeg}}
+            {b) Tornillo sin fin y engranes}
+        &
+        \subf{\includegraphics[width=0.3\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/BasEfector.jpeg}}
+            {c) Base}
+		\\
+	\end{tabular}
+	\caption{Efector final impreso}
+	\label{fig:FigsEfectorImpreso}
 \end{figure}
 
-\begin{figure}
-    \centering		
-        \includegraphics[scale=0.2]{imagenes/Implementacion/Fotos/EfectorDedos.jpeg}
-        \caption{Dedos y palma del efector impresos}
-        \label{fig:EfectorDedosImp}
-\end{figure}
+\section{S2. Información}
 
-\begin{figure}
-    \centering		
-        \includegraphics[scale=0.4]{imagenes/Implementacion/Fotos/BasEfector.jpeg}
-        \caption{Base del efector impresa}
-        \label{fig:BasEfectorImp}
-\end{figure}
-
-
-
-\subsection{Módulo de percepción (M3)}
+\subsection{M3. Percepción}
 
 Con el fin reducir costos y facilitar el algoritmo de visión, se opta por utilizar una cámara RGB-D que se tenía disponible. Esta cámara es una Xtion Pro Live fabricada por ASUS, la cual se muestra en la Figura  \ref{fig:ASUSpro}
 
@@ -254,3 +204,20 @@ Con el fin reducir costos y facilitar el algoritmo de visión, se opta por utiliz
         \label{fig:ASUSpro}
 \end{figure}
 
+\subsection{M5. Procesamiento}
+
+El diseño del PCB que se ve en la Figura \ref{fig:PCBEsq}b es utilizado para generar la placa de circuito impreso, mostrado en la Figura \ref{fig:PCBSoldado}.
+
+\begin{figure}
+	\centering
+	\begin{tabular}{ccc}
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/PlacaFront.jpg}}
+			{a) Parte frontal de la placa en perspectiva.}
+		&
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/PlacaPost.jpg}}
+            {b) Parte posterior de la placa.}
+		\\
+	\end{tabular}
+	\caption{Placa de circuito impreso soldada}
+	\label{fig:PCBSoldado}
+\end{figure}

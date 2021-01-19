@@ -1,9 +1,11 @@
 % !TeX encoding = ISO-8859-1
-\chapter{Diseño del sistema}
+\chapter{Diseño}
+
+\section{Diseño del sistema}
 
 A lo largo de este capítulo se establecen las necesidades que el sistema mecatrónico debe satisfacer, para posteriormente determinar las funciones a realizar y los módulos que forman parte del concepto de solución, el cual se elige a través de la implementación de una herramienta de selección multicriterio.
 
-\section{Necesidades}
+\subsection{Necesidades y requerimientos}
 
 Para dar comienzo con el diseño del sistema, es preciso determinar cuales son las \textbf{necesidades}\cite{Trazabilidad} que debe satisfacer, las cuales son el resultado de la \textit{transformación} de uno o más conceptos en una \textit{expectativa} para el cumplimiento de una \textit{función} de acuerdo a ciertos indicadores de \textit{rendimiento} que aseguren la \textit{calidad}. La Tabla \ref{Tabla:TabNec} asocia las necesidades establecidas con un identficador, el cual será útil para identificarlas rápidamente a lo largo del proceso de diseño. 
 
@@ -28,8 +30,6 @@ N10                    & Consumir poca energía.                                 
 \end{scriptsize}
 \label{Tabla:TabNec}
 \end{table}
-
-\section{Requerimientos}
 
 Una vez que se han establecido las necesidades que el sistema debe satisfacer, es posible establecer los \textbf{requerimientos}\cite{Trazabilidad} técnicos que  componen las espeficaciones del mismo, pues estos son el resultado de transformar las necesidades en una obligación para cumplir cierta función dentro de las cotas establecidas, de manera análoga a la tabla de necesidades (Tabla \ref{Tabla:TabNec}), la Tabla \ref{Tabla:TabReq} asocia cada requerimiento con un identificador.
 
@@ -58,7 +58,7 @@ R13                    & Tiempo de ciclos de operación & 10 min                 
 \label{Tabla:TabReq}
 \end{table}
 
-\subsection*{Validación de requerimientos}
+\subsubsection*{Validación de requerimientos}
 Para evaluar si los requerimientos cubren todas las necesidades establecidas, se utiliza la matriz de trazabilidad\cite{Trazabilidad}.
 
 La Tabla \ref{Tabla:TrazaReq} contiene las necesidades en las columnas y las filas representan los requerimientos derivados. Con el fin de comprobar que todas las necesidades se satisface, es importante que cada una esté asociada al menos a un requerimiento.
@@ -106,7 +106,7 @@ Para asegurar un bajo consumo de energía, se deben establecer límites a la masa 
 \label{Tabla:TrazaReq}
 \end{table}
 
-\section{Arquitectura funcional}
+\subsection{Arquitectura funcional}
 
 En esta sección se lleva a cabo la descomposición de \textbf{funciones}, dividiendo la función general, la cual describe el comportamiento del sistema, en funciones secundarias inherentes al mismo, así como las funciones genéricas, que pueden asociarse a la mayoría de sistemas.
 
@@ -119,13 +119,13 @@ Una forma de realizar esta descomposición es utilizar una herramienta denominada
 
 \begin{figure}
 	\centering		
-	\includegraphics[scale=0.55]{imagenes/Modelos/FBS}
+	\includegraphics[scale=0.55]{imagenes/Modelos/FBS.pdf}
 	\caption{Desglose gráfico de funciones a través de un modelo FBS}
 	\label{fig:FBS}
 \end{figure}
 
 
-\subsection*{Validación de funciones}
+\subsubsection*{Validación de funciones}
 La Tabla \ref{Tabla:TrazaFun} muestra las relaciones existentes entre las funciones y los requerimientos.
 
 Para el traslado de una muestra con las características especificadas en los requerimientos R1, R2, R3 y R4, es necesario que el sistema se posicione y oriente de manera que pueda tomar la muestra de su origen (f1.1 y f1.2), y posteriormente depositarla en el área de análisis (f1.3). Una vez que hayan obtenido los datos de la misma (f3.3), sea devuelta al entorno (f1.4).
@@ -178,7 +178,7 @@ específicos. Para ello resulta útil determinar la relación existente entre las m
 \begin{landscape}
 	\begin{figure}[p]
 		\centering		
-		\includegraphics[width=1.5\textwidth ,height=1.1\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/IDEF0}
+		\includegraphics[width=1.5\textwidth ,height=\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/IDEF0.pdf}
 		\caption{Modelo IDEF0 del sistema}
 		\label{fig:IDEF0A0E}
 	\end{figure}
@@ -192,14 +192,14 @@ Para ello se utiliza el modelo mostrado en la Figura \ref{fig:eFFBD}, el cual es
 \begin{landscape}
 	\begin{figure}[p]
 		\centering		
-		\includegraphics[width=1.55\textwidth ,height=0.85\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/eFFBD}
+		\includegraphics[width=1.55\textwidth ,height=0.85\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/eFFBD.pdf}
 		\caption{Modelo mejorado del diagrama a bloques de flujo funcional}
 		\label{fig:eFFBD}
 	\end{figure}
 \end{landscape}
 
 
-\section{Arquitectura física}
+\subsection{Arquitectura física}
 
 Una vez que se ha analizado el comportamiento del sistema mediante las funciones y la relación existente entre ellas, es posible deducir los elementos físicos que las lleven a cabo, los cuales pueden agruparse en los siguientes sistemas con sus correspondientes módulos.
 
@@ -225,7 +225,7 @@ Una vez que se ha analizado el comportamiento del sistema mediante las funciones
 \item[S5] Estructural: Soporte y protección para los componentes que conforman el sistema.
 \end{itemize}
 
-\subsection*{Validación de módulos}
+\subsubsection*{Validación de módulos}
 
 La Tabla \ref{Tabla:TrazaMod} muestra la matriz de trazabilidad utilizada para validar los módulos propuestos al comprobar que cada una de las funciones es realizada por algún módulo, y que cada módulo cumple al menos una función.
 
@@ -276,100 +276,85 @@ La Figura \ref{fig:ArqFis} muestra como el sistema estructural se encarga de int
 \begin{landscape}
 	\begin{figure}[p]
 		\centering		
-		\includegraphics[width=1.5\textwidth ,height=0.8\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/Arquitectura fisica}
+		\includegraphics[width=1.5\textwidth ,height=0.8\textheight, trim=4 4 4 4,clip]{imagenes/Modelos/Arquitectura fisica.pdf}
 		\caption{Arquitectura física que muestra la interacción de los sistemas y módulos}
 		\label{fig:ArqFis}
 	\end{figure}
 \end{landscape}
 
 
-\section{Concepto solución}
+\subsection{Concepto solución}
 
 Una vez que se han determinado los módulos que compondrán el sistema completo, es posible comenzar a proponer soluciones específicas para cada uno, las cuales serán sometidas a un proceso de selección utlizando una herramienta de selección multicriterio. 
 
-Las Figuras \ref{fig:Concepto1}, \ref{fig:Concepto2}, \ref{fig:Concepto3}, \ref{fig:Concepto4}, \ref{fig:Concepto5} y \ref{fig:Concepto6} muestran los modelos tridimensionales de las soluciones propuestas.
+La Figura \ref{fig:ConceptoS} muestra los modelos tridimensionales de las soluciones propuestas. Estas soluciones comparten diversos aspectos, como son: 1) Una estructura similar a la de un rover, 2) Un brazo de 6 GDL, 3) Batería como fuente de alimentación, 4) Sensores de temperatura y 5) Cámaras en la parte frontal de la estructura.
+
+El concepto 1 (Figura \ref{fig:ConceptoS}a) tiene un brazo construido de placas paralelas, un gripper con forma de pinza de 2 dedos como efector final, un laboratorio con un cono en la parte superior para guiar la caída de la muestra, y circuitos electrónicos apilados y colocados en el centro de la estructura.
+
+El concepto 2 (Figura \ref{fig:ConceptoS}b) tiene eslabones eslabones tubulares, y un efector final similar a los presentes en las excavadoras. Los circuitos también se encuentran apilados y se ubican en la esquina superior derecha (desde la vista frontal), mientras que el laboratorio está en la esquina superior izquierda.
+
+El concepto 3 (Figura \ref{fig:ConceptoS}c) cambia en el laboratorio, el cual es un tubo que desliza la muestra hacia la zona de análisis y después a un agujero que la deja caer. El efector final es un gripper de 3 dedos.
+
+El concepto 4 (Figura \ref{fig:ConceptoS}d) ubica el laboratorio en el centro del lado izquiedo de la estructura. Los circuitos están ubicados lado a lado. El brazo se conforma de eslabones de placas paralelas ranuradas y los actuadores se colocan en una sola base ubicada en la parte frontal.
+
+El concepto 5 (Figura \ref{fig:ConceptoS}e) contiene los mismos elementos que el concepto 1 a excepción del efector final, además de que cambian las ubicaciones de los mismos.
+
+El concepto 6 (Figura \ref{fig:ConceptoS}f) contempla los eslabones ranurados y la base se ubica en una esquina, además el laboratorio está conformado por una placa que tiene la zona de análisis, la cual se inclina para que la muestra se deslice hacia un agujero que la deja caer.
+
 
 % \textbf{Nota: } Los modelos mostrados en la Figura \ref{fig:Concepto1}, \ref{fig:Concepto3}, \ref{fig:Concepto4}, \ref{fig:Concepto5} y \ref{fig:Concepto6} contemplan un recubrimiento protector a los componentes internos (tales como actuadores y transmisiones, entre otros), con el fin de que los aísle de las condiciones hostiles del ambiente, sin reducir su movilidad.
 
-%------------Concepto 1------------------------
-
 \begin{figure}
-\centering
-\includegraphics[scale=0.5]{imagenes/Conceptos/Concepto 1 con etiquetas}
-\caption{Modelo tridimensional del concepto 1}
-\label{fig:Concepto1}
-\end{figure}
-
-%------------Concepto 2---------------------------
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{imagenes/Conceptos/Concepto 2 con etiquetas}
-\caption{Modelo tridimensional del concepto 2}
-\label{fig:Concepto2}
-\end{figure}
-
-%----------Concepto 3-------------------------
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{imagenes/Conceptos/Concepto 3 con etiquetas}
-\caption{Modelo tridimensional del concepto 3}
-\label{fig:Concepto3}
-\end{figure}
-
-%----------Concepto 4----------------------
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{imagenes/Conceptos/Concepto 4 con etiquetas}
-\caption{Modelo tridimensional del concepto 4}
-\label{fig:Concepto4}
-\end{figure}
-
-%------------Concepto 5------------------------
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{imagenes/Conceptos/Concepto 5 con etiquetas}
-\caption{Modelo tridimensional del concepto 5}
-\label{fig:Concepto5}
-\end{figure}
-
-%-----------Concepto 6-------------------------
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{imagenes/Conceptos/Concepto 6 con etiquetas}
-\caption{Modelo tridimensional del concepto 6}
-\label{fig:Concepto6}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Conceptos/Concepto 1 con etiquetas.png}}
+			{a}
+		&
+		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/Conceptos/Concepto 2 con etiquetas.jpg}}
+			{b}
+		\\
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Conceptos/Concepto 3 con etiquetas.jpg}}
+			{c}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Conceptos/Concepto 4 con etiquetas.png}}
+			{d}
+		\\
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Conceptos/Concepto 5 con etiquetas.png}}
+			{e}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Conceptos/Concepto 6 con etiquetas.png}}
+			{f}
+		\\
+	\end{tabular}
+	\caption{Conceptos solución}
+	\label{fig:ConceptoS}
 \end{figure}
 
 Con el objetivo de determinar cuál es la propuesta que mejor se desempeña en la realización de las funciones, se utiliza una herramienta de selección multicriterio denominada \textit{Proceso analítico de jerarquía}, (\textit{Analytic Hierarchy Process} - AHP por sus siglas en inglés)\cite{AHP}; la cual se ayuda de criterios originados a partir del análisis de las diferencias que hay entre ellas, los cuales se muestran en el Apéndice \ref{Ap:AHP}.
 
-El proceso de selección comienza con una tabla en la que se compara la importancia de cada criterio contra el resto en una relación de 1:1, obteniendo el llamado ``vector de prioridad'', en el cuál se establece la jerarquía de los criterios, como se muestra en el gráfico de la Figura \ref{fig:VPCriterios}.
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{imagenes/Seleccion de concepto/VPCriterios}
-\caption{Jerarquía de criterios de selección de concepto}
-\label{fig:VPCriterios}
-\end{figure}
+El proceso de selección comienza con una tabla en la que se compara la importancia de cada criterio contra el resto en una relación de 1:1, obteniendo el llamado ``vector de prioridad'', en el cuál se establece la jerarquía de los criterios, como se muestra en el gráfico de la Figura \ref{fig:AHPJerDes}a, en la cual se puede apreciar que el criterio 13 (Riesgo de daños a la muestra) es el más importante, seguido por el criterio 4 (Riesgo de daños a la estructura).
 
 Para determinar cual es el concepto que mejor satisface las necesidades, se compara uno a uno el nivel en el que se desmpeña en cada criterio.
 
-De esta manera, para cada criterio se obtiene un concepto que destaca, y posteriormente se relaciona el desempeño en cada criterio con la importancia de este, encontrando el valor de desempeño general de cada concepto, como muestra la Figura \ref{fig:ConceptoGanador}, donde se observa que el mayor valor pertenece al concepto número 5, presentado en la Figura \ref{fig:Concepto5}.
+De esta manera, para cada criterio se obtiene un concepto que destaca, y posteriormente se relaciona el desempeño en cada criterio con la importancia de este, encontrando el valor de desempeño general de cada concepto, como muestra la Figura \ref{fig:AHPJerDes}b, donde se observa que el mayor valor pertenece al concepto número 5, presentado en la Figura \ref{fig:ConceptoS}e.
 
 \begin{figure}
-\centering
-\includegraphics[scale=0.5]{imagenes/Seleccion de concepto/Ganador}
-\caption{Desempeño general de los conceptos}
-\label{fig:ConceptoGanador}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Seleccion de concepto/VPCriterios.pdf}}
+			{a}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Seleccion de concepto/Ganador.pdf}}
+			{b}
+		\\
+	\end{tabular}
+	\caption{AHP a) Jerarquía de criterios; b) Desempeño general de los conceptos }
+	\label{fig:AHPJerDes}
 \end{figure}
 
 El proceso completo se encuentra en el Apéndice \ref{Ap:AHP}.
 
-\section{Concepto Final}
+\subsection{Concepto Final}
 
 A pesar de que el concepto número 5 es el concepto elegido (\textbf{Ce}), se puede proponer una nueva configuración, donde se revisa el desempeño de cada concepto con respecto a los criterios, analizándolos para extraer las características que lo hicieron superior en ese criterio en específico.
 
@@ -407,12 +392,12 @@ Por lo tanto, las modificaciones a realizar son:
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{imagenes/Conceptos/Concepto final}
+\includegraphics[scale=0.5]{imagenes/Conceptos/Concepto final.jpg}
 \caption{Modelo tridimensional del concepto mejorado}
 \label{fig:ConceptoMejorado}
 \end{figure}
 
-\subsection*{Validación de concepto mejorado}
+\subsubsection*{Validación de concepto mejorado}
 
 Es necesario someter el \textbf{Cm} a la misma evaluación aplicada a los otros conceptos, comparando únicamente el \textbf{Ce} con el \textbf{Cm}, de manera que si este último obtiene un mejor puntaje, significa que las modificaciones realizadas incrementan el desempeño del sistema.
 
