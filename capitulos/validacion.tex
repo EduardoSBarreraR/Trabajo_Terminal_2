@@ -1,2 +1,107 @@
 \chapter{Análisis de resultados}
+
 Aquí se describen y evalúan los resultados obtenidos en TT2, comparándolos con los objetivos y requerimientos establecidos.
+
+\section{Análisis de ingeniería}
+
+El análisis de ingeniería se realiza comparando el rendimiento esperado por los módulos para cumplir los objetivos contra el rendimiento obtenido.
+
+\begin{itemize}
+	
+	\item \textit{Implementar el módulo de efector final que sea capaz de recoger muestras del suelo
+    para su manipulación.}
+
+    El módulo fue construido según el diseño reportado y se verificó su agarre de un objeto de forma esférica de 6 cm de diámetro, como se muestra en la Figura \ref{fig:VerificacionAgarre}. 
+
+    \textbf{Rendimiento:} 100\%
+    
+	\item \textit{Implementar un sistema robótico de 6 grados de libertad que posicione y oriente el
+    efector para transportar la muestra.}
+    
+    Los 6 GDL del sistema robótico funcionan de acuerdo al diseño, e incluso es capaz de separar la muñeca del manipulador, lo que permite verificar la posición y orientación por separado.
+
+    \textbf{Rendimiento:} 100\%
+
+	\item \textit{Implementar un módulo de percepción que le permita al sistema reconocer el
+	ambiente para crear un marco de referencia en el espacio, así como identificar la
+    geometría de la muestra.}
+    
+    Por medio de visión artificial se obtiene la posición de la muestra en el espacio, lo que permite al sistema establecer un punto objetivo para el efector. 
+    La geometría de la muestra no se toma en cuenta. 
+
+    \textbf{Rendimiento:} 50\%
+    
+    \item \textit{Implementar un sistema de procesamiento y comunicación que permita el análisis de
+	las muestras para determinar las características del entorno, además de permitir la
+    transmisión y recepción de datos.}
+
+    El alcance de el proyecto contempla que de todos los parámetros que se pueden utilizar para determinar las características de un entorno, el único dato que se puede obtener de las muestras es el peso.
+
+    La comunicación entre la tarjeta de procesamiento y la GUI desarrollada funciona sin pérdida de información.
+    
+    \textbf{Rendimiento:} 80\%
+
+	\item \textit{Realizar pruebas y ajustes necesarios para garantizar que cada módulo trabaja
+    correctamente de manera independiente.}
+
+    \begin{itemize}
+        \item S1.M1 - Manipulador: El manipulador robótico es capaz de mover los 6 GDL, con un rango de error de +-0.5 grados en los GDL 1,2,4,5,6 y +-1 grado en el GDL 3. Además de la capacidad de separar el brazo robótico de la muñeca esférica.
+        
+        \textbf{Rendimiento:} 100\%
+        
+        \item S1.M2 - Efector: El efector es capaz de sujetar las muestras con las que se hicieron las pruebas.
+        
+        \textbf{Rendimiento:} 100\%
+
+        \item S2.M3 - Percepción: La visión artificial es capaz de ubicar la posición de las muestras objetivo con un error de 3\%. Además se mide la temperatura exitosamente.
+        
+        \textbf{Rendimiento:} 100\%
+        
+        \item S2.M4 - Comunicación: No hay pérdida de información en la comunicaación
+        
+        \textbf{Rendimiento:} 100\%
+
+        \item S2.M5 - Procesamiento: La tarjeta de desarrollo y la computadora son capaces de manejar la información necesaria para crear el marco de referencia, comunicarse y manipular el robot sin pérdidas de información o retrasos.
+        
+        \textbf{Rendimiento:} 100\%
+
+        \item S3 - Energético: La fuente es capaz de suministrar la corriente necesaria para activar el sistema, manteniendo una salida constante de 12 Volts. Por otro lado, el regulador que alimenta a los servos es capaz de mantenerlos en movimiento simultáneo.
+        
+        \textbf{Rendimiento:} 100\%
+        
+        \item  S4.M6 - Laboratorio: La celda de carga envía lecturas erróneas.
+        
+        \textbf{Rendimiento:} 0\%
+
+        \item S4.M7 - Mecanismo de desecho: El mecanismo de desecho libera exitosamente la muestra.
+        
+        \textbf{Rendimiento:} 100\%
+
+        \item S5 - Estructura1: La estructura soporta al sistema completo sin perder el equilibrio ni sufrir vibraciones.
+        
+        \textbf{Rendimiento:} 100\%
+    \end{itemize}
+
+    \textbf{Rendimiento:} 88.8\%
+
+	\item \textit{Integrar secuencialmente los módulos para consolidar el sistema mecatrónico.}
+    
+    La Figura \ref{fig:BRAZOCOMPLETO} muestra que todos los módulos se encuentran integrados.
+
+	\textbf{Rendimiento:} 100\%
+
+	\item \textit{Verificar que todos los módulos del sistema mecatrónico trabajen armónicamente para
+	posteriormente realizar pruebas de recolección de muestras en un ambiente análogo
+    que nos permitan comprobar que el sistema cumple con la función principal.}
+
+    Todos los módulos trabajan armónicamente, a excepción de la celda de carga y, en el caso del sistema robótico, la posición en la que llega el efector a la muestra afecta negativamente al agarre.
+    
+    \textbf{Rendimiento:} 90\%
+	
+\end{itemize}
+
+\section{Análisis de costos}
+
+El presupuesto correspondiente a TT1, mostrado en la Tabla \ref{Tab:Costos}, no refleja los costos de envío y servicios adicionales, como el maquinado de piezas, ya que se contemplaba utilizar la infraestructura de la escuela, sin embargo, se hicieron cambios que evitaron la compra de la fuente y las cámaras.
+
+Tomando en cuenta estos factores, el prespuesto original fue de \$23202.85 MXN, y el costo del proyecto finalizado es de aproximadamente \$22765 MXN.

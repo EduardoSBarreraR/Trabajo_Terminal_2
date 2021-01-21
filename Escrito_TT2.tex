@@ -47,7 +47,8 @@
 \usepackage{geometry}
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepackage{listings}
+\usepackage{listings} %% Para remarcado de sintaxis
+%\usepackage{maker} %% Remarcado de sintaxis de Processing y Arduino
 \usepackage{xcolor}
 \usepackage{longtable}
 \usepackage{caption}
@@ -68,6 +69,87 @@
    #1\\#2
    \end{tabular}}%
 }
+
+%% Definición de lenguaje Processing usando el paquete listings
+
+% Processing language definition template for LaTeX listings package v1.2
+%
+% Credits to ebigunso for creating this LaTeX listings language definition template for Processing
+% This template is licensed with CreativeCommons license CC-BY-SA 4.0
+% license info:
+% <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank" rel="nofollow">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a>
+ 
+%Define Colors
+\definecolor{black}{RGB}{0,0,0}
+\definecolor{gray}{RGB}{102,102,102}        %#666666
+\definecolor{function}{RGB}{0,102,153}      %#006699 lightblue
+\definecolor{lightgreen}{RGB}{102,153,0}    %#669900
+\definecolor{bluegreen}{RGB}{51,153,126}    %#33997e
+\definecolor{magenta}{RGB}{217,74,122}  %#d94a7a
+\definecolor{orange}{RGB}{226,102,26}       %#e2661a
+\definecolor{purple}{RGB}{125,71,147}       %#7d4793
+\definecolor{green}{RGB}{113,138,98}        %#718a62
+ 
+\lstdefinelanguage{Processing}{
+  %keyword1&2&6
+  morekeywords = [3]{abstract, break, class, continue, default, enum, extends, false, final, finally, implements, import, instanceof, interface, native, new, null, package, private, protected, public, static, strictfp, throws, transient, true, void, volatile, length, assert, case, return, super, this, throw},
+  %keyword3
+  morekeywords = [4]{catch, do, for, if, else, switch, synchronized, while, try},
+  %keyword4
+  morekeywords = [5]{width, height, pixelHight, displayHeight, displayWidth, focused, frameCount, frameRate, key, keyCode, keyPressed, mouseButton, mousePressed, mouseX, mouseY, pixels, pixelWidth, pmouseX, pmouseY},
+  %keyword5
+  morekeywords = [6]{Array, ArrayList, Boolean, Byte, BufferedReader, Character, Class, Double, Float, Integer, HashMap, PrintWriter, String, StringBuffer, StringBuilder, Thread, boolean, byte, char, color, double, float, int, long, short, FloatDict, FloatList, IntDict, IntList, JSONArray, JSONObject, PFont, PGraphics, PImage, PShader, PShape, PVector, StringDict, StringList, Table, TableRow, XML},
+  %literal2
+  morekeywords = [7]{ADD, ALIGN_CENTER, ALIGN_LEFT, ALIGN_RIGHT, ALPHA, ALPHA_MASK, ALT, AMBIENT, ARC, ARROW, ARGB, BACKSPACE, BASELINE, BEVEL, BLEND, BLUE_MASK, BLUR, BOTTOM, BOX, BURN, CENTER, CHATTER, CHORD, CLAMP, CLICK, CLOSE, CMYK, CODED, COMPLAINT, COMPOSITE, COMPONENT, CONCAVE_POLYGON, CONTROL, CONVEX_POLYGON, CORNER, CORNERS, CROSS, CUSTOM, DARKEST, DEGREES, DEG_TO_RAD, DELETE, DIAMETER, DIFFERENCE, DIFFUSE, DILATE, DIRECTIONAL, DISABLE_ACCURATE_2D, DISABLE_DEPTH_MASK, DISABLE_DEPTH_SORT, DISABLE_DEPTH_TEST, DISABLE_NATIVE_FONTS, DISABLE_OPENGL_ERRORS, DISABLE_PURE_STROKE, DISABLE_TEXTURE_MIPMAPS, DISABLE_TRANSFORM_CACHE, DISABLE_STROKE_PERSPECTIVE, DISABLED, DODGE, DOWN, DRAG, DXF, ELLIPSE, ENABLE_ACCURATE_2D, ENABLE_DEPTH_MASK, ENABLE_DEPTH_SORT, ENABLE_DEPTH_TEST, ENABLE_NATIVE_FONTS, ENABLE_OPENGL_ERRORS, ENABLE_PURE_STROKE, ENABLE_TEXTURE_MIPMAPS, ENABLE_TRANSFORM_CACHE, ENABLE_STROKE_PERSPECTIVE, ENTER, EPSILON, ERODE, ESC, EXCLUSION, EXIT, FX2D, GIF, GRAY, GREEN_MASK, GROUP, HALF, HALF_PI, HAND, HARD_LIGHT, HINT_COUNT, HSB, IMAGE, INVERT, JAVA2D, JPEG, LEFT, LIGHTEST, LINE, LINES, LINUX, MACOSX, MAX_FLOAT, MAX_INT, MIN_FOAT, MIN_INT, MITER, MODEL, MOVE, MULTIPLY, NORMAL, NORMALIZED, NO_DEPTH_TEST, NTSC, ONE, OPAQUE, OPEN, ORTHOGRAPHIC, OVERLAY, PAL, PDF, P2D, P3D, PERSPECTIVE, PI, PIE, PIXEL_CENTER, POINT, POINTS, POSTERIZE, PRESS, PROBLEM, PROJECT, QUAD, QUAD_STRIP, QUADS, QUARTER_PI, RAD_TO_DEG, RADIUS, RADIANS, RECT, RED_MASK, RELEASE, REPEAT, REPLACE, RETURN, RGB, RIGHT, ROUND, SCREEN, SECAM, SHAPE, SHIFT, SPAN, SPECULAR, SPHERE, SOFT_LIGHT, SQUARE, SUBTRACT, SVG, SVIDEO, TAB, TARGA, TAU, TEXT, TFF, THIRD_PI, THRESHOLD, TIFF, TOP, TRIANGLE, TRIANGLE_FAN, TRIANGLES, TRIANGLE_STRIP, TUNER, TWO, TWO_PI, UP, WAIT, WHITESPACE},
+  %function1
+  morekeywords = [8]{start, stop, breakShape, createPath, str, loadMatrix, parseBoolean, parseByte, parseChar, parseFloat, parseInt, saveFile, savePath, sketchFile, sketchPath, abs, acos, alpha, ambient, ambientLight, append, applyMatrix, arc, arrayCopy, asin, atan, atan2, background, beginCamera, beginContour, beginRaw, beginRecord, beginShape, bezier, bezierDetail, bezierPoint, bezierTangent, bezierVertex, binary, blend, blendColor, blendMode, blue, box, brightness, camera, ceil, clear, clip, color, colorMode, concat, constrain, copy, cos, createFont, createGraphics, createImage, createInput, createOutput, createReader, createShape, createWriter, cursor, curve, curveDetail, curvePoint, curveTangent, curveTightness, curveVertex, day, degrees, delay, directionalLight, displayDensity, dist, ellipse, ellipseMode, emissive, endCamera, endContour, endRaw, endRecord, endShape, exit, exp, expand, fill, filter, floor, frustum, fullScreen, get, green, hex, hint, hour, hue, image, imageMode, join, launch, lerp, lerpColor, lightFalloff, lights, lightSpecular, line, loadBytes, loadFont, loadImage, loadJSONArray, loadJSONObject, loadPixels, loadShader, loadShape, loadStrings, loadTable, loadXML, log, loop, mag, map, match, matchAll, max, millis, min, minute, modelX, modelY, modelZ, month, nf, nfc, nfp, nfs, noClip, noCursor, noFill, noise, noiseDetail, noiseSeed, noLights, noLoop, norm, normal, noSmooth, noStroke, noTint, ortho, parseJSONArray, parseJSONObject, parseXML, perspective, list, pixelDnsity, point, pointLight, popMatrix, popStyle, pow, print, printArray, printCamera, println, printMatrix, printProjection, pushMatrix, pushStyle, quad, quadraticVertex, radians, random, randomGaussian, randomSeed, rect, rectMode, red, redraw, requestImage, resetMatrix, resetShader, reverse, rotate, rotateX, rotateY, rotateZ, round, saturation, save, saveBytes, saveFrame, saveJSONArray, saveJSONObject, saveStream, saveStrings, saveTable, saveXML, scale, screenX, screenY, screenZ, second, selectFolder, selectInput, selectOutput, set, shader, shape, shapeMode, shearX, shearY, shininess, shorten, sin, size, smooth, sort, specular, sphere, sphereDetail, splice, split, splitTokens, spotLight, sq, sqrt, stroke, strokeCap, strokeJoin, strokeWeight, subset, tan, text, textAlign, textAscent, textDescent, textFont, textLeading, textMode, textSize, texture, textureMode, textureWrap, textWidth, thread, tint, translate, triangle, trim, unbinary, unhex, updatePixels, vertex, year},
+  %function2
+  morekeywords = [9]{cache, readLine, close, flush, print, println, charAt, equals, indexOf, substring, toLowerCase, toUpperCase, getDouble, getLong, getColumnTitles, getColumnTypes, getColumnType, setDouble, setLong, add, clear, div, get, hasKey, keyArray, keys, mult, remove, set, size, sortKeys, sortKeysReverse, sortValues, sortValuesReverse, sub, valueArray, values, append, array, hasValue, max, min, mult, remove, reverse, shuffle, sort, sortReverse, increment, getBoolean, getFloat, getInt, getIntArray, getJSONArray, getJSONObject, getString, getStringArray, isNull, setBoolean, setFloat, setInt, setJSONArray, setJSONObject, setString, beginDraw, endDraw, blend, copy, filter, loadPixels, mask, resize, save, updatePixels, addChild, beginContour, beginShape, disableStyle, enableStyle, endContour, endShape, getChild, getChildCount, getVertex, getVertexCount, isVisible, resetMatrix, rotate, rotateX, rotateY, rotateZ, scae, setFill, setStroke, setVertex, setVisible, translate, angleBetween, cross, dist, dot, fromAngle, heading, lerp, limit, mag, magSq, normalize, randm2D, random3D, setMag, lower, upper, addColumn, addRow, clearRows, findRow, findRows, getColumnCount, getRow, getRowcount, getStringColumn, matchRow, matchRows, removeColumn, removeRow, removeTokens, rows, trim, getColumnTitle, format, getAttributeCount, getChildren, getContent, getNam, getParent, hasAttribute, hasChildren, listAttributes, listChildren, removeChild, setContent, setName, toString},
+  %function4
+  morekeywords = [10]{draw, keyReleased, keyTyped, mouseClicked, mouseDragged, mouseMoved, mouseReleased, mouseWheel, settings, setup},
+  keywordstyle = [3]\color{bluegreen},
+  keywordstyle = [4]\color{lightgreen},
+  keywordstyle = [5]\color{magenta},
+  keywordstyle = [6]\color{orange},
+  keywordstyle = [7]\color{green},
+  keywordstyle = [8]\color{function},
+  keywordstyle = [9]\color{function},
+  keywordstyle = [10]\color{function},
+  sensitive = true,
+  morecomment = [l][\color{gray}]{//},
+  morecomment = [s][\color{gray}]{/*}{*/},
+  morecomment = [s][\color{gray}]{/**}{*/},
+  morestring = [b][\color{purple}]",
+  morestring = [b][\color{purple}]'
+}
+\renewcommand{\ttdefault}{pcr}
+\lstset{
+  language={Processing},
+  basicstyle={\small\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\small\itshape},
+  keywordstyle={\small},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0em,
+  xleftmargin=3em,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1em,
+  lineskip=-0.5ex,
+}
+ 
+% Use escapechar and \color{<color>}{<text>} to color function names properly, that is already defined as a different color keyword.
+%
+% \begin{lstlisting}[escapechar = ?]
+% boolean;
+% ?\color{function}{boolean}?(1);
+% \end{lstlisting}
+ 
 
 %\usepackage{apacite}
 %%%%% Inicio de Sección de preliminares
@@ -240,20 +322,23 @@
 
 \part{Apéndices}
 \appendix
-%\renewcommand{\thesection}{A.~\arabic{section}}
-%\include{apendices/apendice1}
-%\renewcommand{\thesection}{B.~\arabic{section}}
-%\include{apendices/apendice3}
-%\renewcommand{\thesection}{C.~\arabic{section}}
-%\include{apendices/apendice4}
-%\renewcommand{\thesection}{D.~\arabic{section}}
-%\include{apendices/apendice2}
+\renewcommand{\thesection}{A.~\arabic{section}}
+\include{apendices/apendice1}
+\renewcommand{\thesection}{B.~\arabic{section}}
+\include{apendices/apendice3}
+\renewcommand{\thesection}{C.~\arabic{section}}
+\include{apendices/apendice4}
+\renewcommand{\thesection}{D.~\arabic{section}}
+\include{apendices/apendice2}
+\renewcommand{\thesection}{E.~\arabic{section}}
+\include{apendices/apendice5}
 \part{Anexos}
 \anexo
-%\renewcommand{\thesection}{A.~\arabic{section}}
-%\include{apendices/anexo1}
-%\include{apendices/anexo2}
-%\include{apendices/anexo3}
+\renewcommand{\thesection}{A.~\arabic{section}}
+\include{apendices/anexo1}
+\include{apendices/anexo2}
+\include{apendices/anexo3}
+
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

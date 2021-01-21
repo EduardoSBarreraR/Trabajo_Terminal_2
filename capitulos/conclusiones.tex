@@ -1,3 +1,31 @@
 \chapter{Conclusiones}
 
-Aquí se determina si el proyecto se ha llevado a cabo satisfactoriamente.
+Conforme al análisis de ingeniería realizado se puede concluir que el funcionamiento del sistema es correcto a nivel modular, aunque presenta fallos en la integración. Esto se puede atribuir a diversas causas, por ejemplo, el uso contínuo del manipulador provocó holgura mecánica entre sus componentes, lo cual es dificil de corregir sin la infraestructura adecuada. Aún así, el funcionamiento general del sistema se encuentra dentro de parámetros aceptables dadas las condiciones en las que se realizó. 
+
+Tomando en cuenta lo anterior y promediando los porcentajes calculados para los objetivos particulares, se determina que el objetivo general se satisface al 86.97\%.
+
+\section{Trabajo a futuro}
+
+El uso de encoders incrementales hace necesario la utilización de una posición inicial conocida. El colocar el robot en dicha posición conocida puede ser un problema que afecta la repetibilidad del sistema ya que no se hace siempre igual. Una manera de mejorar este aspecto es colocando sensores que detecten la posición de Home. También es posible utilizar encoders absolutos, que eliminan la necesidad de tener una posición conocida. 
+
+Mejorar el sistema de laboratorio, para obtener más información de la muestra recogida, como la composición química a través de análisis espectrográfico.
+
+Implementar un control más robusto, que sea capaz de reaccionar rápidamente a cambios en la distribución del peso de la muestra tomada, ajustando el par que entrega el motor para evitar caídas repentinas.
+
+Aislar los componentes del robot de las condiciones del entorno, tales como cables, bandas y motores, a fin de protegerlo ante la temperatura, agua o el polvo, guiándose por la certificación IP 6x para protección contra polvo y agua.
+
+El efector requería que la muestra estuviera centrada para tener un mejor agarre, por lo que un ligero desvío provocaba que los dedos cerraran de manera dispareja, y al momento de levantarla el dedo que no ejercía la presión necesaria, permitiendo que la muestra cayera, por lo que se requiere un análisis en la longitud de las falanges subactuadas, además de mejorar el rango de movimiento de las mismas, para permitir al efector abrirse más.
+
+Con la finalidad de restringir el movimiento de los elementos del manipulador y evitar colisiones con el sistema estructural y/o con los mismos elementos del manipulador, se pueden colocar sensores (fin de carrera, capacitivos o inductivos) en puntos estratégicos del sistema, para así mantener la integridad física de los componentes del sistema del manipulador.
+
+La fijación del kinect al sistema estructural puede ser mejorada, tomando en consideración el rango de operación del mismo, es posible modificar el sistema estructural para evitar utilizar extensiones de madera y también mejorar el aspecto del proyecto.
+
+El campo de visión podría ampliarse y abarcar todo el espacio de trabajo del robot si se aplica una rotación al kinect. Con esto se haria necesaria la obtención de una matriz de rotación que incluyese dichas rotaciones sobre los ejes principales para trasladar las coordenadas obtenidas respecto al marco referencial del kinect al marco referencial del robot. 
+
+En la interfaz de usuario, el operador solo es capaz de ver la imagen de profundidad, la cual puede ser dificil de interpretar si no se sabe lo que representa, o si el objeto es muy pequeño y cercano al plano del suelo. Es posible mostrar la imagen rgb que la camara de video del kinect toma, sin embargo, no se corresponde pixel a pixel con la imagen de profundidad, tanto por la diferencia de resolucón como por el hecho de que los separa una distancia, sin embargo es posible hacer una función que haga dicha correspondencia. 
+
+La holgura mecánica entre los componentes representó un problema en el funcionamiento del sistema, tanto en el manipulador como en el efector. Esto provoca disminución en la precisión del robot y dificultad para sujetar el objeto. Se encontró que los opresores que sujetan las poleas 
+
+Caracterizar el motor con la ayuda de un osciloscopio para hacer un control basado en modelos (Model based control).
+
+Durante las pruebas se hizo patente que es muy posible que el efector golpee el objeto durante la aproximación del mismo. Una generación de trayectoria en el espacio de trabajo que hiciera una aproximación vertical a la muestra objetivo permitiría solventar este problema. 

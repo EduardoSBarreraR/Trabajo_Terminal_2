@@ -126,7 +126,6 @@ Los modelos CAD de los eslabones rediseñados se muestran en las Figuras \ref{fig
 	\label{fig:EslabonesReales}
 \end{figure}
 
-
 \subsubsection*{Validación}
 Ya que el Alucobond es un material compuesto de aluminio y un polímero, no existe en la biblioteca de materiales de SOLIDWORKS, por lo que se utiliza acrílico (Módulo elástico = 45 MPa), pues al ser un material más frágil y quebradizo, si este material es capaz de resistir los esfuerzos, el Alucobond también lo será.
 
@@ -191,33 +190,258 @@ Las piezas del efector se imprimieron en ABS con alta resolución para los engran
 	\label{fig:FigsEfectorImpreso}
 \end{figure}
 
+
+\subsubsection{Control y movimiento}
+
+Como se planeta en el diseño de dominio específico, la aproximación al control del manipulador es mediante juntas independientes. Por medio de pruebas experimentales se determinó que la única junta que requiere el uso de un control retroalimentado de posición es la segunda, ya que es la que está sujeta a una carga mayor. Este es un control proporcional sintonizado experimentalmente. 
+
+\begin{align}
+	pwm = kp * \theta_e
+	\label{eq:P_Control}
+\end{align}
+
+En donde kp es la ganancia proporcional, con un valor de 1000, y $\theta_e$ es el error entre la posición angular deseada y la posición angular actual.
+
+Para evitar las aceleraciones bruscas, se optó por utilizar un perfil de velocidades trapezoidal para las juntas 1 y 3 a través de un incremento lineal en el ciclo útil del pwm que se envía a los actuadores, mientras que para la junta 2, se dan incrementos de 1 grado cada 0.15 segundos hasta llegar a la posición deseada.
+
+\subsubsection{Configuraciones}
+
+Los ángulos de las juntas del robot mostrados en la Figura {GDLRobot.jpg} se miden como se estableció al calcular la cinemática directa mediante la convención de Denavit-Hartemberg. 
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Dominio especifico/AsignacionMarcos.pdf}}
+			{a) Modelo utilizado para la cinemática}
+		\\
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/PosicionExtendido.jpeg}}
+			{b) Robot en los ángulos cero}
+		\\
+	\end{tabular}
+	\caption{Comparación del modelo de robot con la implementación}
+	\label{fig:ConfClave}
+\end{figure}
+
+Cabe señalar que ya que los actuadores del tercer y cuarto grado de libertad están montados en la base del robot y el tercer grado de libertad transmite su movimiento mediante una polea ociosa colocada en el eje del segundo grado de libertad, el movimiento angular del tercer GDL es independiente del segundo GDL, lo que significa que el ángulo medido en esa junta es absoluto con respecto al plano horizontal, a diferencia del ángulo calculado, el cual es relativo al eslabón anterior. Por ello es necesario convertirlo mediante la fórmula $ \theta_{2 absoluto} = \theta_{2 relativo} + \theta_{1}$. 
+
+Para la ejecución de la tarea de "pick and place" se establecen dos configuraciones clave. La configuración de "Dejar muestra" posiciona el efector para que, al soltar la muestra, esta caiga en el contenedor del laboratorio, esto se puede ver en la Figura \ref{fig:ConfClave}. La otra configuración es "Home" la cual es el reposo del brazo y sirve de referencia de posición al iniciar el movimiento, puesto que se utilizan encoders incrementales como sensor de posición. Los valores de las juntas en dichas posiciones se muestran en la Tabla \ref{tab:PosRobot}.
+
+La posición de home es diferente a la establecida en el diseño de dominio específico, ya que al implememntar el kinect como sistema de percepción, ocupa un lugar en el que corre el riesgo de ser golpeado y por lo tanto estar propenso a enviar información errónea de las coordenadas de la muestra. 
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/PosicionHome.jpeg}}
+			{a) Home}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/PosicionLab.jpeg}}
+			{b) Laboratorio}
+		\\
+	\end{tabular}
+	\caption{Configuraciones clave del robot}
+	\label{fig:ConfClave}
+\end{figure}
+
+\begin{table}[]
+	\caption{Configuraciones clave del robot }
+	\label{tab:PosRobot}
+	\begin{tabular}{|c|c|c|}
+	\hline
+		   & Dejar muestra & Home \\ \hline
+	$\theta_1$ &       82        &   59   \\ \hline
+	$\theta_2$ &       18        &   53   \\ \hline
+	$\theta_3$ &       120       &   158  \\ \hline
+	$\theta_4$ &       80        &   10   \\ \hline
+	$\theta_5$ &       150       &   10   \\ \hline
+	$\theta_6$ &       26        &   75   \\ \hline
+	\end{tabular}
+\end{table}
+
+
+\section{S4. Laboratorio}
+Para la implementación de este sistema, se diseñó un elemento de sujeción hecho de lámina de acero, mostrado en la Figura \ref{fig:Lab12} que soporta al sistema de laboratorio y lo mantiene unido al sistema estructural. 
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.4]{imagenes/Implementacion/Laboratorio/LabLamina.jpeg}
+        \caption{}
+        \label{fig:LabLamina}
+\end{figure}
+
+El sistema de laboratorio finalizado y sujeto a el sistema estructural se puede ver en las Figuras \ref{fig:Lab1}a y \ref{fig:Lab2}b.
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Laboratorio/Lab1.jpeg}}
+			{a Vista frontal, donde se observa la superficie de medición y la superficie cónica}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Laboratorio/Lab2.jpeg}}
+			{b Vista lateral, donde se muestra el actuador del desechador}
+		\\
+	\end{tabular}
+	\caption{Vistas del sistema de laboratorio}
+	\label{fig:Lab12}
+\end{figure}
+
+\section{S3. Energético}
+
+La fuente utilizada es la TDK-Lambda GWS250, que proporciona 20[A], ya que las modificaciones permitieron utilizar esta fuente, perteneciente a compañeros de la carrera.
+
+Así mismo, se utilizan los Drivers Cytron 13 [A] y Cytron dual de 10[A] por canal para alimentar los motores de CD. Para los servomotores se utiliza el regulador Digilent TPS54620, que proporciona 5V a 6[A] de manera continua.
+
+Estos componentes se pueden apreciar en la Figura \ref{fig:Energetico}, encerrados en círculos.
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.4]{imagenes/Implementacion/Energetico.jpeg}
+        \caption{Distribución del sistema energético}
+        \label{fig:Energetico}
+\end{figure}
+
 \section{S2. Información}
 
 \subsection{M3. Percepción}
 
-Con el fin reducir costos y facilitar el algoritmo de visión, se opta por utilizar una cámara RGB-D que se tenía disponible. Esta cámara es una Xtion Pro Live fabricada por ASUS, la cual se muestra en la Figura  \ref{fig:ASUSpro}
+Con el fin reducir costos y facilitar el algoritmo de visión, se opta por utilizar una cámara RGB-D, la cual es el kinect v1, que se muestra en la Figura \ref{fig:KinectMic} fabricado por Microsoft\textregistered. Para esta plataforma existen varias aplicaciones de codigo libre, por lo que hay bibliotecas disponibles para la utilización de los datos obtenidos de los sensores\cite{ShiffmanKinect}.
 
 \begin{figure}
     \centering		
-        \includegraphics[scale=0.4]{imagenes/Implementacion/Fotos/Camara.jpg}
-        \caption{Cámara RGB-D ASUS Xtion Pro Live}
-        \label{fig:ASUSpro}
+        \includegraphics[scale=0.4]{imagenes/Implementacion/Vision/Kinect.png}
+        \caption{Kinect, fabricado por Microsoft\textregistered}
+        \label{fig:KinectMic}
+\end{figure}
+
+Ya que se desea obtener la posición en el espacio del objeto a sujetar, es necesario utilizar la información provista por el sensor profundidad, la cual es una representación de los datos de profundidad en un formato de imagen rgb o escala de grises. Cada uno de los pixeles de dicha imagen representa un valor de profundidad. La información de la imagen de profundidad (la cual está limitada al rango de valores que puede tomar el pixel rgb o escala de grises) proviene de otra cadena de datos que contiene los datos de profundidad tal cual los obtiene el sensor. Estos datos no tienen una relación lineal con la profunidad real, por lo que para su conversión a distancia debe tomar en cuenta varios parámetros de fábrica. Estos parámetros ya han sido obtenidos y calibrados, por lo que es posible hacer una función que permita conocer la ubicación espacial de cada pixel que se muestra en la imagen de profunidad\cite{FisherKinect}. 
+
+Debido a que el rango de sensibilidad del sensor de profundidad va desde los 48 cm en adelante, fue necesario colocar el kinect a una distancia mayor a la propuesta en el diseño (en la barra inferior de la estructura). La nueva posición es en la parte superior de la estructura, lo más cerca posible del centro. Esto provoca que la posición de home tenga que moverse, ya que de otra forma el manipulador estorbaría a la cámara y correria riesgo de ser golpeada por el mismo. 
+
+El hecho de que la cámara no esté perfectamente centrada en la estructura provoca que el campo de visión se encuentre recorrido y no abarque todo el espacio de trabajo del robot. 
+
+\subsection{M4. Comunicación}
+
+La comunicación con el usuario se realiza a través de una Interfaz Gráfica de Usuario, mostrada en la Figura \ref{fig:GUIsXD} en la que el operador debe seleccionar un punto de la imagen de profundidad que corresponda al objeto que desea tomar. El módulo de percepción obtiene las coordenadas en el espacio de ese punto y las muestra. Esta interfaz se desarrolla utilizando el lenguaje ``Processing\textregistered''\cite{ProcessingXD}, ya que este cuenta con bibliotecas que permiten utilizar el Kinect fácilmente. 
+
+EL programa  de la interfaz calcula el vector de valores de las juntas del robot según las coordenadas deseadas, las cuales son enviadas a la tarjeta de procesamiento cuando el usuario presiona el botón ``Activar'', mientras que esta recolecta los datos de temperatura y peso de la muestra para enviarlos a la computadora.
+
+La comunicación entre la computadora y la tarjeta Núcleo es serial, utilizando el protocolo UART a través del puerto USB de la tarjeta de desarrollo.
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/GUI/GUIInicial.png}}
+			{a) Pantalla de inicio}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/GUI/GUICoordenadas.jpg}}
+			{b) Pantalla una vez que se ha seleccionado la muestra}
+		\\
+	\end{tabular}
+	\caption{Interfaz Gráfica de Usuario}
+	\label{fig:GUIsXD}
 \end{figure}
 
 \subsection{M5. Procesamiento}
 
-El diseño del PCB que se ve en la Figura \ref{fig:PCBEsq}b es utilizado para generar la placa de circuito impreso, mostrado en la Figura \ref{fig:PCBSoldado}.
+En la tarjeta núcleo existen pines que están reservados para el funcionamiento de los periféricos internos de la misma, lo cual no se tomó en cuenta en el diseño de la Figura \ref{fig:DistPines}, por esta razón se eligieron nuevamente los pines con base en lo siguiente: a) Los pines para PWM deben tener como fuente un timer y canal diferente. b) Las interrupciones externas se encuentran interconectadas entre puertos, por lo que se requiere utilizar una interrupción externa por cada pin de los puertos.
+
+Como se puede observar en la Figura \ref{fig:PinesNukleoFinal}, se utilizan los siguientes pines, los cuales se seleccionan con ayuda de la documentación de la tarjeta, disponibles en \cite{Nucleo446RE}:
+
+\begin{itemize} [noitemsep,nolistsep]
+	\item Motores de CD
+	\begin{itemize}
+		\item PC4: Dirección de motor de CD del 1er GDL - Salida Digital
+		\item PA10: PWM del motor de CD del 1er GDL - Salida de PWM (imer 1-Canal 3)
+		\item PB4: Dirección de motor de CD del 2o GDL - Salida Digital
+		\item PB5: PWM del motor de CD del 2o GDL - Salida de PWM (imer 3-Canal 2)
+		\item PB13: Dirección de motor de CD del 3er GDL - Salida Digital
+		\item PB3: PWM del motor de CD del 3er GDL - Salida de PWM (imer 2-Canal 2)
+	\end{itemize}
+	\item Encoders
+	\begin{itemize}
+		\item PC3: Encoder del motor del 1er GDL (Canal A) - Fuente de interrupción externa
+		\item PC2: Encoder del motor del 1er GDL (Canal B) - Fuente de interrupción externa
+		\item PC0: Encoder del motor del 2o GDL (Canal A) - Fuente de interrupción externa
+		\item PC1: Encoder del motor del 2o GDL (Canal B) - Fuente de interrupción externa
+		\item PA8: Encoder del motor del 3er GDL (Canal A) - Fuente de interrupción externa
+		\item PB10: Encoder del motor del 3er GDL (Canal B) - Fuente de interrupción externa
+	\end{itemize}
+	\item Servomotores
+	\begin{itemize}[noitemsep,nolistsep]
+		\item PB9(Alternativo): Servomotor del 4o GDL - Salida de PWM (Timer 4-Canal4)
+		\item PB8: Servomotor del 5o GDL - Salida de PWM (Timer 4-Canal3)
+		\item PC9: Servomotor del 6o GDL - Salida de PWM (Timer 3-Canal4)
+		\item PC8: Servomotor del efector final - Salida de PWM (Timer 3-Canal3)
+		\item PC6: Servomotor del mecanismo de desecho del laboratorio - Salida de PWM (Timer 3-Canal1)
+	\end{itemize}
+	\item Celda de carga
+	\begin{itemize}
+		\item PC10: SCK - Salida Digital
+		\item PC12: DATA - Entrada digital
+	\end{itemize}
+	\item Sensores de temperatura
+	\begin{itemize}
+		\item PD2: DHT11A - Entrada Digital
+		\item PC11: DHT11B - Entrada Digital
+		\item Interno: Sensor de temperatura interno
+	\end{itemize}
+\end{itemize}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.4]{imagenes/Implementacion/Distribucion pines final.pdf}
+        \caption{Pines utilizados en la núcleo STM32F446RE}
+        \label{fig:PinesNukleoFinal}
+\end{figure}
+
+Esto conlleva una modificación en el diagrama esquemático y el PCB del circuito diseñado, los cuales se muestran actualizados en las Figuras \ref{fig:PlakaNueva}a y \ref{fig:PlakaNueva}b respectivamente, mientras que la placa construida puede observarse en la Figura \ref{PlakaConstruida}.
 
 \begin{figure}
 	\centering
-	\begin{tabular}{ccc}
-		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/PlacaFront.jpg}}
-			{a) Parte frontal de la placa en perspectiva.}
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/PLAKA9.PDF}}
+			{a) Diagrama esquemático}
 		&
-		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/PlacaPost.jpg}}
-            {b) Parte posterior de la placa.}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/PLAKA9PCB.PDF}}
+			{b) Placa de circuito impreso}
 		\\
 	\end{tabular}
-	\caption{Placa de circuito impreso soldada}
-	\label{fig:PCBSoldado}
+	\caption{Diseño implementado del circuito del sistema}
+	\label{fig:PlakaNueva}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.4]{imagenes/Implementacion/Placa.jpeg}
+        \caption{PCB construido}
+        \label{fig:PlakaConstruida}
+\end{figure}
+
+\section{Integración}
+
+Debido a que el ángulo cero del robot (mostrado en la Figura \ref{fig:ConfClave}) no coincide con los ángulos cero de los servos en los GDL 4, 5 y 6, es necesario realizar un ajuste por medio del código, el cual es diferente para cada servo, como se muestra en las siguientes fórmulas: a) Servo 4GDL: $\theta_4 + 90$, b) Servo 5GDL: $\theta_5 + 100$ c) Servo 6GDL: $\theta_6 + 15$.
+
+Por otro lado, para controlar cada junta se realizó una rutina dependiendo de la posición objetivo con ayuda de una posición auxiliar en el 3er GDL, la cual se utiliza para poder modificar la orientación del efector sin golpear el Kinect ni la estructura, como se puede observar en la Figura \ref{fig:PosAux}.
+La rutina que el robot ejecuta es la siguiente:
+
+\begin{itemize}
+	\item Paso 1. Home - Muestra seleccionada: GDL3(Posición auxiliar), GDL1(Posición objetivo), GDL4(Posición deseada), GDL5(Posición deseada), GDL3(Posición objetivo), GDL2(Posición objetivo), Cerrar efector.
+	\item Paso 2. Muestra seleccionada - Laboratorio: GDL3(Posición auxiliar), GDL1(Posición laboratorio), GDL6(Posición laboratorio), GDL5(Posición laboratorio), GDL4(Posición laboratorio), GDL2(Posición laboratorio), GDL3(Posición laboratorio), Abrir efector, Liberar muestra, Cerrar laboratorio.
+	\item Paso 3. Laboratorio - Home: GDL2(Posición Home), GDL6(Posición Home), GDL4(Posición Home), GDL5(Posición Home), GDL1(Posición Home), GDL3(Posición Home).
+	\item Paso 4. Enviar datos a la computadora y una señal que reactive el botón para una nueva selección de muestra.
+\end{itemize}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.4]{imagenes/Implementacion/PosAux.jpeg}
+        \caption{Posición auxiliar del manipulador}
+        \label{fig:PosAux}
+\end{figure}
+
+El sistema completo se puede apreciar en la Figura \ref{fig:RobotCompleto}, el cual es muy similar al render mostrado en la Figura \ref{fig:RenderPitero}.
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.4]{imagenes/Implementacion/Fotodetodoxd.png}
+        \caption{Sistema robótico completo}
+        \label{fig:RobotCompleto}
 \end{figure}
