@@ -1,127 +1,128 @@
-\nomenclatureentry{N$PWM$@[{$PWM$}]\begingroup Pulse Width Modulation (Modulación por ancho de pulso)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$NASA$@[{$NASA$}]\begingroup National Aeronautics and Space Administration(Administración Nacional de la Aeronáutica y del Espacio)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ GDL $@[{$ GDL $}]\begingroup Grados de Libertad\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ IP $@[{$ IP $}]\begingroup International Protection (Protección Internacional)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ FBS $@[{$ FBS $}]\begingroup Funtional Breakdown Structure (Estructura de descomposición funcional)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ IDEF0 $@[{$ IDEF0 $}]\begingroup Integration Definition for Function Modeling (Definición de integración para modelado de funciones)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ eFFBD $@[{$ eFFBD $}]\begingroup enhanced Function Flow Block Diagram (Diagrama a Bloques Mejorado del flujo de funciones)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ ASTM $@[{$ ASTM $}]\begingroup American Society of Testing Materials (Sociedad Americana de Materiales de Prueba)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ CD $@[{$ CD $}]\begingroup Corriente Directa\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ AWG $@[{$ AWG $}]\begingroup American Wire Gauges (Calibres de Alambres Americanos)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ VDI $@[{$ VDI $}]\begingroup Verein Deutscher Ingenieure (Asociación de Ingenieros Alemanes)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ S1 $@[{$ S1 $}]\begingroup Sistema robótico\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ S2 $@[{$ S2 $}]\begingroup Sistema de información\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ S3 $@[{$ S3 $}]\begingroup Sistema de administración energética\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ S4 $@[{$ S4 $}]\begingroup Sistema de laboratorio\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ S5 $@[{$ S5 $}]\begingroup Sistema estructural\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ M1 $@[{$ M1 $}]\begingroup Módulo de manipulador\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ M2 $@[{$ M2 $}]\begingroup Módulo de efector final\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ M3 $@[{$ M3 $}]\begingroup Módulo de percepción\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ M4 $@[{$ M4 $}]\begingroup Módulo de comunicación\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ M5 $@[{$ M5 $}]\begingroup Módulo de procesamiento\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ M6 $@[{$ M6 $}]\begingroup Módulo de obtención de datos de la muestra\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ M7 $@[{$ M7 $}]\begingroup Módulo de desechador\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$Cr_n$@[{$Cr_n$}]\begingroup Criterio $n$ para AHP\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$AHP$@[{$AHP$}]\begingroup Analytic Hierarchy Process (Proceso analtico de jerarquía)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$Ce$@[{$Ce$}]\begingroup Concepto elegido\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$Cm$@[{$Cm$}]\begingroup Concepto mejorado\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$CAD$@[{$CAD$}]\begingroup Computer-Aided Design (Diseño Asistido por Computadora)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$HD$@[{$HD$}]\begingroup Heavy Duty (Alto Rendimiento)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$RPM$@[{$RPM$}]\begingroup Revoluciones por minuto\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$XL$@[{$XL$}]\begingroup Extra Light (Extra Ligero)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$PC$@[{$PC$}]\begingroup Polycarbonate (Policarbonato)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$PLA$@[{$PLA$}]\begingroup Polylactic Acid (Ácido Poliláctico)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ABS$@[{$ABS$}]\begingroup Acrylonitrile butadiene styrene (Acrilonitrilo Butadieno Estireno)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$IEEE$@[{$IEEE$}]\begingroup Institute of Electrical and Electronics Engineers (Instituto de Ingeniería Eléctrica y Electrónica)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$3D$@[{$3D$}]\begingroup Tridimensional\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$FSR$@[{$FSR$}]\begingroup Force-sensing resistor (Sensor Sensible a Fuerza)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$MEMS$@[{$MEMS$}]\begingroup Micro Electro-Mechanical Systems (Sistemas Micro Electro-Mecánicos)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$ADC$@[{$ADC$}]\begingroup Analogic to Digital Converter (Convertidor Analógico-Digital)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$USD$@[{$USD$}]\begingroup U.S. dollar (dólar estadounidense)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$PVC$@[{$PVC$}]\begingroup Polyvinyl Chloride (Cloruro de polivinilo)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$PET$@[{$PET$}]\begingroup Polyethylene Terephthalate (Tereftalato de polietileno)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$IPS$@[{$IPS$}]\begingroup Industrial Profile Systems (Sistemas de perfil industrial)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{N$PCB$@[{$PCB$}]\begingroup Printed Circuit Board (Tabla de circuito impreso)\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$v$@[{$v$}]\begingroup Velocidad lineal\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$\omega$@[{$\omega$}]\begingroup Velocidad angular\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$r$@[{$r$}]\begingroup Radio\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$P$@[{$P$}]\begingroup Potencia\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$\tau$@[{$\tau$}]\begingroup Torque\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$F_{s}$@[{$F_{s}$}]\begingroup Factor de seguridad\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$L_{b}$@[{$L_{b}$}]\begingroup Longitud de la banda\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$C$@[{$C$}]\begingroup Distancia entre centros\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$N_{polea}$@[{$N_{polea}$}]\begingroup Número de dientes de la polea\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$PD$@[{$PD$}]\begingroup Paso de la polea\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$F_{n}$@[{$F_{n}$}]\begingroup Fuerza neta asociada al torque transmitido\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$F_{s}$@[{$F_{s}$}]\begingroup Fuerza flexionante\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$T_{banda}$@[{$T_{banda}$}]\begingroup Torque transmitido por la banda\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$r$@[{$r$}]\begingroup Radio de la polea\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$S_{n}$@[{$S_{n}$}]\begingroup Límite de fatiga\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$S_{u}$@[{$S_{u}$}]\begingroup Esfuerzo último a la tensión\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$S'_{n}$@[{$S'_{n}$}]\begingroup Límite de fatiga modificado\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$C_{m}$@[{$C_{m}$}]\begingroup Factor de material\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$C_{st}$@[{$C_{st}$}]\begingroup Factor de tipo de esfuerzo\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$C_{r}$@[{$C_{r}$}]\begingroup Factor de confiabilidad\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$C_{s}$@[{$C_{s}$}]\begingroup Factor de tamaño\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$D$@[{$D$}]\begingroup Diámetro mínimo del eje\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$N$@[{$N$}]\begingroup Factor de seguridad\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$K_{t}$@[{$K_{t}$}]\begingroup Factor de concentración de esfuerzos\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$M$@[{$M$}]\begingroup Momento flexionante\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$T$@[{$T$}]\begingroup Esfuerzo torsionante\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$S_{y}$@[{$S_{y}$}]\begingroup Esfuerzo de cedencia\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$C_{dinamica}$@[{$C_{dinamica}$}]\begingroup Capacidad de carga dinámica mínima del rodamiento\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ P_{d}$@[{$ P_{d}$}]\begingroup Carga de diseño\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$L_{d}$@[{$L_{d}$}]\begingroup Vida de diseño del rodamiento, en número de revoluciones\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$k_{rod}$@[{$k_{rod}$}]\begingroup Constante para rodamientos\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$H$@[{$H$}]\begingroup Matriz de transformación homogénea\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$\theta_i$@[{$\theta_i$}]\begingroup Ángulo de la junta $i$\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$a$@[{$a$}]\begingroup Longitud del eslabón\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$d$@[{$d$}]\begingroup Desplazamiento del eslabón\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$\alpha$@[{$\alpha$}]\begingroup Ángulo de giro del eslabón, formado entre $z_{i-1}$ y $z_i$ sobre el eje $x_i$\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$R$@[{$R$}]\begingroup Matriz de orientación\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$o$@[{$o$}]\begingroup Vector de posición\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$J$@[{$J$}]\begingroup Jacobiano\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$z$@[{$z$}]\begingroup Vector unitario en el eje Z\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$\mathcal{L}$@[{$\mathcal{L}$}]\begingroup Lagrangiano del sistema\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$\theta$@[{$\theta$}]\begingroup Conjunto de coordenadas generalizadas\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$\mathcal{Q} $@[{$\mathcal{Q} $}]\begingroup Conjunto de fuerzas generalizadas\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ \mathcal{Q} $@[{$ \mathcal{Q} $}]\begingroup  Conjunto de fuerzas generalizadas \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ \delta W^{NC}$@[{$ \delta W^{NC}$}]\begingroup  Trabajo virtual asociado a las fuerzas generalizadas \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ \delta \theta$@[{$ \delta \theta$}]\begingroup  Desplazamientos virtuales \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ K $@[{$ K $}]\begingroup  Energía cinética  \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ m $@[{$ m $}]\begingroup  Masa total  \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ v $@[{$ v $}]\begingroup  Vector de velocidad lineal \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ \omega $@[{$ \omega $}]\begingroup  Vector de velocidad angular \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ \mathcal{I} $@[{$ \mathcal{I} $}]\begingroup  Tensor de inercia \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ g  $@[{$ g  $}]\begingroup   Vector de dirección de la gravedad en el marco inercial \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ r_{ci} $@[{$ r_{ci} $}]\begingroup  Coordenadas del centro de masa \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ J_v $@[{$ J_v $}]\begingroup  Componente de velocidad lineal del Jacobiano \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ J_{\omega} $@[{$ J_{\omega} $}]\begingroup  Componente de velocidad angular del Jacobiano \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$D(\theta) $@[{$D(\theta) $}]\begingroup  Matriz de inercia del sistema \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ C(\theta, \dot{\theta}) $@[{$ C(\theta, \dot{\theta}) $}]\begingroup   Vector de fuerzas/pares centrífugas y de Coriolis \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ g(\theta) $@[{$ g(\theta) $}]\begingroup  Vector de fuerzas/pares gravitacionales y potencial \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ K_1 $@[{$ K_1 $}]\begingroup  Constante física del motor  \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ \tau_0 $@[{$ \tau_0 $}]\begingroup Par a rotor bloqueado\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ R_a $ @[{$ R_a $ }]\begingroup Resistencia de armadura\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ \tau_{m}$@[{$ \tau_{m}$}]\begingroup Par motor generado  \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ i_{a} $@[{$ i_{a} $}]\begingroup  Corriente de armadura  \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ \phi $@[{$ \phi $}]\begingroup   Flujo magnético debido al estator \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ K_m $@[{$ K_m $}]\begingroup  Constante de par motor \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$\tilde{P}_{1} $@[{$\tilde{P}_{1} $}]\begingroup   Imagen original  \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ \tilde{P}_{2} $@[{$ \tilde{P}_{2} $}]\begingroup  Imagen corregida \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ H_m $@[{$ H_m $}]\begingroup  Matriz de homografía  \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ x_{I} $@[{$ x_{I} $}]\begingroup  Número de pixeles desde el origen hasta el centro del objeto en la imagen izquierda \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ x_{D} $@[{$ x_{D} $}]\begingroup  Número de pixeles desde el origen hasta el centro del objeto en la imagen derecha  \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ z$@[{$ z$}]\begingroup  Profundidad \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ b $@[{$ b $}]\begingroup  Distancia entre cámaras  \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$ x $@[{$ x $}]\begingroup  Distancia real \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$BH  $@[{$BH  $}]\begingroup  Distancia horizontal al punto más lejano \nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$BT $@[{$BT $}]\begingroup Longitud del brazo totalmente estirado\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$BV $@[{$BV $}]\begingroup Distancia de la base del robot hasta el suelo\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$v_{e} $@[{$v_{e} $}]\begingroup Volumen ocupado por el eslabón\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$t_{e} $@[{$t_{e} $}]\begingroup Espesor  del eslabón\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$h_{e} $@[{$h_{e} $}]\begingroup Altura  del eslabón\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$l_{e} $@[{$l_{e} $}]\begingroup Longitud del perfil del eslabón\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$r_{e} $@[{$r_{e} $}]\begingroup Radio del chaflán del eslabón\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$m_{e} $@[{$m_{e} $}]\begingroup Masa  del eslabón\nomeqref {4.0}|nompageref}{123}
-\nomenclatureentry{S$\rho $@[{$\rho $}]\begingroup Densidad del eslabón\nomeqref {4.0}|nompageref}{123}
+\nomenclatureentry{N$PWM$@[{$PWM$}]\begingroup Pulse Width Modulation (Modulación por ancho de pulso)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$NASA$@[{$NASA$}]\begingroup National Aeronautics and Space Administration(Administración Nacional de la Aeronáutica y del Espacio)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ GDL $@[{$ GDL $}]\begingroup Grados de Libertad\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ IP $@[{$ IP $}]\begingroup International Protection (Protección Internacional)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ FBS $@[{$ FBS $}]\begingroup Funtional Breakdown Structure (Estructura de descomposición funcional)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ IDEF0 $@[{$ IDEF0 $}]\begingroup Integration Definition for Function Modeling (Definición de integración para modelado de funciones)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ eFFBD $@[{$ eFFBD $}]\begingroup enhanced Function Flow Block Diagram (Diagrama a Bloques Mejorado del Flujo de Funciones)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ ASTM $@[{$ ASTM $}]\begingroup American Society of Testing Materials (Sociedad Americana de Materiales de Prueba)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ CD $@[{$ CD $}]\begingroup Corriente Directa\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ AWG $@[{$ AWG $}]\begingroup American Wire Gauges (Calibres de Alambres Americanos)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ VDI $@[{$ VDI $}]\begingroup Verein Deutscher Ingenieure (Asociación de Ingenieros Alemanes)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ S1 $@[{$ S1 $}]\begingroup Sistema robótico\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ S2 $@[{$ S2 $}]\begingroup Sistema de información\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ S3 $@[{$ S3 $}]\begingroup Sistema de administración energética\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ S4 $@[{$ S4 $}]\begingroup Sistema de laboratorio\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ S5 $@[{$ S5 $}]\begingroup Sistema estructural\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ M1 $@[{$ M1 $}]\begingroup Módulo de manipulador\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ M2 $@[{$ M2 $}]\begingroup Módulo de efector final\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ M3 $@[{$ M3 $}]\begingroup Módulo de percepción\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ M4 $@[{$ M4 $}]\begingroup Módulo de comunicación\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ M5 $@[{$ M5 $}]\begingroup Módulo de procesamiento\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ M6 $@[{$ M6 $}]\begingroup Módulo de obtención de datos de la muestra\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ M7 $@[{$ M7 $}]\begingroup Módulo de desechador\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$Cr_n$@[{$Cr_n$}]\begingroup Criterio $n$ para AHP\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$AHP$@[{$AHP$}]\begingroup Analytic Hierarchy Process (Proceso analtico de jerarquía)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$Ce$@[{$Ce$}]\begingroup Concepto elegido\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$Cm$@[{$Cm$}]\begingroup Concepto mejorado\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$CAD$@[{$CAD$}]\begingroup Computer-Aided Design (Diseño Asistido por Computadora)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$HD$@[{$HD$}]\begingroup Heavy Duty (Alto Rendimiento)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$RPM$@[{$RPM$}]\begingroup Revoluciones por minuto\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$XL$@[{$XL$}]\begingroup Extra Light (Extra Ligero)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$PC$@[{$PC$}]\begingroup Polycarbonate (Policarbonato)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$PLA$@[{$PLA$}]\begingroup Polylactic Acid (Ácido Poliláctico)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ABS$@[{$ABS$}]\begingroup Acrylonitrile Butadiene Styrene (Acrilonitrilo Butadieno Estireno)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$IEEE$@[{$IEEE$}]\begingroup Institute of Electrical and Electronics Engineers (Instituto de Ingeniería Eléctrica y Electrónica)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$3D$@[{$3D$}]\begingroup Tridimensional\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$FSR$@[{$FSR$}]\begingroup Force-sensing resistor (Sensor Sensible a Fuerza)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$MEMS$@[{$MEMS$}]\begingroup Micro Electro-Mechanical Systems (Sistemas Micro Electro-Mecánicos)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$ADC$@[{$ADC$}]\begingroup Analogic to Digital Converter (Convertidor Analógico-Digital)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$USD$@[{$USD$}]\begingroup U.S. dollar (dólar estadounidense)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$PVC$@[{$PVC$}]\begingroup Polyvinyl Chloride (Cloruro de polivinilo)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$PET$@[{$PET$}]\begingroup Polyethylene Terephthalate (Tereftalato de polietileno)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$IPS$@[{$IPS$}]\begingroup Industrial Profile Systems (Sistemas de perfil industrial)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$PCB$@[{$PCB$}]\begingroup Printed Circuit Board (Tabla de circuito impreso)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{N$GUI$@[{$GUI$}]\begingroup Graphic User Interface (Interfaz Gráfica de Usuario)\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$v$@[{$v$}]\begingroup Velocidad lineal\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$\omega$@[{$\omega$}]\begingroup Velocidad angular\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$r$@[{$r$}]\begingroup Radio\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$P$@[{$P$}]\begingroup Potencia\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$\tau$@[{$\tau$}]\begingroup Torque\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$F_{s}$@[{$F_{s}$}]\begingroup Factor de seguridad\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$L_{b}$@[{$L_{b}$}]\begingroup Longitud de la banda\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$C$@[{$C$}]\begingroup Distancia entre centros\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$N_{polea}$@[{$N_{polea}$}]\begingroup Número de dientes de la polea\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$PD$@[{$PD$}]\begingroup Paso de la polea\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$F_{n}$@[{$F_{n}$}]\begingroup Fuerza neta asociada al torque transmitido\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$F_{s}$@[{$F_{s}$}]\begingroup Fuerza flexionante\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$T_{banda}$@[{$T_{banda}$}]\begingroup Torque transmitido por la banda\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$r$@[{$r$}]\begingroup Radio de la polea\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$S_{n}$@[{$S_{n}$}]\begingroup Límite de fatiga\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$S_{u}$@[{$S_{u}$}]\begingroup Esfuerzo último a la tensión\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$S'_{n}$@[{$S'_{n}$}]\begingroup Límite de fatiga modificado\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$C_{m}$@[{$C_{m}$}]\begingroup Factor de material\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$C_{st}$@[{$C_{st}$}]\begingroup Factor de tipo de esfuerzo\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$C_{r}$@[{$C_{r}$}]\begingroup Factor de confiabilidad\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$C_{s}$@[{$C_{s}$}]\begingroup Factor de tamaño\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$D$@[{$D$}]\begingroup Diámetro mínimo del eje\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$N$@[{$N$}]\begingroup Factor de seguridad\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$K_{t}$@[{$K_{t}$}]\begingroup Factor de concentración de esfuerzos\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$M$@[{$M$}]\begingroup Momento flexionante\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$T$@[{$T$}]\begingroup Esfuerzo torsionante\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$S_{y}$@[{$S_{y}$}]\begingroup Esfuerzo de cedencia\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$C_{dinamica}$@[{$C_{dinamica}$}]\begingroup Capacidad de carga dinámica mínima del rodamiento\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ P_{d}$@[{$ P_{d}$}]\begingroup Carga de diseño\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$L_{d}$@[{$L_{d}$}]\begingroup Vida de diseño del rodamiento, en número de revoluciones\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$k_{rod}$@[{$k_{rod}$}]\begingroup Constante para rodamientos\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$H$@[{$H$}]\begingroup Matriz de transformación homogénea\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$\theta_i$@[{$\theta_i$}]\begingroup Ángulo de la junta $i$\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$a$@[{$a$}]\begingroup Longitud del eslabón\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$d$@[{$d$}]\begingroup Desplazamiento del eslabón\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$\alpha$@[{$\alpha$}]\begingroup Ángulo de giro del eslabón, formado entre $z_{i-1}$ y $z_i$ sobre el eje $x_i$\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$R$@[{$R$}]\begingroup Matriz de orientación\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$o$@[{$o$}]\begingroup Vector de posición\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$J$@[{$J$}]\begingroup Jacobiano\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$z$@[{$z$}]\begingroup Vector unitario en el eje Z\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$\mathcal{L}$@[{$\mathcal{L}$}]\begingroup Lagrangiano del sistema\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$\theta$@[{$\theta$}]\begingroup Conjunto de coordenadas generalizadas\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$\mathcal{Q} $@[{$\mathcal{Q} $}]\begingroup Conjunto de fuerzas generalizadas\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ \mathcal{Q} $@[{$ \mathcal{Q} $}]\begingroup  Conjunto de fuerzas generalizadas \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ \delta W^{NC}$@[{$ \delta W^{NC}$}]\begingroup  Trabajo virtual asociado a las fuerzas generalizadas \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ \delta \theta$@[{$ \delta \theta$}]\begingroup  Desplazamientos virtuales \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ K $@[{$ K $}]\begingroup  Energía cinética  \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ m $@[{$ m $}]\begingroup  Masa total  \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ v $@[{$ v $}]\begingroup  Vector de velocidad lineal \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ \omega $@[{$ \omega $}]\begingroup  Vector de velocidad angular \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ \mathcal{I} $@[{$ \mathcal{I} $}]\begingroup  Tensor de inercia \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ g  $@[{$ g  $}]\begingroup   Vector de dirección de la gravedad en el marco inercial \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ r_{ci} $@[{$ r_{ci} $}]\begingroup  Coordenadas del centro de masa \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ J_v $@[{$ J_v $}]\begingroup  Componente de velocidad lineal del Jacobiano \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ J_{\omega} $@[{$ J_{\omega} $}]\begingroup  Componente de velocidad angular del Jacobiano \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$D(\theta) $@[{$D(\theta) $}]\begingroup  Matriz de inercia del sistema \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ C(\theta, \dot{\theta}) $@[{$ C(\theta, \dot{\theta}) $}]\begingroup   Vector de fuerzas/pares centrífugas y de Coriolis \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ g(\theta) $@[{$ g(\theta) $}]\begingroup  Vector de fuerzas/pares gravitacionales y potencial \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ K_1 $@[{$ K_1 $}]\begingroup  Constante física del motor  \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ \tau_0 $@[{$ \tau_0 $}]\begingroup Par a rotor bloqueado\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ R_a $ @[{$ R_a $ }]\begingroup Resistencia de armadura\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ \tau_{m}$@[{$ \tau_{m}$}]\begingroup Par motor generado  \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ i_{a} $@[{$ i_{a} $}]\begingroup  Corriente de armadura  \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ \phi $@[{$ \phi $}]\begingroup   Flujo magnético debido al estator \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ K_m $@[{$ K_m $}]\begingroup  Constante de par motor \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$\tilde{P}_{1} $@[{$\tilde{P}_{1} $}]\begingroup   Imagen original  \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ \tilde{P}_{2} $@[{$ \tilde{P}_{2} $}]\begingroup  Imagen corregida \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ H_m $@[{$ H_m $}]\begingroup  Matriz de homografía  \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ x_{I} $@[{$ x_{I} $}]\begingroup  Número de pixeles desde el origen hasta el centro del objeto en la imagen izquierda \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ x_{D} $@[{$ x_{D} $}]\begingroup  Número de pixeles desde el origen hasta el centro del objeto en la imagen derecha  \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ z$@[{$ z$}]\begingroup  Profundidad \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ b $@[{$ b $}]\begingroup  Distancia entre cámaras  \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$ x $@[{$ x $}]\begingroup  Distancia real \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$BH  $@[{$BH  $}]\begingroup  Distancia horizontal al punto más lejano \nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$BT $@[{$BT $}]\begingroup Longitud del brazo totalmente estirado\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$BV $@[{$BV $}]\begingroup Distancia de la base del robot hasta el suelo\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$v_{e} $@[{$v_{e} $}]\begingroup Volumen ocupado por el eslabón\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$t_{e} $@[{$t_{e} $}]\begingroup Espesor  del eslabón\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$h_{e} $@[{$h_{e} $}]\begingroup Altura  del eslabón\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$l_{e} $@[{$l_{e} $}]\begingroup Longitud del perfil del eslabón\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$r_{e} $@[{$r_{e} $}]\begingroup Radio del chaflán del eslabón\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$m_{e} $@[{$m_{e} $}]\begingroup Masa  del eslabón\nomeqref {4.0}|nompageref}{133}
+\nomenclatureentry{S$\rho $@[{$\rho $}]\begingroup Densidad del eslabón\nomeqref {4.0}|nompageref}{133}

@@ -47,7 +47,7 @@ InterruptIn ENC_3B(PB_10);
 
 // Sensores de temperatura
 
-AnalogIn adc_temp(ADC_TEMP);
+AnalogIn adc_temp(ADC_TEMP); // Sensor interno
 DHT DHT11_MOTORES(PD_2,SEN11301P); // Use the SEN11301P sensor
 DHT DHT11_FUENTE(PC_11,SEN11301P); // Use the SEN11301P sensor
 
@@ -70,7 +70,7 @@ float masa = 0;
 
 bool orden = 0;
 
-// Numero de pulsos por revolucoon como encoder de cuadratura
+// Numero de pulsos por revolucion como encoder de cuadratura
 double PPRQ = 5264.0;
 
 // Posiciones angulares de los motores
@@ -78,23 +78,23 @@ double PPRQ = 5264.0;
 // Angulos iniciales
 
 // Valores de Home
-double theta1Home = 59.293313;
-double theta2Home = 53.001526;
-double theta3Home = 158.867781;
+double theta1Home = 59;
+double theta2Home = 54;
+double theta3Home = 153;
 double theta4Home = 10;
 double theta5Home = 10;
-double theta6Home = 75;
+double theta6Home = 15;
 
 double theta3Inter = 80.0; // Posicion auxiliar
 
 
 // Valores de laboratorio
 
-double theta1Lab = 82.135258;
-double theta2Lab = 18.601824;
-double theta3Lab = 120.706687;
+double theta1Lab = 82;
+double theta2Lab = 18;
+double theta3Lab = 120;
 double theta4Lab = 80;
-double theta5Lab = 150;
+double theta5Lab = 160;
 double theta6Lab = 26;
 
 // Ciclo util del PWM del motor
@@ -107,8 +107,8 @@ int pulse;
 int LaboratorioCerrado = 50;
 int LaboratorioAbierto = 0;
 
-int EfectorAbierto = 95;
-int EfectorCerrado = 85;
+int EfectorAbierto = 100; // Para que regrese a la posicion original con mas fuerza, ciclo de 5 segundos
+int EfectorCerrado = 80; // Para que cierre con fuerza, ciclo de 5 segundos 
 int EfectorDetenido = 90;
 
 // Inicializacion de variables
@@ -138,7 +138,7 @@ double theta4aux;
 double theta5aux;
 double theta6aux;
 
-// Variables usadas por el control PID
+// Variables usadas por el control P
 
 double theta2D_P = theta2Home;
 double theta2aux;
@@ -146,18 +146,14 @@ double eP = 0.0; // Error que utiliza el contro P
 double PWM_P = 0.0;
 double kp = 1000.0; // Ganancia Proporcional
 
-// Variables auxiliares para errores anteriores
-
-double prv_error = 0.0;
-
 // Valores auxiliares de angulos
 
 double DT; // Diferencia entre angulo inicial y deseado
 double DTabs; // El perfil de velocidad funciona con valores positivos
 double Te; // Error entre el angulo actual y el deseado
-double TE; // DT - Te - Te decrece del error ma¡ximo a 0, en el control se requiere que crezca de 0 al error aÃ¡ximo
+double TE; // DT - Te - Te decrece del error mÃ¡ximo a 0, en el control se requiere que crezca de 0 al error maximo
 
-double EA = 0.5; // Error aceptable
+double EA = 1.0; // Error aceptable
 
 
 // Vectores de interrupcion
@@ -253,7 +249,7 @@ void P()
     }
     else DIR_CD_2 = 0; // CCW
     
-    if (PWM_P > 3000) PWM_P = 3000; // 15% del ciclo oºtil
+    if (PWM_P > 2100) PWM_P = 2100; // 20% del ciclo Ãºtil
     
     PWM_CD_2.pulsewidth_us(PWM_P);
 }
@@ -269,7 +265,6 @@ void callback()
     // Separacion de string en posiciones angulares deseadas
     if (dato == 'a') // Caracter de fin de cadena
     {
-        pc.printf("%s\t",buffer);
         len = 0;
         
         token = strtok(buffer, ",;");
@@ -385,7 +380,7 @@ void AbrirEfector()
 void CerrarEfector()
 {
     ServoWrite(4,EfectorCerrado);
-    wait(7);
+    wait(5);
     ServoWrite(4,EfectorDetenido);
 }
 
@@ -469,7 +464,7 @@ void Control(int Motor, double ThD, int pwmMAX, int pwmMIN)
         if(DT < 0) DTabs = -1.0 * DT; // El programa funciona con valores positivos
         else DTabs = DT;
         
-        while ((Te < -2.0*EA)||(Te > 4.0*EA))// Repetir hasta que el error se encuentre en el rango aceptable
+        while ((Te < -2.0*EA)||(Te > 2.0*EA))// Repetir hasta que el error se encuentre en el rango aceptable
         {
             // Determinacion de sentido de giro
             if (Te < 0) // Error negativo - Girar en sentidio antihorario
@@ -485,21 +480,20 @@ void Control(int Motor, double ThD, int pwmMAX, int pwmMIN)
             
             if(TE < 0) TE = -1.0 * TE; // El programa funciona con valores positivos
             
-            if( (0 <= TE) && (TE < (DTabs/3)) )
+            if( (0 <= TE) && (TE < (DTabs/3.0)) )
             {
-                if(pwm < pwmMAX) pwm+=2;
+                if(pwm < pwmMAX) pwm++;
             }
-            else if( ((DTabs/3) <= TE) && (TE < (2*DTabs/3)) )
+            else if( ((DTabs/3.0) <= TE) && (TE < (2.0*DTabs/3.0)) )
             {
                 pwm = pwmMAX;
             }
-            else if( ((2*DTabs/3) <= TE) && (TE <= DTabs) )
+            else if( ((2.0*DTabs/3.0) <= TE) && (TE <= DTabs) )
             {
-                if(pwm > pwmMIN) pwm-=2;
+                if(pwm > pwmMIN) pwm -= 2;
             }
             
             PWM_CD_3.pulsewidth_us(pwm);
-            pc.printf("T3: %lf \t DT: %lf \t Te: %lf \t TE: %lf \t pwm: %ld \t \r", theta3, DT, Te, TE, pwm);
             theta3 = (360.0)*(encVal3/PPRQ);
             
             Te = ThD - theta3;
@@ -538,13 +532,16 @@ void setup()
     ENC_3B.rise(&ENC_3B_RISE);
     ENC_3B.fall(&ENC_3B_FALL);
     
-    // Establecimiento de periodo de la señal de pwm
+    // Establecimiento de periodo de la senal de pwm
 
     Servo1.period_ms(20);
     Servo2.period_ms(20);
     Servo3.period_ms(20);
     ServoEfector.period_ms(20);
     ServoLab.period_ms(20);
+    PWM_CD_1.period_ms(20);
+    PWM_CD_2.period_ms(20);
+    PWM_CD_3.period_ms(20);
     
     ControlServo(1,theta4Home);
     ControlServo(2,theta5Home);
@@ -552,7 +549,7 @@ void setup()
     ServoWrite(4, EfectorDetenido);
     ServoWrite(5, LaboratorioCerrado);
     
-    float calibration_factor = 8597230; // Valor obtenido de la calibracion
+    float calibration_factor = 11500; // Valor obtenido de la calibracion
     celda.setScale(0);
     celda.tare(); // Reiniciar el peso a 0
     celda.setScale(calibration_factor); // Ajustar con el valor de calibacion obtenido
@@ -564,13 +561,15 @@ void loop()
     if (orden == 1) // Atender la orden recibida
     {
         // Mover a posicion deseada
-        Control(3,theta3Inter,2500, 1000);
+        Control(3,theta3Inter,2500, 800);
+        Control(2,theta2D,0, 0); // El segundo GDL se controla en la interrupcion de control P
         Control(1,theta1D,1500, 600);
+        
         ControlServo(1,theta4D);
         ControlServo(2,theta5D);
         
-        Control(3,theta3D,2000, 1200);
-        Control(2,theta2D,0, 0); // El segundo GDL se controla en la interrupcion de control P
+        Control(3,theta3D,1000, 400);
+        
         
         CerrarEfector();
         wait(3);
@@ -584,18 +583,17 @@ void loop()
         ControlServo(1,theta4Lab);
         
         Control(2,theta2Lab,0, 0);
-        Control(3,theta3Lab,3000, 2000);
+        Control(3,theta3Lab,1000, 400);
         
         
         AbrirEfector();
         
         // Lectura de peso con la celda de carga
         masa = celda.getGram();
-        wait(3);
         
         // Liberar muestra
         ServoWrite(5,LaboratorioAbierto);
-        wait(0.5);
+        wait(1);
         ServoWrite(5,LaboratorioCerrado);
         
         
@@ -608,7 +606,7 @@ void loop()
         ControlServo(2,theta5Home);
         
         Control(1,theta1Home,1500, 600);
-        Control(3,theta3Home,2000, 1200);
+        Control(3,theta3Home,500, 500);
         
         // Rutina terminada
         

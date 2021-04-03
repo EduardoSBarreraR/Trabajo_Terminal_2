@@ -48,7 +48,6 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{listings} %% Para remarcado de sintaxis
-%\usepackage{maker} %% Remarcado de sintaxis de Processing y Arduino
 \usepackage{xcolor}
 \usepackage{longtable}
 \usepackage{caption}
@@ -319,7 +318,7 @@
 
 \bibliographystyle{IEEEtran} \nocite{*}
  \bibliography{XBiblioteca}
-
+ 
 \part{Apéndices}
 \appendix
 \renewcommand{\thesection}{A.~\arabic{section}}
@@ -332,17 +331,16 @@
 \include{apendices/apendice2}
 \renewcommand{\thesection}{E.~\arabic{section}}
 \include{apendices/apendice5}
+\renewcommand{\thesection}{F.~\arabic{section}}
+\include{apendices/apendice6-DiagramasFlujo}
 \part{Anexos}
 \anexo
 \renewcommand{\thesection}{A.~\arabic{section}}
 \include{apendices/anexo1}
-\include{apendices/anexo2}
-\include{apendices/anexo3}
-
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%  INDICE ALFABÉTICO%%%%%%%%%%
-\IndiceAlfabetico
+%\IndiceAlfabetico
 \end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 

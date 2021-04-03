@@ -2,8 +2,6 @@
 
 En este capítulo se describe la construcción realizada, siguiendo la secuencia de integración descrita en el capítulo anterior indicando, de ser necesario, las modificaciones realizadas al diseño original.\footnote{Por causas externas al proyecto (COVID-19) fue necesario realizar modificaciones en el diseño, así como una nueva selección de componentes con el fin de reducir costos y simplificar la construcción.}
 
-Para reducir costos, el requerimiento R1 de la Tabla \ref{Tabla:TabReq} fue modificado para tomar una muestra de 100 gramos.
-
 \section{S5. Estructural}
 
 El diseño original contemplaba perfil estructural IPS 2020 de aluminio, sin embargo, se opta por utilizar una estructura soldada de PTR (Perfil Tubular Rectangular) de $1\frac{1}{4}"$ calibre 14, ya que el material es más barato, más pesado (lo cual ayuda a equilibrar las cargas generadas por el brazo), y además es fácil de trabajar con las herramientas típicas de una herrería. Debido a que el material es acero estructural, se le aplica una capa de pintura para proteger el metal de la corrosión, eligiendo un color cromado para ser estéticamente similar al aluminio.
@@ -22,7 +20,7 @@ El diseño original contemplaba perfil estructural IPS 2020 de aluminio, sin emba
 	\label{fig:EstructuraConstruida}
 \end{figure}
 
-Como se puede apreciar en la Figura \ref{fig:EstructuraConstruida}, se modifica la pieza en la que reposa el brazo (mostrada en la Figura \ref{fig:Home}) por un fragmento de PTR que se ranura con el espacio adecuado para apoyar el brazo.
+Como se puede apreciar en la Figura \ref{fig:EstructuraConstruida}b, se modifica la pieza en la que reposa el brazo (mostrada en la Figura \ref{fig:Home}) por un fragmento de PTR que se ranura con el espacio adecuado para apoyar el brazo.
 
 \section{S1. Robótico}
 \subsection{M1. Manipulador}
@@ -30,7 +28,7 @@ Como se puede apreciar en la Figura \ref{fig:EstructuraConstruida}, se modifica 
 \subsubsection{Base del manipulador}
 De acuerdo al cambio de material en la estructura (S5), se utilizan tornillos de $\frac{3}{8}"$, por lo que se modifica el diámetro de los barrenos de la base fija de 10[mm] a $\frac{3}{8}"$.
 
-La base fija que se une a la estructura junto con el cilindro sobre el que se colocan los rodamientos se muestran en la Figura \ref{fig:PiezasBase}a, mientras que la base giratoria sobre la que se colocan los motores del segundo y tercer GDL se observan en la Figura \ref{fig:PiezasBase}b.
+Las piezas correspondientes a la base fija que se une a la estructura junto con el cilindro sobre el que se colocan los rodamientos se muestran en la Figura \ref{fig:PiezasBase}a, mientras que la base giratoria sobre la que se colocan los motores del segundo y tercer GDL se observa en la Figura \ref{fig:PiezasBase}b.
 
 \begin{figure}
 	\centering
@@ -46,9 +44,9 @@ La base fija que se une a la estructura junto con el cilindro sobre el que se co
 	\label{fig:PiezasBase}
 \end{figure}
 
-Gracias a que la masa fue reducida a 100 gramos, se puede elegir un motor que ofrezca un menor par, por lo que el modelo seleccionado es el motor de engranes planetarios Yellow Jacket 5202 Series, que proporciona 24.51[Nm] (Anexo XD).
+Gracias a que la masa de la muestra fue reducida a 100 gramos, es posible elegir un motor que ofrezca un menor par, por lo que el modelo seleccionado es el motor de engranes planetarios Yellow Jacket 5202 Series, que proporciona 24.51[Nm] (Anexo \ref{An:Mot}). Para validar esta selección, es útil recurrir nuevamente a la Figura \ref{fig:TorquesMotor}, que corresponde al cálculo con el diseño original, el cual indica que el par mínimo necesario que debe suministrar el motor es de 11.145 [Nm], por lo que se concluye que el par del motor Yellow Jacket es suficiente.
 
-Debido a que hay problemas de compatibilidad entre los ejes de 1/2'' y algunos componentes acoplados a estos, se cambian por ejes de acero inoxidable de 12[mm] de diámetro y las piezas compatibles con los mismos, vendidos por ServoCity (Anexo XD2). A estos ejes se les hace un desbastado longitudinal a lo largo de todo el cuerpo para facilitar la colocación y sujeción de accesorios, como se muestra en la Figura \ref{fig:EjDesb}. 
+Debido a que hay problemas de compatibilidad entre los ejes de 1/2'' y algunos componentes acoplados a estos, se cambian por ejes de acero inoxidable de 12[mm] de diámetro y las piezas compatibles con los mismos, vendidos por ServoCity (Anexo \ref{An:PiezasExtra}). A estos ejes se les hace un desbastado longitudinal a lo largo de todo el cuerpo para facilitar la colocación y sujeción de accesorios, como se muestra en la Figura \ref{fig:EjDesb}. 
 
 \begin{figure}
 	\centering
@@ -110,16 +108,16 @@ Los modelos CAD de los eslabones rediseñados se muestran en las Figuras \ref{fig
 	\centering
 	\begin{tabular}{cc}
 		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon1.png}}
-			{a}
+			{a) CAD eslabon 1}
 		&
 		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon2.png}}
-			{b}
+			{b) CAD eslabon 2}
         \\
         \subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/EslabonesLargosAlucobond.jpg}}
-			{c}
+			{c) Eslabón 1 construido }
 		&
 		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Fotos/EslabonesCortosAlucobond.jpg}}
-			{d}
+			{d) Eslabón 2 construido}
 		\\
 	\end{tabular}
 	\caption{Modelos CAD de los eslabones y eslabones construidos}
@@ -127,15 +125,15 @@ Los modelos CAD de los eslabones rediseñados se muestran en las Figuras \ref{fig
 \end{figure}
 
 \subsubsection*{Validación}
-Ya que el Alucobond es un material compuesto de aluminio y un polímero, no existe en la biblioteca de materiales de SOLIDWORKS, por lo que se utiliza acrílico (Módulo elástico = 45 MPa), pues al ser un material más frágil y quebradizo, si este material es capaz de resistir los esfuerzos, el Alucobond también lo será.
+Para comprobar que el material es capaz de resistir los esfuerzos asociados a la carga se utiliza acrílico, esto debido a que Solidworks no cuenta con el material Alucobond en su biblioteca. 
 
 \begin{figure}
 	\centering
 	\begin{tabular}{cc}
-		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon1Analisis.png}}
+		\subf{\includegraphics[width=0.55\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon1Analisis.png}}
 			{Eslabón 1}
 		&
-		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon2Analisis.png}}
+		\subf{\includegraphics[width=0.55\textwidth, keepaspectratio]{imagenes/Implementacion/Validaciones/Eslabones/EnsamblajeEslabon2Analisis.png}}
 			{Eslabón 2}
 		\\
 	\end{tabular}
@@ -143,7 +141,7 @@ Ya que el Alucobond es un material compuesto de aluminio y un polímero, no exist
 	\label{fig:AnEsAcr}
 \end{figure}
 
-Las Figuras \ref{fig:AnEsAcr}a y \ref{fig:AnEsAcr}b indican que los factores de seguridad son de 3.26 y 5.79 respectivamente, por lo que se concluye que el material resiste las cargas a las que es sometido.
+Las Figuras \ref{fig:AnEsAcr}a y \ref{fig:AnEsAcr}b indican que los factores de seguridad son de 3.26 y 5.79 respectivamente, y debido a que el límite elástico del acrílico (45 [MPa]) es menor al del Alucobond, se concluye que el material resiste las cargas a las que es sometido.
 
 \subsubsection{Muñeca esférica}
 
@@ -193,7 +191,20 @@ Las piezas del efector se imprimieron en ABS con alta resolución para los engran
 
 \subsubsection{Control y movimiento}
 
-Como se planeta en el diseño de dominio específico, la aproximación al control del manipulador es mediante juntas independientes. Por medio de pruebas experimentales se determinó que la única junta que requiere el uso de un control retroalimentado de posición es la segunda, ya que es la que está sujeta a una carga mayor. Este es un control proporcional sintonizado experimentalmente. 
+Los valores de posición obtenidos a través del algoritmo de visión implementado con el kinect se utilizan para conocer la posición del efector final, sin embargo su orientación está dada por la matriz $R$ descrita en la ecuación (\ref{eq:RTarget}), por lo que, para asegurar que el efector se ubique de forma perpendicular a la horizontal, se establece la matriz $R$ constante como sigue:
+
+$$
+R = 
+\begin{bmatrix}
+	-1 & 0 & 0\\
+	 0 & 1 & 0\\
+	 0 & 0 & -1
+\end{bmatrix}
+$$
+
+Además, para evitar colisiones con la estructura, se calcula $\theta_2$ utilizando la raíz negativa en la ecuación (\ref{eq:T2}) para forzar la configuración de codo arriba.\cite{Spong}
+
+Como se plantea en el diseño de dominio específico, la aproximación al control del manipulador es mediante juntas independientes. Ya que la segunda junta es la que está sometida a una carga mayor, se implementa en ésta un control proporcional retroalimentado sintonizado experimentalmente, con el objetivo de que el actuador entregue el par necesario para mantener la posición de la junta de acuerdo a la siguiente ecuación: 
 
 \begin{align}
 	pwm = kp * \theta_e
@@ -206,27 +217,27 @@ Para evitar las aceleraciones bruscas, se optó por utilizar un perfil de velocid
 
 \subsubsection{Configuraciones}
 
-Los ángulos de las juntas del robot mostrados en la Figura {GDLRobot.jpg} se miden como se estableció al calcular la cinemática directa mediante la convención de Denavit-Hartemberg. 
+Los ángulos de las juntas del robot mostrados en la Figura \ref{fig:GDLRobot}b se miden como se estableció al calcular la cinemática directa mediante la convención de Denavit-Hartenberg (Figura \ref{fig:GDLRobot}a), con valores de juntas $\theta_1 = 90$, $\theta_2 = \theta_3 = \theta_4 = \theta_5 = \theta_6 = 0$. 
 
 \begin{figure}
 	\centering
 	\begin{tabular}{cc}
-		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Dominio especifico/AsignacionMarcos.pdf}}
+		\subf{\includegraphics[width=\textwidth, keepaspectratio]{imagenes/Dominio especifico/AsignacionMarcos.pdf}}
 			{a) Modelo utilizado para la cinemática}
 		\\
-		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/PosicionExtendido.jpeg}}
+		\subf{\includegraphics[width=0.8\textwidth, keepaspectratio]{imagenes/Implementacion/PosicionExtendido.jpeg}}
 			{b) Robot en los ángulos cero}
 		\\
 	\end{tabular}
 	\caption{Comparación del modelo de robot con la implementación}
-	\label{fig:ConfClave}
+	\label{fig:GDLRobot}
 \end{figure}
 
 Cabe señalar que ya que los actuadores del tercer y cuarto grado de libertad están montados en la base del robot y el tercer grado de libertad transmite su movimiento mediante una polea ociosa colocada en el eje del segundo grado de libertad, el movimiento angular del tercer GDL es independiente del segundo GDL, lo que significa que el ángulo medido en esa junta es absoluto con respecto al plano horizontal, a diferencia del ángulo calculado, el cual es relativo al eslabón anterior. Por ello es necesario convertirlo mediante la fórmula $ \theta_{2 absoluto} = \theta_{2 relativo} + \theta_{1}$. 
 
-Para la ejecución de la tarea de "pick and place" se establecen dos configuraciones clave. La configuración de "Dejar muestra" posiciona el efector para que, al soltar la muestra, esta caiga en el contenedor del laboratorio, esto se puede ver en la Figura \ref{fig:ConfClave}. La otra configuración es "Home" la cual es el reposo del brazo y sirve de referencia de posición al iniciar el movimiento, puesto que se utilizan encoders incrementales como sensor de posición. Los valores de las juntas en dichas posiciones se muestran en la Tabla \ref{tab:PosRobot}.
+Para la ejecución de la tarea de ``pick and place" se establecen dos configuraciones clave. La configuración de ``Dejar muestra'' posiciona el efector para que, al soltar la muestra, esta caiga en la superficie de medición del laboratorio, esto se puede ver en la Figura \ref{fig:ConfClave}. La otra configuración es ``Home'', la cual es el reposo del brazo y sirve de referencia de posición al iniciar el movimiento, puesto que se utilizan encoders incrementales como sensor de posición. Los valores de las juntas en dichas posiciones se muestran en la Tabla \ref{tab:PosRobot}.
 
-La posición de home es diferente a la establecida en el diseño de dominio específico, ya que al implememntar el kinect como sistema de percepción, ocupa un lugar en el que corre el riesgo de ser golpeado y por lo tanto estar propenso a enviar información errónea de las coordenadas de la muestra. 
+La posición de home es diferente a la establecida en el diseño de dominio específico, ya que al implememntar el Kinect como sistema de percepción, ocupa un lugar en el que corre el riesgo de ser golpeado y enviar información errónea de las coordenadas de la muestra. 
 
 \begin{figure}
 	\centering
@@ -243,41 +254,44 @@ La posición de home es diferente a la establecida en el diseño de dominio especí
 \end{figure}
 
 \begin{table}[]
+	\centering
 	\caption{Configuraciones clave del robot }
 	\label{tab:PosRobot}
 	\begin{tabular}{|c|c|c|}
 	\hline
 		   & Dejar muestra & Home \\ \hline
-	$\theta_1$ &       82        &   59   \\ \hline
-	$\theta_2$ &       18        &   53   \\ \hline
-	$\theta_3$ &       120       &   158  \\ \hline
-	$\theta_4$ &       80        &   10   \\ \hline
-	$\theta_5$ &       150       &   10   \\ \hline
-	$\theta_6$ &       26        &   75   \\ \hline
+	$\theta_1$ &       $82^o$        &   $59^o$   \\ \hline
+	$\theta_2$ &       $18^o$        &   $54^o$   \\ \hline
+	$\theta_3$ &       $120^o$       &   $153^o$  \\ \hline
+	$\theta_4$ &       $80^o$        &   $10^o$   \\ \hline
+	$\theta_5$ &       $160^o$       &   $10^o$   \\ \hline
+	$\theta_6$ &       $26^o$        &   $15^o$   \\ \hline
 	\end{tabular}
 \end{table}
 
 
 \section{S4. Laboratorio}
-Para la implementación de este sistema, se diseñó un elemento de sujeción hecho de lámina de acero, mostrado en la Figura \ref{fig:Lab12} que soporta al sistema de laboratorio y lo mantiene unido al sistema estructural. 
+Para la implementación de este sistema se diseñó un elemento de sujeción hecho de lámina de acero, mostrado en la Figura \ref{fig:LabLamina}, que soporta al sistema de laboratorio y lo mantiene unido al sistema estructural. 
 
 \begin{figure}
     \centering		
-        \includegraphics[scale=0.4]{imagenes/Implementacion/Laboratorio/LabLamina.jpeg}
-        \caption{}
+        \includegraphics[scale=0.25]{imagenes/Implementacion/Laboratorio/LabLamina.jpeg}
+        \caption{Sujetador de laboratorio hecho con lámina de acero.}
         \label{fig:LabLamina}
 \end{figure}
 
-El sistema de laboratorio finalizado y sujeto a el sistema estructural se puede ver en las Figuras \ref{fig:Lab1}a y \ref{fig:Lab2}b.
+Para asegurar que la muestra se mantiene en la superficie de medición durante la lectura, y para incrementar las probabilidades de que la muestra caiga en la misma al ser liberada por el efector, se construye un cono recortando una botella de PET y atornillándola a la lámina de acero, como se observa en la Figura \ref{fig:Lab12}.
+
+El sistema de laboratorio finalizado y sujeto a el sistema estructural se puede ver en las Figuras \ref{fig:Lab12}a y \ref{fig:Lab12}b.
 
 \begin{figure}
 	\centering
 	\begin{tabular}{cc}
-		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Laboratorio/Lab1.jpeg}}
-			{a Vista frontal, donde se observa la superficie de medición y la superficie cónica}
+		\subf{\includegraphics[width=0.3\textwidth, keepaspectratio]{imagenes/Implementacion/Laboratorio/Lab1.jpeg}}
+			{a Vista frontal, donde se observa \\ la superficie de medición y la superficie cónica}
 		&
-		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Laboratorio/Lab2.jpeg}}
-			{b Vista lateral, donde se muestra el actuador del desechador}
+		\subf{\includegraphics[width=0.3\textwidth, keepaspectratio]{imagenes/Implementacion/Laboratorio/Lab2.jpeg}}
+			{b Vista lateral, donde se muestra \\ el actuador del desechador}
 		\\
 	\end{tabular}
 	\caption{Vistas del sistema de laboratorio}
@@ -286,7 +300,7 @@ El sistema de laboratorio finalizado y sujeto a el sistema estructural se puede 
 
 \section{S3. Energético}
 
-La fuente utilizada es la TDK-Lambda GWS250, que proporciona 20[A], ya que las modificaciones permitieron utilizar esta fuente, perteneciente a compañeros de la carrera.
+Debido a que se realizaron modificaciones al diseño obtenido en la fase de \textit{Diseño de dominio específico} para reducir costos, la fuente utilizada es la TDK-Lambda GWS250 (Anexo \ref{An:Fuente}), que proporciona 20[A], perteneciente a compañeros de la carrera, pues el peso reducido tanto en los eslabones como en la muestra recogida implican un menor consumo energético.
 
 Así mismo, se utilizan los Drivers Cytron 13 [A] y Cytron dual de 10[A] por canal para alimentar los motores de CD. Para los servomotores se utiliza el regulador Digilent TPS54620, que proporciona 5V a 6[A] de manera continua.
 
@@ -294,7 +308,7 @@ Estos componentes se pueden apreciar en la Figura \ref{fig:Energetico}, encerrad
 
 \begin{figure}
     \centering		
-        \includegraphics[scale=0.4]{imagenes/Implementacion/Energetico.jpeg}
+        \includegraphics[scale=0.4]{imagenes/Implementacion/Energetico_etiquetas.png}
         \caption{Distribución del sistema energético}
         \label{fig:Energetico}
 \end{figure}
@@ -303,36 +317,25 @@ Estos componentes se pueden apreciar en la Figura \ref{fig:Energetico}, encerrad
 
 \subsection{M3. Percepción}
 
-Con el fin reducir costos y facilitar el algoritmo de visión, se opta por utilizar una cámara RGB-D, la cual es el kinect v1, que se muestra en la Figura \ref{fig:KinectMic} fabricado por Microsoft\textregistered. Para esta plataforma existen varias aplicaciones de codigo libre, por lo que hay bibliotecas disponibles para la utilización de los datos obtenidos de los sensores\cite{ShiffmanKinect}.
+Con el fin reducir costos y facilitar el algoritmo de visión, se utiliza un Kinect v1, el cual es una cámara RGB-D fabricada por Microsoft\textregistered. Para esta plataforma existen varias aplicaciones de código libre, por lo que hay bibliotecas disponibles para la utilización de los datos obtenidos por los sensores\cite{ShiffmanKinect}, como es el sensor de profundidad, cuya información permite calcular la posición del objeto en el espacio utiliza en la cinemática inversa.
 
-\begin{figure}
-    \centering		
-        \includegraphics[scale=0.4]{imagenes/Implementacion/Vision/Kinect.png}
-        \caption{Kinect, fabricado por Microsoft\textregistered}
-        \label{fig:KinectMic}
-\end{figure}
-
-Ya que se desea obtener la posición en el espacio del objeto a sujetar, es necesario utilizar la información provista por el sensor profundidad, la cual es una representación de los datos de profundidad en un formato de imagen rgb o escala de grises. Cada uno de los pixeles de dicha imagen representa un valor de profundidad. La información de la imagen de profundidad (la cual está limitada al rango de valores que puede tomar el pixel rgb o escala de grises) proviene de otra cadena de datos que contiene los datos de profundidad tal cual los obtiene el sensor. Estos datos no tienen una relación lineal con la profunidad real, por lo que para su conversión a distancia debe tomar en cuenta varios parámetros de fábrica. Estos parámetros ya han sido obtenidos y calibrados, por lo que es posible hacer una función que permita conocer la ubicación espacial de cada pixel que se muestra en la imagen de profunidad\cite{FisherKinect}. 
-
-Debido a que el rango de sensibilidad del sensor de profundidad va desde los 48 cm en adelante, fue necesario colocar el kinect a una distancia mayor a la propuesta en el diseño (en la barra inferior de la estructura). La nueva posición es en la parte superior de la estructura, lo más cerca posible del centro. Esto provoca que la posición de home tenga que moverse, ya que de otra forma el manipulador estorbaría a la cámara y correria riesgo de ser golpeada por el mismo. 
-
-El hecho de que la cámara no esté perfectamente centrada en la estructura provoca que el campo de visión se encuentre recorrido y no abarque todo el espacio de trabajo del robot. 
+Debido a que el rango de detección del sensor de profundidad comienza a partir de los 48 cm, y que en el diseño original este se encuentra muy cerca del suelo, es necesario colocarlo en la parte superior de la estructura, desplazado hacia la izquierda para que el sistema robótico no interfiera en el área de visión, provocando que no abarque todo el espacio de trabajo del robot. 
 
 \subsection{M4. Comunicación}
 
-La comunicación con el usuario se realiza a través de una Interfaz Gráfica de Usuario, mostrada en la Figura \ref{fig:GUIsXD} en la que el operador debe seleccionar un punto de la imagen de profundidad que corresponda al objeto que desea tomar. El módulo de percepción obtiene las coordenadas en el espacio de ese punto y las muestra. Esta interfaz se desarrolla utilizando el lenguaje ``Processing\textregistered''\cite{ProcessingXD}, ya que este cuenta con bibliotecas que permiten utilizar el Kinect fácilmente. 
+La comunicación con el usuario se realiza a través de una Interfaz Gráfica de Usuario, mostrada en la Figura \ref{fig:GUIsXD} en la que el operador debe seleccionar un punto de la imagen de profundidad que corresponda al objeto que desea tomar. El módulo de percepción obtiene las coordenadas de ese punto en el espacio del robot, y las muestra. Esta interfaz se desarrolla utilizando el lenguaje ``Processing\textregistered''\cite{ProcessingXD}, ya que este cuenta con bibliotecas que permiten utilizar el Kinect fácilmente. 
 
-EL programa  de la interfaz calcula el vector de valores de las juntas del robot según las coordenadas deseadas, las cuales son enviadas a la tarjeta de procesamiento cuando el usuario presiona el botón ``Activar'', mientras que esta recolecta los datos de temperatura y peso de la muestra para enviarlos a la computadora.
+El programa  de la interfaz calcula el vector de valores de las juntas del robot según las coordenadas deseadas, las cuales son enviadas a la tarjeta de procesamiento cuando el usuario presiona el botón ``Activar'', mientras que esta recolecta los datos de temperatura y peso de la muestra para enviarlos a la computadora. Cabe destacar que mientras el sistema se encuentra en operación, cualquier orden enviada se ignora y solo se toma en cuenta la ultima posición enviada. 
 
 La comunicación entre la computadora y la tarjeta Núcleo es serial, utilizando el protocolo UART a través del puerto USB de la tarjeta de desarrollo.
 
 \begin{figure}
 	\centering
 	\begin{tabular}{cc}
-		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/GUI/GUIInicial.png}}
+		\subf{\includegraphics[width=0.8\textwidth, keepaspectratio]{imagenes/Implementacion/GUI/GUIInicial.png}}
 			{a) Pantalla de inicio}
-		&
-		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/GUI/GUICoordenadas.jpg}}
+		\\
+		\subf{\includegraphics[width=0.8\textwidth, keepaspectratio]{imagenes/Implementacion/GUI/GUICoordenadas.jpg}}
 			{b) Pantalla una vez que se ha seleccionado la muestra}
 		\\
 	\end{tabular}
@@ -350,11 +353,11 @@ Como se puede observar en la Figura \ref{fig:PinesNukleoFinal}, se utilizan los 
 	\item Motores de CD
 	\begin{itemize}
 		\item PC4: Dirección de motor de CD del 1er GDL - Salida Digital
-		\item PA10: PWM del motor de CD del 1er GDL - Salida de PWM (imer 1-Canal 3)
+		\item PA10: PWM del motor de CD del 1er GDL - Salida de PWM (Timer 1 - Canal 3)
 		\item PB4: Dirección de motor de CD del 2o GDL - Salida Digital
-		\item PB5: PWM del motor de CD del 2o GDL - Salida de PWM (imer 3-Canal 2)
+		\item PB5: PWM del motor de CD del 2o GDL - Salida de PWM (Timer 3 - Canal 2)
 		\item PB13: Dirección de motor de CD del 3er GDL - Salida Digital
-		\item PB3: PWM del motor de CD del 3er GDL - Salida de PWM (imer 2-Canal 2)
+		\item PB3: PWM del motor de CD del 3er GDL - Salida de PWM (Timer 2 - Canal 2)
 	\end{itemize}
 	\item Encoders
 	\begin{itemize}
@@ -367,11 +370,11 @@ Como se puede observar en la Figura \ref{fig:PinesNukleoFinal}, se utilizan los 
 	\end{itemize}
 	\item Servomotores
 	\begin{itemize}[noitemsep,nolistsep]
-		\item PB9(Alternativo): Servomotor del 4o GDL - Salida de PWM (Timer 4-Canal4)
-		\item PB8: Servomotor del 5o GDL - Salida de PWM (Timer 4-Canal3)
-		\item PC9: Servomotor del 6o GDL - Salida de PWM (Timer 3-Canal4)
-		\item PC8: Servomotor del efector final - Salida de PWM (Timer 3-Canal3)
-		\item PC6: Servomotor del mecanismo de desecho del laboratorio - Salida de PWM (Timer 3-Canal1)
+		\item PB9(Alternativo\footnote{Los pines están conectados a varios Timers como fuente de PWM, el cual se especifica mediante código \cite{NucleoPeripheralPins}}): Servomotor del 4o GDL - Salida de PWM (Timer 4 - Canal 4)
+		\item PB8: Servomotor del 5o GDL - Salida de PWM (Timer 4 - Canal 3)
+		\item PC9: Servomotor del 6o GDL - Salida de PWM (Timer 3 - Canal 4)
+		\item PC8: Servomotor del efector final - Salida de PWM (Timer 3 - Canal 3)
+		\item PC6: Servomotor del mecanismo de desecho del laboratorio - Salida de PWM (Timer 3 - Canal 1)
 	\end{itemize}
 	\item Celda de carga
 	\begin{itemize}
@@ -388,12 +391,12 @@ Como se puede observar en la Figura \ref{fig:PinesNukleoFinal}, se utilizan los 
 
 \begin{figure}
     \centering		
-        \includegraphics[scale=0.4]{imagenes/Implementacion/Distribucion pines final.pdf}
+        \includegraphics[scale=1.5]{imagenes/Implementacion/Distribucion pines final.pdf}
         \caption{Pines utilizados en la núcleo STM32F446RE}
         \label{fig:PinesNukleoFinal}
 \end{figure}
 
-Esto conlleva una modificación en el diagrama esquemático y el PCB del circuito diseñado, los cuales se muestran actualizados en las Figuras \ref{fig:PlakaNueva}a y \ref{fig:PlakaNueva}b respectivamente, mientras que la placa construida puede observarse en la Figura \ref{PlakaConstruida}.
+Esto conlleva una modificación en el diagrama esquemático y el PCB del circuito diseñado, los cuales se muestran actualizados en las Figuras \ref{fig:PlakaNueva}a y \ref{fig:PlakaNueva}b respectivamente, mientras que la placa construida puede observarse en la Figura \ref{fig:PlakaConstruida}.
 
 \begin{figure}
 	\centering
@@ -418,17 +421,19 @@ Esto conlleva una modificación en el diagrama esquemático y el PCB del circuito 
 
 \section{Integración}
 
-Debido a que el ángulo cero del robot (mostrado en la Figura \ref{fig:ConfClave}) no coincide con los ángulos cero de los servos en los GDL 4, 5 y 6, es necesario realizar un ajuste por medio del código, el cual es diferente para cada servo, como se muestra en las siguientes fórmulas: a) Servo 4GDL: $\theta_4 + 90$, b) Servo 5GDL: $\theta_5 + 100$ c) Servo 6GDL: $\theta_6 + 15$.
+El sistema completo se puede apreciar en la Figura \ref{fig:RobotCompleto}, el cual es muy similar al render mostrado en la Figura \ref{fig:RenderPitero}.
 
-Por otro lado, para controlar cada junta se realizó una rutina dependiendo de la posición objetivo con ayuda de una posición auxiliar en el 3er GDL, la cual se utiliza para poder modificar la orientación del efector sin golpear el Kinect ni la estructura, como se puede observar en la Figura \ref{fig:PosAux}.
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.5]{imagenes/Implementacion/Fotodetodoxd.png}
+        \caption{Sistema robótico completo}
+        \label{fig:RobotCompleto}
+\end{figure}
+
+Debido a que las posiciones de cero grados en las juntas del robot (mostrado en la Figura \ref{fig:GDLRobot}b) no coinciden con los ángulos cero de los servos en los GDL 4, 5 y 6, es necesario realizar un ajuste en el código, el cual es diferente para cada servo, como se muestra en las siguientes fórmulas: a) Servo 4GDL: $\theta_4 + 90$, b) Servo 5GDL: $\theta_5 + 100$ c) Servo 6GDL: $\theta_6 + 15$.
+
+Por otro lado, para mover cada junta se realiza una rutina dependiendo de la posición objetivo con ayuda de una posición auxiliar en el 3er GDL, la cual se utiliza para poder modificar la orientación del efector sin golpear el Kinect ni la estructura, como se puede observar en la Figura \ref{fig:PosAux}.
 La rutina que el robot ejecuta es la siguiente:
-
-\begin{itemize}
-	\item Paso 1. Home - Muestra seleccionada: GDL3(Posición auxiliar), GDL1(Posición objetivo), GDL4(Posición deseada), GDL5(Posición deseada), GDL3(Posición objetivo), GDL2(Posición objetivo), Cerrar efector.
-	\item Paso 2. Muestra seleccionada - Laboratorio: GDL3(Posición auxiliar), GDL1(Posición laboratorio), GDL6(Posición laboratorio), GDL5(Posición laboratorio), GDL4(Posición laboratorio), GDL2(Posición laboratorio), GDL3(Posición laboratorio), Abrir efector, Liberar muestra, Cerrar laboratorio.
-	\item Paso 3. Laboratorio - Home: GDL2(Posición Home), GDL6(Posición Home), GDL4(Posición Home), GDL5(Posición Home), GDL1(Posición Home), GDL3(Posición Home).
-	\item Paso 4. Enviar datos a la computadora y una señal que reactive el botón para una nueva selección de muestra.
-\end{itemize}
 
 \begin{figure}
     \centering		
@@ -437,11 +442,240 @@ La rutina que el robot ejecuta es la siguiente:
         \label{fig:PosAux}
 \end{figure}
 
-El sistema completo se puede apreciar en la Figura \ref{fig:RobotCompleto}, el cual es muy similar al render mostrado en la Figura \ref{fig:RenderPitero}.
+\begin{itemize}[noitemsep,nolistsep]
+	\item Paso 1: Home - Muestra seleccionada. 
+	\begin{enumerate}[noitemsep,nolistsep]
+		\item Posición auxiliar del 3$^{er}$ GDL.
+		\item Posición objetivo del 1$^{er}$ GDL.
+		\item Posición objetivo del 4$^{o}$ GDL.
+		\item Posición objetivo del 5$^{o}$ GDL.
+		\item Posición objetivo del 3$^{er}$ GDL.
+		\item Posición objetivo del 2$^{o}$ GDL.
+		\item Cerrar efector.
+	\end{enumerate}
+	\item Paso 2: Muestra seleccionada - Laboratorio.
+	\begin{enumerate}[noitemsep,nolistsep]
+		\item Posición auxiliar del 3$^{er}$ GDL. 
+		\item Posición de laboratorio del 1$^{er}$ GDL.
+		\item Posición de laboratorio del 6$^{o}$ GDL.
+		\item Posición de laboratorio del 5$^{o}$ GDL.
+		\item Posición de laboratorio del 4$^{o}$ GDL.
+		\item Posición de laboratorio del 2$^{o}$ GDL.
+		\item Posición de laboratorio del 3$^{er}$ GDL.
+		\item Abrir efector.
+		\item Liberar muestra.
+		\item Regresar superficie de medición.
+	\end{enumerate}
+	\item Paso 3: Laboratorio - Home.
+	\begin{enumerate}[noitemsep,nolistsep]
+		\item Posición de home 2$^{o}$ GDL.
+		\item Posición de home 6$^{o}$ GDL.
+		\item Posición de home 4$^{o}$ GDL.
+		\item Posición de home 5$^{o}$ GDL.
+		\item Posición de home 1$^{er}$ GDL.
+		\item Posición de home 3$^{er}$ GDL. 
+	\end{enumerate}
+	
+	\item Paso 4. Enviar datos a la computadora y una señal que reactive el botón para una nueva selección de muestra.
+\end{itemize}
+
+\section{Resultados obtenidos}
+
+A continuación se presenta un resumen de los resultados obtenidos con el sistema, los cuales se midieron con una muestra de 20 pruebas en un entorno controlado, realizadas en interiores sobre una mesa en la que se reposa el objeto a recoger, como se muestra en la Figura \ref{fig:RobotEntorno}, teniendo éxito en la operación en 5 ocasiones. En la sección \ref{sec:TrabajoFuturo} se discuten posibles soluciones a los problemas aquí presentados.
 
 \begin{figure}
     \centering		
-        \includegraphics[scale=0.4]{imagenes/Implementacion/Fotodetodoxd.png}
-        \caption{Sistema robótico completo}
-        \label{fig:RobotCompleto}
+        \includegraphics[scale=0.1]{imagenes/Implementacion/Resultados/Sistema completo.jpg}
+        \caption{Entorno de pruebas del sistema robótico}
+        \label{fig:RobotEntorno}
 \end{figure}
+
+\subsection*{S1. M1. Manipulador robótico}
+
+\subsubsection*{Carga máxima}
+
+Con el objetivo de evitar el sobreimpulso, se establece un ciclo útil de PWM máximo de 15\% para limitar la velocidad de movimiento, lo cual influye directamente en la capacidad de carga, sin embargo, como se puede ver en la Figura \ref{fig:CargaMAXNaranja}, el sistema es capaz de manipular una carga de 215 gramos, lo que es 2 veces mayor a lo especificado en el requerimiento R1 modificado (100 gramos).	
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.2]{imagenes/Implementacion/Resultados/CargaMAX.jpg}
+        \caption{Carga máxima aplicada al robot, (215 gramos en voladizo)}
+        \label{fig:CargaMAXNaranja}
+\end{figure}
+
+
+
+
+\subsubsection*{Alcance}
+
+\begin{flushright}
+	\textbf{\textit{Rango de movimiento de los eslabones}}
+\end{flushright}
+
+El primer grado de libertad puede girar sin golpear la estructura en un rango entre 45 grados y 145 grados, lo que significa que el rango de movimiento es de 100 grados, como se muestra en las Figuras \ref{fig:RangoGDL1}a y \ref{fig:RangoGDL1}b respectivamente.
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Resultados/RangoMinimo_GDL1.png}}
+			{a) Ángulo mínimo}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Implementacion/Resultados/RangoMaximo_GDL1.png}}
+			{b) Ángulo máximo}
+		\\
+	\end{tabular}
+	\caption{Rango de movimiento del primer grado de libertad del robot}
+	\label{fig:RangoGDL1}
+\end{figure}
+
+El segundo GDL del robot puede moverse en un rango de $-45^o <= \theta_2 <= 70^o $, siendo el valor máximo el límite en el que no golpea al Kinect, como se observa en la Figura \ref{fig:RangoGDL2}. En cuando al tercer GDL, su rango de movimiento depende del valor de $\theta_2$.
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.12]{imagenes/Implementacion/Resultados/RangoMaximo_GDL2.png}
+        \caption{Ángulo máximo del segundo grado de libertad del robot}
+        \label{fig:RangoGDL2}
+\end{figure}
+
+\begin{flushright}
+	\textbf{\textit{Alcance mínimo}}
+\end{flushright}
+
+La distancia mínima a la que debe estar un objeto para que el robot pueda alcanzarla es de 10 [cm] alrededor del eje de giro del primer GDL, lo cual se consigue con una configuración de $\theta_2 = 23^o$ y $\theta_3 = -117^o$ a lo largo de todo el rango de movimiento del primer GDL. Esta configuración se muestra en la Figura \ref{fig:AlcanceMinimo}. 
+La distancia más lejana en la que el robot puede recoger una muestra es de 68 cm, mostrado en la Figura \ref{fig:AlcanceMaximo}. 
+El área total que puede alcanzar el robot se muestra en la Figura \ref{fig:AlcanceRobot}.
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.12]{imagenes/Implementacion/Resultados/Alcance_MIN.png}
+        \caption{Alcance mínimo del robot}
+        \label{fig:AlcanceMinimo}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[height=0.4\textheight, keepaspectratio]{imagenes/Implementacion/Resultados/Alcance_MAX.jpg}}
+			{a) Configuración del robot en su alcance máximo}
+		&
+		\subf{\includegraphics[height=0.4\textheight, keepaspectratio]{imagenes/Implementacion/Resultados/AlcanceMAX2.jpg}}
+			{b) Distancia máxima}
+		\\
+	\end{tabular}
+	\caption{Alcance máximo del robot}
+	\label{fig:AlcanceMaximo}
+\end{figure}
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.15]{imagenes/Implementacion/Resultados/Alcance_Robot.png}
+        \caption{Alcance total del robot}
+        \label{fig:AlcanceRobot}
+\end{figure}
+
+\subsection*{S1. M2. Efector final}
+
+El efector es capaz de agarrar muestras con las dimensiones especificadas, como se puede observar en la Figura \ref{fig:AgarreRobot}a, así como muestras de dimensiones mayores a las requeridas, aunque la posición no sea la ideal, como se muestra en la Figura \ref{fig:AgarreRobot}b, en la que se aprecia como el efector toma la naranja solo con las puntas de los dedos. Después de realizar pruebas de cierre de efector con objetos de diferentes tamaños, se determina que el tiempo de cierre y apertura que el efector requiere para poder asegurar la muestra es de 5 segundos.
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[height=0.4\textheight, keepaspectratio]{imagenes/Implementacion/Resultados/Efectoragarre.jpeg}}
+			{a) Condiciones ideales (Todas las falanges)}
+		&
+		\subf{\includegraphics[height=0.4\textheight, keepaspectratio]{imagenes/Implementacion/Resultados/AgarreNaranja.jpg}}
+			{b) Condiciones no ideales (Punta de los dedos)}
+		\\
+	\end{tabular}
+	\caption{Alcance máximo del robot}
+	\label{fig:AgarreRobot}
+\end{figure}
+
+\subsection*{S2. M3. Percepción}
+
+Debido a que la distancia mínima a la que el Kinect puede detectar un objeto es de 48[cm] y que se coloca de manera perpendicular al plano horizontal (XY), el área de visión es reducida (68x49[cm]), como se muestra en la Figura \ref{fig:VisionRobot}. 
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.15]{imagenes/Implementacion/Resultados/Area_Vision.png}
+        \caption{Rango de visión del robot}
+        \label{fig:VisionRobot}
+\end{figure}
+
+Es importante tomar en cuenta que los parámetros de este dispositivo son privativos, por lo que no es posible obtener una ubicación 100\% exacta de la muestra sin embargo, el error máximo de las lecturas realizadas es de 3\%, como se puede observar en las diferentes capturas de la GUI mostradas en la Figura \ref{fig:GUILecturas}.
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=70mm, height=50mm]{imagenes/Implementacion/Resultados/GUI_1.jpg}}
+			{a) }
+		&
+		\subf{\includegraphics[width=70mm, height=50mm]{imagenes/Implementacion/Resultados/GUI_2.jpg}}
+			{b) }
+		\\
+		\subf{\includegraphics[width=70mm, height=50mm]{imagenes/Implementacion/Resultados/GUI_3.jpg}}
+			{c) }
+		&
+		\subf{\includegraphics[width=70mm, height=50mm]{imagenes/Implementacion/Resultados/GUI_5.jpg}}
+			{d) }
+		\\
+		\subf{\includegraphics[width=70mm, height=50mm]{imagenes/Implementacion/Resultados/GUI_4.jpg}}
+			{e) }
+		\\
+	\end{tabular}
+	\caption{Interfaz Gráfica de Usuario ubicando la muestra en diferentes posiciones}
+	\label{fig:GUILecturas}
+\end{figure}
+
+Conociendo el alcance total del robot y el rango de visión que ofrece el Kinect, es posible identificar el espacio de trabajo del sistema, siendo esta la intersección del alcance del robot y el rango de visión del Kinect, como se puede observar en la Figura \ref{fig:AreaTrabajoRobot}.
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.15]{imagenes/Implementacion/Resultados/Area_Trabajo.png}
+        \caption{Área de trabajo del robot}
+        \label{fig:AreaTrabajoRobot}
+\end{figure}
+
+\subsection*{S2. M4. Comunicación}
+
+La comunicación usuario-computadora-microcontrolador se realiza a través de la Interfaz Gráfica de Usuario (GUI por sus siglas en inglés, \textit{Graphic User Interface}), en la que el usario debe ser capaz de interpretar la imagen de profundidad para seleccionar la muestra de interés. En cuanto a la comunicación con el microcontrolador, esta se realiza a 250000 baudios sin perder información.
+
+\subsection*{S2. M5. Procesamiento}
+
+La tarjeta de desarrollo Núcleo STM32F446RE es capaz de procesar toda la información necesaria para controlar el robot, comunicarse con la computadora y realizar la lectura de los sensores sin presentar retrasos.
+
+\subsection*{S3. Energético}
+
+La fuente de alimentación es capaz de suministrar la corriente requerida por los actuadores, mientras que los sensores pueden ser alimentados por el puerto USB de la computadora a través de la tarjeta Núcleo, ya que consumen menos de 300 [mA] en conjunto.
+
+\subsection*{S4. M6. Obtención de datos}
+
+La superficie de medición es un cuadrado de 8 [cm] que es capaz de recibir la muestra con la ayuda del cono de PET (La Figura \ref{fig:SuperficieMedicion} muestra este ensamble) sin que caiga una vez que está dentro, manteniéndola en su lugar hasta que es desechada, esto se puede observar en la Figura \ref{fig:EspacioMuestraLab}.
+
+En cuanto a la medición de masa, la celda de carga se dañó, por lo que no funciona.
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.07]{imagenes/Implementacion/Resultados/Superficie_Medicion.JPG}
+        \caption{Superficie de medición de la muestra}
+        \label{fig:SuperficieMedicion}
+\end{figure}
+
+\subsection*{S4. M7. Desechador}
+
+Con las dimensiones mencionadas anteriormente, el módulo de desechador es capaz de liberar muestras con diámetros menores a 8[cm], como se puede apreciar en la Figura \ref{fig:EspacioMuestraLab}.
+
+\begin{figure}
+    \centering		
+        \includegraphics[scale=0.07]{imagenes/Implementacion/Resultados/Espacio_Muestra.JPG}
+        \caption{Espacio para muestras de diámetro menor a 8[cm]}
+        \label{fig:EspacioMuestraLab}
+\end{figure}
+
+\subsection*{S5. Estructural}
+
+La estructura es capaz de soportar al resto de sistemas y las reacciones generadas por los mismos sin desestabilizarse ni vibrar.
+
+\subsection*{Resultado general}
+
+Una vez que se envía la orden a través de la GUI, el sistema tarda alrededor de 1 minuto en llegar de la posición de ``Home'' a la ubicación de la muestra, mientras que la tarea completa se realiza en 2 minutos 20 segundos aproximadamente, después de los cuales el sistema está listo para recibir una nueva orden. Esta función puede realizarse con una probabilidad de éxito del 25\%, ya que el efector empuja frecuentemente la muestra mientras llega a su ubicación, del mismo modo existe poca repetibilidad atribuida a la holgura mecánica, además el control aplicado no es capaz de reaccionar a cambios bruscos en la distribución del peso debidos a la configuración del brazo y la acción de la gravedad sobre el mismo. Por esta razón es necesario calibrar la posición de ``Home'' tras cada uso, pues esto aumenta significativamente la probabilidad de éxito en pruebas sucesivas.

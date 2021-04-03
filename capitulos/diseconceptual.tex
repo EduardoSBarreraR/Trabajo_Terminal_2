@@ -40,7 +40,7 @@ Una vez que se han establecido las necesidades que el sistema debe satisfacer, e
 \begin{tabular}{|c|c|c|}
 \hline
 \textbf{Identificador} & \textbf{Requerimiento}               & \textbf{Valor}                   \\ \hline
-R1                     & Masa máxima de la muestra            & 250 g                            \\ \hline
+R1                     & Masa máxima de la muestra            & 100 g                            \\ \hline
 R2                     & Diámetro máximo de la muestra        & 5 cm                             \\ \hline
 R3                     & Esfericidad                          & Media a alta                     \\ \hline
 R4                     & Angularidad     & Sub-angular a bien redondeada    \\ \hline
@@ -270,7 +270,7 @@ Las condiciones del entorno se obtienen a través de M3.
 
 Una vez que se han validado los módulos es útil comenzar a agruparlos en sistemas, para la cual se utiliza un diagrama de bloques que describe gráficamente a la \textit{Arquitectura física}\cite{Buede}, de manera que resulte más sencillo analizar la interacción entre estos para dar paso a la búsqueda de soluciones.
 
-La Figura \ref{fig:ArqFis} muestra como el sistema estructural se encarga de integrar el resto de sistema y módulos para que trabajen en conjunto.El sistema de información se conforma del módulo de percepción, el cual obtiene datos de las condiciones internas y externas al sistema; el módulo de comunicación, controlando el tráfico de datos; y por último el módulo de procesamiento, el cual se encarga de recibir los datos, interpretarlos, tomar decisiones con base en ellos y, finalmente, emitir órdenes al resto de módulos. El sistema robótico se compone del efector, que es la herramienta que permite sujetar y soltar la muestra, y del manipulador, que consta de un brazo articulado de 3 GDL para posicionar el efector, y de una muñeca esférica para orientarlo. El sistema energético suministra de energía a todo el sistema, adaptándola a las específicas de cada uno. Finalmente el laboratorio se compone del módulo de obtención de datos, y del desechador, que devuelve la muestra al ambiente una vez que ha sido analizada.
+La Figura \ref{fig:ArqFis}, correspondiente a la Arquitectura Física, muestra como el sistema estructural se encarga de integrar el resto de sistema y módulos para que trabajen en conjunto.El sistema de información se conforma del módulo de percepción, el cual obtiene datos de las condiciones internas y externas al sistema; el módulo de comunicación, controlando el tráfico de datos; y por último el módulo de procesamiento, el cual se encarga de recibir los datos, interpretarlos, tomar decisiones con base en ellos y, finalmente, emitir órdenes al resto de módulos. El sistema robótico se compone del efector, que es la herramienta que permite sujetar y soltar la muestra, y del manipulador, que consta de un brazo articulado de 3 GDL para posicionar el efector, y de una muñeca esférica para orientarlo. El sistema energético suministra de energía a todo el sistema, adaptándola a las específicas de cada uno. Finalmente el laboratorio se compone del módulo de obtención de datos, y del desechador, que devuelve la muestra al ambiente una vez que ha sido analizada.
 
 
 \begin{landscape}
@@ -291,7 +291,7 @@ La Figura \ref{fig:ConceptoS} muestra los modelos tridimensionales de las soluci
 
 El concepto 1 (Figura \ref{fig:ConceptoS}a) tiene un brazo construido de placas paralelas, un gripper con forma de pinza de 2 dedos como efector final, un laboratorio con un cono en la parte superior para guiar la caída de la muestra, y circuitos electrónicos apilados y colocados en el centro de la estructura.
 
-El concepto 2 (Figura \ref{fig:ConceptoS}b) tiene eslabones eslabones tubulares, y un efector final similar a los presentes en las excavadoras. Los circuitos también se encuentran apilados y se ubican en la esquina superior derecha (desde la vista frontal), mientras que el laboratorio está en la esquina superior izquierda.
+El concepto 2 (Figura \ref{fig:ConceptoS}b) tiene eslabones tubulares, y un efector final similar a los presentes en las excavadoras. Los circuitos también se encuentran apilados y se ubican en la esquina superior derecha (desde la vista frontal), mientras que el laboratorio está en la esquina superior izquierda.
 
 El concepto 3 (Figura \ref{fig:ConceptoS}c) cambia en el laboratorio, el cual es un tubo que desliza la muestra hacia la zona de análisis y después a un agujero que la deja caer. El efector final es un gripper de 3 dedos.
 
@@ -401,6 +401,6 @@ Por lo tanto, las modificaciones a realizar son:
 
 Es necesario someter el \textbf{Cm} a la misma evaluación aplicada a los otros conceptos, comparando únicamente el \textbf{Ce} con el \textbf{Cm}, de manera que si este último obtiene un mejor puntaje, significa que las modificaciones realizadas incrementan el desempeño del sistema.
 
-Tras realizar la evaluación de conceptos, el concepto 5 obtuvo \textit{.375}, mientras que el \textbf{Cm} obtuvo \textit{0.588}.
+Tras realizar la evaluación de conceptos, el concepto 5 obtuvo \textit{0.375}, mientras que el \textbf{Cm} obtuvo \textit{0.588}.
 
 La Figura \ref{fig:ConceptoMejorado} muestra el modelo tridimensional del concepto final mejorado (\textbf{Cm}), en el que se han realizado los cambios mencionados previamente.

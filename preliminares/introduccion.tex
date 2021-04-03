@@ -23,7 +23,7 @@ y mediática para distintas agencias espaciales en todo el mundo.
 Puesto que el principal objetivo de un \textit{rover} es el análisis \textit{in situ}, la capacidad de trasladarse,
 aunque vital, no es suficiente para una misión de exploración que obtenga resultados
 científicos relevantes. Es por ello que los \textit{rovers} más sofisticados como Opportunity y Spirit\cite{RoverMissions},
-junto al Curiosity\cite{MissionOverview} y el Mars 2020\cite{RoverMars2020} de la NASA, incorporan un brazo robótico que dota al
+junto al Curiosity\cite{MissionOverview} y el Perserverance\cite{RoverMars2020} de la NASA, incorporan un brazo robótico que dota al
 vehículo con la capacidad de ejecutar diversas tareas, como transportar instrumental de
 imagen a lugares específicos de interés para realizar estudios. Otra aproximación es la de
 montar un taladro sobre la estructura del \textit{rover} para extraer las muestras, sin embargo esta
@@ -197,10 +197,15 @@ de datos a una estación.
 
 En el capítulo 1, denominado ``Marco de referencia'' se da una breve descripción de los fundamentos requeridos para el desarrollo del proyecto, como lo son algunos conceptos de diseño mecánico, modelado de robots, visión por computador, electrónica y la metodología de diseño mecatrónico.
 
-El capítulo 2, ``Diseño del sistema'', introduce las necesidades que el sistema debe satisfacer y a partir de ellas desarrollan los requerimiento técnicos que sirven como base para generar la arquitectura funcional a través de modelos tales como FBS\cite{FBS}, IDEF0\cite{IDEF0} y eFFBD\cite{eFFBD}. Posteriormente se plantean los módulos que conforman al sistema mecatrónico, y a partir de ellos se proponen soluciones que se someten a una herramienta de selección multi-criterio para encontrar la que mejor satisface los criterios establecidos.
+El capítulo 2, ``Diseño'', toma en cuenta lo siguiente:
 
-En el capítulo 3, ``Diseño de dominio específico'', se realiza un diseño a profundidad de cada uno de los módulos que conforman el concepto solución elegido en el capítulo 2.
+2.1: ``Diseño del sistema'', introduce las necesidades que el sistema debe satisfacer y a partir de ellas desarrollan los requerimiento técnicos que sirven como base para generar la arquitectura funcional a través de modelos tales como FBS\cite{FBS}, IDEF0\cite{IDEF0} y eFFBD\cite{eFFBD}. Posteriormente se plantean los módulos que conforman al sistema mecatrónico, y a partir de ellos se proponen soluciones que se someten a una herramienta de selección multi-criterio para encontrar la que mejor satisface los criterios establecidos.
 
-En el capítulo 4, ``Integración'', se realiza la unión de los módulos diseñados para asegurar que cada una de las partes del sistema opera de manera armónica con las demás. Este proceso se realiza siguiendo una secuencia que inicia con el hardware y concluye con el software.
+2.2: ``Diseño de dominio específico'', se realiza un diseño a profundidad de cada uno de los módulos que conforman el concepto solución elegido en el capítulo 2.
 
-Finalmente, en el capítulo 5 se analizan los resultados de las simulaciones computacionales para determinar si el sistema diseñado es adecuado para cumplir los requerimientos.
+2.3: ``Integración del sistema mecatrónico'', se realiza la unión de los módulos diseñados para asegurar que cada una de las partes del sistema opera de manera armónica con las demás. Este proceso se realiza siguiendo una secuencia que inicia con el hardware y concluye con el software.
+
+En el capítulo 3, ``Implementación'' se describe detalladamente el proceso de fabricación del sistema, así como la realización de una fase de pruebas para detectar y solucionar problemas a través de rediseños con el fin de garantizar el cumplimiento de la función principal.
+
+Finalmente, en el capítulo 4 se analizan los resultados de las simulaciones computacionales para determinar si se cumplen los objetivos.
+

@@ -4,12 +4,12 @@
 
 \subsection{Descripción de forma de partículas}
 
-Medir dimensiones y características de partículas individuales es un proceso tardado y costoso, por ellos existen escalas cualitativas que permiten una rápida evaluación visual de la misma. Dichas tablas evalúan parámetros como la angularidad y esfericidad. De acuerdo a \cite{Esfericidad}, una escala como esta es usada en la norma ASTM F1632 2003, como se muestra en la Figura \ref{fig:Esfericidaddd}.
+Medir dimensiones y características de partículas individuales es un proceso tardado y costoso, por ello existen escalas cualitativas que permiten una rápida evaluación visual de la misma. Dichas escalas evalúan parámetros como la angularidad y esfericidad,como la usada en la norma ASTM F1632 2003, que se muestra en la Figura \ref{fig:Esfericidaddd}.
 
 \begin{figure}
 \centering		
 	\includegraphics[scale=0.3]{imagenes/Marco Teorico/Esfericidad.png}
-	\caption{Cuadro cualitativo para determinar visualmente la forma de una partícula}
+	\caption{Escala cualitativa para determinar visualmente la forma de una partícula \cite{Esfericidad}}
 	\label{fig:Esfericidaddd}
 \end{figure}
 
@@ -17,13 +17,11 @@ Medir dimensiones y características de partículas individuales es un proceso tar
 
 \subsubsection{Selección de materiales}
 
-Las propiedades mecánicas de los materiales influyen en el desempeño de los componentes físicos, por esta razón es necesario tomar en cuenta sus límites para el diseño. Además es importante considerar la relación existente entre las propiedades, pues suele tomarse en cuenta la combinación de ellas para realizar la selección.
-
-En este documento, son de particular interés las propiedades de rigidez y densidad, por lo que se utiliza la relación entre el módulo de Young y la densidad\cite{Ashby}.
+Las propiedades mecánicas de los materiales influyen en el desempeño de los componentes físicos, por esta razón es necesario tomar en cuenta sus límites para el diseño. Es de particular interés la relación entre la rigidez (módulo de Young) y la densidad\cite{Ashby}, pues permite diseñar un sistema ligero y capaz de manipular las muestras sin sufrir daños.
 
 \subsubsection{Diseño de transmisión por bandas}
 
-Para seleccionar las bandas a usar, se debe establecer la relación de velocidades entre la polea conductora y la polea conducida, además del par que el motor suministra.
+Para seleccionar las bandas, se debe establecer la relación de velocidades entre la polea conductora y la polea conducida, además del par que el motor suministra.
 
 La velocidad tangencial de un objeto que gira se relaciona con la velocidad angular según la ecuación: 
 
@@ -32,21 +30,19 @@ La velocidad tangencial de un objeto que gira se relaciona con la velocidad angu
 & v = \omega \times r
 \end{align}
 
-Posteriormente, se calcula la potencia necesaria que la banda debe transmitir (ecuación \ref{eq:PotBanda}), así como el factor de servicio que se obtiene de tablas\cite{Mott}, con base en la aplicación, el tipo de motor y el tiempo de operación, calculando la potencia de diseño con la ecuación \ref{eq:PotDis}.
+Posteriormente, se calcula la potencia de diseño con la ecuación (\ref{eq:PotDis}), para lo cual es necesario conocer la potencia que la banda debe transmitir (ecuación (\ref{eq:PotBanda})), así como el factor de servicio que se obtiene de tablas\cite{Mott}, con base en la aplicación, el tipo de motor y el tiempo de operación.
 
 \begin{align}
-\label{eq:PotBanda}
-P &= \tau \omega =
+	\label{eq:PotDis}
+	P_{ajustada} &= P*F_S 
 \end{align}
-
+%
 \begin{align}
-\label{eq:PotDis}
-P_{ajustada} &= P*F_S 
+	\label{eq:PotBanda}
+	P &= \tau \omega
 \end{align}
 
-Posteriormente, se determina el paso requerido de la banda utilizando la guía de selección de perfil del proveedor\cite{BandasSDPSI}.
-
-Seleccionar la combinación de poleas que producen la relación de velocidad especificada, basándose en el catálogo de proveedores \cite{PoleasSDPSI}, en el cual también se indica el ancho apropiado de las bandas.
+Basándose en el catálogo del proveedor, se determina el paso requerido de la banda \cite{BandasSDPSI} y se selecciona la combinación de poleas compatibles con la banda que producen la relación de velocidad especificada\cite{PoleasSDPSI}.
 
 Conociendo el diámetro de las poleas seleccionadas, se calcula la longitud de la banda como sigue:
 
@@ -57,30 +53,26 @@ L_{b} &=  2C+N_{polea}*PD
 
 En donde $L_{b}$ es la longitud de la banda, $C$ es la distancia entre centros, $N_{polea}$, el número de dientes de la polea y $PD$ el paso de la banda.
 
-Con la longitud de la banda calculada, se ajusta el valor de la potencia con la ecuación \ref{eq:PotBandAjus}.
+Con la longitud de la banda calculada, se ajusta el valor de la potencia con la ecuación (\ref{eq:PotBandAjus}).
 
 \begin{align}
 \label{eq:PotBandAjus}
-& \textrm{Potencia base nominal}_{ajustada} =
+& \textrm{Potencia base nominal}_{ajustada} = \textrm{Potencia base nominal} * \textrm{Factor de corrección de longitud}
 \end{align}
-
-\begin{align*}
-& \textrm{Potencia base nominal} * \textrm{Factor de corrección de longitud}
-\end{align*}
 
 Finalmente, se calcula la velocidad lineal de las bandas para comprobar que operan con niveles bajos de ruido, como sigue:
 
 \begin{align}
-\label{eq:VelBandRuido}
-V_{banda-1}&=\frac{PD_{1}}{2}*\omega_{1}\\
-V_{banda-2}&=\frac{PD_{2}}{2}*\omega_{2}
+	\label{eq:VelBandRuido}
+	V_{banda-1}&=\frac{PD_{1}}{2}*\omega_{1}\\
+	V_{banda-2}&=\frac{PD_{2}}{2}*\omega_{2}
 \end{align} 
 
 \subsubsection{Diseño de ejes}
 
-El diseño de un eje consiste en determinar el diámetro mínimo para un estado de esfuerzos estático. Primero se obtienen los esfuerzos debidos a momentos flectores, para buscar el momento flector máximo para todos los diámetros diferentes del eje\cite{Mott}. Después se consideran los momentos torsionantes a los que esté sometido el eje.
+El diseño de un eje consiste en determinar el diámetro mínimo para un estado de esfuerzos estático. Primero se obtienen los esfuerzos debidos a momentos flectores para buscar el momento flector máximo para todos los diámetros diferentes del eje\cite{Mott}. Después se consideran los momentos torsionantes a los que se somete el eje.
 
-Para calcular el momento flector, deben tomarse en cuenta las tensiones que las bandas ejercen sobre el eje a través de las poleas, utilizando las ecuaciones
+Para calcular el momento flector deben tomarse en cuenta las tensiones que las bandas ejercen sobre el eje a través de las poleas, utilizando las ecuaciones
 
 \begin{align}
 \label{eq:FuerzaBanda}
@@ -88,7 +80,7 @@ F_{n} &= \frac{T_{banda}}{r}\\
 F_{s} &= 1.5F_{n}
 \end{align}
 
-En donde $F_{n}$ es la fuerza neta asociada al torque transmitido, $F_{s}$ es la fuerza flexionante, $T_{banda}$ es el torque transmitido por la banda y $r$ es el radio de la polea.
+En donde $F_{n}$ es la fuerza neta asociada al par transmitido, $F_{s}$ es la fuerza flexionante, $T_{banda}$ es el torque transmitido por la banda y $r$ es el radio de la polea.
 
 Una vez que se obtienen estos valores, se propone un material y se corrigen los valores de resistencia última a fatiga con las ecuaciones \ref{eq:Sn} y \ref{eq:SnC}.
 
@@ -96,15 +88,13 @@ Una vez que se obtienen estos valores, se propone un material y se corrigen los 
 \label{eq:Sn}
 S_{n} &=0.5S_{u}
 \end{align}
-
-En donde $S_n$ es el límite de fatiga y $S_u$ es el esfuerzo último a la tensión.
-
+%
 \begin{align}
 \label{eq:SnC}
 S'_{n} &= S_{n}C_{m}C_{st}C_{R}C_{s} 
 \end{align}
 
-En donde $S'_n$ es el límite de fatiga modificado, $C_m$ es el factor del material, $C_{st}$ es el factor del tipo de esfuerzo, $C_R$ es el factor de confiabilidad y $C_s$ es el factor de tamaño.
+En donde $S_n$ es el límite de fatiga, $S_u$ es el esfuerzo último a la tensión, $S'_n$ es el límite de fatiga modificado, $C_m$ es el factor del material, $C_{st}$ es el factor del tipo de esfuerzo, $C_R$ es el factor de confiabilidad y $C_s$ es el factor de tamaño.
 
 Finalmente, se utiliza la fórmula \ref{eq:DiamEje} para calcular el diámetro mínimo del eje.
 
@@ -117,7 +107,7 @@ En donde $D$ es el diámetro máximo del eje, $N$ es el factor de seguridad, $K_t$
 
 \subsubsection{Selección de rodamientos}
 
-Para seleccionar rodamientos aleados, es necesario conocer las reacciones que tienen ante las fuerzas del eje, utilizando la ecuación \ref{eq:RodamientosAleados} para conocer la carga dinámica, que es el dato que ofrece el fabricante para su selección.
+Para seleccionar los rodamientos aleados, es necesario conocer las reacciones que tienen ante las fuerzas del eje, utilizando la ecuación (\ref{eq:RodamientosAleados}) para conocer la carga dinámica, que es el dato que ofrece el fabricante para su selección.
 
 \begin{align}
 \label{eq:RodamientosAleados}
@@ -128,13 +118,13 @@ En donde $C_{din\acute{a}mica}$ es la capacidad de carga dinámica del rodamiento
 
 \subsection{Cinemática de robots}
 
-Para conocer la manera en la que el manipulador se mueve, es necesario identificar las relaciones que hay entre los diferentes grados de libertad que lo conforman, en este apartado se desarrolla dicha relación desde un enfoque puramente geométrico, conocido como cinemática del robot, sin tomar en cuenta las fuerzas y torques que generan los movimientos, pues estos se tomarán en cuenta para desarrollar la dinámica del robot.
+Para conocer la manera en la que el manipulador se mueve, es necesario identificar las relaciones que hay entre los diferentes grados de libertad que lo conforman, en este apartado se desarrolla dicha relación desde un enfoque geométrico, conocido como cinemática del robot.
 
 \subsubsection{Cinemática directa}
 
-Como ya se mencionó, el modelo cinemático sirve para describir geométricamente el movimiento del manipulador, para lo que se considera en primer lugar el problema de la cinemática directa, la cual describe la posición y orientación del efector final dados los valores de las variables de las juntas del robot. 
+El modelo cinemático sirve para describir geométricamente el movimiento del manipulador, para lo que se considera en primer lugar el problema de la cinemática directa, que describe la posición y orientación del efector final dados los valores de las variables de las juntas del robot. 
 
-Una matriz de transformación homogénea representa una traslación y rotación de un marco coordenado $n$ con respecto de un marco base $0$, y está definida por la ecuación \ref{eq:MTH}.
+Una matriz de transformación homogénea representa una traslación y rotación de un marco coordenado $n$ con respecto de un marco base $0$, y está definida por la ecuación (\ref{eq:MTH}).
 
 \begin{align}
 \label{eq:MTH}
@@ -144,9 +134,9 @@ R_{n}^{0} & o_{n}^{0} \\
 0 & 1
 \end{bmatrix}
 \end{align}
-
+%
 Para calcular esta matriz, se utilizan matrices de la forma
-
+%
 \begin{align*}
 A_{i}&=
 \begin{bmatrix}
@@ -155,18 +145,18 @@ R_{i}^{i-1} & o_{i}^{i-1} \\
 \end{bmatrix}
 \end{align*}
 
-las cuales relacionan al marco $i$ con respecto al marco $i-1$, el cual se obtiene al acoplar rígidamente un marco de referencia a cada junta del sistema.
+que relacionan al marco $i$ con respecto al marco $i-1$, el cual se obtiene al acoplar rígidamente un marco de referencia a cada junta del sistema.
 
-De esta manera, la matriz de la ecuación \ref{eq:MTH} se puede descomponer en una serie de transformaciones, como se ve en la ecuación \ref{eq:HTA}.
+De esta manera, la matriz de la ecuación (\ref{eq:MTH}) se puede descomponer en una serie de transformaciones, como se ve en la ecuación (\ref{eq:HTA}).
 
 \begin{align}
 \label{eq:HTA}
-H &= T_{n}^{0} = A_{1}( \theta_{1} ) \dots A_{n}\theta_{n}
+H &= T_{n}^{0} = A_{1}( \theta_{1} ) \cdots A_{n}( \theta_{n} )
 \end{align}
 
-Para facilitar la asignación de marcos y la obtención de las matrices se utiliza la convención de Denavit-Hartenberg, asumiendo que el eje $x_1$ es perpendicular al eje $z_0$, y que se intersecan.
+Para facilitar la asignación de marcos y la obtención de las matrices se utiliza la convención de Denavit-Hartenberg \cite{Spong}, asumiendo que el eje $x_1$ interseca perpendicularmente al eje $z_0$.
 
-De esta manera, se puede representar la transformación $H$ de la ecuación \ref{eq:MTH} con matrices de la forma:
+De esta manera, se puede representar la transformación $H$ de la ecuación (\ref{eq:MTH}) con matrices de la forma:
 
 \begin{align*}
 A_{i} &= 
@@ -178,13 +168,13 @@ s_{\theta_{i}} & c_{\theta_{i}}c_{\alpha_{i}} & -c_{\theta_{i}}s_{\alpha_{i}} & 
 \end{bmatrix}
 \end{align*}
 
-En donde $\theta$ es el ángulo de la junta, formado entre $x_{i-1}$ y $x_i$ sobre el eje $z_{i-1}$, $a$ es la longitud del eslabón, definida como la distancia sobre el eje $x_i$ desde el punto de intersección de $z_{i-1}$ con $x_{i}$ hasta el origen $O_i$, $d$ es el desplazamiento del eslabón, definido como la distancia sobre el eje $z_{i-1}$ desde el origen $O_{i-1}$ hasta la intersección de $z_{i-1}$ con $x_i$, y $\alpha$ es el ángulo de giro del eslabón, formado entre $z_{i-1}$ y $z_i$ sobre el eje $x_i$.
+En donde $\theta_i$ es la posición angular de la junta $i$, formado entre $x_{i-1}$ y $x_i$ sobre el eje $z_{i-1}$, $a$ es la longitud del eslabón, definida como la distancia sobre el eje $x_i$ desde el punto de intersección de $z_{i-1}$ con $x_{i}$ hasta el origen $O_i$, $d$ es el desplazamiento del eslabón, definido como la distancia sobre el eje $z_{i-1}$ desde el origen $O_{i-1}$ hasta la intersección de $z_{i-1}$ con $x_i$, y $\alpha$ es el ángulo de giro del eslabón, formado entre $z_{i-1}$ y $z_i$ sobre el eje $x_i$.
 
 \subsubsection{Cinemática inversa}
 
 Una vez que se ha resuelto el problema de cinemática directa, se puede realizar el proceso contrario, conocido como cinemática inversa, utilizado para conocer los valores de las variables de las juntas dada la posición y orientación del efector final.
 
-Esto significa que de la ecuación \ref{eq:MTH}, se conoce el valor de $H$, y el objetivo es encontrar el valor de $R_{n}^{0}(\theta_{1}\dots\theta_{n})$ y $o_{n}^{0}(\theta_{1}\dots\theta_{n})$.
+Esto significa que de la ecuación (\ref{eq:MTH}), se conoce el valor de $H$, y el objetivo es encontrar el valor de $R_{n}^{0}(\theta_{1}\dots\theta_{n})$ y $o_{n}^{0}(\theta_{1}\dots\theta_{n})$.
 
 En los sistemas robóticos con una muñeca esférica, los ejes de las 3 últimas juntas se intersecan en un punto, en el cual se asignan los orígenes de los marcos de referencia 3,4 y 5. Esto se conoce como \textit{desacoplamiento cinemático}, y permite separar el problema de cinemática inversa en 2 problemas más sencillos de resolver, conocidos como \textit{cinemática inversa de posición} y \textit{cinemática inversa de orientación}.
 
@@ -220,14 +210,14 @@ ox & oy & oz
 Desplazando una distancia $d_{6}$ el efector final $o$ hacia el origen de la muñeca $o_{c}$, se puede resolver $R_{3}^{0}$ como sigue:
 
 \begin{align}
-o &= o_{c}^{0} + d_{6}R\begin{bmatrix}
+o_6^0 &= o_{c}^{0} + d_{6}R_6^0\begin{bmatrix}
 0 & 0 & 1
 \end{bmatrix}^T
 \end{align}
 
 \textbf{Cinemática inversa de orientación}
 
-Conociendo $R_{3}^{0}$ se puede calcular $\theta_{1}$, $\theta_{2}$ y $\theta_{3}$, permitiendo resolver la ecuación \ref{eq:R06Pieper} para conocer $\theta_{4}$, $\theta_{5}$ y $\theta_{6}$
+Conociendo $R_{3}^{0}$ se puede calcular $\theta_{1}$, $\theta_{2}$ y $\theta_{3}$, permitiendo resolver la ecuación (\ref{eq:R06Pieper}) para conocer $\theta_{4}$, $\theta_{5}$ y $\theta_{6}$
 
 \begin{align}
 \label{eq:R06Pieper}
@@ -238,7 +228,7 @@ R_{6}^{3} = \left(R_{3}^{0}\right)^{T}R
 
 Matemáticamente la cinemática directa define una función entre el espacio de posiciones y orientaciones del efector final y el espacio de posiciones de las juntas. Las relaciones de velocidad están determinadas por el jacobiano de esta función. 
 
-La matriz Jacobiana para una junta de tipo revoluta está dada como sigue:
+La i-ésima columna de la matriz Jacobiana para una junta de tipo revoluta está dada como sigue:
 
 \begin{align}
 J_{i} &= \begin{bmatrix}
@@ -247,9 +237,9 @@ J_{i} &= \begin{bmatrix}
 \label{eq:JacRev}
 \end{align}
 
-El robot desarrollado en este proyecto tiene solo juntas de tipo revoluta. Todas las variables implicadas en la determinación del Jacobiano están disponibles una vez que se ha ejecutado la cinemática directa. 
-
-Singularidades.
+\begin{flushright}
+\textit{Singularidades.}
+\end{flushright}
 
 El rango de la matriz Jacobiana no es constante, pues depende de la configuración de las juntas del robot. Las configuraciones para los cuales el Jacobiano pierde rango se llaman singularidades, y su identificación es importante porque:
 \begin{itemize}[noitemsep,nolistsep]
@@ -261,7 +251,7 @@ El rango de la matriz Jacobiana no es constante, pues depende de la configuració
 \item[f)]	Cerca de las singularidades, no existirá una única solución al problema de cinemática inversa. En tales casos puede no haber soluciones o existir infinitas. 
 \end{itemize}
 
-El problema de resolver la ecuación no lineal $det J(q)=0$ puede ser complicado, pero es posible utilizar una técnica que explota el hecho de tener una muñeca esférica, conocidad como desacoplamiento de singularidades. 
+El problema de resolver la ecuación no lineal $det J(q)=0$ puede ser complicado, pero es posible utilizar una técnica que aprovecha el hecho de tener una muñeca esférica, conocida como desacoplamiento de singularidades. 
 Si el número de grados de libertad es igual a 6, y tres de ellos corresponden al brazo y 3 de ellos a la muñeca esférica, el Jacobiano consistirá en una matriz de 6x6, como es una matriz cuadrada, será singular cuando $det(J)=0$.
 
 Si se parte la matriz en segmentos de 3x3, se tiene: 
@@ -290,7 +280,7 @@ J_{O} &= \begin{bmatrix}
 \label{eq:JO}
 \end{align}
 
-Y ya que los ejes se intersectan en el mismo punto, se considera que los orígenes de los marcos de referencia del 3 al 6 están en el mismo punto, se vuelve
+Y ya que los ejes se intersecan en el mismo punto, se considera que los orígenes de los marcos de referencia del 3 al 6 están en el mismo punto, se vuelve
 
 \begin{align}
 J_{O} &= \begin{bmatrix}
@@ -321,15 +311,12 @@ De forma que las singularidades del sistema son las singularidades del brazo $de
 
 Cabe señalar que esta forma de Jacobiano solo sirve para la determinación de singularidades, pues no se corresponde con la matriz que relaciona la velocidad el efector final con las velocidades de las juntas, ya que usa la suposición de que $o_{6}$ está en el mismo punto que $o_{5}$, lo cual no es cierto, pues está desplazado por una distancia $d$. 
 
-
-
-
-
-
+\subsubsection{Control}
+Un enfoque típico para controlar sistemas robóticos es considerar cada junta como un sistema de control independiente que intenta seguir su trayectoria de manera precisa. Sin embargo, esto representa un reto complicado debido a perturbaciones asociadas a la gravedad, velocidades y aceleraciones producidas por el resto de las juntas, así como la fricción en cada una de ellas. Por esta razón, se propone utilizar una técnica de control por juntas independientes con base en uno de los métodos de control automáticos más comunes, conocido como PID (proporcional, integral y diferencial), cuya utilidad estriba en que se puede aplicar a la mayoría de los sistemas de control, en particular cuando el modelo de la planta no se conoce. El proceso de seleccionar los parámetros del control se conoce como sintonzación del controlador que se puede realizar experimentalmente si no se conoce el modelo matemático.\cite{Ogata}
 
 \subsection{Convertidores CD-CD}
 
-Los reguladores lineales, cuyo principio de operación está basado en divisores de corriente o voltaje, son ineficientes, pues su voltaje de salida está limitado a ser menos que el voltaje de entrada, además de que requieren filtros y transformadores de línea de baja frecuencia. Por esta razón su principal uso es en aplicaciones de baja potencia, mientras que en aplicaciones de mayor potencia se usan reguladores conmutados.
+Los reguladores lineales, cuyo principio de operación está basado en divisores de corriente o voltaje, son ineficientes, pues su voltaje de salida está limitado a ser menor que el voltaje de entrada, además de que requieren filtros y transformadores de línea de baja frecuencia. Por esta razón su principal uso es en aplicaciones de baja potencia, mientras que en aplicaciones de mayor potencia se usan reguladores conmutados.
 
 Mientras que los reguladores lineales trabajan en su región activa, los reguladores conmutados se basan en interruptores semiconductores de electrónica de potencia que trabajan en los estados de \textit{encendido} y \textit{apagado}. Debido a que dichos estados presentan bajas pérdidas de potencia (bajo voltaje en el estado \textit{encendido}, y corriente cero en el estado \textit{apagado}), alcanzan eficiencias altas en la conversión de energía. Entre más alta la frecuencia de operación, más ligeros y pequeños son sus componentes.\cite{Potencia}
 
@@ -371,10 +358,16 @@ Dependiendo de la intensidad de corriente que un cable debe transportar, y de la
 
 \subsection{Visión artificial}
 
-La visión por computadora es una de las herramientas más poderosas que existen en la actualidad para permitir a un robot identificar las condiciones del ambiente en el que opera.
+La visión por computadora es una de las herramientas más poderosas que existen para permitir a un robot identificar las condiciones del ambiente en el que opera.
 
-El kinect es un sensor RGB-D, lo que quiere decir que además de una cámara convencional cuenta con un proyector de luz infraroja y un sensor infrarojo, con los cuales es capaz de generar una imagen de profundidad con los datos de distancia perpendicular al plano del sensor. Es un periférico fabricado por Microsoft \textregistered, para la consola de videojuegos Xbox 360 y la manera en que detecta la profundidad de los objetos es mediante el despliegue de una malla de puntos infrarrojos por parte del proyector y la visualización de esos puntos con la cámara infrarroja. La malla de puntos infrarrojos está calibrada para mostrar un patrón específico en una superficie plana, y cuando dichos puntos se encuentran en otra posición es posible obtener la profundidad a la que se encuentran.
+Una de las herramientas más utilizadas para implementar algoritmos de visión son las cámaras RGB-D, como el Kinect\textregistered (Figura \ref{fig:KinectMic}). Estas se componen de una cámara convencional, así como un proyector y sensor de luz infrarroja, mediante los cuales es capaz de generar una imagen de profundidad en formato rgb o escala de grises utilizando los datos de distancia perpendicular al plano del sensor mediante el despliegue de una malla de puntos calibrada para mostrar un patrón específico en una superficie plana, y cuando dichos puntos están en otra posición es posible obtener la distancia a la que se encuentran. Estos datos no tienen una relación lineal con la profunidad real, por lo que para su conversión a distancia se deben tomar en cuenta los parámetros intrínsecos de la cámara, obtenidos y calibrados previamente, por lo que es posible hacer una función que permita conocer la ubicación espacial de cada pixel que se muestra en la imagen de profundidad\cite{FisherKinect}.
 
+\begin{figure}
+    \centering		
+	\includegraphics[scale=0.06]{imagenes/Implementacion/Vision/Kinect.png}
+	\caption{Kinect, fabricado por Microsoft\textregistered}
+	\label{fig:KinectMic}
+\end{figure}
 
 \section{Marco procedimental}
 
@@ -399,10 +392,30 @@ módulo y determinar el grado de madurez del proyecto.
 \begin{figure}
 	\centering		
 	\includegraphics[scale=1.3]{imagenes/VDI2206.pdf}
-	\caption{Modelo V como metodología para el diseño mecatrónico(VDI 2206)}
+	\caption{Modelo V como metodología para el diseño mecatrónico(VDI 2206)\cite{VDI2206}}
 	\label{fig:VDI2206}
 \end{figure}
 
-\subsubsection{FBS}
-\subsubsection{IDEF0}
-\subsubsection{eFFBD}
+\subsection{FBS}
+La estructura de descomposición funcional (FBS por sus siglas en inglés, \textit{Functional Breakdown Strucure}) es un desglose modular de todas las funciones que se deben ejecutar para cumplir con un objetivo. El FBS no detalla productos, sino operaciones o actividades que deben ser ejecutadas. No está atado a ninguna solución del sistema, porque es un listado de funciones necesarias, no de los elementos del mismo. La aproximación al problema de la ingeniería de sistemas desde el punto de vista de funciones, en vez de desde el punto de vista de elementos o hardware, permite a los ingenieros evaluar la completitud del diseño mediante una lista exhaustiva de requerimientos funcionales. 
+
+Una característica significativa del FBS es que permite comparar y elegir conceptos solución, pues sirve para identificar redundancias o elementos faltantes.
+
+Una vez que se ha elegido el concepto solución, el FBS sirve como una guía en el desarollo de la estructura desglosada, pues provee visibilidad de las tecnologías que deben ser desarrolladas para la ejecución de las funciones requeridas, además de que ayuda a identificar las capacidades necesarias de las personas que van a desarrollar y operar el sistema.\cite{FBS}
+
+\subsection{IDEF0}
+La definición de integración para modelado de funciones (IDEF0 por sus siglas en inglés, \textit{Integration Definition for Function Modeling}) es un estándar utilizado para analizar, implementar, rediseñar e integrar sistemas siguiendo una metodología específica. El objetivo de implementar esta herramienta es proveer un medio para describir y modelar completamente las funciones(actividades, acciones, procesos y/u operaciones) que el sistema debe realizar, así como las relaciones que hay entre ellas, con las siguientes características:\cite{IDEF0}
+
+\begin{itemize}[noitemsep,nolistsep]
+	\item Generalidad, permitiendo analizar sistemas con diferentes propósitos, alcances y complejidades.
+	\item Rigurosidad y precisión, para delimitar el sistema.
+	\item Concisión, para facilitar la comprensión y comunicación de ideas para llegar a acuerdos que validen el sistema.
+	\item Conceptualización, para representar el sistema en requerimientos funcionales en lugar de componentes físicos o soluciones específicas.
+	\item Flexibilidad, para poder evaluar el avance durante todo el desarrollo del sistema.
+	\item Se puede aplicar independientemente de la metodología y herramientas utilizadas, aunque puede apoyarse en ellas.
+\end{itemize}
+
+\subsection{eFFBD}
+El Diagrama a Bloques Mejorado del Flujo de Funciones (eFFBD por sus siglas en inglés, \textit{Enhanced Function Flow Block Diagram})es un formalismo ampliamente usado para modelar y analizar el comportamiento de sistemas complejos de ingeniería. De manera más precisa, el eFFBD describe las funciones llevadas a cabo por el sistema y el orden en que se van a ejecutar. Este orden se especifica a través de los parámetros dinámicos de funciones, entorno de control y de datos. También ofrece una gran variedad de construcciones de control, como ramas paralelas, ciclos, ramas de decisión, etc.\cite{eFFBD}
+
+La implementación de la metodología V se apoya de las herramientas descritas en esta sección, pues permite desarrollar una solución multidominio a partir de las funciones que se deben llevar a cabo, de modo que se materializan las soluciones, lo que lleva a la selección de materiales, diseño de elementos de máquina y algoritmos implementados con ayuda circuitos electrónicos. A continuación se muestran las fases de diseño del sistema, diseño de dominio específico e integración.

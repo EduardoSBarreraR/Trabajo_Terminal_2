@@ -1,6 +1,6 @@
 \section{Integración del sistema mecatrónico}
 
-En este capítulo se realiza la integración, la cual es un proceso jerárquico que comprende la unión de  los distintos módulos que conforman al sistema, partiendo de la integración de componentes en ensamblajes, ensamblajes en módulos, módulos en sistemas y, finalmente, la integración de los sistemas para consolidar el sistema mecatrónico.
+En este capítulo se realiza la integración, la cual es un proceso jerárquico que comprende la unión de  los distintos módulos que conforman al sistema, partiendo de la integración de componentes en ensamblajes, después ensamblajes en módulos, posteriormente módulos en sistemas y, finalmente, la integración de los sistemas para consolidar el sistema mecatrónico.
 
 Con ayuda de la Tabla \ref{tab:NomenclaturaSisMod}, se define el estado de integración $SIx$ en donde $x$ indica la secuencia de integración:
 
@@ -34,7 +34,7 @@ Con ayuda de la Tabla \ref{tab:NomenclaturaSisMod}, se define el estado de integ
 
 \subsection{Integración de hardware}
 
-\subsubsection*{Sistema robótico}
+\subsubsection*{S1. Sistema robótico}
 
 En primer lugar, se integra el módulo del manipulador robótico con el efector final a través del último GDL de la muñeca, utilizando un cople en el eje del servomotor para unirlo con la base del efector, como se muestra en la Figura \ref{fig:IntMunEfe}.
 
@@ -51,7 +51,7 @@ Estado de integración
 M1+M2 = S1
 \end{align*}
 
-\subsubsection*{Sistema estructural}
+\subsubsection*{S5. Sistema estructural}
 
 La base que soporta al sistema robótico se fija en la estructura mediante tornillos. Una vez que se ensamblan estos sistemas, se obtiene la configuración mostrada en la Figura \ref{fig:IntRobEst}. 
 
@@ -98,7 +98,9 @@ Tomando en cuenta las restricciones de movimiento impuestas por la estructura, l
 	\label{fig:WS}
 \end{figure}
 
+\begin{flushright}
 \textit{Posición de reposo/``Home''}
+\end{flushright}
 
 Es necesario definir una posición en la que el robot descanse sin caerse cuando se encuentre inactivo, como se muestra en la Figura \ref{fig:Home}a. Para ello se aprovecha la estructura del rover, colocando dos soportes angulares que aseguren el robot desde su segundo eslabón a través de dos ejes sencillos que sirven para mantener la posición, como se muestra en la Figura \ref{fig:Home}b.
 Aunado a ello, es importante recordar que los encoders utilizados son incrementales, i.e. la posición que se puede obtener de ellos es relativa, por tanto es necesario conocer la configuración inicial del robot al momento de la activación, por lo que la posición de reposo sirve como punto de referencia.
@@ -107,10 +109,10 @@ Aunado a ello, es importante recordar que los encoders utilizados son incrementa
 	\centering
 	\begin{tabular}{cc}
 		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/PosicionHome3.png}}
-			{a}
+			{a) Robot inactivo}
 		&
 		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Posicion_Home_2.png}}
-			{b}
+			{b) Acercamiento al apoyo del robot en reposo}
 	\end{tabular}
 	\caption{Robot en reposo}
 	\label{fig:Home}
@@ -122,7 +124,7 @@ Aunado a ello, es importante recordar que los encoders utilizados son incrementa
 S1+S5 = SI15
 \end{align*}
 
-\subsubsection*{Laboratorio}
+\subsubsection*{S4. Sistema de laboratorio}
 
 Para fijar el sistema del laboratorio al sistema estructural, se realizan 3 barrenos para utilizar tornillos en el perfil de aluminio de la estructura. El ensamblaje se muestra en la Figura \ref{fig:VaLab}a.
 
@@ -131,10 +133,10 @@ Para fijar el sistema del laboratorio al sistema estructural, se realizan 3 barr
 	\centering
 	\begin{tabular}{cc}
 		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Laboratorio.png}}
-			{a}
+			{a) Puntos de sujeción}
 		&
 		\subf{\includegraphics[width=0.4\textwidth, keepaspectratio]{imagenes/INTEGRACION/Validaciones/V_Laboratorio.png}}
-			{b}
+			{b) Efector en la posición del laboratorio}
 	\end{tabular}
 	\caption{Integración del laboratorio con el sistema estructural}
 	\label{fig:VaLab}
@@ -151,7 +153,7 @@ La Figura \ref{fig:VaLab}b muestra que la posición del laboratorio está dentro d
 SI15+S4=SI154
 \end{align*}
 
-\subsubsection{Energético}
+\subsubsection{S3. Sistema energético}
 
 En la Figura \ref{fig:Fuente}b se muestra la fuente de alimentación seleccionada en la posición determinada en la Figura \ref{fig:ConceptoMejorado}, correspondiente al concepto mejorado y elegida para ayudar a equilibrar el peso del sistema robótico.
 
@@ -175,9 +177,7 @@ Para colocar el sistema energético en la estructura, se diseña una plataforma de
 SI154+S3=SI543
 \end{align*}
 
-\subsubsection{Información}
-
-\subsubsection*{Percepción}
+\subsubsection{S2. Sistema de información}
 
 \begin{flushright}
 \textit{Condiciones de operación}
@@ -204,8 +204,6 @@ De acuerdo al concepto mejorado, mostrado en la Figura \ref{fig:ConceptoMejorado
 	\caption{Cámaras montadas en la estructura}
 	\label{fig:CamarasMontadas}
 \end{figure}
-
-\subsubsection*{Procesamiento}
 
 Los periféricos que utilizan los componentes se organizan de acuerdo a los requerimientos establecidos en la Tabla \ref{Tab:DistribucionPines}, en la cual se determina el tipo de periférico utilizado, para posteriormente realizar la distribución de pines como se muestra en la Figura \ref{fig:DistPines} (Las cámaras están conectadas al mismo puerto SPI, y son activadas por software mediante CS1 y CS2).
 
@@ -363,14 +361,7 @@ SI1543+S2=SI5432
 
 Según el modelo eFFBD de la Figura \ref{fig:eFFBD}, el funcionamiento del sistema se puede clasificar en procesos realizados por el computador y procesos realizados por el microcontrolador, para entender mejor estos procesos es útil recurrir a un diagrama de flujo, y la redacción de un pseudocódigo que posteriormente facilite su implementación en un lenguaje de programación real.
 
-En la Figura \ref{fig:DFPC} se muestra el diagrama de flujo del proceso realizado por el computador, acompañado del pseudocógido correspondiente. Este algoritmo consiste en recibir la orden del usuario de activar la cámara, tomar una fotografía e interpretarla con la finalidad de obtener los parámetros necesarios para que el robot tome la muestra de interés, y finalmente recibir la información del peso de la muestra.
-
-\begin{figure}
-\centering		
-	\includegraphics[scale=1]{imagenes/INTEGRACION/DiagramasDeFlujo_PC.pdf}
-	\caption{Diagrama de flujo del algoritmo ejecutado por la PC}
-	\label{fig:DFPC}
-\end{figure}
+En el Apéndice \ref{Ap:DFPC} se muestra el diagrama de flujo del proceso realizado por el computador, acompañado del pseudocógido correspondiente. Este algoritmo consiste en recibir la orden del usuario de activar la cámara, tomar una fotografía e interpretarla con la finalidad de obtener los parámetros necesarios para que el robot tome la muestra de interés, y finalmente recibir la información del peso de la muestra.
 
 \lstset{style=mystyle}
 \begin{lstlisting}[language=C, caption=Pseudocódigo de la computadora]
@@ -409,14 +400,8 @@ Fin de programa
 
 \end{lstlisting}
 
-El diagrama de flujo del microcontrolador se muestra en la Figura \ref{fig:DFMicro}, en el que se puede apreciar que se espera a la orden de activación del usuario, realizada desde el ordenador, en la que también se reciben los parámetros de las juntas de los motores del brazo para trasladarlo a la posición de la muestra una junta a la vez, una vez que la haya tomado la lleva a la posición del laboratorio, la libera, se realiza y envía el resultado de la medición, y finalmente el brazo vuelve a la posición de reposo en espera de una nueva orden.
+El diagrama de flujo del microcontrolador se muestra en el Apéndice \ref{Ap:DFMicro}, en el que se puede apreciar que se espera a la orden de activación del usuario, realizada desde el ordenador, en la que también se reciben los parámetros de las juntas del brazo para trasladarlo a la posición de la muestra una junta a la vez, una vez que la haya tomado la lleva a la posición del laboratorio, la libera, se realiza la medición y se envía su resultado, y finalmente el brazo vuelve a la posición de reposo en espera de una nueva orden.
 
-\begin{figure}
-\centering		
-	\includegraphics[scale=0.8]{imagenes/INTEGRACION/DiagramasDeFlujo_Micro.pdf}
-	\caption{Diagrama de flujo del algoritmo ejecutado por el microcontrolador}
-	\label{fig:DFMicro}
-\end{figure}
 
 \begin{lstlisting}[language=C, caption=Pseudocódigo del microcontrolador]
 Inicio de programa
