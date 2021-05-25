@@ -15,13 +15,13 @@ Para comenzar el diseño del manipulador, resulta necesario establecer la distanc
 	\caption{Alcance máximo del sistema}
 	\label{fig:AlcancePitagoras}
 \end{figure}
-
-\begin{equation}
+%
+\begin{align}
 \label{eq:Pitagorazo}
 BH = \sqrt{BT^2-BV^2}
-\end{equation}
+\end{align}
 
-En donde $BH$ es la distancia horizontal al punto más lejano, $BT$ es la longitud del brazo totalmente estirado y $BV$ es la distancia de la base del robot hasta el suelo.
+En donde $BH$[cm] es la distancia horizontal al punto más lejano, $BT$[cm] es la longitud del brazo totalmente estirado y $BV$[cm] es la distancia de la base del robot hasta el suelo.
 
 El objetivo propuesto es que el alcance horizontal del brazo sea de aproximadamente 70cm ($BH 	\approx 70cm$), y tomando en cuenta que la distancia del suelo a la base del robot $BV$ es de 37cm, se requiere una longitud de brazo $BT$ de 79.17 cm, de los cuales 20cm se consideran ocupados por la muñeca esférica y el efector final, quedando 59.17cm libres para los dos eslabones del manipulador.
 
@@ -46,13 +46,13 @@ Contando con estos datos, es posible calcular la densidad máxima que debe poseer
 La geometría del primer eslabón está determinada por las siguientes dimensiones: 1) Longitud: 32 cm, 2) Espesor: 8 mm. 3) Alto: 3 cm, 4) Radio de chaflán: 1.5 cm.
 
 Con estos datos es posible calcular el volumen ocupado por el mismo, separándolo en sus geometrías básicas, que son un cilindro y un prisma rectangular, además de considerar el volumen de los ejes utilizados para unir ambos perfiles de cada eslabón, por lo que se debe sumar el volumen de éstos, y restar el volumen del barreno requerido para acoplarlos, sustituyendo las dimensiones en la ecuación (\ref{eq:VolumenE1}) 
-
-\begin{equation}
+%
+\begin{align}
 \label{eq:VolumenE1}
 V_{e} = 2t_{e}(h_{e}l_{e} + \pi r^2_{e}-50 \pi)+400 \pi  
-\end{equation}
+\end{align}
 
-En donde $ \; V_{e} =$ es el volumen ocupado por el eslabón, $t_{e} =$ es el espesor del perfil del eslabón, $h_{e} =$ es la altura del perfil del eslabón, $l_{e} =$ es la longitud del perfil del eslabón y $r_{e} =$ es el radio del chaflán del eslabón.
+En donde $V_{e}[m^3]$ es el volumen ocupado por el eslabón, $t_{e}[m]$ es el espesor del perfil del eslabón, $h_{e}$ es la altura del perfil del eslabón, $l_{e}[m]$ es la longitud del perfil del eslabón y $r_{e}[m]$ es el radio del chaflán del eslabón.
 
 
 Sustituyendo $t_{e_{1}}$,$h_{e_{1}}$,$l_{1}$ y $r_{e_{1}}$ en la ecuación (\ref{eq:VolumenE1}), queda lo siguiente:
@@ -64,13 +64,13 @@ $V_{e_{1}} = \unit[174.962e-6]{m^3}$
 
 
 Una vez que se ha calculado el volumen que ocupa el eslabón con las dimensiones especificadas, y utilizando el valor de su masa determinada, es posible calcular la densidad máxima que debe tener el material, cuyo valor está dado por la ecuación (\ref{eq:DensidadE1}), recordando que el concepto solución contempla dos placas paralelas, por lo que el peso determinado debe distribuirse equitativamente.
-
-\begin{equation}
+%
+\begin{align}
 \label{eq:DensidadE1}
 \rho_{e} = \frac{m_{e}}{2V_{e}}
-\end{equation}
+\end{align}
 
-En donde $m_{e}$ es la masa del eslabón y $\rho_{e}$ es la densidad del eslabón.
+En donde $m_{e}[kg]$ es la masa del eslabón y $\rho_{e}[kg/m^3]$ es la densidad del eslabón.
 
 
 Sustituyendo $m_{e_{1}}$ y $V_{e_{1}}$ en la ecuación (\ref{eq:DensidadE1}), queda lo siguiente:
@@ -143,19 +143,19 @@ Para comprobar el rendimiento del material frente a las cargas aplicadas se ejec
 
 Para poder ejecutar este análisis, el software requiere que el usuario indique el valor de las cargas a las que el elemento está sometido, por lo tanto, se calculan las cargas equivalentes mediante las ecuaciones estáticas de equilibrio, siendo la ecuación (\ref{eq:SumaFuerzas}) la correspondiente a la suma de fuerzas y la ecuación (\ref{eq:SumaMomentos}) a la suma de momentos.
 
-\begin{equation}
+\begin{align}
 \label{eq:SumaFuerzas}
 \uparrow \sum F_{y} = 0 
-\end{equation}
+\end{align}
 
-En donde $F_{y} =$ Fuerzas existentes en el eje Y.
+En donde $F_{y}[N] =$ Fuerzas existentes en el eje Y.
 
-\begin{equation}
+\begin{align}
 \label{eq:SumaMomentos}
 \circlearrowleft \sum M_{o} = 0
-\end{equation}
+\end{align}
 
-En donde $M_{o} =$ Momentos generados por las fuerzas normales al punto O.
+En donde $M_{o}[Nm] =$ Momentos generados por las fuerzas normales al punto O.
 
 
 \begin{figure}
@@ -232,10 +232,10 @@ Conociendo este valor, se comparan diversos motores en el mercado utilizando el 
 \item Relación de transmisión = 369:1
 \end{itemize}
 
-Conociendo la corriente del motor bloqueado, y el par máximo se calcula la constante de par $K_{m}$ de acuerdo a la ecuación:
+Conociendo la corriente del motor bloqueado, y el par máximo se calcula la constante de par $K_{m}$[Nm/A] de acuerdo a la ecuación:
 
 \begin{align*}
-K_{m} = \frac{29.5[N-m]}{20[A]}=1.475\unitfrac{N-m}{A}
+K_{m} = \frac{29.5[Nm]}{20[A]}=1.475\unitfrac{Nm}{A}
 \end{align*}
 
 \begin{flushright}
@@ -247,10 +247,10 @@ Para comprobar que los motores seleccionados son capaces de mover la carga deter
 \textit{Par necesario para el segundo GDL = 11.145 Nm ; FS = 2.639}\\
 \textit{Par necesario para el tercer GDL = 5.6483 Nm ; FS = 5.208}
 
-Con estos pares calculados, y despejando para $i_{a}$ de la ecuación, se puede calcular la corriente esperada.
+Con estos pares calculados, y despejando para $i_{a}$[A] de la ecuación, se puede calcular la corriente esperada.
 
 \begin{align}
-i_{a} = \frac{\tau_{0}}{K_{m}}=\frac{11.145N-m}{1.475\unitfrac{N-m}{A}} = 7.55[A]
+i_{a} = \frac{\tau_{0}}{K_{m}}=\frac{11.145 Nm}{1.475\unitfrac{Nm}{A}} = 7.55[A]
 \end{align}
 
 \begin{flushright}
@@ -307,7 +307,7 @@ V_{banda-2}&=\frac{12.7[mm]*0.121\left[\unitfrac{m}{s}\right]}{2}=0.768 m/s
 
 Ya que la velocidad en ambas bandas es menor a 17.78 m/s, que es la velocidad máxima a la que puede operar la banda sin perturbaciones\cite{Mott}, se comprueba que las bandas no operan con ruido.
 
-Las características de las bandas seleccionadas se muestran en la tabla \ref{tab:BandasModelos}.
+Las características de las bandas seleccionadas se muestran en la Tabla \ref{tab:BandasModelos}.
 
 \begin{table}
 	\centering
@@ -1086,10 +1086,10 @@ Para conocer los valores de las juntas pertenecientes al brazo articulado, es co
 
 
 
-\begin{equation}
+\begin{align}
 \label{eq:T1}
 \theta_{1}=atan2\left(x_{c},y_{c}\right) 
-\end{equation}
+\end{align}
 
 
 En donde $ \theta_{1} $ es el valor de la variable del primer grado de libertad.
@@ -1572,7 +1572,7 @@ De acuerdo a la ecuación (\ref{eq:CelSel}), presente en la guía de selección de 
 Capacidad &= \frac{(Ic*L+L0)*Lec*Lic}{Nc}
 \end{align}
 
-En dónde $ Ic $ es el coeficiente de impacto, $L$ es la carga máxima a medir, $ L0 $ es la carga inicial (Peso de la superficie de medición), $ Lec $ es el coeficiente de excentricidad de carga, $ Lic $ coeficiente de desbalance de carga, $ Nc $ numero de celdas de carga a utilizar. 
+En dónde $ Ic $[-] es el coeficiente de impacto, $L$[Kg] es la carga máxima a medir, $ L0 $[Kg] es la carga inicial (Peso de la superficie de medición), $ Lec $[-] es el coeficiente de excentricidad de carga, $ Lic $[-] coeficiente de desbalance de carga, $ Nc $[-] numero de celdas de carga a utilizar. 
 
 \begin{align*}
 Capacidad &= \frac{(1.5*0.5+0.03)*1.2*1}{1}=0.95 Kg

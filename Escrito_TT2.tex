@@ -243,13 +243,16 @@
 %\dedicatoria              %%%modificar archivo dedica.tex
 %\agradecimientos          %%%modificar archivo agradece.tex
 \tabladecontenido
+
+\include{preliminares/Resumen}               %%%modificar archivo Resumen.tex
+
 \listadefiguras
 \listadetablas
 
 %makeindex %.idx
 %makeindex %.nlo -s nomencl.ist -o %.nls
 
-\include{preliminares/Resumen}               %%%modificar archivo Resumen.tex
+
 \printnomenclature[2cm]        %%%modificar archivo Nomenclatura.tex
 %\include{preliminares/Simbologia}            %%%modificar archivo Simbologia.tex
 %\include{preliminares/objetivos}             %%%modificar archivo objetivos.tex
@@ -316,7 +319,7 @@
 
 \newpage
 
-\bibliographystyle{IEEEtran} \nocite{*}
+\bibliographystyle{IEEEtran} %\nocite{*}
  \bibliography{XBiblioteca}
  
 \part{Apéndices}

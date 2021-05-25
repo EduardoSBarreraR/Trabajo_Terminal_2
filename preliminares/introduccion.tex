@@ -1,17 +1,7 @@
 \chapter{Introducción}
 
 \section*{Antecedentes}
-Los sistemas robóticos han permitido a la humanidad realizar tareas que antes resultaban
-sumamente complicadas, o directamente impracticables. La exploración de otros cuerpos del
-sistema solar es un claro ejemplo. Desde los días de la carrera espacial, los Estados Unidos
-de América y la Unión de Repúblicas Socialistas Soviéticas, demostraron su dominio
-tecnológico al enviar misiones robóticas para la exploración lunar. Desde aquella época, el
-paradigma de los dispositivos de exploración es el llamado ``\textit{rover}'', el cual es un robot móvil
-que porta instrumental para efectuar análisis \textit{in situ}. El primero de ellos, el \textit{rover} soviético ``Lunokhod 1''\cite{Lunokhod1} se posó sobre la superficie lunar el 17 de noviembre de 1970. Además de su
-capacidad locomotiva, llevó consigo instrumental desplegable para medir las propiedades
-mecánicas y químicas del suelo lunar, un espectrógrafo de rayos X y un telescopio de rayos X
-(entre otros). Desde entonces, varias misiones \textit{rover} han sido prioridad científica, tecnológica
-y mediática para distintas agencias espaciales en todo el mundo.
+Los sistemas robóticos han permitido a la humanidad realizar tareas que antes resultaban sumamente complicadas, o directamente impracticables. La exploración de otros cuerpos del sistema solar es un claro ejemplo. Desde los días de la carrera espacial, los Estados Unidos de América y la Unión de Repúblicas Socialistas Soviéticas, demostraron su dominio tecnológico al enviar misiones robóticas para la exploración lunar. Desde aquella época, el paradigma de los dispositivos de exploración es el llamado ``\textit{rover}'', el cual es un robot móvil que porta instrumental para efectuar análisis \textit{in situ}. El primero de ellos, el \textit{rover} soviético ``Lunokhod 1''\cite{Lunokhod1} (Figura \ref{fig:Lunokhod1}) se posó sobre la superficie lunar el 17 de noviembre de 1970. Además de su capacidad locomotiva, llevó consigo instrumental desplegable para medir las propiedades mecánicas y químicas del suelo lunar, un espectrógrafo de rayos X y un telescopio de rayos X (entre otros). Desde entonces, varias misiones \textit{rover} han sido prioridad científica, tecnológica y mediática para distintas agencias espaciales en todo el mundo.
 
 \begin{figure}
 \centering		
@@ -20,24 +10,24 @@ y mediática para distintas agencias espaciales en todo el mundo.
 	\label{fig:Lunokhod1}
 \end{figure}
 
-Puesto que el principal objetivo de un \textit{rover} es el análisis \textit{in situ}, la capacidad de trasladarse,
-aunque vital, no es suficiente para una misión de exploración que obtenga resultados
-científicos relevantes. Es por ello que los \textit{rovers} más sofisticados como Opportunity y Spirit\cite{RoverMissions},
-junto al Curiosity\cite{MissionOverview} y el Perserverance\cite{RoverMars2020} de la NASA, incorporan un brazo robótico que dota al
-vehículo con la capacidad de ejecutar diversas tareas, como transportar instrumental de
-imagen a lugares específicos de interés para realizar estudios. Otra aproximación es la de
-montar un taladro sobre la estructura del \textit{rover} para extraer las muestras, sin embargo esta
-opción limita la versatilidad de la herramienta, dado que depende del posicionamiento del
-vehículo en su totalidad, siendo necesario posicionarlo en la ubicación exacta de la muestra,
-mientras que con el brazo basta con trasladar el efector para que alcance la posición
-deseada.
-En el presente documento se desarrolla el diseño de un manipulador robótico, así como un efector final para identificar mediante visión artificial la posición de una roca que el usuario le indique para posteriormente obtener información de ella. 
+Puesto que el principal objetivo de un \textit{rover} es el análisis \textit{in situ}, la capacidad de trasladarse, aunque vital, no es suficiente para una misión de exploración que obtenga resultados
+científicos relevantes. Es por ello que los \textit{rovers} más sofisticados como Opportunity y Spirit\cite{RoverMissions}, junto al Curiosity\cite{MissionOverview} y el Perserverance\cite{RoverMars2020} de la NASA, mostradas en la Figura \ref{fig:Rovers}, incorporan un brazo robótico que dota al vehículo con la capacidad de ejecutar diversas tareas, como transportar instrumental de imagen a lugares específicos de interés para realizar estudios. Otra aproximación es la de montar un taladro sobre la estructura del \textit{rover} para extraer las muestras, sin embargo esta opción limita la versatilidad de la herramienta, dado que depende del posicionamiento del vehículo en su totalidad, siendo necesario posicionarlo en la ubicación exacta de la muestra, mientras que con el brazo basta con trasladar el efector para que alcance la posición deseada.
+En el presente documento se desarrolla el diseño de un manipulador robótico, así como un efector final para identificar mediante visión artificial la posición de una roca que el usuario le indique para posteriormente obtener información de ella.
+
+En la Tabla \ref{Tab:Antecedentes} se muestran brazos robóticos y efectores finales, que en conjunto pueden formar un sistema robótico similar al desarrollado en este documento.
 
 \begin{figure}
-\centering		
-	\includegraphics[scale=0.25]{imagenes/Marco Teorico/SpiritOpportunityCuriosity.jpg}
-	\caption{Rover Opportunity, Spirit y Curiosity\cite{RoverMissions}}
-	\label{fig:SpiritOpportunityCuriosity}
+	\centering
+	\begin{tabular}{cc}
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Marco Teorico/SpiritOpportunityCuriosity.jpg}}
+			{a) Opportunity, Spirit y Curiosity\cite{RoverMissions}}
+		&
+		\subf{\includegraphics[width=0.45\textwidth, keepaspectratio]{imagenes/Marco Teorico/Perseverance.jpg}}
+			{b) Perserverance\cite{RoverMars2020}}
+        \\
+    \end{tabular}
+	\caption{Rovers de la NASA}
+	\label{fig:Rovers}
 \end{figure}
 
 \section*{Justificación}
@@ -167,7 +157,6 @@ de datos a una estación.
 
 
 \begin{landscape}
-
 \begin{table}
 \centering
 \tiny
@@ -187,6 +176,7 @@ de datos a una estación.
 \textbf{5} & \begin{tabular}[c]{@{}c@{}}Mediciones in situ de \\color de suelo, \\composición mineral y \\contenido de arcilla por \\espectroscopia VIS-NIR\\ (espectroscopia visible e \\infrarrojo cercano).\cite{ANT5}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Análisis de propiedades del suelo\\ in situ mediante el uso de\\ espectroscopia infrarroja.\end{tabular} & \begin{tabular}[c]{@{}l@{}}\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}Rango de vis-NIR = 400 - 2500 nm\\Tamaño de grano de la muestra de polvo = 2mm\end{tabular}\end{tabular} & \begin{tabular}[c]{@{}c@{}}Australia \\Francia\end{tabular} & \begin{tabular}[c]{@{}c@{}}-Bruce E. Butler \\Laboratory\\-University of\\ Sydney\\-UMR SAS \\INRA-Agrocam-\\pus Renneser\\ Laboratory\end{tabular} & \begin{tabular}[c]{@{}c@{}}Artículo de\\ revista\end{tabular} \\
 \hline
 \end{tabular}
+\label{Tab:Antecedentes}
 \end{table}
 
 
